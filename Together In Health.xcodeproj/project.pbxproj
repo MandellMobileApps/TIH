@@ -22,6 +22,7 @@
 		367B30041C1A46AA006428C9 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367B30021C1A46AA006428C9 /* Fabric.framework */; };
 		367B30051C1A46AA006428C9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367B30031C1A46AA006428C9 /* Crashlytics.framework */; };
 		368CD1121BF8E96000D22567 /* removeWaterButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 368CD1111BF8E96000D22567 /* removeWaterButtonImage.png */; };
+		3695B6061F65F4A8009D0383 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3695B6051F65F4A7009D0383 /* QuartzCore.framework */; };
 		36D9D53C1BE80481003658FE /* GenericWebViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D9D53B1BE80481003658FE /* GenericWebViewController2.m */; };
 		36D9D53E1BE8445E003658FE /* CarbsProVeg.html in Resources */ = {isa = PBXBuildFile; fileRef = 36D9D53D1BE8445E003658FE /* CarbsProVeg.html */; };
 		36F433A31C151AE50053D4EE /* DirectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F433A21C151AE50053D4EE /* DirectionsViewController.m */; };
@@ -256,6 +257,7 @@
 		367B30021C1A46AA006428C9 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		367B30031C1A46AA006428C9 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		368CD1111BF8E96000D22567 /* removeWaterButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = removeWaterButtonImage.png; sourceTree = "<group>"; };
+		3695B6051F65F4A7009D0383 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		36D9D53A1BE80481003658FE /* GenericWebViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericWebViewController2.h; path = ../../GenericWebViewController2.h; sourceTree = "<group>"; };
 		36D9D53B1BE80481003658FE /* GenericWebViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericWebViewController2.m; path = ../../GenericWebViewController2.m; sourceTree = "<group>"; };
 		36D9D53D1BE8445E003658FE /* CarbsProVeg.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CarbsProVeg.html; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3695B6061F65F4A8009D0383 /* QuartzCore.framework in Frameworks */,
 				36278DAC1C2AFA0300B899E4 /* HealthKit.framework in Frameworks */,
 				36278DAA1C2AF9F900B899E4 /* CoreMotion.framework in Frameworks */,
 				367B30041C1A46AA006428C9 /* Fabric.framework in Frameworks */,
@@ -584,6 +587,7 @@
 		6A91E3171BE2625500A72CCA = {
 			isa = PBXGroup;
 			children = (
+				3695B6051F65F4A7009D0383 /* QuartzCore.framework */,
 				36278DAB1C2AFA0300B899E4 /* HealthKit.framework */,
 				36278DA91C2AF9F800B899E4 /* CoreMotion.framework */,
 				367B30021C1A46AA006428C9 /* Fabric.framework */,

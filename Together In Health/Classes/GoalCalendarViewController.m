@@ -101,8 +101,8 @@
 
 -(void)adjustCalendarframewith:(float)height
 {
-    [self.view setFrame:CGRectMake(0, 40, 320, height)];
-    [self.view setNeedsDisplay];
+    //[self.view setFrame:CGRectMake(0, 40, 320, height)];
+    //[self.view setNeedsDisplay];
 
 }
 

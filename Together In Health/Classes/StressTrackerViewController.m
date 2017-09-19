@@ -60,16 +60,16 @@
     [self resetDay];
     
 //    if (self.appDelegate.day.stressRating) {
-//        self.stressSegmentControl.selectedSegmentIndex = self.appDelegate.day.stressRating;
+//        self.stressSegmentControl.selectedSegmentIndex = self.appDelegate.day.stressRating-1;
 //    }
 //    else {
 //        self.stressSegmentControl.selectedSegmentIndex = self.appDelegate.day.stressRating-1;
 //    }
-    self.stressSegmentControl.selectedSegmentIndex = self.appDelegate.day.stressRating;
-    self.energySegmentControl.selectedSegmentIndex = self.appDelegate.day.energyRating;
-    self.moodSegmentControl.selectedSegmentIndex = self.appDelegate.day.moodRating;
-    self.concentrationSegmentControl.selectedSegmentIndex = self.appDelegate.day.concentrationRating;
-    self.copingSegmentControl.selectedSegmentIndex = self.appDelegate.day.copingRating;
+//    self.stressSegmentControl.selectedSegmentIndex = self.appDelegate.day.stressRating;
+//    self.energySegmentControl.selectedSegmentIndex = self.appDelegate.day.energyRating;
+//    self.moodSegmentControl.selectedSegmentIndex = self.appDelegate.day.moodRating;
+//    self.concentrationSegmentControl.selectedSegmentIndex = self.appDelegate.day.concentrationRating;
+//    self.copingSegmentControl.selectedSegmentIndex = self.appDelegate.day.copingRating;
     
 }
 
@@ -84,12 +84,12 @@
         self.dayLabel.text = [TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime];
     }
 
-//    
-//    self.stressSegmentControl.selectedSegmentIndex = self.appDelegate.day.stressRating-1;
-//    self.energySegmentControl.selectedSegmentIndex = self.appDelegate.day.energyRating-1;
-//    self.moodSegmentControl.selectedSegmentIndex = self.appDelegate.day.moodRating-1;
-//    self.concentrationSegmentControl.selectedSegmentIndex = self.appDelegate.day.concentrationRating-1;
-//    self.copingSegmentControl.selectedSegmentIndex = self.appDelegate.day.copingRating-1;
+    
+    self.stressSegmentControl.selectedSegmentIndex = self.appDelegate.day.stressRating-1;
+    self.energySegmentControl.selectedSegmentIndex = self.appDelegate.day.energyRating-1;
+    self.moodSegmentControl.selectedSegmentIndex = self.appDelegate.day.moodRating-1;
+    self.concentrationSegmentControl.selectedSegmentIndex = self.appDelegate.day.concentrationRating-1;
+    self.copingSegmentControl.selectedSegmentIndex = self.appDelegate.day.copingRating-1;
 
     }
 

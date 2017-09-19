@@ -139,6 +139,65 @@
     
 }
 
+//-(void)resetDay {
+//    
+//    if ([self.appDelegate.day.date compare:[TIHDate dateAtMidnightFromDate:[NSDate date]]] == NSOrderedSame) {
+//        self.dayLabel.text = @"Today";
+//    }
+//    
+//    else {
+//        
+//        self.dayLabel.text = [TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime];
+//    }
+//    
+//    [self updateArrays];
+//    [self.thisTableView reloadData];
+//    
+//}
+//
+//-(void)updateData
+//{
+//    [self resetDay];
+//}
+//
+//
+//-(void)updateArrays
+//{
+//    NSInteger i = 0;
+//    for (Food* item in self.appDelegate.day.foodArray)
+//    {
+//        item.foodArrayIndex = i;
+//        i++;
+//    }
+//    
+//    self.breakfastArray = [self find:mealTypeBreakfast inArray:self.appDelegate.day.foodArray];
+//    self.lunchArray = [self find:mealTypeLunch inArray:self.appDelegate.day.foodArray];
+//    self.dinnerArray  = [self find:mealTypeDinner inArray:self.appDelegate.day.foodArray];
+//    self.snackArray = [self find:mealTypeSnack inArray:self.appDelegate.day.foodArray];
+//    
+//}
+//
+//
+//-(NSMutableArray*)find:(NSInteger)section inArray:(NSMutableArray*)array
+//{
+//    NSMutableArray* filterArray = [NSMutableArray array];
+//    for (id item in array)
+//    {
+//        if ([item isKindOfClass:[Food class]])
+//        {
+//            Food* thisItem = (Food*)item;
+//            NSInteger thisType = thisItem.mealType;
+//            if (thisType == section)
+//            {
+//                [filterArray addObject:item];
+//            }
+//            
+//        }
+//    }
+//    return filterArray;
+//    
+//}
+
 
 #pragma mark - UITableView delegate methods
 
@@ -178,6 +237,18 @@
     else
         [headerLabel setText:@"   Alcoholic beverages"];
     [headerView addSubview:headerLabel];
+    
+    UIButton *addButton=[UIButton buttonWithType:UIButtonTypeContactAdd];
+    [addButton addTarget:self action:@selector(addDrink:) forControlEvents:UIControlEventTouchUpInside];
+    addButton.frame=CGRectMake(280, 2.5, 28, 28);
+    addButton.titleLabel.text = @"+";
+    addButton.tintColor = [UIColor grayColor];
+    addButton.titleLabel.textColor = [UIColor purpleColor];
+    
+    addButton.tag = section;
+    
+    addButton.backgroundColor = [UIColor whiteColor];
+    addButton.layer.cornerRadius = 15;
     
     return headerView;
     

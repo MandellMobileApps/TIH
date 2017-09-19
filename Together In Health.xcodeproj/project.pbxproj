@@ -15,6 +15,9 @@
 		36278DAA1C2AF9F900B899E4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36278DA91C2AF9F800B899E4 /* CoreMotion.framework */; };
 		36278DAC1C2AFA0300B899E4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36278DAB1C2AFA0300B899E4 /* HealthKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		36278DAF1C2DAD8F00B899E4 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 36278DAE1C2DAD8F00B899E4 /* MenuItem.m */; };
+		365847601F704F3F006DF9E4 /* ExercisePlanSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */; };
+		365847631F709637006DF9E4 /* ExercisePlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847621F709637006DF9E4 /* ExercisePlanCell.m */; };
+		365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */; };
 		365EB8271C00F88F00D757F7 /* vegplateapp.png in Resources */ = {isa = PBXBuildFile; fileRef = 365EB8261C00F88F00D757F7 /* vegplateapp.png */; };
 		365EB8291C00FBF200D757F7 /* stressreduction.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365EB8281C00FBF200D757F7 /* stressreduction.jpg */; };
 		365EB82C1C00FD3600D757F7 /* movement.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365EB82A1C00FD3600D757F7 /* movement.jpg */; };
@@ -250,6 +253,12 @@
 		36278DAB1C2AFA0300B899E4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		36278DAD1C2DAD8F00B899E4 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		36278DAE1C2DAD8F00B899E4 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanSetupViewController.h; sourceTree = "<group>"; };
+		3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanSetupViewController.m; sourceTree = "<group>"; };
+		365847611F709636006DF9E4 /* ExercisePlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanCell.h; sourceTree = "<group>"; };
+		365847621F709637006DF9E4 /* ExercisePlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanCell.m; sourceTree = "<group>"; };
+		365847641F709E71006DF9E4 /* ExercisePlanCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanCollectionView.h; sourceTree = "<group>"; };
+		365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanCollectionView.m; sourceTree = "<group>"; };
 		365EB8261C00F88F00D757F7 /* vegplateapp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vegplateapp.png; sourceTree = "<group>"; };
 		365EB8281C00FBF200D757F7 /* stressreduction.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stressreduction.jpg; sourceTree = "<group>"; };
 		365EB82A1C00FD3600D757F7 /* movement.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = movement.jpg; sourceTree = "<group>"; };
@@ -587,6 +596,10 @@
 		6A91E3171BE2625500A72CCA = {
 			isa = PBXGroup;
 			children = (
+				3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */,
+				3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */,
+				365847611F709636006DF9E4 /* ExercisePlanCell.h */,
+				365847621F709637006DF9E4 /* ExercisePlanCell.m */,
 				3695B6051F65F4A7009D0383 /* QuartzCore.framework */,
 				36278DAB1C2AFA0300B899E4 /* HealthKit.framework */,
 				36278DA91C2AF9F800B899E4 /* CoreMotion.framework */,
@@ -626,6 +639,8 @@
 				360DB1831C11F24000FBE90F /* ActivityMovementFav.png */,
 				6A91E3271BE2625500A72CCA /* AppDelegate.m */,
 				6A91E32F1BE2625500A72CCA /* Main.storyboard */,
+				365847641F709E71006DF9E4 /* ExercisePlanCollectionView.h */,
+				365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */,
 				360DB17F1C11EE5F00FBE90F /* ActivityList.png */,
 				36FE39331C0B6BF2002E341E /* DisclaimerViewController.h */,
 				36FE39341C0B6BF2002E341E /* DisclaimerViewController.m */,
@@ -1179,6 +1194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */,
 				6A91E45D1BE2679300A72CCA /* MgNetworkOperation2.m in Sources */,
 				6A91E45B1BE2679300A72CCA /* MenuPlanCell.m in Sources */,
 				6A91E4591BE2679300A72CCA /* HQViewController.m in Sources */,
@@ -1227,6 +1243,7 @@
 				6A91E45A1BE2679300A72CCA /* MenuPlan.m in Sources */,
 				36F433A31C151AE50053D4EE /* DirectionsViewController.m in Sources */,
 				6A5541641F5C82D700447A4E /* Calendar.m in Sources */,
+				365847631F709637006DF9E4 /* ExercisePlanCell.m in Sources */,
 				6A91E43F1BE2679300A72CCA /* ChoosePlateCollectionView.m in Sources */,
 				6A91E4691BE2679300A72CCA /* SeasonalVegCell.m in Sources */,
 				6A91E4681BE2679300A72CCA /* RecipeViewController.m in Sources */,
@@ -1252,6 +1269,7 @@
 				6A91E4651BE2679300A72CCA /* ProgressViewController.m in Sources */,
 				6A91E4721BE2679300A72CCA /* SQLiteAccess.m in Sources */,
 				6A91E4341BE2679300A72CCA /* AddFoodCell.m in Sources */,
+				365847601F704F3F006DF9E4 /* ExercisePlanSetupViewController.m in Sources */,
 				6A91E44F1BE2679300A72CCA /* GoalCheckViewController.m in Sources */,
 				6A91E4CE1BE2D26600A72CCA /* StressTrackerViewController.m in Sources */,
 				6AD7A80D1C3051C0004BD58F /* Mood.m in Sources */,

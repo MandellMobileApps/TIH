@@ -54,6 +54,7 @@
         self.food = [[Food alloc]init];
         self.food.plate = [self.appDelegate.allPlates firstObject];
         self.food.mood = [self.appDelegate.allMoods objectAtIndex:3];
+        self.food.mealType = self.mealType;
         self.isNew = YES;
     }
     [self.thisCollectionView reloadData];

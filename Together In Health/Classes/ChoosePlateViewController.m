@@ -182,7 +182,7 @@
       
         if (indexPath.section == 0)
         {
-            return CGSizeMake(40,40);
+            return CGSizeMake(60,60);
         }
 
         break;
@@ -190,7 +190,7 @@
       
         if (indexPath.section == 0)
         {
-            return CGSizeMake(40,40);
+            return CGSizeMake(60,60);
         }
         break;
       default:

@@ -18,6 +18,7 @@
 		365847601F704F3F006DF9E4 /* ExercisePlanSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */; };
 		365847631F709637006DF9E4 /* ExercisePlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847621F709637006DF9E4 /* ExercisePlanCell.m */; };
 		365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */; };
+		365847681F79759F006DF9E4 /* MoodImageHappy.png in Resources */ = {isa = PBXBuildFile; fileRef = 365847671F79759E006DF9E4 /* MoodImageHappy.png */; };
 		365EB8271C00F88F00D757F7 /* vegplateapp.png in Resources */ = {isa = PBXBuildFile; fileRef = 365EB8261C00F88F00D757F7 /* vegplateapp.png */; };
 		365EB8291C00FBF200D757F7 /* stressreduction.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365EB8281C00FBF200D757F7 /* stressreduction.jpg */; };
 		365EB82C1C00FD3600D757F7 /* movement.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365EB82A1C00FD3600D757F7 /* movement.jpg */; };
@@ -259,6 +260,7 @@
 		365847621F709637006DF9E4 /* ExercisePlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanCell.m; sourceTree = "<group>"; };
 		365847641F709E71006DF9E4 /* ExercisePlanCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanCollectionView.h; sourceTree = "<group>"; };
 		365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanCollectionView.m; sourceTree = "<group>"; };
+		365847671F79759E006DF9E4 /* MoodImageHappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MoodImageHappy.png; path = ../../Desktop/MoodImageHappy.png; sourceTree = "<group>"; };
 		365EB8261C00F88F00D757F7 /* vegplateapp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vegplateapp.png; sourceTree = "<group>"; };
 		365EB8281C00FBF200D757F7 /* stressreduction.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stressreduction.jpg; sourceTree = "<group>"; };
 		365EB82A1C00FD3600D757F7 /* movement.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = movement.jpg; sourceTree = "<group>"; };
@@ -598,6 +600,7 @@
 			children = (
 				3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */,
 				3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */,
+				365847671F79759E006DF9E4 /* MoodImageHappy.png */,
 				365847611F709636006DF9E4 /* ExercisePlanCell.h */,
 				365847621F709637006DF9E4 /* ExercisePlanCell.m */,
 				3695B6051F65F4A7009D0383 /* QuartzCore.framework */,
@@ -1056,6 +1059,7 @@
 				36FE38FA1C0A0874002E341E /* Balanced Plate21.png in Resources */,
 				6A91E4C91BE2679300A72CCA /* TIHsettings.png in Resources */,
 				36FE39151C0A1291002E341E /* TrackFoodwithWater.png in Resources */,
+				365847681F79759F006DF9E4 /* MoodImageHappy.png in Resources */,
 				36FE38CA1C04CD35002E341E /* Ingredients.png in Resources */,
 				6A91E4B01BE2679300A72CCA /* Balanced Plate6.png in Resources */,
 				6A91E4A61BE2679300A72CCA /* Balanced Plate12.png in Resources */,

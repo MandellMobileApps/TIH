@@ -277,7 +277,7 @@
 -(NSMutableArray*) initialCreationOfMoods
 {
     NSMutableArray* initialMoods = [NSMutableArray arrayWithObjects:
-        [Mood moodImage:@"Balanced Plate1.png" moodId:0],
+        [Mood moodImage:@"MoodImageHappy.png" moodId:0],
         [Mood moodImage:@"Balanced Plate2.png" moodId:1],
         [Mood moodImage:@"Balanced Plate3.png" moodId:2],
         [Mood moodImage:@"Balanced Plate4.png" moodId:3],

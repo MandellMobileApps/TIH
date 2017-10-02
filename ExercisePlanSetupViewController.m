@@ -140,9 +140,10 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ExercisePlanCell* MyCell;
+    ExercisePlanCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCell" forIndexPath:indexPath];
+    
     self.label.text = [self.goalArray objectAtIndex:indexPath.row];
-    return MyCell;
+    return myCell;
 
 
 }

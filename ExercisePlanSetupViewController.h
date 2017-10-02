@@ -11,9 +11,9 @@
 
 @interface ExercisePlanSetupViewController : UIViewController
 
-@property (nonatomic, strong) NSMutableArray *goalArray;
-@property (nonatomic, strong) NSMutableArray *activityArray;
-@property (nonatomic, strong) NSMutableArray *timeArray;
+@property (nonatomic, strong) NSArray *goalArray;
+@property (nonatomic, strong) NSArray *activityArray;
+@property (nonatomic, strong) NSArray *timeArray;
 
 @property (nonatomic, strong) UIButton *goalButton;
 

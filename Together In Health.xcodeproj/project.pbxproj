@@ -18,7 +18,6 @@
 		365847601F704F3F006DF9E4 /* ExercisePlanSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */; };
 		365847631F709637006DF9E4 /* ExercisePlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847621F709637006DF9E4 /* ExercisePlanCell.m */; };
 		365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */; };
-		365847681F79759F006DF9E4 /* MoodImageHappy.png in Resources */ = {isa = PBXBuildFile; fileRef = 365847671F79759E006DF9E4 /* MoodImageHappy.png */; };
 		365EB8271C00F88F00D757F7 /* vegplateapp.png in Resources */ = {isa = PBXBuildFile; fileRef = 365EB8261C00F88F00D757F7 /* vegplateapp.png */; };
 		365EB8291C00FBF200D757F7 /* stressreduction.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365EB8281C00FBF200D757F7 /* stressreduction.jpg */; };
 		365EB82C1C00FD3600D757F7 /* movement.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365EB82A1C00FD3600D757F7 /* movement.jpg */; };
@@ -27,10 +26,11 @@
 		367B30051C1A46AA006428C9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367B30031C1A46AA006428C9 /* Crashlytics.framework */; };
 		368CD1121BF8E96000D22567 /* removeWaterButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 368CD1111BF8E96000D22567 /* removeWaterButtonImage.png */; };
 		3695B6061F65F4A8009D0383 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3695B6051F65F4A7009D0383 /* QuartzCore.framework */; };
-		369E530B1F82E30E00F3D750 /* MoodImageMad.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E530A1F82E30E00F3D750 /* MoodImageMad.png */; };
-		369E530E1F82E51700F3D750 /* MoodImageBored.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E530C1F82E51700F3D750 /* MoodImageBored.png */; };
-		369E530F1F82E51700F3D750 /* MoodImageSad.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E530D1F82E51700F3D750 /* MoodImageSad.png */; };
-		369E53111F82EAAC00F3D750 /* MoodImageStressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E53101F82EAAB00F3D750 /* MoodImageStressed.png */; };
+		369E53171F82F6FB00F3D750 /* MoodImageHappy.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E53121F82F6FB00F3D750 /* MoodImageHappy.png */; };
+		369E53181F82F6FB00F3D750 /* MoodImageMad.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E53131F82F6FB00F3D750 /* MoodImageMad.png */; };
+		369E53191F82F6FB00F3D750 /* MoodImageSad.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E53141F82F6FB00F3D750 /* MoodImageSad.png */; };
+		369E531A1F82F6FB00F3D750 /* MoodImageBored.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E53151F82F6FB00F3D750 /* MoodImageBored.png */; };
+		369E531B1F82F6FB00F3D750 /* MoodImageStressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E53161F82F6FB00F3D750 /* MoodImageStressed.png */; };
 		36D9D53C1BE80481003658FE /* GenericWebViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D9D53B1BE80481003658FE /* GenericWebViewController2.m */; };
 		36D9D53E1BE8445E003658FE /* CarbsProVeg.html in Resources */ = {isa = PBXBuildFile; fileRef = 36D9D53D1BE8445E003658FE /* CarbsProVeg.html */; };
 		36F433A31C151AE50053D4EE /* DirectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F433A21C151AE50053D4EE /* DirectionsViewController.m */; };
@@ -264,7 +264,6 @@
 		365847621F709637006DF9E4 /* ExercisePlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanCell.m; sourceTree = "<group>"; };
 		365847641F709E71006DF9E4 /* ExercisePlanCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanCollectionView.h; sourceTree = "<group>"; };
 		365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanCollectionView.m; sourceTree = "<group>"; };
-		365847671F79759E006DF9E4 /* MoodImageHappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MoodImageHappy.png; path = ../../Desktop/MoodImageHappy.png; sourceTree = "<group>"; };
 		365EB8261C00F88F00D757F7 /* vegplateapp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vegplateapp.png; sourceTree = "<group>"; };
 		365EB8281C00FBF200D757F7 /* stressreduction.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stressreduction.jpg; sourceTree = "<group>"; };
 		365EB82A1C00FD3600D757F7 /* movement.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = movement.jpg; sourceTree = "<group>"; };
@@ -273,10 +272,11 @@
 		367B30031C1A46AA006428C9 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		368CD1111BF8E96000D22567 /* removeWaterButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = removeWaterButtonImage.png; sourceTree = "<group>"; };
 		3695B6051F65F4A7009D0383 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		369E530A1F82E30E00F3D750 /* MoodImageMad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MoodImageMad.png; path = ../../Desktop/MoodImageMad.png; sourceTree = "<group>"; };
-		369E530C1F82E51700F3D750 /* MoodImageBored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MoodImageBored.png; path = ../../../../Desktop/MoodImageBored.png; sourceTree = "<group>"; };
-		369E530D1F82E51700F3D750 /* MoodImageSad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MoodImageSad.png; path = ../../../../Desktop/MoodImageSad.png; sourceTree = "<group>"; };
-		369E53101F82EAAB00F3D750 /* MoodImageStressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MoodImageStressed.png; path = ../../Desktop/MoodImageStressed.png; sourceTree = "<group>"; };
+		369E53121F82F6FB00F3D750 /* MoodImageHappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoodImageHappy.png; sourceTree = "<group>"; };
+		369E53131F82F6FB00F3D750 /* MoodImageMad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoodImageMad.png; sourceTree = "<group>"; };
+		369E53141F82F6FB00F3D750 /* MoodImageSad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoodImageSad.png; sourceTree = "<group>"; };
+		369E53151F82F6FB00F3D750 /* MoodImageBored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoodImageBored.png; sourceTree = "<group>"; };
+		369E53161F82F6FB00F3D750 /* MoodImageStressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoodImageStressed.png; sourceTree = "<group>"; };
 		36D9D53A1BE80481003658FE /* GenericWebViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericWebViewController2.h; path = ../../GenericWebViewController2.h; sourceTree = "<group>"; };
 		36D9D53B1BE80481003658FE /* GenericWebViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericWebViewController2.m; path = ../../GenericWebViewController2.m; sourceTree = "<group>"; };
 		36D9D53D1BE8445E003658FE /* CarbsProVeg.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CarbsProVeg.html; sourceTree = "<group>"; };
@@ -606,11 +606,8 @@
 		6A91E3171BE2625500A72CCA = {
 			isa = PBXGroup;
 			children = (
-				369E53101F82EAAB00F3D750 /* MoodImageStressed.png */,
-				369E530A1F82E30E00F3D750 /* MoodImageMad.png */,
 				3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */,
 				3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */,
-				365847671F79759E006DF9E4 /* MoodImageHappy.png */,
 				365847611F709636006DF9E4 /* ExercisePlanCell.h */,
 				365847621F709637006DF9E4 /* ExercisePlanCell.m */,
 				3695B6051F65F4A7009D0383 /* QuartzCore.framework */,
@@ -744,8 +741,6 @@
 				6A91E3791BE2679300A72CCA /* Food.m */,
 				6A91E37A1BE2679300A72CCA /* FoodTrackerCell.h */,
 				6A91E37B1BE2679300A72CCA /* FoodTrackerCell.m */,
-				369E530C1F82E51700F3D750 /* MoodImageBored.png */,
-				369E530D1F82E51700F3D750 /* MoodImageSad.png */,
 				6A91E37C1BE2679300A72CCA /* FoodTrackerViewController.h */,
 				6A91E37D1BE2679300A72CCA /* FoodTrackerViewController.m */,
 				360DB1851C12809F00FBE90F /* TrackWaterAddRow.png */,
@@ -918,6 +913,11 @@
 		6A91E3FF1BE2679300A72CCA /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				369E53121F82F6FB00F3D750 /* MoodImageHappy.png */,
+				369E53131F82F6FB00F3D750 /* MoodImageMad.png */,
+				369E53141F82F6FB00F3D750 /* MoodImageSad.png */,
+				369E53151F82F6FB00F3D750 /* MoodImageBored.png */,
+				369E53161F82F6FB00F3D750 /* MoodImageStressed.png */,
 				360DB1891C14DDAC00FBE90F /* QuestionMark.png */,
 				36FE393C1C0BB46F002E341E /* TrackActivity.png */,
 				36FE393A1C0BB0D8002E341E /* TrackFoodBfast.png */,
@@ -1061,7 +1061,6 @@
 				36FE38FD1C0A0874002E341E /* Balanced Plate24.png in Resources */,
 				6A91E4C71BE2679300A72CCA /* Star.png in Resources */,
 				6A91E49A1BE2679300A72CCA /* VitaminMineralSupp.html in Resources */,
-				369E530F1F82E51700F3D750 /* MoodImageSad.png in Resources */,
 				6A91E4A11BE2679300A72CCA /* backgroundButton.png in Resources */,
 				6A91E4A71BE2679300A72CCA /* Balanced Plate13.png in Resources */,
 				6A91E4A41BE2679300A72CCA /* Balanced Plate10.png in Resources */,
@@ -1072,7 +1071,7 @@
 				36FE38FA1C0A0874002E341E /* Balanced Plate21.png in Resources */,
 				6A91E4C91BE2679300A72CCA /* TIHsettings.png in Resources */,
 				36FE39151C0A1291002E341E /* TrackFoodwithWater.png in Resources */,
-				365847681F79759F006DF9E4 /* MoodImageHappy.png in Resources */,
+				369E53171F82F6FB00F3D750 /* MoodImageHappy.png in Resources */,
 				36FE38CA1C04CD35002E341E /* Ingredients.png in Resources */,
 				6A91E4B01BE2679300A72CCA /* Balanced Plate6.png in Resources */,
 				6A91E4A61BE2679300A72CCA /* Balanced Plate12.png in Resources */,
@@ -1090,7 +1089,6 @@
 				6A91E4B91BE2679300A72CCA /* Checkmark.png in Resources */,
 				6A91E49E1BE2679300A72CCA /* Arrowforward.png in Resources */,
 				360DB1871C12809F00FBE90F /* TrackWaterAddRow.png in Resources */,
-				369E530E1F82E51700F3D750 /* MoodImageBored.png in Resources */,
 				6A91E4AA1BE2679300A72CCA /* Balanced Plate16.png in Resources */,
 				6A91E49D1BE2679300A72CCA /* Answer line.png in Resources */,
 				6A91E4BD1BE2679300A72CCA /* FoodLabel3.png in Resources */,
@@ -1107,13 +1105,13 @@
 				36FE39101C0A1291002E341E /* FullActivity.png in Resources */,
 				360DB18A1C14DDAC00FBE90F /* QuestionMark.png in Resources */,
 				368CD1121BF8E96000D22567 /* removeWaterButtonImage.png in Resources */,
-				369E530B1F82E30E00F3D750 /* MoodImageMad.png in Resources */,
+				369E53181F82F6FB00F3D750 /* MoodImageMad.png in Resources */,
 				6A91E47B1BE2679300A72CCA /* AboutTIH.html in Resources */,
 				365EB8271C00F88F00D757F7 /* vegplateapp.png in Resources */,
 				6A91E4811BE2679300A72CCA /* Breakfastmyth.html in Resources */,
-				369E53111F82EAAC00F3D750 /* MoodImageStressed.png in Resources */,
 				365EB8291C00FBF200D757F7 /* stressreduction.jpg in Resources */,
 				6A91E3331BE2625500A72CCA /* Assets.xcassets in Resources */,
+				369E531B1F82F6FB00F3D750 /* MoodImageStressed.png in Resources */,
 				6A91E4B81BE2679300A72CCA /* checkbox-filled.png in Resources */,
 				6A91E4821BE2679300A72CCA /* BusinessTripTips.html in Resources */,
 				36FE38CE1C06A783002E341E /* FoodLabelwithIngredients.png in Resources */,
@@ -1128,6 +1126,7 @@
 				6A91E4991BE2679300A72CCA /* UnderstandingBalance.html in Resources */,
 				36FE38C81C0236EC002E341E /* AppFrontImage.png in Resources */,
 				6A91E4B51BE2679300A72CCA /* Blankplate.png in Resources */,
+				369E531A1F82F6FB00F3D750 /* MoodImageBored.png in Resources */,
 				6A91E49B1BE2679300A72CCA /* ZucchiniLasagna.html in Resources */,
 				6A91E4A91BE2679300A72CCA /* Balanced Plate15.png in Resources */,
 				6A91E4B21BE2679300A72CCA /* Balanced Plate8.png in Resources */,
@@ -1138,6 +1137,7 @@
 				36FE390F1C0A1291002E341E /* ChoosePlate.png in Resources */,
 				6A91E4BE1BE2679300A72CCA /* forwardButton2.png in Resources */,
 				6A91E4911BE2679300A72CCA /* ReadingAFoodLabel.html in Resources */,
+				369E53191F82F6FB00F3D750 /* MoodImageSad.png in Resources */,
 				6A91E4C11BE2679300A72CCA /* PolentaVegBake.png in Resources */,
 				6A91E4951BE2679300A72CCA /* SteakFajitas.html in Resources */,
 				6A91E4AC1BE2679300A72CCA /* Balanced Plate2.png in Resources */,

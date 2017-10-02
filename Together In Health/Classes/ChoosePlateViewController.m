@@ -155,7 +155,8 @@
       
         if (section == 0)
         {
-            return UIEdgeInsetsMake(20, 20, 65, 5);
+            return UIEdgeInsetsMake(5, 5, 40, 5);
+            
         }
 
         break;
@@ -163,13 +164,13 @@
       
         if (section == 0)
         {
-           return UIEdgeInsetsMake(20, 20, 65, 5);
+           return UIEdgeInsetsMake(5, 5, 40, 5);
         }
         break;
       default:
         break;
     }
-    return UIEdgeInsetsMake(5, 5, 65, 5);
+    return UIEdgeInsetsMake(5, 5, 40, 5);
     
     
 }
@@ -179,26 +180,32 @@
 
     switch (self.appDelegate.subscriptionLevel) {
     
-      case SubscriptionPaid1:
-      
-        if (indexPath.section == 0)
-        {
-            return CGSizeMake(60,60);
-        }
-
-        break;
-      case SubscriptionPaid2:
-      
-        if (indexPath.section == 0)
-        {
-            return CGSizeMake(60,60);
-        }
-        break;
-      default:
-        break;
+//      case SubscriptionPaid1:
+//      
+//        if (indexPath.section == 0)
+//        {
+//            return CGSizeMake(60,60);
+//        }
+//
+//        break;
+//      case SubscriptionPaid2:
+//      
+//        if (indexPath.section == 0)
+//        {
+//            return CGSizeMake(60,60);
+//        }
+//        break;
+//      default:
+//        break;
     }
+    
+    if (indexPath.section == 0) {
+        return CGSizeMake(65,65);
+    }
+    
+    else {
     return CGSizeMake(90,90);
-
+    }
 }
 
 
@@ -214,6 +221,8 @@
         if (indexPath.section == 0)
         {
             MyCell = [self plateCellForIndexPath:indexPath];
+            MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
+            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
         }
         break;
         
@@ -222,10 +231,15 @@
         if (indexPath.section == 0)
         {
             MyCell = [self moodCellForIndexPath:indexPath];
+            MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
+            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
+            
         }
         else if (indexPath.section == 1)
         {
             MyCell = [self plateCellForIndexPath:indexPath];
+            MyCell.plateImage.frame = CGRectMake(0, 0, 90, 90);
+            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 90, 90);
         }
 
         break;
@@ -234,10 +248,14 @@
         if (indexPath.section == 0)
         {
             MyCell = [self moodCellForIndexPath:indexPath];
+            MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
+            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
         }
         else if (indexPath.section == 1)
         {
             MyCell = [self plateCellForIndexPath:indexPath];
+            MyCell.plateImage.frame = CGRectMake(0, 0, 90, 90);
+            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 90, 90);
         }
         break;
       default:

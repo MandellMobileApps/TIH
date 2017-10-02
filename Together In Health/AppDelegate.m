@@ -278,10 +278,10 @@
 {
     NSMutableArray* initialMoods = [NSMutableArray arrayWithObjects:
         [Mood moodImage:@"MoodImageHappy.png" moodId:0],
-        [Mood moodImage:@"Balanced Plate2.png" moodId:1],
-        [Mood moodImage:@"Balanced Plate3.png" moodId:2],
-        [Mood moodImage:@"Balanced Plate4.png" moodId:3],
-        [Mood moodImage:@"Balanced Plate5.png" moodId:4],
+        [Mood moodImage:@"MoodImageMad.png" moodId:1],
+        [Mood moodImage:@"MoodImageBored.png" moodId:2],
+        [Mood moodImage:@"MoodImageSad.png" moodId:3],
+        [Mood moodImage:@"MoodImageStressed.png" moodId:4],
                         
                                      
     nil];

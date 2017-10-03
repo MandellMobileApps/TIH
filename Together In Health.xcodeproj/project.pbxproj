@@ -24,6 +24,8 @@
 		365EB82D1C00FD3600D757F7 /* sleep.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365EB82B1C00FD3600D757F7 /* sleep.jpg */; };
 		367B30041C1A46AA006428C9 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367B30021C1A46AA006428C9 /* Fabric.framework */; };
 		367B30051C1A46AA006428C9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367B30031C1A46AA006428C9 /* Crashlytics.framework */; };
+		367D6FD11F83D566006281D3 /* GoalSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 367D6FD01F83D566006281D3 /* GoalSetViewController.m */; };
+		367D6FD41F83D871006281D3 /* ExercisePlanListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 367D6FD31F83D871006281D3 /* ExercisePlanListViewController.m */; };
 		368CD1121BF8E96000D22567 /* removeWaterButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 368CD1111BF8E96000D22567 /* removeWaterButtonImage.png */; };
 		3695B6061F65F4A8009D0383 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3695B6051F65F4A7009D0383 /* QuartzCore.framework */; };
 		369E53171F82F6FB00F3D750 /* MoodImageHappy.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E53121F82F6FB00F3D750 /* MoodImageHappy.png */; };
@@ -270,6 +272,10 @@
 		365EB82B1C00FD3600D757F7 /* sleep.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sleep.jpg; sourceTree = "<group>"; };
 		367B30021C1A46AA006428C9 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		367B30031C1A46AA006428C9 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		367D6FCF1F83D566006281D3 /* GoalSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalSetViewController.h; sourceTree = "<group>"; };
+		367D6FD01F83D566006281D3 /* GoalSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalSetViewController.m; sourceTree = "<group>"; };
+		367D6FD21F83D871006281D3 /* ExercisePlanListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanListViewController.h; sourceTree = "<group>"; };
+		367D6FD31F83D871006281D3 /* ExercisePlanListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanListViewController.m; sourceTree = "<group>"; };
 		368CD1111BF8E96000D22567 /* removeWaterButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = removeWaterButtonImage.png; sourceTree = "<group>"; };
 		3695B6051F65F4A7009D0383 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		369E53121F82F6FB00F3D750 /* MoodImageHappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoodImageHappy.png; sourceTree = "<group>"; };
@@ -606,6 +612,8 @@
 		6A91E3171BE2625500A72CCA = {
 			isa = PBXGroup;
 			children = (
+				367D6FCF1F83D566006281D3 /* GoalSetViewController.h */,
+				367D6FD01F83D566006281D3 /* GoalSetViewController.m */,
 				3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */,
 				3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */,
 				365847611F709636006DF9E4 /* ExercisePlanCell.h */,
@@ -649,6 +657,8 @@
 				360DB1831C11F24000FBE90F /* ActivityMovementFav.png */,
 				6A91E3271BE2625500A72CCA /* AppDelegate.m */,
 				6A91E32F1BE2625500A72CCA /* Main.storyboard */,
+				367D6FD21F83D871006281D3 /* ExercisePlanListViewController.h */,
+				367D6FD31F83D871006281D3 /* ExercisePlanListViewController.m */,
 				365847641F709E71006DF9E4 /* ExercisePlanCollectionView.h */,
 				365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */,
 				360DB17F1C11EE5F00FBE90F /* ActivityList.png */,
@@ -1227,6 +1237,7 @@
 				6A91E4771BE2679300A72CCA /* UnderstandBalanceViewController.m in Sources */,
 				6A91E4371BE2679300A72CCA /* BlogPostMenuCell.m in Sources */,
 				6A91E45E1BE2679300A72CCA /* NoteViewController.m in Sources */,
+				367D6FD41F83D871006281D3 /* ExercisePlanListViewController.m in Sources */,
 				6A91E4401BE2679300A72CCA /* ChoosePlateViewController.m in Sources */,
 				6A91E4481BE2679300A72CCA /* FoodTrackerCell.m in Sources */,
 				6A91E4301BE2679300A72CCA /* AbstractViewController.m in Sources */,
@@ -1278,6 +1289,7 @@
 				6A91E46C1BE2679300A72CCA /* SecondViewController.m in Sources */,
 				6A91E44B1BE2679300A72CCA /* FullOpeningViewController.m in Sources */,
 				6A91E4611BE2679300A72CCA /* ProblemsViewController.m in Sources */,
+				367D6FD11F83D566006281D3 /* GoalSetViewController.m in Sources */,
 				36278DAF1C2DAD8F00B899E4 /* MenuItem.m in Sources */,
 				6A91E4731BE2679300A72CCA /* Stress.m in Sources */,
 				6A91E4561BE2679300A72CCA /* HealthQuestionsCell.m in Sources */,

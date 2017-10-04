@@ -49,11 +49,13 @@
         self.food = [self copyFood:self.food];
         self.isNew = NO;
     }
+    
     else
     {
+    
         self.food = [[Food alloc]init];
-        self.food.plate = [self.appDelegate.allPlates firstObject];
-        self.food.mood = [self.appDelegate.allMoods objectAtIndex:3];
+        self.food.plate = [self.appDelegate.allPlates objectAtIndex:0];
+        self.food.mood = [self.appDelegate.allMoods firstObject];
         self.food.mealType = self.mealType;
         self.isNew = YES;
     }

@@ -128,6 +128,5 @@ enum CornerType {
 -(void) enlargeTable:(float)height;
 
 -(void)resetDay;
--(IBAction)backDay:(id)sender;
--(IBAction)forwardDay:(id)sender;
+
 @end

@@ -15,11 +15,13 @@
 @class ChooseActivityCell;
 @class ChooseActivityViewController;
 @class Day;
+@class MasterTrackerViewController;
 
 @interface ActivityTrackerViewController : AbstractViewController <UITableViewDelegate, UITableViewDataSource, NSCopying>
 
 //@property (nonatomic, strong) NSArray *testActivity;
 //@property (nonatomic, strong) NSArray *testTime;
+@property (nonatomic, weak) MasterTrackerViewController *masterTrackerViewController;
 
 @property (nonatomic) int currentSelection;
 @property (nonatomic, retain) IBOutlet UIView *pickerViewContainer;

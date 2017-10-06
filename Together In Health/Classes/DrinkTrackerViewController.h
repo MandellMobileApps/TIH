@@ -13,8 +13,9 @@
 @class Drink;
 @class ChooseDrinkViewController;
 @class Day;
-
+@class MasterTrackerViewController;
 @interface DrinkTrackerViewController : AbstractViewController
+@property (nonatomic, weak) MasterTrackerViewController *masterTrackerViewController;
 
 @property (nonatomic, strong) DrinkTrackerCell* drinkTrackerCell;
 @property (nonatomic, strong) Drink* drink;

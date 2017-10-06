@@ -11,6 +11,7 @@
 
 @class Stress;
 @class Day;
+@class MasterTrackerViewController;
 
 enum stressType {
     stressStress = 1,
@@ -22,6 +23,7 @@ enum stressType {
 };
 
 @interface StressTrackerViewController : AbstractViewController
+@property (nonatomic, weak) MasterTrackerViewController *masterTrackerViewController;
 
 @property (nonatomic, strong) Stress *stress;
 @property (nonatomic, strong) Day *day;

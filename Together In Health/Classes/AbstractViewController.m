@@ -645,23 +645,7 @@
     }
 }
 
--(IBAction)backDay:(id)sender {
 
-    self.appDelegate.day = [self.appDelegate dayForDate:[TIHDate dateYesterdayAtMidnightFromDate:self.appDelegate.day.date]];
-    
-    [self resetDay];
-    
-    
-    
-}
-
--(IBAction)forwardDay:(id)sender{
-    
-    self.appDelegate.day = [self.appDelegate dayForDate:[TIHDate dateTomorrowAtMidnightFromDate:self.appDelegate.day.date]];
-
-    [self resetDay];
-    
-}
 
 -(void)resetDay{}
 

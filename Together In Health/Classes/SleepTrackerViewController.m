@@ -17,6 +17,7 @@
 #import "Day.h"
 #import "AppDelegate.h"
 #import "TIHDate.h"
+#import "MasterTrackerViewController.h"
 
 @implementation SleepTrackerViewController
 

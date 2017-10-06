@@ -10,6 +10,7 @@
 #import "Food.h"
 #import "AbstractViewController.h"
 
+
 enum webViewType2 {
     fAQs = 0,
     disclaimer = 4,
@@ -21,6 +22,7 @@ enum webViewType2 {
 @class ActivityTrackerViewController;
 @class ChoosePlateViewController;
 @class UnderstandBalanceViewController;
+@class MasterTrackerViewController;
 
 //NSString *const UITextAttributeTextColor;
 
@@ -31,7 +33,7 @@ enum webViewType2 {
 
 
 @property (nonatomic, strong) NSArray *addCellArray;
-
+@property (nonatomic, weak) MasterTrackerViewController *masterTrackerViewController;
 @property (nonatomic, strong) NSArray *plateImageArray;
 @property (nonatomic, strong) NSMutableArray *alldayFoodArray;
 

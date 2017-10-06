@@ -15,6 +15,7 @@
 #import "Day.h"
 #import "AppDelegate.h"
 #import "TIHDate.h"
+#import "MasterTrackerViewController.h"
 
 @implementation StressTrackerViewController
 
@@ -224,37 +225,9 @@
     
     }
 
--(IBAction)food:(id)sender {
-    FoodTrackerViewController* foodTrackerViewController = (FoodTrackerViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"FoodTrackerViewController"];
-    foodTrackerViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:foodTrackerViewController animated:NO];
-}
 
--(IBAction)sleep:(id)sender {
-    SleepTrackerViewController* sleepTrackerViewController = (SleepTrackerViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
-    sleepTrackerViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:sleepTrackerViewController animated:NO];
-}
 
--(IBAction)activity:(id)sender {
-    ActivityTrackerViewController* activityTrackerViewController = (ActivityTrackerViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"ActivityTrackerViewController"];
-    activityTrackerViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:activityTrackerViewController animated:NO];
-}
 
--(IBAction)drink:(id)sender {
-    DrinkTrackerViewController* drinkTrackerViewController = (DrinkTrackerViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"DrinkTrackerViewController"];
-    drinkTrackerViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:drinkTrackerViewController animated:NO];
-}
 
 #pragma Change Day
 

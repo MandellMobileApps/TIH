@@ -24,6 +24,7 @@
 #import "DisclaimerViewController.h"
 #import "DirectionsViewController.h"
 #import "OpeningViewViewController.h"
+#import "MasterTrackerViewController.h"
 
 @interface FoodTrackerViewController ()
 @property (nonatomic, strong) NSMutableArray *breakfastArray;
@@ -551,49 +552,12 @@
             default:
                 break;
         }
+        // make modal?
         [self.navigationController pushViewController:choosePlateViewController animated:YES];
     }
 }
 
--(IBAction)food:(id)sender {
-    FoodTrackerViewController* foodTrackerViewController = (FoodTrackerViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"FoodTrackerViewController"];
-    foodTrackerViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:foodTrackerViewController animated:NO];
-}
 
--(IBAction)sleep:(id)sender {
-    SleepTrackerViewController* sleepTrackerViewController = (SleepTrackerViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
-    sleepTrackerViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:sleepTrackerViewController animated:NO];
-}
-
--(IBAction)activity:(id)sender {
-    ActivityTrackerViewController* activityTrackerViewController = (ActivityTrackerViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"ActivityTrackerViewController"];
-    activityTrackerViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:activityTrackerViewController animated:NO];
-}
-
--(IBAction)drink:(id)sender {
-    DrinkTrackerViewController* drinkTrackerViewController = (DrinkTrackerViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"DrinkTrackerViewController"];
-      drinkTrackerViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:drinkTrackerViewController animated:NO];
-}
-
--(IBAction)stress:(id)sender {
-    StressTrackerViewController* stressTrackerViewController = (StressTrackerViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"StressTrackerViewController"];
-    stressTrackerViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:stressTrackerViewController animated:NO];
-}
 
 
 

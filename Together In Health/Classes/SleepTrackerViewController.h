@@ -11,6 +11,7 @@
 
 @class Sleep;
 @class Day;
+@class MasterTrackerViewController;
 
 @interface SleepTrackerViewController : AbstractViewController
 
@@ -28,6 +29,7 @@
 //-(IBAction)datePickerDoneButtonTapped:(id)sender;
 //-(void) showDatePickerForIndex:(int)selection;
 //-(IBAction)resetHours:(id)sender;
+@property (nonatomic, weak) MasterTrackerViewController *masterTrackerViewController;
 
 @property (nonatomic, strong) IBOutlet UIScrollView *thisScrollView;
 @property (nonatomic, strong) IBOutlet UILabel *dayLabel;

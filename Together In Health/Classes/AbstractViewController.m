@@ -649,5 +649,35 @@
 
 -(void)resetDay{}
 
+#pragma mark - Custom Modal Presentation
+
+-(void)presentAsFullModel:(UIViewController *)thisViewController
+{
+	thisViewController.view.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    [self.view addSubview:thisViewController.view];
+    
+        [UIView animateWithDuration:0.3
+			animations:^{
+    			thisViewController.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+			}
+			completion:^(BOOL finished){
+                [self addChildViewController:thisViewController];
+                [thisViewController didMoveToParentViewController:self];
+			}];
+}
+
+-(void) dismissAsFullModal:(UIViewController *)thisViewController
+{
+
+        [UIView animateWithDuration:0.3
+			animations:^{
+				thisViewController.view.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+			}
+			completion:^(BOOL finished){
+                [thisViewController.view removeFromSuperview];
+                [thisViewController removeFromParentViewController];
+			}];
+
+}
 
 @end

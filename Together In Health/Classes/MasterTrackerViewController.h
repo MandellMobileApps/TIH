@@ -15,16 +15,28 @@
 
 @interface MasterTrackerViewController : AbstractViewController
 
+
+
 @property (nonatomic, strong)FoodTrackerViewController* foodTrackerViewController;
 @property (nonatomic, strong)SleepTrackerViewController* sleepTrackerViewController;
 @property (nonatomic, strong)ActivityTrackerViewController* activityTrackerViewController;
 @property (nonatomic, strong)DrinkTrackerViewController* drinkTrackerViewController;
 @property (nonatomic, strong)StressTrackerViewController* stressTrackerViewController;
+
+@property (nonatomic, strong) IBOutlet UIButton* foodButton;
+@property (nonatomic, strong) IBOutlet UIButton* sleepButton;
+@property (nonatomic, strong) IBOutlet UIButton* stressButton;
+@property (nonatomic, strong) IBOutlet UIButton* activityButton;
+@property (nonatomic, strong) IBOutlet UIButton* drinkButton;
+
 @property (nonatomic) NSUInteger trackerIndex;
 @property (nonatomic, strong) IBOutlet UIView *datePickerViewContainer;
 @property (nonatomic, strong) IBOutlet UIDatePicker* datePickerView;
 @property (nonatomic, strong) NSDate* datePickerDate;
 @property (nonatomic, strong) IBOutlet UILabel* dayLabel;
+
+// Food Sub Contollers
+-(void) addFood:(UIButton*)sender;
 
 
 @end

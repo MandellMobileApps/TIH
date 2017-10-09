@@ -35,16 +35,16 @@
 {
     [super viewDidLoad];
     
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     self.title = @"More";
     
     
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
-    
-    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
-    
-    self.navigationController.navigationBar.titleTextAttributes = size;
-    
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+
     self.menuFreeArray0 = [NSArray arrayWithObjects:@"Upgrade Now!", nil];
     
     self.menuFreeArray1 = [NSArray arrayWithObjects:

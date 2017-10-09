@@ -16,6 +16,7 @@
 #import "AppDelegate.h"
 #import "GenericWebViewController.h"
 #import "PlateBreakdownViewController.h"
+#import "MasterTrackerViewController.h"
 
 @implementation ChoosePlateViewController
 - (void)viewDidLoad
@@ -43,7 +44,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+     [self.navigationController setNavigationBarHidden:YES];
     if (self.food)
     {
         self.food = [self copyFood:self.food];
@@ -368,7 +369,8 @@
         [self.appDelegate.day.foodArray replaceObjectAtIndex:self.food.foodArrayIndex withObject:self.food];
     
     }
-    [self.navigationController popViewControllerAnimated:YES];
+
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(IBAction)cancelData:(id)sender {
@@ -380,6 +382,7 @@
     }
     else
     {
+
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -389,7 +392,7 @@
     if (buttonIndex == 1)
     {
         [self.navigationController popViewControllerAnimated:YES];
-    
+
     }
 }
 

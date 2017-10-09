@@ -17,13 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    self.title = @"Goals Calendar";
 
     UIColor *defaultBackgroundColor = [ColorsClass lightgray];
     self.view.backgroundColor = defaultBackgroundColor;
     self.overallView.backgroundColor = defaultBackgroundColor;
     self.calendardaysview.backgroundColor =  defaultBackgroundColor; 
     self.calendarnavview.backgroundColor =  defaultBackgroundColor;   
-    self.calendarview.backgroundColor =	defaultBackgroundColor; 
+    self.calendarview.backgroundColor =	[UIColor yellowColor];
     self.containerview.backgroundColor =	defaultBackgroundColor;
     self.prevYearButton.backgroundColor = defaultBackgroundColor;
     self.prevMonthButton.backgroundColor = defaultBackgroundColor;
@@ -65,17 +70,11 @@
 	self.monthNameLabel.text = monthyearlabeltemp;
     
 	
-//	UIBarButtonItem *settingsBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showSettingsView:)];
-//	self.navigationItem.rightBarButtonItem = settingsBarItem;
 
 	
-//	UIBarButtonItem *gotoBarItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showGotoView)];
-//	self.navigationItem.leftBarButtonItem = gotoBarItem;
-
-	
-	UIBarButtonItem *backBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
-	self.navigationItem.backBarButtonItem = backBarItem;
-    self.title = @"Goals Calendar";
+//	UIBarButtonItem *backBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+//	self.navigationItem.backBarButtonItem = backBarItem;
+//    
 	
 //
 	[self.calendardaysview addSubview:self.calendarcurrent];
@@ -88,6 +87,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+     [self.navigationController setNavigationBarHidden:NO];
 
 }
 

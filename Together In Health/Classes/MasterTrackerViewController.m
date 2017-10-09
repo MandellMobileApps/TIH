@@ -10,6 +10,7 @@
 #import "TIHDate.h"
 #import "AppDelegate.h"
 #import "Day.h"
+#import "ChoosePlateViewController.h"
 
 enum trackerIndex {
     FoodIndex = 0,
@@ -30,12 +31,26 @@ enum trackerIndex {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.trackerIndex =  [[NSUserDefaults standardUserDefaults] integerForKey:@"trackerIndex"];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+ 
+    self.appDelegate.masterTrackerViewController = self;
     
+    self.trackerIndex =  [[NSUserDefaults standardUserDefaults] integerForKey:@"trackerIndex"];
+   
     [self food:nil];
+    [self updateMenuButtons];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+     [self.navigationController setNavigationBarHidden:NO];
 
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -51,6 +66,59 @@ enum trackerIndex {
     // Pass the selected object to the new view controller.
 }
 */
+-(void)updateMenuButtons
+{
+    // clear buttons
+    self.foodButton.enabled = YES;
+    self.activityButton.enabled = YES;
+    self.sleepButton.enabled = YES;
+    self.stressButton.enabled = YES;
+    self.drinkButton.enabled = YES;
+    self.foodButton.backgroundColor = [UIColor whiteColor];
+    [self.foodButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.activityButton.backgroundColor = [UIColor whiteColor];
+    [self.activityButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.sleepButton.backgroundColor = [UIColor whiteColor];
+    [self.sleepButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.stressButton.backgroundColor = [UIColor whiteColor];
+    [self.stressButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.drinkButton.backgroundColor = [UIColor whiteColor];
+    [self.drinkButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+// update selected button
+    switch (self.trackerIndex) {
+  case FoodIndex:
+    self.foodButton.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    [self.foodButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.foodButton.enabled = NO;
+    break;
+  case ActivityIndex:
+    self.activityButton.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    [self.activityButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.activityButton.enabled = NO;
+    break;
+  case SleepIndex:
+    self.sleepButton.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    [self.sleepButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.sleepButton.enabled = NO;
+    break;
+  case StressIndex:
+    self.stressButton.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    [self.stressButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.stressButton.enabled = NO;
+    break;
+  case DrinkIndex:
+    self.drinkButton.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    [self.drinkButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.drinkButton.enabled = NO;
+    break;
+
+  default:
+    break;
+}
+
+
+
+}
 
 -(CGRect)baseRect
 {
@@ -69,19 +137,22 @@ enum trackerIndex {
         self.foodTrackerViewController = (FoodTrackerViewController*)
         [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
         instantiateViewControllerWithIdentifier:@"FoodTrackerViewController"];
+        self.foodTrackerViewController.view.frame = [self baseRect];
+        self.foodTrackerViewController.masterTrackerViewController = self;
+    }
+
     
 
-        self.foodTrackerViewController.view.frame = [self baseRect];
-
-        self.foodTrackerViewController.masterTrackerViewController = self;
+    
 
         [self addChildViewController:self.foodTrackerViewController];
         [self.view addSubview:self.foodTrackerViewController.view];
         [self.foodTrackerViewController didMoveToParentViewController:self];
         self.title = @"Food Tracker";
-        
-        [self unloadOtherViewControllersExceptIndex:FoodIndex];
-    }
+        self.trackerIndex = FoodIndex;
+        [self updateMenuButtons];
+   //     [self unloadOtherViewControllersExceptIndex:FoodIndex];
+   
         
 }
 
@@ -94,7 +165,7 @@ enum trackerIndex {
         self.sleepTrackerViewController = (SleepTrackerViewController*)
         [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
         instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
-    
+    }
 
         self.sleepTrackerViewController.view.frame = [self baseRect];
 
@@ -104,9 +175,11 @@ enum trackerIndex {
         [self.view addSubview:self.sleepTrackerViewController.view];
         [self.sleepTrackerViewController didMoveToParentViewController:self];
         self.title = @"Sleep Tracker";
+        self.trackerIndex = SleepIndex;
+        [self updateMenuButtons];
         
-        [self unloadOtherViewControllersExceptIndex:SleepIndex];
-    }
+     //   [self unloadOtherViewControllersExceptIndex:SleepIndex];
+   
         
 }
 
@@ -119,7 +192,7 @@ enum trackerIndex {
         self.stressTrackerViewController = (StressTrackerViewController*)
         [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
         instantiateViewControllerWithIdentifier:@"StressTrackerViewController"];
-    
+    }
 
         self.stressTrackerViewController.view.frame = [self baseRect];
 
@@ -129,9 +202,11 @@ enum trackerIndex {
         [self.view addSubview:self.stressTrackerViewController.view];
         [self.stressTrackerViewController didMoveToParentViewController:self];
         self.title = @"Stress Tracker";
+        self.trackerIndex = StressIndex;
+        [self updateMenuButtons];
         
-        [self unloadOtherViewControllersExceptIndex:StressIndex];
-    }
+    //    [self unloadOtherViewControllersExceptIndex:StressIndex];
+    
         
 }
 -(IBAction)activity:(UIButton*)sender
@@ -143,7 +218,7 @@ enum trackerIndex {
         [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
         instantiateViewControllerWithIdentifier:@"ActivityTrackerViewController"];
     
-
+    }
         self.activityTrackerViewController.view.frame = [self baseRect];
 
         self.activityTrackerViewController.masterTrackerViewController = self;
@@ -151,10 +226,11 @@ enum trackerIndex {
         [self addChildViewController:self.activityTrackerViewController];
         [self.view addSubview:self.activityTrackerViewController.view];
         [self.activityTrackerViewController didMoveToParentViewController:self];
-        self.title = @"Activity Tracker";
-        
-        [self unloadOtherViewControllersExceptIndex:ActivityIndex];
-    }
+        self.title  = @"Activity Tracker";
+         self.trackerIndex = ActivityIndex;
+        [self updateMenuButtons];
+   //     [self unloadOtherViewControllersExceptIndex:ActivityIndex];
+
         
 }
 
@@ -166,7 +242,7 @@ enum trackerIndex {
         self.drinkTrackerViewController = (DrinkTrackerViewController*)
         [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
         instantiateViewControllerWithIdentifier:@"DrinkTrackerViewController"];
-    
+    }
 
         self.drinkTrackerViewController.view.frame = [self baseRect];
 
@@ -176,70 +252,81 @@ enum trackerIndex {
         [self.view addSubview:self.drinkTrackerViewController.view];
         [self.drinkTrackerViewController didMoveToParentViewController:self];
         self.title = @"Drink Tracker";
-        
-        [self unloadOtherViewControllersExceptIndex:DrinkIndex];
-    }
+         self.trackerIndex = DrinkIndex;
+        [self updateMenuButtons];
+      //  [self unloadOtherViewControllersExceptIndex:DrinkIndex];
+    
         
 }
 
--(void) unloadOtherViewControllersExceptIndex:(NSInteger)trackerIndex
-{
+//-(void)loadViewController:(UIViewController*)ViewController
+//{
+//    [self.navigationController pushViewController:ViewController animated:YES];
+//}
+//
+//-(void)unloadViewController
+//{
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
-        if (self.foodTrackerViewController)
-        {
-            if (trackerIndex != FoodIndex)
-            {
-                [self.foodTrackerViewController willMoveToParentViewController:nil];
-                [self.foodTrackerViewController.view removeFromSuperview];
-                [self.foodTrackerViewController removeFromParentViewController];
-                self.foodTrackerViewController = nil;
-            }
-        }
-    
-        if (self.sleepTrackerViewController)
-        {
-            if (trackerIndex != SleepIndex)
-            {
-                [self.sleepTrackerViewController willMoveToParentViewController:nil];
-                [self.sleepTrackerViewController.view removeFromSuperview];
-                [self.sleepTrackerViewController removeFromParentViewController];
-                self.sleepTrackerViewController = nil;
-            }
-        }
-    
-        if (self.stressTrackerViewController)
-        {
-            if (trackerIndex != StressIndex)
-            {
-                [self.stressTrackerViewController willMoveToParentViewController:nil];
-                [self.stressTrackerViewController.view removeFromSuperview];
-                [self.stressTrackerViewController removeFromParentViewController];
-                self.stressTrackerViewController = nil;
-            }
-        }
-    
-        if (self.drinkTrackerViewController)
-        {
-            if (trackerIndex != DrinkIndex)
-            {
-                [self.drinkTrackerViewController willMoveToParentViewController:nil];
-                [self.drinkTrackerViewController.view removeFromSuperview];
-                [self.drinkTrackerViewController removeFromParentViewController];
-                self.drinkTrackerViewController = nil;
-            }
-        }
-    
-        if (self.activityTrackerViewController)
-        {
-            if (trackerIndex != ActivityIndex)
-            {
-                [self.activityTrackerViewController willMoveToParentViewController:nil];
-                [self.activityTrackerViewController.view removeFromSuperview];
-                [self.activityTrackerViewController removeFromParentViewController];
-                self.activityTrackerViewController = nil;
-            }
-        }
-}
+//-(void) unloadOtherViewControllersExceptIndex:(NSInteger)trackerIndex
+//{
+//
+//        if (self.foodTrackerViewController)
+//        {
+//            if (trackerIndex != FoodIndex)
+//            {
+//                [self.foodTrackerViewController willMoveToParentViewController:nil];
+//                [self.foodTrackerViewController.view removeFromSuperview];
+//                [self.foodTrackerViewController removeFromParentViewController];
+//                self.foodTrackerViewController = nil;
+//            }
+//        }
+//    
+//        if (self.sleepTrackerViewController)
+//        {
+//            if (trackerIndex != SleepIndex)
+//            {
+//                [self.sleepTrackerViewController willMoveToParentViewController:nil];
+//                [self.sleepTrackerViewController.view removeFromSuperview];
+//                [self.sleepTrackerViewController removeFromParentViewController];
+//                self.sleepTrackerViewController = nil;
+//            }
+//        }
+//    
+//        if (self.stressTrackerViewController)
+//        {
+//            if (trackerIndex != StressIndex)
+//            {
+//                [self.stressTrackerViewController willMoveToParentViewController:nil];
+//                [self.stressTrackerViewController.view removeFromSuperview];
+//                [self.stressTrackerViewController removeFromParentViewController];
+//                self.stressTrackerViewController = nil;
+//            }
+//        }
+//    
+//        if (self.drinkTrackerViewController)
+//        {
+//            if (trackerIndex != DrinkIndex)
+//            {
+//                [self.drinkTrackerViewController willMoveToParentViewController:nil];
+//                [self.drinkTrackerViewController.view removeFromSuperview];
+//                [self.drinkTrackerViewController removeFromParentViewController];
+//                self.drinkTrackerViewController = nil;
+//            }
+//        }
+//    
+//        if (self.activityTrackerViewController)
+//        {
+//            if (trackerIndex != ActivityIndex)
+//            {
+//                [self.activityTrackerViewController willMoveToParentViewController:nil];
+//                [self.activityTrackerViewController.view removeFromSuperview];
+//                [self.activityTrackerViewController removeFromParentViewController];
+//                self.activityTrackerViewController = nil;
+//            }
+//        }
+//}
 
 
 -(IBAction)backDay:(id)sender {
@@ -295,6 +382,7 @@ enum trackerIndex {
     CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
     self.datePickerViewContainer.frame = hideRect;
     self.datePickerViewContainer.hidden = NO;
+    self.datePickerDate = self.appDelegate.day.date;
      [self.datePickerView setDate:self.appDelegate.day.date animated:NO];
     CGRect  showRect = CGRectMake(0,self.view.bounds.size.height-250, self.view.bounds.size.width, 250);
     [UIView animateWithDuration:0.2
@@ -352,4 +440,18 @@ enum trackerIndex {
         }
 }
 
+// Food Sub Contollers
+
+//-(void) addFood:(UIButton*)sender
+//{
+//    ChoosePlateViewController* choosePlateViewController = (ChoosePlateViewController*)
+//    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+//     instantiateViewControllerWithIdentifier:@"ChoosePlateViewController"];
+//    choosePlateViewController.mealType = sender.tag;
+//
+//    [self.navigationController pushViewController:choosePlateViewController animated:YES];
+//   // [self.masterTrackerViewController loadViewController:choosePlateViewController];
+// //   [self.masterTrackerViewController presentAsFullModel:choosePlateViewController];
+//
+//}
 @end

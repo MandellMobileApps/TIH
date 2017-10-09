@@ -128,5 +128,7 @@ enum CornerType {
 -(void) enlargeTable:(float)height;
 
 -(void)resetDay;
+-(void)presentAsFullModel:(UIViewController *)thisViewController;
+-(void) dismissAsFullModal:(UIViewController *)thisViewController;
 
 @end

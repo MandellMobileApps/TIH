@@ -61,28 +61,7 @@
     
     self.continueButton.enabled = NO;
 
-    self.paidMenuView.hidden = NO;
-    self.freeMenuView.hidden = YES;
-
-    self.navigationItem.hidesBackButton = YES;
-    
-    self.navigationItem.title = @"Track Food";
-
-    
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
-    
-    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
-    
-    self.navigationController.navigationBar.titleTextAttributes = size;
-    
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-//     self.navigationController.navigationBar.backgroundColor= [UIColor colorWithRed:15/255.0 green:50/255.0 blue:30/255.0 alpha:1];
-    
-    self.foodButton.enabled = NO;
-    self.foodButton.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
-
     [self.thisTableView reloadData];
-//    [self.foodTrackerCell refreshFoodCell];
     
     CGRect hideRect = CGRectMake(0,self.view.bounds.size.height, self.view.bounds.size.width, 250);
     self.pickerViewContainer.frame = hideRect;
@@ -200,9 +179,8 @@
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
-    
+     [self.navigationController setNavigationBarHidden:NO];
     [self resetDay];
-    //self.directionsView.hidden = NO;
     
 }
 
@@ -552,7 +530,7 @@
             default:
                 break;
         }
-        // make modal?
+   
         [self.navigationController pushViewController:choosePlateViewController animated:YES];
     }
 }
@@ -621,6 +599,8 @@
     choosePlateViewController.mealType = sender.tag;
     [self.navigationController pushViewController:choosePlateViewController animated:YES];
 
+    
+ //   [self.masterTrackerViewController addFood:sender];
 }
 
 -(void)increaseWater{

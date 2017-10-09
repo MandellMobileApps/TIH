@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Day.h"
+#import "MasterTrackerViewController.h"
 #import "FoodTrackerViewController.h"
 #import "DrinkTrackerViewController.h"
 #import "StressTrackerViewController.h"

@@ -48,11 +48,7 @@ enum webViewType2 {
 @property (nonatomic, strong) ChoosePlateViewController* choosePlateViewController;
 @property (nonatomic, strong) UnderstandBalanceViewController* understandBalanceViewController;
 
-@property (nonatomic, strong) IBOutlet UIButton* foodButton;
-@property (nonatomic, strong) IBOutlet UIButton* sleepButton;
-@property (nonatomic, strong) IBOutlet UIButton* stresButton;
-@property (nonatomic, strong) IBOutlet UIButton* activityButton;
-@property (nonatomic, strong) IBOutlet UIButton* drinkButton;
+
 
 -(IBAction)food:(id)sender;
 -(IBAction)sleep:(id)sender;
@@ -80,7 +76,6 @@ enum webViewType2 {
 -(IBAction)forwardDay:(id)sender;
 
 
-@property (nonatomic, strong) IBOutlet UIView *freeMenuView;
 @property (nonatomic, strong) IBOutlet UIView *paidMenuView;
 
 -(void)hideFreeTabs;

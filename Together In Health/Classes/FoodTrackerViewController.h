@@ -12,8 +12,11 @@
 
 
 enum webViewType2 {
-    fAQs = 0,
-    disclaimer = 4,
+    aboutTIH = 0,
+    balance = 1,
+    fAQs = 2,
+    directions = 3,
+    disclaimer = 7,
     
 };
 

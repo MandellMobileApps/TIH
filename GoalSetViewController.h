@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface GoalSetViewController : UICollectionView
+#import "AbstractViewController.h"
+@interface GoalSetViewController : AbstractViewController
 
 @end

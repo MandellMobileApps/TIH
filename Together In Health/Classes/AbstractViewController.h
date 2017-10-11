@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "iAd/iAd.h"
 #import <MessageUI/MFMailComposeViewController.h>
+#import "DatePickerView.h"
 
 @class Goal;
 @class ProgressViewController;
@@ -128,7 +129,7 @@ enum CornerType {
 -(void) enlargeTable:(float)height;
 
 -(void)resetDay;
--(void)presentAsFullModel:(UIViewController *)thisViewController;
--(void) dismissAsFullModal:(UIViewController *)thisViewController;
+
+
 
 @end

@@ -358,40 +358,33 @@ enum trackerIndex {
 
 -(IBAction)datePickerValueChanged:(UIDatePicker*)sender {
     
-    self.datePickerDate = sender.date;
+ //   self.datePickerDate = sender.date;
 }
 
 -(IBAction)datePickerDoneButtonTapped:(id)sender {
     
-    self.appDelegate.day = [self.appDelegate dayForDate:self.datePickerDate];
-    [self resetDay];
-    [self hideDatePicker];
+//    self.appDelegate.day = [self.appDelegate dayForDate:self.datePickerDate];
+//    [self resetDay];
+//    [self hideDatePicker];
 
 }
 
 -(IBAction)datePickerTodayButtonTapped:(id)sender {
     
-    self.datePickerDate = [NSDate date];
-    [self.datePickerView setDate:self.datePickerDate animated:YES];
-
+//    self.datePickerDate = [NSDate date];
+//    [self.datePickerView setDate:self.datePickerDate animated:YES];
+//
 
 }
-
--(void) showDatePicker
+-(void)showDatePicker
 {
-    CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
-    self.datePickerViewContainer.frame = hideRect;
-    self.datePickerViewContainer.hidden = NO;
-    self.datePickerDate = self.appDelegate.day.date;
-     [self.datePickerView setDate:self.appDelegate.day.date animated:NO];
-    CGRect  showRect = CGRectMake(0,self.view.bounds.size.height-250, self.view.bounds.size.width, 250);
-    [UIView animateWithDuration:0.2
-                     animations:^{
-                         self.datePickerViewContainer.frame = showRect;
-                     }
-                     completion:^(BOOL finished){
-                         
-                     }];
+
+}
+-(void) showDatePickerForDate:(NSDate*)thisDate
+{
+//    DatePickerView* datePickerView = [DatePickerView initializeWithSelfBounds:self.view.bounds andDate:self.AppDelegate.thisDate];
+    
+
 }
 
 -(void) hideDatePicker

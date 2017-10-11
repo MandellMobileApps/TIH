@@ -32,7 +32,7 @@
 @property (nonatomic) NSUInteger trackerIndex;
 @property (nonatomic, strong) IBOutlet UIView *datePickerViewContainer;
 @property (nonatomic, strong) IBOutlet UIDatePicker* datePickerView;
-@property (nonatomic, strong) NSDate* datePickerDate;
+
 @property (nonatomic, strong) IBOutlet UILabel* dayLabel;
 
 // Food Sub Contollers

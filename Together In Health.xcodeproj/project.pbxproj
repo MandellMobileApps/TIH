@@ -78,6 +78,7 @@
 		36FE39351C0B6BF2002E341E /* DisclaimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FE39341C0B6BF2002E341E /* DisclaimerViewController.m */; };
 		36FE393D1C0BB46F002E341E /* TrackActivity.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FE393C1C0BB46F002E341E /* TrackActivity.png */; };
 		36FE39401C0F4EFC002E341E /* OpeningViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FE393F1C0F4EFC002E341E /* OpeningViewViewController.m */; };
+		6A2CA3601F8EAF0400DC7668 /* DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */; };
 		6A5541611F5C663500447A4E /* GoalCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5541601F5C663500447A4E /* GoalCalendarViewController.m */; };
 		6A5541641F5C82D700447A4E /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5541631F5C82D700447A4E /* Calendar.m */; };
 		6A5541671F5C842700447A4E /* ColorsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5541661F5C842700447A4E /* ColorsClass.m */; };
@@ -337,6 +338,8 @@
 		36FE393C1C0BB46F002E341E /* TrackActivity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrackActivity.png; path = ../../TrackActivity.png; sourceTree = "<group>"; };
 		36FE393E1C0F4EFC002E341E /* OpeningViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpeningViewViewController.h; path = ../OpeningViewViewController.h; sourceTree = "<group>"; };
 		36FE393F1C0F4EFC002E341E /* OpeningViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpeningViewViewController.m; path = ../OpeningViewViewController.m; sourceTree = "<group>"; };
+		6A2CA35E1F8EAF0400DC7668 /* DatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerView.h; path = "Together In Health/Classes/DatePickerView.h"; sourceTree = "<group>"; };
+		6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerView.m; path = "Together In Health/Classes/DatePickerView.m"; sourceTree = "<group>"; };
 		6A55415F1F5C663500447A4E /* GoalCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalCalendarViewController.h; sourceTree = "<group>"; };
 		6A5541601F5C663500447A4E /* GoalCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalCalendarViewController.m; sourceTree = "<group>"; };
 		6A5541621F5C82D700447A4E /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
@@ -615,6 +618,8 @@
 		6A91E3171BE2625500A72CCA = {
 			isa = PBXGroup;
 			children = (
+				6A2CA35E1F8EAF0400DC7668 /* DatePickerView.h */,
+				6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */,
 				367D6FCF1F83D566006281D3 /* GoalSetViewController.h */,
 				367D6FD01F83D566006281D3 /* GoalSetViewController.m */,
 				3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */,
@@ -1299,6 +1304,7 @@
 				6A91E4731BE2679300A72CCA /* Stress.m in Sources */,
 				6A91E4561BE2679300A72CCA /* HealthQuestionsCell.m in Sources */,
 				6A799F7C1F859E9F008E6EA3 /* MasterTrackerViewController.m in Sources */,
+				6A2CA3601F8EAF0400DC7668 /* DatePickerView.m in Sources */,
 				6A91E46A1BE2679300A72CCA /* SeasonalVegGameViewController.m in Sources */,
 				6A91E4511BE2679300A72CCA /* GoalMoreViewController.m in Sources */,
 				6A91E4431BE2679300A72CCA /* Drink.m in Sources */,

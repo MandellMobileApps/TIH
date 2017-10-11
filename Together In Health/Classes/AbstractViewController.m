@@ -43,7 +43,9 @@
 //  ********************************************************************************************************
 //  Standard backbutton for all Navigation bars
 //  ********************************************************************************************************
-	UIBarButtonItem *backBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+	[super viewDidLoad];
+    
+    UIBarButtonItem *backBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
 	self.navigationItem.backBarButtonItem = backBarItem;
     
     self.appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];

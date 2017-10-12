@@ -19,6 +19,7 @@
 #import "GenericWebViewController.h"
 #import "GenericWebViewController2.h"
 #import "MenuItem.h"
+#import "UnderstandBalanceViewController.h"
 
 @implementation FullOpeningViewController
 
@@ -61,6 +62,7 @@
     
     self.menuFreeArray3 = [NSArray arrayWithObjects:
                            @"About Together In Health",
+                           @"Understanding Balance",
                            @"FAQs",
                            @"Directions",
                            @"Contact Us",
@@ -92,6 +94,7 @@
    self.menuArrayS3 =[NSArray arrayWithObjects:
                       
                       @"About Together In Health",
+                      @"Understanding Balance",
                       @"FAQs",
                       @"Directions",
                       @"Contact Us",
@@ -506,13 +509,13 @@ switch (indexPath.section) {
 
     case 1:
         
-        if (indexPath.row == 0) {
-            GenericWebViewController* genericWebViewController = (GenericWebViewController*)
-            [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-             instantiateViewControllerWithIdentifier:@"GenericWebViewController"];
-            genericWebViewController.webViewType = indexPath.row;
-            [self.navigationController pushViewController:genericWebViewController animated:YES];
-        }
+    if (indexPath.row == 0) {
+        GenericWebViewController* genericWebViewController = (GenericWebViewController*)
+        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+         instantiateViewControllerWithIdentifier:@"GenericWebViewController"];
+        genericWebViewController.webViewType = indexPath.row;
+        [self.navigationController pushViewController:genericWebViewController animated:YES];
+    }
         
         else if (indexPath.row == 1) {
             GenericWebViewController* genericWebViewController = (GenericWebViewController*)
@@ -545,11 +548,11 @@ switch (indexPath.section) {
         }
         
         else if (indexPath.row == 1) {
-            GenericWebViewController2* genericWebViewController2 = (GenericWebViewController2*)
+            GenericWebViewController* genericWebViewController = (GenericWebViewController*)
             [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-             instantiateViewControllerWithIdentifier:@"GenericWebViewController2"];
-            genericWebViewController2.webViewType2 = indexPath.row;
-            [self.navigationController pushViewController:genericWebViewController2 animated:YES];
+             instantiateViewControllerWithIdentifier:@"GenericWebViewController"];
+            genericWebViewController.webViewType2 = indexPath.row;
+            [self.navigationController pushViewController:genericWebViewController animated:YES];
         }
         
         else if (indexPath.row == 2) {
@@ -561,19 +564,27 @@ switch (indexPath.section) {
         }
         
         else if (indexPath.row == 3) {
+            GenericWebViewController2* genericWebViewController2 = (GenericWebViewController2*)
+            [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+             instantiateViewControllerWithIdentifier:@"GenericWebViewController2"];
+            genericWebViewController2.webViewType2 = indexPath.row;
+            [self.navigationController pushViewController:genericWebViewController2 animated:YES];
+        }
+        
+        else if (indexPath.row == 4) {
                 
                 [self openEmailClientWithTo:@"support@mandellmobileapps.com" andSubject:@"Together In Health support"
                                     andBody:@""];
         }
         
-        else if (indexPath.row == 4)
+        else if (indexPath.row == 5)
             {
                 [self openEmailClientWithTo:@"" andSubject:@"Check out this cool new app."
                                     andBody:@"Check out more cool apps at <a href='http://www.mandellmobileapps.com/'>Mandell Mobile Apps</a>."];
                 
             }
         
-        else if (indexPath.row == 5) {
+        else if (indexPath.row == 6) {
             
             NSString *iTunesLink = @"https://itunes.apple.com/us/app/apple-store/id957991306?mt=8";
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
@@ -581,7 +592,7 @@ switch (indexPath.section) {
         }
 
         
-        else if (indexPath.row == 6) {
+        else if (indexPath.row == 7) {
             
             GenericWebViewController2* genericWebViewController2 = (GenericWebViewController2*)
             [[UIStoryboard storyboardWithName:@"Main" bundle:nil]

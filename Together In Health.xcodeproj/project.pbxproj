@@ -12,6 +12,9 @@
 		360DB1871C12809F00FBE90F /* TrackWaterAddRow.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1851C12809F00FBE90F /* TrackWaterAddRow.png */; };
 		360DB1881C12809F00FBE90F /* TrackWaterPickerView.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1861C12809F00FBE90F /* TrackWaterPickerView.png */; };
 		360DB18A1C14DDAC00FBE90F /* QuestionMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1891C14DDAC00FBE90F /* QuestionMark.png */; };
+		361BC4421F8EC2A40011A20E /* Goal1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4411F8EC2A40011A20E /* Goal1ViewController.m */; };
+		361BC4451F8EC2B60011A20E /* Goal2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4441F8EC2B60011A20E /* Goal2ViewController.m */; };
+		361BC4481F8EC2C30011A20E /* Goal3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4471F8EC2C30011A20E /* Goal3ViewController.m */; };
 		36278DAA1C2AF9F900B899E4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36278DA91C2AF9F800B899E4 /* CoreMotion.framework */; };
 		36278DAC1C2AFA0300B899E4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36278DAB1C2AFA0300B899E4 /* HealthKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		36278DAF1C2DAD8F00B899E4 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 36278DAE1C2DAD8F00B899E4 /* MenuItem.m */; };
@@ -258,6 +261,12 @@
 		360DB1851C12809F00FBE90F /* TrackWaterAddRow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrackWaterAddRow.png; sourceTree = "<group>"; };
 		360DB1861C12809F00FBE90F /* TrackWaterPickerView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrackWaterPickerView.png; sourceTree = "<group>"; };
 		360DB1891C14DDAC00FBE90F /* QuestionMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = QuestionMark.png; path = "../../Together In Health.xcodeproj/QuestionMark.png"; sourceTree = "<group>"; };
+		361BC4401F8EC2A40011A20E /* Goal1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal1ViewController.h; sourceTree = "<group>"; };
+		361BC4411F8EC2A40011A20E /* Goal1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal1ViewController.m; sourceTree = "<group>"; };
+		361BC4431F8EC2B60011A20E /* Goal2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal2ViewController.h; sourceTree = "<group>"; };
+		361BC4441F8EC2B60011A20E /* Goal2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal2ViewController.m; sourceTree = "<group>"; };
+		361BC4461F8EC2C30011A20E /* Goal3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal3ViewController.h; sourceTree = "<group>"; };
+		361BC4471F8EC2C30011A20E /* Goal3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal3ViewController.m; sourceTree = "<group>"; };
 		36278DA91C2AF9F800B899E4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		36278DAB1C2AFA0300B899E4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		36278DAD1C2DAD8F00B899E4 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
@@ -622,6 +631,12 @@
 				6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */,
 				367D6FCF1F83D566006281D3 /* GoalSetViewController.h */,
 				367D6FD01F83D566006281D3 /* GoalSetViewController.m */,
+				361BC4401F8EC2A40011A20E /* Goal1ViewController.h */,
+				361BC4411F8EC2A40011A20E /* Goal1ViewController.m */,
+				361BC4431F8EC2B60011A20E /* Goal2ViewController.h */,
+				361BC4441F8EC2B60011A20E /* Goal2ViewController.m */,
+				361BC4461F8EC2C30011A20E /* Goal3ViewController.h */,
+				361BC4471F8EC2C30011A20E /* Goal3ViewController.m */,
 				3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */,
 				3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */,
 				365847611F709636006DF9E4 /* ExercisePlanCell.h */,
@@ -1238,6 +1253,7 @@
 				6A91E45D1BE2679300A72CCA /* MgNetworkOperation2.m in Sources */,
 				6A91E45B1BE2679300A72CCA /* MenuPlanCell.m in Sources */,
 				6A91E4591BE2679300A72CCA /* HQViewController.m in Sources */,
+				361BC4451F8EC2B60011A20E /* Goal2ViewController.m in Sources */,
 				6A91E4711BE2679300A72CCA /* SolutionsViewController.m in Sources */,
 				36FE39401C0F4EFC002E341E /* OpeningViewViewController.m in Sources */,
 				6A91E44A1BE2679300A72CCA /* FullOpeningCell.m in Sources */,
@@ -1262,6 +1278,7 @@
 				6A91E4571BE2679300A72CCA /* HealthQuestionsViewController.m in Sources */,
 				6A5541671F5C842700447A4E /* ColorsClass.m in Sources */,
 				6AD7A80A1C3050E0004BD58F /* Plate.m in Sources */,
+				361BC4481F8EC2C30011A20E /* Goal3ViewController.m in Sources */,
 				6A91E43B1BE2679300A72CCA /* ChooseActivityViewController.m in Sources */,
 				6A91E4791BE2679300A72CCA /* ViewControllerGoal.m in Sources */,
 				6A91E4781BE2679300A72CCA /* ViewControllerGamePlan.m in Sources */,
@@ -1307,6 +1324,7 @@
 				6A2CA3601F8EAF0400DC7668 /* DatePickerView.m in Sources */,
 				6A91E46A1BE2679300A72CCA /* SeasonalVegGameViewController.m in Sources */,
 				6A91E4511BE2679300A72CCA /* GoalMoreViewController.m in Sources */,
+				361BC4421F8EC2A40011A20E /* Goal1ViewController.m in Sources */,
 				6A91E4431BE2679300A72CCA /* Drink.m in Sources */,
 				6A91E4601BE2679300A72CCA /* ProblemsCell.m in Sources */,
 				6A91E4521BE2679300A72CCA /* GoalsMenuViewController.m in Sources */,

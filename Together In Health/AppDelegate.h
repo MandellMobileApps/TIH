@@ -30,6 +30,7 @@ enum SubscriptionLevel {
 @class StressTrackerViewController;
 @class ActivityTrackerViewController;
 @class MasterTrackerViewController;
+@class GoalSetViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
@@ -45,6 +46,7 @@ enum SubscriptionLevel {
 @property (nonatomic, strong) StressTrackerViewController *stressTrackerViewController;
 @property (nonatomic, strong) ActivityTrackerViewController *activityTrackerViewController;
 @property (nonatomic, strong) MasterTrackerViewController *masterTrackerViewController;
+@property (nonatomic, strong) GoalSetViewController *goalSetViewController;
 
 
 @property (nonatomic) int subscriptionLevel;

@@ -18,9 +18,10 @@ enum webViewType {
 
 enum webViewType2 {
     aboutTIH = 0,
-    fAQs = 1,
-    directions = 2,
-    disclaimer = 6,
+    balance = 1,
+    fAQs = 2,
+    directions = 3,
+    disclaimer = 7,
 
 };
 

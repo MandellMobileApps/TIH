@@ -20,6 +20,7 @@
 #import "Food.h"
 #import "Plate.h"
 #import "Mood.h"
+#import "GoalSetViewController.h"
 
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>

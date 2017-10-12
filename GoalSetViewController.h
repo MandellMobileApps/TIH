@@ -11,3 +11,4 @@
 @interface GoalSetViewController : AbstractViewController
 
 @end
+

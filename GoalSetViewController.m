@@ -12,7 +12,7 @@
 #import "Goal2ViewController.h"
 #import "Goal3ViewController.h"
 #import "AppDelegate.h"
-
+#import "TIHDate.h"
 
 
 enum goalIndex {
@@ -42,7 +42,7 @@ enum goalIndex {
     
     self.goalIndex =  [[NSUserDefaults standardUserDefaults] integerForKey:@"goalIndex"];
     
-    [self food:nil];
+    [self goal1:nil];
     [self updateMenuButtons];
 }
 
@@ -274,26 +274,26 @@ enum goalIndex {
 
 -(IBAction)backDay:(id)sender {
     
-    self.appDelegate.day = [self.appDelegate dayForDate:[TIHDate dateYesterdayAtMidnightFromDate:self.appDelegate.day.date]];
-    
-    [self resetDay];
-    
+//    self.appDelegate.day = [self.appDelegate dayForDate:[TIHDate dateYesterdayAtMidnightFromDate:self.appDelegate.day.date]];
+//    
+//    [self resetDay];
+//    
     
     
 }
 
 -(IBAction)forwardDay:(id)sender{
     
-    self.appDelegate.day = [self.appDelegate dayForDate:[TIHDate dateTomorrowAtMidnightFromDate:self.appDelegate.day.date]];
-    
-    [self resetDay];
+//    self.appDelegate.day = [self.appDelegate dayForDate:[TIHDate dateTomorrowAtMidnightFromDate:self.appDelegate.day.date]];
+//    
+//    [self resetDay];
     
 }
 
 -(IBAction)changeDay:(id)sender {
-    self.datePickerViewContainer.hidden = NO;
-    
-    [self showDatePicker];
+//    self.datePickerViewContainer.hidden = NO;
+//    
+//    [self showDatePicker];
 }
 
 
@@ -301,86 +301,86 @@ enum goalIndex {
 
 -(IBAction)datePickerValueChanged:(UIDatePicker*)sender {
     
-    self.datePickerDate = sender.date;
+ //   self.datePickerDate = sender.date;
 }
 
 -(IBAction)datePickerDoneButtonTapped:(id)sender {
     
-    self.appDelegate.day = [self.appDelegate dayForDate:self.datePickerDate];
-    [self resetDay];
-    [self hideDatePicker];
+//    self.appDelegate.day = [self.appDelegate dayForDate:self.datePickerDate];
+//    [self resetDay];
+//    [self hideDatePicker];
     
 }
 
 -(IBAction)datePickerTodayButtonTapped:(id)sender {
     
-    self.datePickerDate = [NSDate date];
-    [self.datePickerView setDate:self.datePickerDate animated:YES];
-    
-    
+//    self.datePickerDate = [NSDate date];
+//    [self.datePickerView setDate:self.datePickerDate animated:YES];
+//    
+//    
 }
 
 -(void) showDatePicker
 {
-    CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
-    self.datePickerViewContainer.frame = hideRect;
-    self.datePickerViewContainer.hidden = NO;
-    self.datePickerDate = self.appDelegate.day.date;
-    [self.datePickerView setDate:self.appDelegate.day.date animated:NO];
-    CGRect  showRect = CGRectMake(0,self.view.bounds.size.height-250, self.view.bounds.size.width, 250);
-    [UIView animateWithDuration:0.2
-                     animations:^{
-                         self.datePickerViewContainer.frame = showRect;
-                     }
-                     completion:^(BOOL finished){
-                         
-                     }];
+//    CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
+//    self.datePickerViewContainer.frame = hideRect;
+//    self.datePickerViewContainer.hidden = NO;
+//    self.datePickerDate = self.appDelegate.day.date;
+//    [self.datePickerView setDate:self.appDelegate.day.date animated:NO];
+//    CGRect  showRect = CGRectMake(0,self.view.bounds.size.height-250, self.view.bounds.size.width, 250);
+//    [UIView animateWithDuration:0.2
+//                     animations:^{
+//                         self.datePickerViewContainer.frame = showRect;
+//                     }
+//                     completion:^(BOOL finished){
+//                         
+//                     }];
 }
 
 -(void) hideDatePicker
 {
-    
-    CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
-    [UIView animateWithDuration:0.2
-                     animations:^{
-                         self.datePickerViewContainer.frame = hideRect;
-                         
-                     }
-                     completion:^(BOOL finished){
-                         self.datePickerViewContainer.hidden = YES;
-                     }];
-    
-    
-    
+//    
+//    CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
+//    [UIView animateWithDuration:0.2
+//                     animations:^{
+//                         self.datePickerViewContainer.frame = hideRect;
+//                         
+//                     }
+//                     completion:^(BOOL finished){
+//                         self.datePickerViewContainer.hidden = YES;
+//                     }];
+//    
+//    
+//    
 }
 
 -(void) resetDay
 {
-    self.dayLabel.text = [TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime];
-    if (self.foodTrackerViewController)
-    {
-        [self.foodTrackerViewController resetDay];
-    }
-    
-    if (self.sleepTrackerViewController)
-    {
-        [self.sleepTrackerViewController resetDay];
-    }
-    
-    if (self.stressTrackerViewController)
-    {
-        [self.stressTrackerViewController resetDay];
-    }
-    
-    if (self.drinkTrackerViewController)
-    {
-        [self.drinkTrackerViewController resetDay];
-    }
-    
-    if (self.activityTrackerViewController)
-    {
-        [self.activityTrackerViewController resetDay];
-    }
+//    self.dayLabel.text = [TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime];
+//    if (self.foodTrackerViewController)
+//    {
+//        [self.foodTrackerViewController resetDay];
+//    }
+//    
+//    if (self.sleepTrackerViewController)
+//    {
+//        [self.sleepTrackerViewController resetDay];
+//    }
+//    
+//    if (self.stressTrackerViewController)
+//    {
+//        [self.stressTrackerViewController resetDay];
+//    }
+//    
+//    if (self.drinkTrackerViewController)
+//    {
+//        [self.drinkTrackerViewController resetDay];
+//    }
+//    
+//    if (self.activityTrackerViewController)
+//    {
+//        [self.activityTrackerViewController resetDay];
+//    }
 }
 
 // Food Sub Contollers
@@ -407,4 +407,4 @@ enum goalIndex {
 }
 */
 
-@end
+

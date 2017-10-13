@@ -8,7 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "AbstractViewController.h"
+#import "Goal1ViewController.h"
+#import "Goal2ViewController.h"
+#import "Goal3ViewController.h"
+
 @interface GoalSetViewController : AbstractViewController
+
+@property (nonatomic, strong)  Goal1ViewController* goal1ViewController;
+@property (nonatomic, strong)  Goal2ViewController* goal2ViewController;
+@property (nonatomic, strong)  Goal3ViewController* goal3ViewController;
+@property (nonatomic) NSInteger goalIndex;
+@property (nonatomic, strong) IBOutlet UIButton* goal1Button;
+@property (nonatomic, strong) IBOutlet UIButton* goal2Button;
+@property (nonatomic, strong) IBOutlet UIButton* goal3Button;
 
 @end
 

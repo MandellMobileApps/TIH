@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GoalSetViewController.h"
+//#import "GoalSetViewController.h"
 
 @class GoalSetViewController;
 

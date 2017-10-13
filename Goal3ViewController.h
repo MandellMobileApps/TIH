@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GoalSetViewController.h"
+#import "AbstractViewController.h"
 
 @class GoalSetViewController;
 
 @interface Goal3ViewController : AbstractViewController
 
 @property (nonatomic, weak) GoalSetViewController *goalSetViewController;
-@property (nonatomic, strong) Goal3ViewController* goal3ViewController;
+
 
 @end

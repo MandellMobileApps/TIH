@@ -135,7 +135,7 @@ enum trackerIndex {
     if (!self.foodTrackerViewController)
     {
         self.foodTrackerViewController = (FoodTrackerViewController*)
-        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+        [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
         instantiateViewControllerWithIdentifier:@"FoodTrackerViewController"];
         self.foodTrackerViewController.view.frame = [self baseRect];
         self.foodTrackerViewController.masterTrackerViewController = self;
@@ -163,7 +163,7 @@ enum trackerIndex {
     if (!self.sleepTrackerViewController)
     {
         self.sleepTrackerViewController = (SleepTrackerViewController*)
-        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+        [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
         instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
     }
 
@@ -190,7 +190,7 @@ enum trackerIndex {
     if (!self.stressTrackerViewController)
     {
         self.stressTrackerViewController = (StressTrackerViewController*)
-        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+        [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
         instantiateViewControllerWithIdentifier:@"StressTrackerViewController"];
     }
 
@@ -215,7 +215,7 @@ enum trackerIndex {
     if (!self.activityTrackerViewController)
     {
         self.activityTrackerViewController = (ActivityTrackerViewController*)
-        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+        [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
         instantiateViewControllerWithIdentifier:@"ActivityTrackerViewController"];
     
     }
@@ -240,7 +240,7 @@ enum trackerIndex {
     if (!self.drinkTrackerViewController)
     {
         self.drinkTrackerViewController = (DrinkTrackerViewController*)
-        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+        [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
         instantiateViewControllerWithIdentifier:@"DrinkTrackerViewController"];
     }
 

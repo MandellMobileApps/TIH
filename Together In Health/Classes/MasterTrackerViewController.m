@@ -315,7 +315,7 @@ enum trackerIndex {
 //                self.drinkTrackerViewController = nil;
 //            }
 //        }
-//    
+//    //
 //        if (self.activityTrackerViewController)
 //        {
 //            if (trackerIndex != ActivityIndex)

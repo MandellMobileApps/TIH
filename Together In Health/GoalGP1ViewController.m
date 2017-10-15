@@ -1,27 +1,25 @@
 //
-//  Goal1ViewController.m
+//  GoalGP1ViewController.m
 //  Together In Health
 //
-//  Created by Cami Mandell on 10/11/17.
+//  Created by Cami Mandell on 10/13/17.
 //  Copyright © 2017 MandellMobileApps. All rights reserved.
 //
 
-#import "Goal1ViewController.h"
-#import "GoalSetViewController.h"
+#import "GoalGP1ViewController.h"
 #import "GoalGamePlanViewController.h"
 
-@class GoalSetViewController;
-
-@interface Goal1ViewController ()
+@interface GoalGP1ViewController ()
 
 @end
 
-@implementation Goal1ViewController
+@implementation GoalGP1ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.thisScrollView.contentSize = CGSizeMake(320, 850);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,13 +27,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)gamePlan:(id)sender {
-    GoalGamePlanViewController* goalGamePlanViewController = (GoalGamePlanViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"GoalGamePlanViewController"];
-    [self.navigationController pushViewController:goalGamePlanViewController animated:YES];
-    
-}
+
 /*
 #pragma mark - Navigation
 

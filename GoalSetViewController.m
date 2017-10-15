@@ -33,7 +33,7 @@ enum goalIndex {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
     self.navigationController.navigationBar.titleTextAttributes = size;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
@@ -88,17 +88,17 @@ enum goalIndex {
     // update selected button
     switch (self.goalIndex) {
         case Goal1Index:
-            self.goal1Button.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+            self.goal1Button.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
             [self.goal1Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             self.goal1Button.enabled = NO;
             break;
         case Goal2Index:
-            self.goal2Button.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+            self.goal2Button.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
             [self.goal2Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             self.goal2Button.enabled = NO;
             break;
         case Goal3Index:
-            self.goal3Button.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+            self.goal3Button.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
             [self.goal3Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             self.goal3Button.enabled = NO;
             break;
@@ -114,7 +114,7 @@ enum goalIndex {
 -(CGRect)baseRect
 {
     CGRect baseRect = self.view.bounds;
-    NSInteger menuHeight = 77;
+    NSInteger menuHeight = 105;
     baseRect.origin.y = menuHeight;
     baseRect.size.height = self.view.frame.size.height-menuHeight;
     return baseRect;

@@ -21,6 +21,7 @@
 #import "Plate.h"
 #import "Mood.h"
 #import "GoalSetViewController.h"
+#import "GoalGamePlanViewController.h"
 
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>

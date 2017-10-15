@@ -55,7 +55,7 @@
 
 
 
-
+-(IBAction)setGoal:(id)sender;
 
 
 -(void)updateNavigationBarTitle;

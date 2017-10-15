@@ -7,6 +7,7 @@
 //
 
 #import "GoalCalendarViewController.h"
+#import "GoalSetViewController.h"
 
 @interface GoalCalendarViewController ()
 
@@ -252,6 +253,14 @@
     [defaults synchronize];
 
 
+}
+
+-(IBAction)setGoal:(id)sender {
+    GoalSetViewController* goalSetViewController = (GoalSetViewController*)
+    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+     instantiateViewControllerWithIdentifier:@"GoalSetViewController"];
+    [self.navigationController pushViewController:goalSetViewController animated:YES];
+    
 }
 
 @end

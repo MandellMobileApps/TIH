@@ -15,4 +15,6 @@
 
 @property (nonatomic, weak) GoalSetViewController *goalSetViewController;
 
+-(IBAction)gamePlan:(id)sender;
+
 @end

@@ -505,7 +505,7 @@
     else
     {
         ChoosePlateViewController* choosePlateViewController = (ChoosePlateViewController*)
-        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+        [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
          instantiateViewControllerWithIdentifier:@"ChoosePlateViewController"];
          choosePlateViewController.foodTrackerViewController = self;
         switch (indexPath.section) {
@@ -593,7 +593,7 @@
 
 -(IBAction)addFood:(UIButton*)sender {
     ChoosePlateViewController* choosePlateViewController = (ChoosePlateViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+    [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
      instantiateViewControllerWithIdentifier:@"ChoosePlateViewController"];
      choosePlateViewController.foodTrackerViewController = self;
     choosePlateViewController.mealType = sender.tag;

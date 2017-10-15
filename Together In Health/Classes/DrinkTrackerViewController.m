@@ -209,7 +209,7 @@
     if (indexPath.section == 0) {
         
         ChooseDrinkViewController* chooseDrinkViewController = (ChooseDrinkViewController*)
-        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+        [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
          instantiateViewControllerWithIdentifier:@"ChooseDrinkViewController"];
         //        [self presentViewController:chooseActivityViewController animated:YES completion:nil];
         [self.navigationController pushViewController:chooseDrinkViewController animated:YES];

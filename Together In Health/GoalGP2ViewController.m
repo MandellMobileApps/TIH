@@ -1,27 +1,23 @@
 //
-//  Goal1ViewController.m
+//  GoalGP2ViewController.m
 //  Together In Health
 //
-//  Created by Cami Mandell on 10/11/17.
+//  Created by Cami Mandell on 10/13/17.
 //  Copyright © 2017 MandellMobileApps. All rights reserved.
 //
 
-#import "Goal1ViewController.h"
-#import "GoalSetViewController.h"
+#import "GoalGP2ViewController.h"
 #import "GoalGamePlanViewController.h"
 
-@class GoalSetViewController;
-
-@interface Goal1ViewController ()
+@interface GoalGP2ViewController ()
 
 @end
 
-@implementation Goal1ViewController
+@implementation GoalGP2ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,13 +25,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)gamePlan:(id)sender {
-    GoalGamePlanViewController* goalGamePlanViewController = (GoalGamePlanViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"GoalGamePlanViewController"];
-    [self.navigationController pushViewController:goalGamePlanViewController animated:YES];
-    
-}
 /*
 #pragma mark - Navigation
 

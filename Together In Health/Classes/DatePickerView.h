@@ -14,7 +14,10 @@
 @property (nonatomic, strong)  UIButton *todayButton;
 @property (nonatomic, strong)  NSDate *date;
 @property (nonatomic, strong)  UIDatePicker *datePicker;
+@property (nonatomic) CGRect hideRect;
+@property (nonatomic) CGRect showRect;
+
 +(DatePickerView*)initializeWithSelfBounds:(CGRect)bounds andDate:(NSDate*)thisDate;
 -(void)showDatePicker;
-
+-(void) hideDatePicker;
 @end

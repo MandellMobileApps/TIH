@@ -12,6 +12,7 @@
 #import "ActivityTrackerViewController.h"
 #import "DrinkTrackerViewController.h"
 #import "StressTrackerViewController.h"
+#import "DatePickerView.h"
 
 @interface MasterTrackerViewController : AbstractViewController
 
@@ -31,8 +32,8 @@
 
 @property (nonatomic) NSUInteger trackerIndex;
 @property (nonatomic, strong) IBOutlet UIView *datePickerViewContainer;
-@property (nonatomic, strong) IBOutlet UIDatePicker* datePickerView;
-
+//@property (nonatomic, strong) IBOutlet UIDatePicker* datePickerView;
+@property (nonatomic, strong) IBOutlet DatePickerView *datePickerView;
 @property (nonatomic, strong) IBOutlet UILabel* dayLabel;
 
 // Food Sub Contollers

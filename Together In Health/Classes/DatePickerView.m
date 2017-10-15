@@ -51,10 +51,10 @@
 -(void)showDatePicker
 {
 
-    CGRect  showRect = CGRectMake(self.x,self.bounds.size.height-250, 320, 250);
+
     [UIView animateWithDuration:0.2
                      animations:^{
-                         self.frame = showRect;
+                         self.frame = self.showRect;
                      }
                      completion:^(BOOL finished){
                          
@@ -65,10 +65,9 @@
 -(void) hideDatePicker
 {
     
-    CGRect	hideRect = CGRectMake(0,self.bounds.size.height, 320, 250);
     [UIView animateWithDuration:0.2
                      animations:^{
-                         self.frame = hideRect;
+                         self.frame = self.hideRect;
                          
                      }
                      completion:^(BOOL finished){

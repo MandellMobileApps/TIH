@@ -25,20 +25,23 @@
     thisView.hideRect = CGRectMake((bounds.size.width - 320)/2, bounds.size.height, 320, 250);
     thisView.showRect = CGRectMake((bounds.size.width - 320)/2, bounds.size.height-250, 320, 250);
     [thisView setFrame:thisView.hideRect];
-    thisView.backgroundColor = [UIColor yellowColor];
-    CGRect datePickerFrame = CGRectMake((bounds.size.width - 320)/2, bounds.size.height-250, 320, 250);
+    thisView.backgroundColor = [UIColor lightGrayColor];
+    
+    CGRect datePickerFrame = CGRectMake(20, 70, 280, 160);
     thisView.datePicker = [[UIDatePicker alloc]initWithFrame:datePickerFrame];
-    thisView.datePicker.date = thisDate;
+    thisView.datePicker.datePickerMode = UIDatePickerModeDate;
+    thisView.datePicker.date = [NSDate date];
     [thisView addSubview:thisView.datePicker];
 
     
-    CGRect doneButtonRect = CGRectMake(20,20, 40, 80);
+    CGRect doneButtonRect = CGRectMake(20,20, 80, 40);
     thisView.doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
     thisView.doneButton.frame = doneButtonRect;
     [thisView.doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    [thisView.doneButton addTarget:thisView action:@selector(hideDatePicker) forControlEvents:UIControlEventTouchUpInside];
     [thisView addSubview:thisView.doneButton];
 
-    CGRect todayButtonRect = CGRectMake(thisView.frame.size.width-100,20, 40, 80);
+    CGRect todayButtonRect = CGRectMake(thisView.frame.size.width-100,20, 80, 40);
     thisView.todayButton = [UIButton buttonWithType:UIButtonTypeSystem];
     thisView.todayButton.frame = todayButtonRect;
     [thisView.todayButton setTitle:@"Today" forState:UIControlStateNormal];

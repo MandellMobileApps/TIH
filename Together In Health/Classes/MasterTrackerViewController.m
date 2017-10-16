@@ -350,6 +350,7 @@ enum trackerIndex {
 
 -(IBAction)changeDay:(id)sender {
     self.datePickerView = [DatePickerView initializeWithSelfBounds:self.foodTrackerViewController.view.bounds andDate:self.appDelegate.day.date];
+    [self addBorderAround:self.datePickerView cornerType:CornerTypeRounded withColor:[UIColor darkGrayColor]];
     [self.foodTrackerViewController.view addSubview:self.datePickerView];
     [self.datePickerView showDatePicker];
 }

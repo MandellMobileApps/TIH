@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GoalSetViewController.h"
+#import "AbstractViewController.h"
 
 @class GoalSetViewController;
 
 @interface Goal1ViewController : AbstractViewController
 
 @property (nonatomic, weak) GoalSetViewController *goalSetViewController;
-@property (nonnull, strong) IBOutlet UIScrollView *thisScrollView;
+@property (nonatomic, strong) IBOutlet UIScrollView *thisScrollView;
 
 - (IBAction)gamePlan:(id)sender;
 - (IBAction)buttonTapped1:(id)sender;

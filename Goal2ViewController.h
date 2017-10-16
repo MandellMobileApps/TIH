@@ -14,5 +14,6 @@
 @interface Goal2ViewController : AbstractViewController
 
 @property (nonatomic, weak) GoalSetViewController *goalSetViewController;
+@property (nonnull, strong) IBOutlet UIScrollView *thisScrollView;
 
 @end

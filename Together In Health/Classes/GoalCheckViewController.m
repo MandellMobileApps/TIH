@@ -46,7 +46,7 @@
             self.textViewGoalCheck2.text = @"Being confident you can achieve your goal is really important. Is there anything else you can do to make you more confident. The more confident you are the better.";
             break;
         case 8:
-            self.textViewGoalCheck2.text = @"That's great you are confident you can achieve your goal! If your goal is important to you, you're reading to get started.";
+            self.textViewGoalCheck2.text = @"That's great you are confident you can achieve your goal! If your goal is important to you, you're ready to get started.";
             break;
         case 9:
             self.textViewGoalCheck2.text = @"That's great you are 100% confident you can achieve your goal! If your goal is important to you, you're ready to get started.";
@@ -68,10 +68,10 @@
             self.textViewGoalCheck.text = @"Why is your goal not very important to you? Can you think of a goal that is really important to you?";
             break;
         case 3:
-            self.textViewGoalCheck.text = @"That's great you have a goal that is important to you. If you're confident in your goal, you're ready to get started?";
+            self.textViewGoalCheck.text = @"That's great you have a goal that is important to you. If you're confident in your goal, you're ready to get started!";
             break;
         case 4:
-            self.textViewGoalCheck.text = @"That's great you have a goal that is important to you. If you're confident in your goal, you're ready to get started?";
+            self.textViewGoalCheck.text = @"That's great you have a goal that is important to you. If you're confident in your goal, you're ready to get started!";
             break;
         default:
             break;

@@ -193,7 +193,7 @@ enum goalIndex {
     [self.view addSubview:self.goal3ViewController.view];
     [self.goal3ViewController didMoveToParentViewController:self];
     self.title = @"Goal 3";
-    self.goalIndex = Goal1Index;
+    self.goalIndex = Goal3Index;
     [self updateMenuButtons];
     
     //    [self unloadOtherViewControllersExceptIndex:StressIndex];

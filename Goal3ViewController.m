@@ -17,6 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 700);
+    [self.thisScrollView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     // Do any additional setup after loading the view.
 }
 

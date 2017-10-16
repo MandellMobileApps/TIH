@@ -231,7 +231,26 @@
     
 }
 
-
+-(void) checkForDatabaseInDocuments
+{
+    NSString *path1 = [self dataFilePathofBundle:@"TIHDatabase.sqlite"];
+    NSString *path2 = [self dataFilePathofDocuments:@"TIHDatabase.sqlite"];
+    
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:path2])
+    {
+        NSError* error;
+        [fileManager copyItemAtPath:path1 toPath: path2 error:&error];
+        
+        if (error != nil)
+        {
+            NSLog(@"Error message is %@", [error localizedDescription]);
+        }
+        
+    }
+    
+    
+}
 
 -(void) openEmailClientWithTo:(NSString*)to andSubject:(NSString*)subject andBody:(NSString*)body {
     

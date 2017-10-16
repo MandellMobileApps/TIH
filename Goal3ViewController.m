@@ -8,6 +8,9 @@
 
 #import "Goal3ViewController.h"
 #import "GoalSetViewController.h"
+#import "GoalGamePlanViewController.h"
+#import "GoalCalendarViewController.h"
+#import "GoalCheckViewController.h"
 
 @interface Goal3ViewController ()
 
@@ -26,6 +29,32 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(IBAction)gamePlan:(id)sender {
+    GoalGamePlanViewController* goalGamePlanViewController = (GoalGamePlanViewController*)
+    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+     instantiateViewControllerWithIdentifier:@"GoalGamePlanViewController"];
+    [self.navigationController pushViewController:goalGamePlanViewController animated:YES];
+    
+}
+
+-(IBAction)goalCalendar:(id)sender {
+    GoalCalendarViewController* goalCalendarViewController = (GoalCalendarViewController*)
+    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+     instantiateViewControllerWithIdentifier:@"GoalCalendarViewController"];
+    [self.navigationController pushViewController:goalCalendarViewController animated:YES];
+    
+}
+
+-(IBAction)goalCheck:(id)sender {
+    GoalCheckViewController* goalCheckViewController = (GoalCheckViewController*)
+    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+     instantiateViewControllerWithIdentifier:@"GoalCheckViewController"];
+    [self.navigationController pushViewController:goalCheckViewController animated:YES];
+    
+}
+
+
 
 /*
 #pragma mark - Navigation

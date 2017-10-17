@@ -45,6 +45,8 @@
     thisView.todayButton = [UIButton buttonWithType:UIButtonTypeSystem];
     thisView.todayButton.frame = todayButtonRect;
     [thisView.todayButton setTitle:@"Today" forState:UIControlStateNormal];
+    [thisView.todayButton addTarget:thisView action:@selector(gotoToday) forControlEvents:UIControlEventTouchUpInside];
+
     [thisView addSubview:thisView.todayButton];
     
     
@@ -79,5 +81,10 @@
     
     
     
+}
+
+-(void)gotoToday
+{
+    self.datePicker.date = [NSDate date];
 }
 @end

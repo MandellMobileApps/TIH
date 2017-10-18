@@ -26,7 +26,6 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    self.appDelegate.activityTrackerViewController = self;
     
     self.paidMenuView.hidden = YES;
     self.freeMenuView.hidden = NO;
@@ -60,15 +59,6 @@
 
 
 -(void)resetDay {
-    
-    if ([self.appDelegate.day.date compare:[TIHDate dateAtMidnightFromDate:[NSDate date]]] == NSOrderedSame) {
-        self.dayLabel.text = @"Today";
-    }
-    
-    else {
-        
-        self.dayLabel.text = [TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime];
-    }
     [self.thisTableView reloadData];
     
     
@@ -457,94 +447,11 @@
 
 -(IBAction)addActivity:(id)sender {
     ChooseActivityViewController* chooseActivityViewController = (ChooseActivityViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+    [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
      instantiateViewControllerWithIdentifier:@"ChooseActivityViewController"];
     chooseActivityViewController.navigationItem.hidesBackButton = NO;
     chooseActivityViewController.activityTrackerViewController = self;
     [self.navigationController pushViewController:chooseActivityViewController animated:NO];
-}
-#pragma Change Day
-
-//-(IBAction)backDay:(id)sender {
-//    
-//    
-//    self.appDelegate.day = [self.appDelegate dayForDate:[self.appDelegate.day.date dateByAddingTimeInterval:-60*60*24]];
-//    
-//    [self resetDay];
-//    
-//    
-//}
-//
-//-(IBAction)forwardDay:(id)sender{
-//    
-//    
-//    self.appDelegate.day = [self.appDelegate dayForDate:[self.appDelegate.day.date dateByAddingTimeInterval:60*60*24]];
-//    [self resetDay];
-//    
-//}
-
-
--(IBAction)changeDay:(id)sender {
-    self.datePickerViewContainer.hidden = NO;
-    self.pickerViewContainer.hidden = YES;
-    [self showDatePicker];
-}
-
-
-#pragma Date Picker delegates
-
--(IBAction)datePickerValueChanged:(UIDatePicker*)sender {
-    
-    self.datePickerDate = sender.date;
-}
-
--(IBAction)datePickerDoneButtonTapped:(id)sender {
-    
-    self.appDelegate.day = [self.appDelegate dayForDate:self.datePickerDate];
-    [self resetDay];
-    [self hideDatePicker];
-    
-}
-
--(IBAction)datePickerTodayButtonTapped:(id)sender {
-    
-    self.datePickerDate = [NSDate date];
-    [self.datePickerView setDate:self.datePickerDate animated:YES];
-    
-    
-}
-
--(void) showDatePicker
-{
-    CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
-    self.datePickerViewContainer.frame = hideRect;
-    self.datePickerViewContainer.hidden = NO;
-    [self.datePickerView setDate:self.appDelegate.day.date animated:NO];
-    CGRect  showRect = CGRectMake(0,self.view.bounds.size.height-250, self.view.bounds.size.width, 250);
-    [UIView animateWithDuration:0.2
-                     animations:^{
-                         self.datePickerViewContainer.frame = showRect;
-                     }
-                     completion:^(BOOL finished){
-                         
-                     }];
-}
-
--(void) hideDatePicker
-{
-    
-    CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
-    [UIView animateWithDuration:0.2
-                     animations:^{
-                         self.datePickerViewContainer.frame = hideRect;
-                         
-                     }
-                     completion:^(BOOL finished){
-                         self.datePickerViewContainer.hidden = YES;
-                     }];
-    
-    
-    
 }
 
 #pragma StepTracking methodes

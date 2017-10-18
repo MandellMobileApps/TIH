@@ -11,6 +11,13 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import "DatePickerView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Activity.h"
+#import "Food.h"
+#import "Plate.h"
+#import "Mood.h"
+#import "TIHDate.h"
+#import "SQLiteAccess.h"
+#import "Day.h"
 
 @class Goal;
 @class ProgressViewController;

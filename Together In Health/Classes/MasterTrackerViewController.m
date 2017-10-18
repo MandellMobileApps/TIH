@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "Day.h"
 #import "ChoosePlateViewController.h"
+#import "OpeningViewViewController.h"
 
 
 enum trackerIndex {
@@ -36,13 +37,24 @@ enum trackerIndex {
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
     self.navigationController.navigationBar.titleTextAttributes = size;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
- 
-    self.appDelegate.masterTrackerViewController = self;
-    
+
     self.trackerIndex =  [[NSUserDefaults standardUserDefaults] integerForKey:@"trackerIndex"];
    
     [self food:nil];
     [self updateMenuButtons];
+    
+    self.isAgree = [[NSUserDefaults standardUserDefaults]boolForKey:@"isAgree"];
+
+    if (self.isAgree == NO)
+    {
+        OpeningViewViewController *openingViewViewController = (OpeningViewViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"OpeningViewViewController"];
+        openingViewViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        
+        [self presentViewController:openingViewViewController animated:YES completion:^{
+
+        }];
+    }
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -349,61 +361,38 @@ enum trackerIndex {
 }
 
 -(IBAction)changeDay:(id)sender {
-    self.datePickerView = [DatePickerView initializeWithSelfBounds:self.foodTrackerViewController.view.bounds andDate:self.appDelegate.day.date];
+    self.datePickerView = [DatePickerView initializeWithSelfBounds:[self baseRect] andDate:self.appDelegate.day.date];
+    self.datePickerView.datePickerViewDelegate = self;
     [self addBorderAround:self.datePickerView cornerType:CornerTypeRounded withColor:[UIColor darkGrayColor]];
-    [self.foodTrackerViewController.view addSubview:self.datePickerView];
+    switch (self.trackerIndex) {
+      case FoodIndex:
+        [self.foodTrackerViewController.view addSubview:self.datePickerView];
+        break;
+      case ActivityIndex:
+        [self.activityTrackerViewController.view addSubview:self.datePickerView];
+        break;
+      case SleepIndex:
+        [self.sleepTrackerViewController.view addSubview:self.datePickerView];
+        break;
+      case StressIndex:
+        [self.stressTrackerViewController.view addSubview:self.datePickerView];
+        break;
+      case DrinkIndex:
+        [self.drinkTrackerViewController.view addSubview:self.datePickerView];
+        break;
+      default:
+        break;
+    }
     [self.datePickerView showDatePicker];
 }
 
 
 #pragma Date Picker delegates
 
--(IBAction)datePickerValueChanged:(UIDatePicker*)sender {
-    
- //   self.datePickerDate = sender.date;
-}
-
--(IBAction)datePickerDoneButtonTapped:(id)sender {
-    
-//    self.appDelegate.day = [self.appDelegate dayForDate:self.datePickerDate];
-//    [self resetDay];
-//    [self hideDatePicker];
-
-}
-
--(IBAction)datePickerTodayButtonTapped:(id)sender {
-    
-//    self.datePickerDate = [NSDate date];
-//    [self.datePickerView setDate:self.datePickerDate animated:YES];
-//
-
-}
--(void)showDatePicker
+-(void) datePickerViewChanged:(DatePickerView *)thisDatePickerView;
 {
-
-}
--(void) showDatePickerForDate:(NSDate*)thisDate
-{
-//    DatePickerView* datePickerView = [DatePickerView initializeWithSelfBounds:self.view.bounds andDate:self.AppDelegate.thisDate];
-    
-
-}
-
--(void) hideDatePicker
-{
-    
-    CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
-    [UIView animateWithDuration:0.2
-                     animations:^{
-                         self.datePickerViewContainer.frame = hideRect;
-                         
-                     }
-                     completion:^(BOOL finished){
-                         self.datePickerViewContainer.hidden = YES;
-                     }];
-    
-    
-    
+    self.appDelegate.day = [self.appDelegate dayForDate:thisDatePickerView.datePicker.date];
+    [self resetDay];
 }
 
 -(void) resetDay

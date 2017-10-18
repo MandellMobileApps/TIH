@@ -40,12 +40,8 @@ enum webViewType2 {
 @property (nonatomic, strong) NSArray *plateImageArray;
 @property (nonatomic, strong) NSMutableArray *alldayFoodArray;
 
-@property (nonatomic, strong) IBOutlet UILabel *dayLabel;
-@property (nonatomic, strong) IBOutlet UILabel *locationLabel;
 @property (nonatomic, strong) IBOutlet UITableView* thisTableView;
-@property (nonatomic, strong) FoodTrackerViewController* foodTrackerViewController;
 @property (nonatomic, strong) Food* food;
-//@property (nonatomic, strong) FoodTrackerCell* foodTrackerCell;
 
 @property (nonatomic, strong) ActivityTrackerViewController* activityTrackerViewController;
 @property (nonatomic, strong) ChoosePlateViewController* choosePlateViewController;
@@ -116,7 +112,7 @@ enum webViewType2 {
 -(IBAction)termsConditions:(id)sender;
 -(IBAction)continueProgram:(id)sender;
 @property (nonatomic, strong) IBOutlet UIButton *continueButton;
-@property (nonatomic) BOOL isAgree;
+
 @property (nonatomic) BOOL agreeIsOn;
 -(void)saveDefaults;
 @property (nonatomic, strong) IBOutlet UITextView *disclaimerTextView;

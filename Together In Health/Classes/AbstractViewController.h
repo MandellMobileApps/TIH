@@ -10,6 +10,7 @@
 #import "iAd/iAd.h"
 #import <MessageUI/MFMailComposeViewController.h>
 #import "DatePickerView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @class Goal;
 @class ProgressViewController;

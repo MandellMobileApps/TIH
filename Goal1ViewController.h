@@ -6,8 +6,10 @@
 //  Copyright © 2017 MandellMobileApps. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "AbstractViewController.h"
+#import "Goal.h"
+
+
 
 @class GoalSetViewController;
 
@@ -24,24 +26,24 @@
 - (IBAction)buttonTapped5:(id)sender;
 
 
-@property (nonatomic, strong) IBOutlet UIButton *step1;
-@property (nonatomic, strong) IBOutlet UIButton *step2;
-@property (nonatomic, strong) IBOutlet UIButton *step3;
-@property (nonatomic, strong) IBOutlet UIButton *step4;
-@property (nonatomic, strong) IBOutlet UIButton *step5;
+//@property (nonatomic, strong) IBOutlet UIButton *step1;
+//@property (nonatomic, strong) IBOutlet UIButton *step2;
+//@property (nonatomic, strong) IBOutlet UIButton *step3;
+//@property (nonatomic, strong) IBOutlet UIButton *step4;
+//@property (nonatomic, strong) IBOutlet UIButton *step5;
 
 @property (nonatomic, strong) Goal *goal;
 
-@property (nonnull, strong) IBOutlet UITextField *goalTextField;
-@property (nonnull, strong) IBOutlet UITextField *daysTextField;
-@property (nonnull, strong) IBOutlet UITextField *timesTextField;
-@property (nonnull, strong) IBOutlet UITextField *whereTextField;
-@property (nonnull, strong) IBOutlet UITextField *amountTextField;
-@property (nonnull, strong) IBOutlet UITextField *step1TextField;
-@property (nonnull, strong) IBOutlet UITextField *step2TextField;
-@property (nonnull, strong) IBOutlet UITextField *step3TextField;
-@property (nonnull, strong) IBOutlet UITextField *step4TextField;
-@property (nonnull, strong) IBOutlet UITextField *step5TextField;
+@property (nonatomic, strong) IBOutlet UITextField *goalTextField;
+@property (nonatomic, strong) IBOutlet UITextField *daysTextField;
+@property (nonatomic, strong) IBOutlet UITextField *timesTextField;
+@property (nonatomic, strong) IBOutlet UITextField *whereTextField;
+@property (nonatomic, strong) IBOutlet UITextField *amountTextField;
+@property (nonatomic, strong) IBOutlet UITextField *step1TextField;
+@property (nonatomic, strong) IBOutlet UITextField *step2TextField;
+@property (nonatomic, strong) IBOutlet UITextField *step3TextField;
+@property (nonatomic, strong) IBOutlet UITextField *step4TextField;
+@property (nonatomic, strong) IBOutlet UITextField *step5TextField;
 
 
 @end

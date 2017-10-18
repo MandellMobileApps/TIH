@@ -10,6 +10,8 @@
 
 @implementation DatePickerView
 
+@synthesize datePickerViewDelegate = _datePickerViewDelegate;
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -27,9 +29,13 @@
     [thisView setFrame:thisView.hideRect];
     thisView.backgroundColor = [UIColor lightGrayColor];
     
+    thisView.dateDidChange = NO;
+    
     CGRect datePickerFrame = CGRectMake(20, 70, 280, 160);
     thisView.datePicker = [[UIDatePicker alloc]initWithFrame:datePickerFrame];
     thisView.datePicker.datePickerMode = UIDatePickerModeDate;
+    [thisView.datePicker addTarget:thisView action:@selector(datePickerDidChange) forControlEvents:UIControlEventValueChanged];
+
     thisView.datePicker.date = [NSDate date];
     [thisView addSubview:thisView.datePicker];
 
@@ -38,7 +44,7 @@
     thisView.doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
     thisView.doneButton.frame = doneButtonRect;
     [thisView.doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [thisView.doneButton addTarget:thisView action:@selector(hideDatePicker) forControlEvents:UIControlEventTouchUpInside];
+    [thisView.doneButton addTarget:thisView action:@selector(doneButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [thisView addSubview:thisView.doneButton];
 
     CGRect todayButtonRect = CGRectMake(thisView.frame.size.width-100,20, 80, 40);
@@ -86,5 +92,24 @@
 -(void)gotoToday
 {
     self.datePicker.date = [NSDate date];
+}
+
+-(void) datePickerDidChange
+{
+    self.dateDidChange = YES;
+}
+-(void) doneButtonTapped
+{
+    if (self.dateDidChange)
+    {
+        if (self.datePickerViewDelegate)
+        {
+            if ([self.datePickerViewDelegate respondsToSelector:@selector(datePickerViewChanged:)])
+            {
+                [self.datePickerViewDelegate datePickerViewChanged:self];
+            }
+        }
+    }
+    [self hideDatePicker];
 }
 @end

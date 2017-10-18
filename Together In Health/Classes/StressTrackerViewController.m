@@ -25,8 +25,6 @@
     self.navigationItem.backBarButtonItem = nil;
     [super viewDidLoad];
     
-    self.appDelegate.stressTrackerViewController = self;
-    
     self.thisScrollView.contentSize = CGSizeMake(320, 700);
     
     [self resetDay];

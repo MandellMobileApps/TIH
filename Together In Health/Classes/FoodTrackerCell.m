@@ -17,6 +17,7 @@
     if (self.food)
     {
         self.plateImage.hidden = NO;
+        self.moodImage.hidden = NO;
         self.proteinLabel.hidden = NO;
         self.carbsLabel.hidden = NO;
         self.vegetableLabel.hidden = NO;
@@ -34,7 +35,15 @@
         self.waterLabel.hidden = NO;
         self.cupsLabel.hidden = NO;
         self.waterLabel.text = self.waterCups;
-        self.cupsLabel.text = @"Cup(s)";
+        if ([self.waterCups integerValue] == 1)
+        {
+            self.cupsLabel.text = @"Cup";
+        }
+        else
+        {
+            self.cupsLabel.text = @"Cups";
+        }
+  
         self.plateImage.hidden = YES;
         self.proteinLabel.hidden = YES;
         self.carbsLabel.hidden = YES;

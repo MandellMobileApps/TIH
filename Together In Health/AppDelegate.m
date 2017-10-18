@@ -7,22 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "Day.h"
-#import "MasterTrackerViewController.h"
-#import "FoodTrackerViewController.h"
-#import "DrinkTrackerViewController.h"
-#import "StressTrackerViewController.h"
-#import "ActivityTrackerViewController.h"
-#import "TIHDate.h"
-#import "SQLiteAccess.h"
 #import "MgNetworkOperation2.h"
-#import "Activity.h"
-#import "Food.h"
-#import "Plate.h"
-#import "Mood.h"
 #import "GoalSetViewController.h"
 #import "GoalGamePlanViewController.h"
-
+#import "Day.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
@@ -448,31 +436,28 @@
 
 
 -(Day*)dayForDate:(NSDate*)thisDate
-    {
-        
-        NSDate* atMidnight = [TIHDate dateAtMidnightFromDate:thisDate];
-        
-        Day* thisDay;
-        for (Day* day in self.days) {
-            
-            if ([atMidnight compare:day.date] == NSOrderedSame) {
-                thisDay = day;
-            }
-        }
-        
-        if (thisDay) {
-           // NSLog(@"Existing thisDay.date %@", thisDay.date);
+{
+    NSDate* atMidnight = [TIHDate dateAtMidnightFromDate:thisDate];
+    
+    Day* thisDay;
+
+    
+    for (Day* day in self.days) {
+       NSLog(@"thisDay %@  %@", day.date,day);
+        if ([atMidnight compare:day.date] == NSOrderedSame) {
+            thisDay = day;
             return thisDay;
         }
-        
-        Day *newDay = [[Day alloc] initWithDate:atMidnight];
-        
-        [self.days addObject:newDay];
-        [self savePersistent];
-
-        return newDay;
-        
     }
+
+    Day *newDay = [[Day alloc] initWithDate:atMidnight];
+    
+    [self.days addObject:newDay];
+    [self savePersistent];
+    NSLog(@"newDay %@  %@", newDay.date,newDay);
+    return newDay;
+    
+}
     
     
 -(Day*)calendarDayForDate:(NSDate*)thisDate

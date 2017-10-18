@@ -139,26 +139,15 @@
     
 }
 
-//-(void)resetDay {
-//    
-//    if ([self.appDelegate.day.date compare:[TIHDate dateAtMidnightFromDate:[NSDate date]]] == NSOrderedSame) {
-//        self.dayLabel.text = @"Today";
-//    }
-//    
-//    else {
-//        
-//        self.dayLabel.text = [TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime];
-//    }
-//    
-//    [self updateArrays];
-//    [self.thisTableView reloadData];
-//    
-//}
-//
-//-(void)updateData
-//{
-//    [self resetDay];
-//}
+-(void)resetDay {
+    [self.thisTableView reloadData];
+    
+}
+
+-(void)updateData
+{
+    [self resetDay];
+}
 //
 //
 //-(void)updateArrays

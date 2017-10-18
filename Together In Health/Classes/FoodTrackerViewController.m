@@ -9,11 +9,7 @@
 #import "FoodTrackerViewController.h"
 #import "FoodTrackerCell.h"
 #import "AddFoodCell.h"
-#import "SleepTrackerViewController.h"
 #import "ChoosePlateViewController.h"
-#import "ActivityTrackerViewController.h"
-#import "DrinkTrackerViewController.h"
-#import "StressTrackerViewController.h"
 #import "Food.h"
 #import "TIHDate.h"
 #import "Day.h"
@@ -23,7 +19,6 @@
 #import "UnderstandBalanceViewController.h"
 #import "DisclaimerViewController.h"
 #import "DirectionsViewController.h"
-#import "OpeningViewViewController.h"
 #import "MasterTrackerViewController.h"
 
 @interface FoodTrackerViewController ()
@@ -31,7 +26,6 @@
 @property (nonatomic, strong) NSMutableArray *lunchArray;
 @property (nonatomic, strong) NSMutableArray *dinnerArray;
 @property (nonatomic, strong) NSMutableArray *snackArray;
-@property (nonatomic, strong) OpeningViewViewController *openingViewViewController;
 
 
 @end
@@ -56,9 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.appDelegate.foodTrackerViewController = self;
-    
+        
     self.continueButton.enabled = NO;
 
     [self.thisTableView reloadData];
@@ -155,31 +147,13 @@
     
     [super viewDidAppear:animated];
     
-    self.isAgree = [[NSUserDefaults standardUserDefaults]boolForKey:@"isAgree"];
-    
-    if (self.isAgree == NO)
-    {
-        self.openingViewViewController = (OpeningViewViewController*)
-        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-         instantiateViewControllerWithIdentifier:@"OpeningViewViewController"];
-        self.openingViewViewController.foodTrackerViewController = self;
-        self.openingViewViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-        
-        [self presentViewController:self.openingViewViewController animated:YES completion:^{
 
-        }];
-
-    }
-    
-    else {
-        
-    }
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
-     [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:NO];
     [self resetDay];
     
 }
@@ -236,15 +210,6 @@
 
 -(void)resetDay {
     
-    if ([self.appDelegate.day.date compare:[TIHDate dateAtMidnightFromDate:[NSDate date]]] == NSOrderedSame) {
-        self.dayLabel.text = @"Today";
-    }
-    
-    else {
-        
-        self.dayLabel.text = [TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime];
-    }
-        
     [self updateArrays];
     [self.thisTableView reloadData];
     
@@ -639,44 +604,45 @@
 -(IBAction)pickerDoneButtonTapped:(id)sender {
     [self hidePickerView];
     self.pickerViewContainer.hidden = YES;
+    [self.thisTableView reloadData];
     
 }
 
--(void) showPickerForIndex:(NSInteger)selection {
-    
-    if (selection == -1)
-    {
-        [self hidePickerView];
-    }
-    else if (selection == 0)
-    {
-        if (self.currentSelection == 1)
-        {
-            [self hidePickerView];
-            [self performSelector:@selector(showDatePicker) withObject:nil afterDelay:0.25];
-            
-        }
-        else if (self.currentSelection < 0)
-        {
-            [self showPickerView];
-        }
-        
-    }
-    else if (selection == 1)
-    {
-        if (self.currentSelection == 0)
-        {
-            [self hidePickerView];
-            [self performSelector:@selector(showDatePicker) withObject:nil afterDelay:0.25];
-            
-        }
-        else if (self.currentSelection < 0)
-        {
-            [self showPickerView];
-        }
-    }
-    self.currentSelection = selection;
-}
+//-(void) showPickerForIndex:(NSInteger)selection {
+//
+//    if (selection == -1)
+//    {
+//        [self hidePickerView];
+//    }
+//    else if (selection == 0)
+//    {
+//        if (self.currentSelection == 1)
+//        {
+//            [self hidePickerView];
+//            [self performSelector:@selector(showDatePicker) withObject:nil afterDelay:0.25];
+//
+//        }
+//        else if (self.currentSelection < 0)
+//        {
+//            [self showPickerView];
+//        }
+//
+//    }
+//    else if (selection == 1)
+//    {
+//        if (self.currentSelection == 0)
+//        {
+//            [self hidePickerView];
+//            [self performSelector:@selector(showDatePicker) withObject:nil afterDelay:0.25];
+//
+//        }
+//        else if (self.currentSelection < 0)
+//        {
+//            [self showPickerView];
+//        }
+//    }
+//    self.currentSelection = selection;
+//}
 
 -(void) showPickerView
 {
@@ -732,7 +698,7 @@
         title = [self.waterAmountArray objectAtIndex:row];
     }
     else {
-        title = @"Cup(s)";
+            title = @"Cups";
     }
     
     return title;
@@ -758,72 +724,6 @@
     }
 }
 
-#pragma Change Day
-
-
-
--(IBAction)changeDay:(id)sender {
-    self.datePickerViewContainer.hidden = NO;
-    self.pickerViewContainer.hidden = YES;
-    [self showDatePicker];
-}
-
-
-#pragma Date Picker delegates
-
--(IBAction)datePickerValueChanged:(UIDatePicker*)sender {
-    
-    self.datePickerDate = sender.date;
-}
-
--(IBAction)datePickerDoneButtonTapped:(id)sender {
-    
-    self.appDelegate.day = [self.appDelegate dayForDate:self.datePickerDate];
-    [self resetDay];
-    [self hideDatePicker];
-
-}
-
--(IBAction)datePickerTodayButtonTapped:(id)sender {
-    
-    self.datePickerDate = [NSDate date];
-    [self.datePickerView setDate:self.datePickerDate animated:YES];
-
-
-}
-
--(void) showDatePicker
-{
-    CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
-    self.datePickerViewContainer.frame = hideRect;
-    self.datePickerViewContainer.hidden = NO;
-     [self.datePickerView setDate:self.appDelegate.day.date animated:NO];
-    CGRect  showRect = CGRectMake(0,self.view.bounds.size.height-250, self.view.bounds.size.width, 250);
-    [UIView animateWithDuration:0.2
-                     animations:^{
-                         self.datePickerViewContainer.frame = showRect;
-                     }
-                     completion:^(BOOL finished){
-                         
-                     }];
-}
-
--(void) hideDatePicker
-{
-    
-    CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
-    [UIView animateWithDuration:0.2
-                     animations:^{
-                         self.datePickerViewContainer.frame = hideRect;
-                         
-                     }
-                     completion:^(BOOL finished){
-                         self.datePickerViewContainer.hidden = YES;
-                     }];
-    
-    
-    
-}
 
 -(IBAction)doneDirectionView:(id)sender {
     self.directionsView.hidden = YES;

@@ -16,7 +16,7 @@
 
 @interface MasterTrackerViewController : AbstractViewController
 
-
+@property (nonatomic) BOOL isAgree;
 
 @property (nonatomic, strong)FoodTrackerViewController* foodTrackerViewController;
 @property (nonatomic, strong)SleepTrackerViewController* sleepTrackerViewController;

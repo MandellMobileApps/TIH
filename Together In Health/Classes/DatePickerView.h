@@ -8,16 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DatePickerView : UIView
+@protocol DatePickerViewDelegate;
 
+@interface DatePickerView : UIView
+{
+    id<DatePickerViewDelegate> datePickerViewDelegate;
+}
+@property(atomic, strong)id datePickerViewDelegate;
 @property (nonatomic, strong)  UIButton *doneButton;
 @property (nonatomic, strong)  UIButton *todayButton;
 @property (nonatomic, strong)  NSDate *date;
 @property (nonatomic, strong)  UIDatePicker *datePicker;
 @property (nonatomic) CGRect hideRect;
 @property (nonatomic) CGRect showRect;
+@property (nonatomic) BOOL dateDidChange;
 
 +(DatePickerView*)initializeWithSelfBounds:(CGRect)bounds andDate:(NSDate*)thisDate;
 -(void)showDatePicker;
 -(void) hideDatePicker;
+@end
+
+@protocol DatePickerViewDelegate <NSObject>
+    @required
+        -(void) datePickerViewChanged:(DatePickerView *)thisDatePickerView;
 @end

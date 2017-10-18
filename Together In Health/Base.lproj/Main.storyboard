@@ -190,7 +190,7 @@
         <!--Goal Calender-->
         <scene sceneID="np8-JC-204">
             <objects>
-                <viewController title="Goal Calender" id="u2D-NB-cw8" customClass="GoalCalendarViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoalCalendarViewController" title="Goal Calender" id="u2D-NB-cw8" customClass="GoalCalendarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0E2-ja-6H8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1128,6 +1128,110 @@
             </objects>
             <point key="canvasLocation" x="-2469.5" y="2095.5"/>
         </scene>
+        <!--Check Goal-->
+        <scene sceneID="nmw-n2-HSN">
+            <objects>
+                <viewController storyboardIdentifier="GoalCheckViewController" title="Check Goal" id="J4i-MO-xGU" customClass="GoalCheckViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Lu-co-fYu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" id="f7R-C7-mbM">
+                                <rect key="frame" x="0.0" y="61" width="375" height="606"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How important is your goal to you?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QNs-bW-CBQ">
+                                        <rect key="frame" x="53" y="19" width="269" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="fzs-2g-TmX">
+                                        <rect key="frame" x="8" y="48" width="359" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="1"/>
+                                            <segment title="2"/>
+                                            <segment title="3"/>
+                                            <segment title="4"/>
+                                            <segment title="5"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.1058823529" green="0.33725490200000002" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="segmentImportant:" destination="J4i-MO-xGU" eventType="valueChanged" id="Thd-Vh-Stx"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How confident are you that you can achieve your goal?" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s0f-D7-IIp">
+                                        <rect key="frame" x="48" y="126" width="279" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="haf-0W-804">
+                                        <rect key="frame" x="8" y="180" width="359" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="1"/>
+                                            <segment title="2"/>
+                                            <segment title="3"/>
+                                            <segment title="4"/>
+                                            <segment title="5"/>
+                                            <segment title="6"/>
+                                            <segment title="7"/>
+                                            <segment title="8"/>
+                                            <segment title="9"/>
+                                            <segment title="10"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.1058823529" green="0.33725490200000002" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="segmentImportant:" destination="J4i-MO-xGU" eventType="valueChanged" id="ch9-bf-yYS"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bDC-df-sqj">
+                                        <rect key="frame" x="136" y="243" width="103" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.1058823529" green="0.33725490200000002" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Check Goal">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goalCheck" destination="J4i-MO-xGU" eventType="touchUpInside" id="6Q5-vN-u4e"/>
+                                        </connections>
+                                    </button>
+                                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" id="5oj-Y2-ZeM">
+                                        <rect key="frame" x="8" y="297" width="359" height="112"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" id="8SC-4U-LR6">
+                                        <rect key="frame" x="8" y="456" width="359" height="98"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1058823529" green="0.33725490200000002" blue="0.7843137255" alpha="0.38" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="textViewGoalCheck" destination="5oj-Y2-ZeM" id="W4C-wl-w59"/>
+                        <outlet property="textViewGoalCheck2" destination="8SC-4U-LR6" id="nDv-HG-ca7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fGp-H3-5nX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4231.5" y="1215.5"/>
+        </scene>
         <!--Goal1 View Controller-->
         <scene sceneID="mZv-ep-FL1">
             <objects>
@@ -1145,11 +1249,14 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sEt-Fx-T3i">
-                                                <rect key="frame" x="1" y="0.0" width="319" height="987"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="1" y="0.0" width="374" height="987"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <state key="normal">
                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="resignKeyboard:" destination="BIS-M3-tbA" eventType="touchUpInside" id="wj5-V1-aNk"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xb4-Hg-vzj">
                                                 <rect key="frame" x="21" y="390" width="15" height="21"/>
@@ -1288,7 +1395,7 @@
                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="buttonTapped1:" destination="BIS-M3-tbA" eventType="touchUpInside" id="g7A-2C-EJj"/>
+                                                    <action selector="buttonTapped1:" destination="BIS-M3-tbA" eventType="touchUpInside" id="EIF-iJ-VR8"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Answer line.png" id="FOa-UN-PQd">
@@ -1421,6 +1528,9 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="clearAll:" destination="BIS-M3-tbA" eventType="touchUpInside" id="LLz-B4-ww6"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </scrollView>
@@ -1434,7 +1544,7 @@
                         <outlet property="amountTextField" destination="jeK-Ys-7hu" id="ySE-J4-Zau"/>
                         <outlet property="daysTextField" destination="Yts-m6-aww" id="oAC-FC-RSX"/>
                         <outlet property="goalTextField" destination="Ztx-gq-tLi" id="D69-P8-aaG"/>
-                        <outlet property="step1" destination="rHZ-ZH-6Rx" id="cLg-hq-6xN"/>
+                        <outlet property="step1" destination="rHZ-ZH-6Rx" id="4iB-YL-ZFw"/>
                         <outlet property="step1TextField" destination="dHz-P0-KI3" id="fPe-Zc-N8R"/>
                         <outlet property="step2" destination="XS5-mM-YuW" id="C9s-cS-M5K"/>
                         <outlet property="step2TextField" destination="cNa-dV-Qsb" id="5kf-WK-zue"/>
@@ -3103,11 +3213,10 @@
             </objects>
             <point key="canvasLocation" x="445" y="179"/>
         </scene>
-        <!--Goal Check View Controller-->
+        <!--View Controller-->
         <scene sceneID="1dh-Us-2k9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lxr-Pr-Oa1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="GoalCheckViewController" id="Udv-BE-duZ" customClass="GoalCheckViewController" sceneMemberID="viewController">
+                <viewController id="Udv-BE-duZ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="boI-L4-dQY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3116,86 +3225,10 @@
                                 <rect key="frame" x="0.0" y="-227" width="320" height="795"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How important is your goal to you?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QNs-bW-CBQ">
-                                        <rect key="frame" x="26" y="288" width="269" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check My Goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SP8-VY-Qvv">
                                         <rect key="frame" x="0.0" y="226" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="fzs-2g-TmX">
-                                        <rect key="frame" x="15" y="317" width="295" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <segments>
-                                            <segment title="1"/>
-                                            <segment title="2"/>
-                                            <segment title="3"/>
-                                            <segment title="4"/>
-                                            <segment title="5"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.1058823529" green="0.33725490200000002" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="segmentImportant:" destination="Udv-BE-duZ" eventType="valueChanged" id="1EK-aE-jer"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="haf-0W-804">
-                                        <rect key="frame" x="10" y="430" width="300" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <segments>
-                                            <segment title="1"/>
-                                            <segment title="2"/>
-                                            <segment title="3"/>
-                                            <segment title="4"/>
-                                            <segment title="5"/>
-                                            <segment title="6"/>
-                                            <segment title="7"/>
-                                            <segment title="8"/>
-                                            <segment title="9"/>
-                                            <segment title="10"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.1058823529" green="0.33725490200000002" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="segmentConfident:" destination="Udv-BE-duZ" eventType="valueChanged" id="O8Q-Uq-PfS"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bDC-df-sqj">
-                                        <rect key="frame" x="109" y="473" width="103" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.1058823529" green="0.33725490200000002" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Check Goal">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="goalCheck" destination="Udv-BE-duZ" eventType="touchUpInside" id="hnz-TL-1gD"/>
-                                        </connections>
-                                    </button>
-                                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" id="8SC-4U-LR6">
-                                        <rect key="frame" x="10" y="607" width="300" height="98"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" id="5oj-Y2-ZeM">
-                                        <rect key="frame" x="10" y="511" width="300" height="112"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How confident are you that you can achieve your goal?" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s0f-D7-IIp">
-                                        <rect key="frame" x="23" y="374" width="279" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -3206,13 +3239,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
-                        <outlet property="textViewGoalCheck" destination="5oj-Y2-ZeM" id="syX-Aq-dhz"/>
-                        <outlet property="textViewGoalCheck2" destination="8SC-4U-LR6" id="OPd-EO-JIa"/>
                         <outlet property="thisScrollView" destination="je4-1K-Ns9" id="yBV-8d-oLn"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lxr-Pr-Oa1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4205" y="1610"/>
+            <point key="canvasLocation" x="-4193" y="1922"/>
         </scene>
         <!--Item-->
         <scene sceneID="R39-h9-aCE">

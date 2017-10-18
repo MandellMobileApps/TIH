@@ -23,5 +23,7 @@
 
 -(IBAction)segmentImportant:(id)sender;
 -(IBAction)segmentConfident:(id)sender;
+@property (nonatomic) int importantRating;
+@property (nonatomic) int confidentRating;
 
 @end

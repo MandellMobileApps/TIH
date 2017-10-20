@@ -8,6 +8,7 @@
 
 #import "GoalCalendarViewController.h"
 #import "GoalSetViewController.h"
+#import "GoalGamePlanViewController.h"
 
 @interface GoalCalendarViewController ()
 
@@ -260,6 +261,14 @@
     [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
      instantiateViewControllerWithIdentifier:@"GoalSetViewController"];
     [self.navigationController pushViewController:goalSetViewController animated:YES];
+    
+}
+
+-(IBAction)gamePlan:(id)sender {
+    GoalGamePlanViewController* goalGamePlanViewController = (GoalGamePlanViewController*)
+    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+     instantiateViewControllerWithIdentifier:@"GoalGamePlanViewController"];
+    [self.navigationController pushViewController:goalGamePlanViewController animated:YES];
     
 }
 

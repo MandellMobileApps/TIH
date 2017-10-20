@@ -203,6 +203,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="557"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="P3o-hY-NCf">
+                                                <rect key="frame" x="213" y="375" width="104" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.1058823529" green="0.33725490200000002" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Game Plan">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="gamePlan:" destination="u2D-NB-cw8" eventType="touchUpInside" id="5Bn-W4-X7F"/>
+                                                </connections>
+                                            </button>
                                             <view autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="cee-zr-gP4" userLabel="Containerview">
                                                 <rect key="frame" x="0.0" y="6" width="375" height="317"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -295,9 +308,13 @@
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q7r-cw-bxD">
-                                                <rect key="frame" x="158" y="494" width="59" height="30"/>
+                                                <rect key="frame" x="59" y="375" width="104" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Set Goal"/>
+                                                <color key="backgroundColor" red="0.1058823529" green="0.33725490200000002" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Set Goal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="setGoal:" destination="u2D-NB-cw8" eventType="touchUpInside" id="Cdq-ek-0w5"/>
                                                 </connections>
@@ -1108,7 +1125,7 @@
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" id="Nht-YU-wTE">
                                 <rect key="frame" x="0.0" y="106" width="375" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.1058823529" green="0.33725490200000002" blue="0.7843137255" alpha="0.38" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">It's really important to have a plan for when things don't go according to plan. Go through and have a plan for what you will do when plans change. </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -1252,7 +1269,7 @@
                                                 <rect key="frame" x="1" y="0.0" width="374" height="987"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <state key="normal">
-                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" red="0.81389212101063824" green="0.81389212101063824" blue="0.81389212101063824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="resignKeyboard:" destination="BIS-M3-tbA" eventType="touchUpInside" id="wj5-V1-aNk"/>
@@ -1555,6 +1572,7 @@
                         <outlet property="step5" destination="7pr-Nm-RPl" id="OUn-af-aky"/>
                         <outlet property="step5TextField" destination="GKp-gm-yqC" id="QqF-AP-08r"/>
                         <outlet property="thisScrollView" destination="gwq-rY-rxR" id="vOW-MH-R4F"/>
+                        <outlet property="thisView" destination="OMQ-KZ-DkS" id="yt9-7p-rcB"/>
                         <outlet property="timesTextField" destination="8Ce-HG-K9o" id="T5n-YI-sBc"/>
                         <outlet property="whereTextField" destination="o6r-IL-9Zp" id="p1v-DW-zie"/>
                     </connections>

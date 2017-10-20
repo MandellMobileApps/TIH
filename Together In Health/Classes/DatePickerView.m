@@ -27,7 +27,7 @@
     thisView.hideRect = CGRectMake((bounds.size.width - 320)/2, bounds.size.height, 320, 250);
     thisView.showRect = CGRectMake((bounds.size.width - 320)/2, bounds.size.height-250, 320, 250);
     [thisView setFrame:thisView.hideRect];
-    thisView.backgroundColor = [UIColor lightGrayColor];
+    thisView.backgroundColor = [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1];
     
     thisView.dateDidChange = NO;
     

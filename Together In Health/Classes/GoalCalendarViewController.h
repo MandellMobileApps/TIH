@@ -81,4 +81,6 @@
 
 -(void)adjustCalendarframewith:(float)height;
 
+-(IBAction)gamePlan:(id)sender;
+
 @end

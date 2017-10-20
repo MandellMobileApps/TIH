@@ -45,5 +45,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *step4TextField;
 @property (nonatomic, strong) IBOutlet UITextField *step5TextField;
 
+@property (nonatomic, strong) IBOutlet UIView *thisView;
+
 
 @end

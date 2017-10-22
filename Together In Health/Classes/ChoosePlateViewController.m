@@ -203,7 +203,11 @@
     }
     
     if (indexPath.section == 0) {
+        if (self.view.bounds.size.width > 355)
+        {
         return CGSizeMake(65,65);
+        }
+        return CGSizeMake(54,54);
     }
     
     else {
@@ -223,9 +227,16 @@
       
         if (indexPath.section == 0)
         {
+            if (self.view.bounds.size.height >355) {
             MyCell = [self plateCellForIndexPath:indexPath];
             MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
             MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
+            }
+            else {
+            MyCell = [self plateCellForIndexPath:indexPath];
+            MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 50, 50);
+            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 54, 54);
+            }
         }
         break;
         
@@ -233,9 +244,16 @@
       
         if (indexPath.section == 0)
         {
-            MyCell = [self moodCellForIndexPath:indexPath];
-            MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
-            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
+            if (self.view.bounds.size.height >355) {
+                MyCell = [self plateCellForIndexPath:indexPath];
+                MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
+                MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
+            }
+            {
+                MyCell = [self plateCellForIndexPath:indexPath];
+                MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 50, 50);
+                MyCell.plateImageSelected.frame = CGRectMake(0, 0, 54, 54);
+            }
             
         }
         else if (indexPath.section == 1)
@@ -250,9 +268,16 @@
       
         if (indexPath.section == 0)
         {
-            MyCell = [self moodCellForIndexPath:indexPath];
-            MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
-            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
+            if (self.view.bounds.size.height >355) {
+                MyCell = [self plateCellForIndexPath:indexPath];
+                MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
+                MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
+            }
+            {
+                MyCell = [self plateCellForIndexPath:indexPath];
+                MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 50, 50);
+                MyCell.plateImageSelected.frame = CGRectMake(0, 0, 54, 54);
+            }
         }
         else if (indexPath.section == 1)
         {

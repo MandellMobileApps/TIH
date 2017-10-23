@@ -32,11 +32,11 @@
 //        self.textFieldOften2 = [decoder decodeObjectForKey:@"textFieldOften2"];
 
         
-        self.G1Step1IsOn = [decoder decodeBoolForKey:@"G1Step1IsOn;"];
-        self.G1Step2IsOn = [decoder decodeBoolForKey:@"G1Step2IsOn;"];
-        self.G1Step3IsOn = [decoder decodeBoolForKey:@"G1Step3IsOn;"];
-        self.G1Step4IsOn = [decoder decodeBoolForKey:@"G1Step4IsOn;"];
-        self.G1Step5IsOn = [decoder decodeBoolForKey:@"G1Step5IsOn;"];
+        self.Step1IsOn = [decoder decodeBoolForKey:@"Step1IsOn;"];
+        self.Step2IsOn = [decoder decodeBoolForKey:@"Step2IsOn;"];
+        self.Step3IsOn = [decoder decodeBoolForKey:@"Step3IsOn;"];
+        self.Step4IsOn = [decoder decodeBoolForKey:@"Step4IsOn;"];
+        self.Step5IsOn = [decoder decodeBoolForKey:@"Step5IsOn;"];
         
         
         self.vacation = [decoder decodeObjectForKey:@"vacation"];
@@ -71,11 +71,11 @@
      [encoder encodeObject:self.where2 forKey:@"where2"];
      [encoder encodeObject:self.often2 forKey:@"often2"];
     
-    [encoder encodeBool:self.G1Step1IsOn forKey:@"G1Step1IsOn"];
-    [encoder encodeBool:self.G1Step2IsOn forKey:@"G1Step2IsOn"];
-    [encoder encodeBool:self.G1Step3IsOn forKey:@"G1Step3IsOn"];
-    [encoder encodeBool:self.G1Step4IsOn forKey:@"G1Step4IsOn"];
-    [encoder encodeBool:self.G1Step5IsOn forKey:@"G1Step5IsOn"];
+    [encoder encodeBool:self.Step1IsOn forKey:@"Step1IsOn"];
+    [encoder encodeBool:self.Step2IsOn forKey:@"Step2IsOn"];
+    [encoder encodeBool:self.Step3IsOn forKey:@"Step3IsOn"];
+    [encoder encodeBool:self.Step4IsOn forKey:@"Step4IsOn"];
+    [encoder encodeBool:self.Step5IsOn forKey:@"Step5IsOn"];
     
     [encoder encodeObject:self.vacation forKey:@"vacation"];
     [encoder encodeObject:self.holidays forKey:@"holidays"];

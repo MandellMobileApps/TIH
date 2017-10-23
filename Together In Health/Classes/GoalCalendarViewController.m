@@ -272,18 +272,21 @@
     if ([segue.identifier isEqualToString:@"1"])
     {
         goalSetViewController.goalIndex = Goal1Index;
+        goalSetViewController.goal = [self.goalsArray objectAtIndex:0];
     }
     else if ([segue.identifier isEqualToString:@"2"])
     {
         goalSetViewController.goalIndex = Goal2Index;
+        goalSetViewController.goal = [self.goalsArray objectAtIndex:1];
     }
     else if ([segue.identifier isEqualToString:@"3"])
     {
         goalSetViewController.goalIndex = Goal3Index;
+        goalSetViewController.goal = [self.goalsArray objectAtIndex:2];
     }
 
 }
-// trying to for commit
+
 
 
 -(void) loadGoals
@@ -303,6 +306,7 @@
             item.goalName = [NSString stringWithFormat:@"Goal %lu",g];
             g++;
         }
+        [self saveGoals];
 
     }
 }
@@ -319,8 +323,9 @@
 
 -(void)updateGoalButtons
 {
-    [self.goal1Button setTitle:@"This is my goal" forState:UIControlStateNormal];
-    [self.goal2Button setTitle:[[self.goalsArray objectAtIndex:1] goalName] forState:UIControlStateNormal];
+    [self.goal1Button setTitle:[[self.goalsArray objectAtIndex:0] goalName]
+     forState:UIControlStateNormal];
+     [self.goal2Button setTitle:[[self.goalsArray objectAtIndex:1] goalName] forState:UIControlStateNormal];
     [self.goal3Button setTitle:[[self.goalsArray objectAtIndex:2] goalName] forState:UIControlStateNormal];
 }
 

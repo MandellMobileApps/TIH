@@ -12,13 +12,7 @@
 		360DB1871C12809F00FBE90F /* TrackWaterAddRow.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1851C12809F00FBE90F /* TrackWaterAddRow.png */; };
 		360DB1881C12809F00FBE90F /* TrackWaterPickerView.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1861C12809F00FBE90F /* TrackWaterPickerView.png */; };
 		360DB18A1C14DDAC00FBE90F /* QuestionMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1891C14DDAC00FBE90F /* QuestionMark.png */; };
-		361BC4421F8EC2A40011A20E /* Goal1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4411F8EC2A40011A20E /* Goal1ViewController.m */; };
-		361BC4451F8EC2B60011A20E /* Goal2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4441F8EC2B60011A20E /* Goal2ViewController.m */; };
-		361BC4481F8EC2C30011A20E /* Goal3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4471F8EC2C30011A20E /* Goal3ViewController.m */; };
 		361BC4511F9173830011A20E /* GoalGamePlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4501F9173830011A20E /* GoalGamePlanViewController.m */; };
-		361BC4541F9177060011A20E /* GoalGP1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4531F9177060011A20E /* GoalGP1ViewController.m */; };
-		361BC4571F9177180011A20E /* GoalGP2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4561F9177180011A20E /* GoalGP2ViewController.m */; };
-		361BC45A1F9177280011A20E /* GoalGP3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4591F9177280011A20E /* GoalGP3ViewController.m */; };
 		361BC45C1F92E6F80011A20E /* Panang Curry.html in Resources */ = {isa = PBXBuildFile; fileRef = 361BC45B1F92E6F80011A20E /* Panang Curry.html */; };
 		361BC4611F9D2AB40011A20E /* DessertPlate.png in Resources */ = {isa = PBXBuildFile; fileRef = 361BC4601F9D2AB30011A20E /* DessertPlate.png */; };
 		361BC4631F9D30C50011A20E /* FriedGreasyPlate.png in Resources */ = {isa = PBXBuildFile; fileRef = 361BC4621F9D30C50011A20E /* FriedGreasyPlate.png */; };
@@ -270,20 +264,8 @@
 		360DB1851C12809F00FBE90F /* TrackWaterAddRow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrackWaterAddRow.png; sourceTree = "<group>"; };
 		360DB1861C12809F00FBE90F /* TrackWaterPickerView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrackWaterPickerView.png; sourceTree = "<group>"; };
 		360DB1891C14DDAC00FBE90F /* QuestionMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = QuestionMark.png; path = "../../Together In Health.xcodeproj/QuestionMark.png"; sourceTree = "<group>"; };
-		361BC4401F8EC2A40011A20E /* Goal1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal1ViewController.h; sourceTree = "<group>"; };
-		361BC4411F8EC2A40011A20E /* Goal1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal1ViewController.m; sourceTree = "<group>"; };
-		361BC4431F8EC2B60011A20E /* Goal2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal2ViewController.h; sourceTree = "<group>"; };
-		361BC4441F8EC2B60011A20E /* Goal2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal2ViewController.m; sourceTree = "<group>"; };
-		361BC4461F8EC2C30011A20E /* Goal3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal3ViewController.h; sourceTree = "<group>"; };
-		361BC4471F8EC2C30011A20E /* Goal3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal3ViewController.m; sourceTree = "<group>"; };
 		361BC44F1F9173830011A20E /* GoalGamePlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalGamePlanViewController.h; sourceTree = "<group>"; };
 		361BC4501F9173830011A20E /* GoalGamePlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalGamePlanViewController.m; sourceTree = "<group>"; };
-		361BC4521F9177060011A20E /* GoalGP1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalGP1ViewController.h; sourceTree = "<group>"; };
-		361BC4531F9177060011A20E /* GoalGP1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalGP1ViewController.m; sourceTree = "<group>"; };
-		361BC4551F9177180011A20E /* GoalGP2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalGP2ViewController.h; sourceTree = "<group>"; };
-		361BC4561F9177180011A20E /* GoalGP2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalGP2ViewController.m; sourceTree = "<group>"; };
-		361BC4581F9177280011A20E /* GoalGP3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalGP3ViewController.h; sourceTree = "<group>"; };
-		361BC4591F9177280011A20E /* GoalGP3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalGP3ViewController.m; sourceTree = "<group>"; };
 		361BC45B1F92E6F80011A20E /* Panang Curry.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Panang Curry.html"; sourceTree = "<group>"; };
 		361BC4601F9D2AB30011A20E /* DessertPlate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DessertPlate.png; sourceTree = "<group>"; };
 		361BC4621F9D30C50011A20E /* FriedGreasyPlate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FriedGreasyPlate.png; sourceTree = "<group>"; };
@@ -654,12 +636,6 @@
 				6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */,
 				367D6FCF1F83D566006281D3 /* GoalSetViewController.h */,
 				367D6FD01F83D566006281D3 /* GoalSetViewController.m */,
-				361BC4401F8EC2A40011A20E /* Goal1ViewController.h */,
-				361BC4411F8EC2A40011A20E /* Goal1ViewController.m */,
-				361BC4431F8EC2B60011A20E /* Goal2ViewController.h */,
-				361BC4441F8EC2B60011A20E /* Goal2ViewController.m */,
-				361BC4461F8EC2C30011A20E /* Goal3ViewController.h */,
-				361BC4471F8EC2C30011A20E /* Goal3ViewController.m */,
 				3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */,
 				3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */,
 				365847611F709636006DF9E4 /* ExercisePlanCell.h */,
@@ -704,12 +680,6 @@
 				360DB1831C11F24000FBE90F /* ActivityMovementFav.png */,
 				6A91E3271BE2625500A72CCA /* AppDelegate.m */,
 				6A91E32F1BE2625500A72CCA /* Main.storyboard */,
-				361BC4521F9177060011A20E /* GoalGP1ViewController.h */,
-				361BC4531F9177060011A20E /* GoalGP1ViewController.m */,
-				361BC4551F9177180011A20E /* GoalGP2ViewController.h */,
-				361BC4561F9177180011A20E /* GoalGP2ViewController.m */,
-				361BC4581F9177280011A20E /* GoalGP3ViewController.h */,
-				361BC4591F9177280011A20E /* GoalGP3ViewController.m */,
 				361BC44F1F9173830011A20E /* GoalGamePlanViewController.h */,
 				361BC4501F9173830011A20E /* GoalGamePlanViewController.m */,
 				6A60E3DA1F911DAC00A48D03 /* Trackers.storyboard */,
@@ -1293,7 +1263,6 @@
 				6A91E45D1BE2679300A72CCA /* MgNetworkOperation2.m in Sources */,
 				6A91E45B1BE2679300A72CCA /* MenuPlanCell.m in Sources */,
 				6A91E4591BE2679300A72CCA /* HQViewController.m in Sources */,
-				361BC4451F8EC2B60011A20E /* Goal2ViewController.m in Sources */,
 				6A91E4711BE2679300A72CCA /* SolutionsViewController.m in Sources */,
 				36FE39401C0F4EFC002E341E /* OpeningViewViewController.m in Sources */,
 				6A91E44A1BE2679300A72CCA /* FullOpeningCell.m in Sources */,
@@ -1319,7 +1288,6 @@
 				6A91E4571BE2679300A72CCA /* HealthQuestionsViewController.m in Sources */,
 				6A5541671F5C842700447A4E /* ColorsClass.m in Sources */,
 				6AD7A80A1C3050E0004BD58F /* Plate.m in Sources */,
-				361BC4481F8EC2C30011A20E /* Goal3ViewController.m in Sources */,
 				6A91E43B1BE2679300A72CCA /* ChooseActivityViewController.m in Sources */,
 				6A91E4791BE2679300A72CCA /* ViewControllerGoal.m in Sources */,
 				6A91E4781BE2679300A72CCA /* ViewControllerGamePlan.m in Sources */,
@@ -1332,7 +1300,6 @@
 				6A91E46D1BE2679300A72CCA /* Sleep.m in Sources */,
 				6A91E46F1BE2679300A72CCA /* SleepTrackerTableView.m in Sources */,
 				6A91E4751BE2679300A72CCA /* TIHDate.m in Sources */,
-				361BC4571F9177180011A20E /* GoalGP2ViewController.m in Sources */,
 				6A91E43C1BE2679300A72CCA /* ChooseDrinkCell.m in Sources */,
 				6A91E4551BE2679300A72CCA /* HealthMeasuresViewController.m in Sources */,
 				6A91E4311BE2679300A72CCA /* Activity.m in Sources */,
@@ -1351,7 +1318,6 @@
 				6A91E3251BE2625500A72CCA /* main.m in Sources */,
 				6A91E4421BE2679300A72CCA /* Day.m in Sources */,
 				6A91E4671BE2679300A72CCA /* RecipeTableViewCell.m in Sources */,
-				361BC45A1F9177280011A20E /* GoalGP3ViewController.m in Sources */,
 				6A91E43E1BE2679300A72CCA /* ChoosePlateCell.m in Sources */,
 				6A91E45C1BE2679300A72CCA /* MenuPlanViewController.m in Sources */,
 				36FE39351C0B6BF2002E341E /* DisclaimerViewController.m in Sources */,
@@ -1367,7 +1333,6 @@
 				6A2CA3601F8EAF0400DC7668 /* DatePickerView.m in Sources */,
 				6A91E46A1BE2679300A72CCA /* SeasonalVegGameViewController.m in Sources */,
 				6A91E4511BE2679300A72CCA /* GoalMoreViewController.m in Sources */,
-				361BC4421F8EC2A40011A20E /* Goal1ViewController.m in Sources */,
 				6A91E4431BE2679300A72CCA /* Drink.m in Sources */,
 				6A91E4601BE2679300A72CCA /* ProblemsCell.m in Sources */,
 				6A91E4521BE2679300A72CCA /* GoalsMenuViewController.m in Sources */,
@@ -1383,7 +1348,6 @@
 				6A91E4321BE2679300A72CCA /* ActivityTrackerCell.m in Sources */,
 				6A91E4451BE2679300A72CCA /* DrinkTrackerViewController.m in Sources */,
 				6A91E4351BE2679300A72CCA /* AddMenuItemCell.m in Sources */,
-				361BC4541F9177060011A20E /* GoalGP1ViewController.m in Sources */,
 				6A91E4361BE2679300A72CCA /* AddMenuItemViewController.m in Sources */,
 				6A91E4381BE2679300A72CCA /* BlogPostsMenu.m in Sources */,
 				6A5541611F5C663500447A4E /* GoalCalendarViewController.m in Sources */,

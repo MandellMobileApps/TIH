@@ -6,9 +6,11 @@
 //  Copyright (c) 2014 Cami Mandell. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AbstractViewController.h"
 
-@interface GoalCheckViewController : UIViewController
+@interface GoalCheckViewController : AbstractViewController
+
+@property (nonatomic, strong) Goal *goal;
 
 @property (nonatomic,strong) IBOutlet UIButton* checkButton;
 @property (nonatomic,strong) IBOutlet UITextView* textViewGoalCheck;

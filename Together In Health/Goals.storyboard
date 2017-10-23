@@ -253,6 +253,9 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="OVt-g4-fh1" id="5sW-Bt-ekk"/>
+                                        </connections>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Answer line.png" id="M8V-QQ-Wbq">
                                         <rect key="frame" x="58" y="386" width="309" height="2"/>
@@ -498,8 +501,7 @@
                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="gamePlan:" destination="HEL-Mg-UXr" eventType="touchUpInside" id="azy-OE-1TF"/>
-                                                    <segue destination="OVt-g4-fh1" kind="modal" modalTransitionStyle="coverVertical" id="HuU-Q2-A7E"/>
+                                                    <segue destination="OVt-g4-fh1" kind="modal" identifier="GoalGamePlan" modalTransitionStyle="coverVertical" id="HuU-Q2-A7E"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cd1-1E-NyW">
@@ -512,7 +514,7 @@
                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="goalCheck:" destination="HEL-Mg-UXr" eventType="touchUpInside" id="RDo-Ut-bSs"/>
+                                                    <segue destination="R0T-VO-jdr" kind="modal" identifier="GoalCheck" id="mAh-P4-htB"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="m18-Zd-vfd">
@@ -590,7 +592,7 @@
                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="goalCalendar:" destination="HEL-Mg-UXr" eventType="touchUpInside" id="6tg-Xa-YT7"/>
+                                                    <segue destination="oXC-Se-FEJ" kind="modal" identifier="GoalProgress" id="Jsz-7w-tTQ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Fy-PO-mwv">
@@ -747,7 +749,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bym-nX-FxY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1298" y="1452"/>
+            <point key="canvasLocation" x="-1297" y="1551"/>
         </scene>
         <!--Track goal progress-->
         <scene sceneID="StP-Pz-B3w">

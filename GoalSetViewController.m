@@ -8,9 +8,9 @@
 
 #import "GoalSetViewController.h"
 #import "AppDelegate.h"
-
-
-
+#import "GoalGamePlanViewController.h"
+#import "GoalCheckViewController.h"
+#import "ProgressViewController.h"
 
 
 
@@ -162,127 +162,33 @@
         [self.step5 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
     }
 }
+#pragma mark - Navigation
 
-- (IBAction)gamePlan:(id)sender
-{
+//#import "GoalCheckViewController.h"
+//#import "ProgressViewController.h"
 
-}
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
--(IBAction)forwardDay:(id)sender{
-    
-//    self.appDelegate.day = [self.appDelegate dayForDate:[TIHDate dateTomorrowAtMidnightFromDate:self.appDelegate.day.date]];
-//    
-//    [self resetDay];
-    
-}
-
--(IBAction)changeDay:(id)sender {
-//    self.datePickerViewContainer.hidden = NO;
-//    
-//    [self showDatePicker];
-}
-
-
-#pragma Date Picker delegates
-
--(IBAction)datePickerValueChanged:(UIDatePicker*)sender {
-    
- //   self.datePickerDate = sender.date;
-}
-
--(IBAction)datePickerDoneButtonTapped:(id)sender {
-    
-//    self.appDelegate.day = [self.appDelegate dayForDate:self.datePickerDate];
-//    [self resetDay];
-//    [self hideDatePicker];
+    if ([segue.identifier isEqualToString:@"GoalGamePlan"])
+    {
+            GoalGamePlanViewController* goalGamePlanViewController = [segue destinationViewController];
+        goalGamePlanViewController.goal = self.goal;
+    }
+    else if ([segue.identifier isEqualToString:@"GoalCheck"])
+    {
+        GoalCheckViewController* goalCheckViewController = [segue destinationViewController];
+        goalCheckViewController.goal = self.goal;
+    }
+    else if ([segue.identifier isEqualToString:@"GoalProgress"])
+    {
+        ProgressViewController* progressViewController = [segue destinationViewController];
+        progressViewController.goal = self.goal;
+    }
     
 }
 
--(IBAction)datePickerTodayButtonTapped:(id)sender {
-    
-//    self.datePickerDate = [NSDate date];
-//    [self.datePickerView setDate:self.datePickerDate animated:YES];
-//    
-//    
-}
 
--(void) showDatePicker
-{
-//    CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
-//    self.datePickerViewContainer.frame = hideRect;
-//    self.datePickerViewContainer.hidden = NO;
-//    self.datePickerDate = self.appDelegate.day.date;
-//    [self.datePickerView setDate:self.appDelegate.day.date animated:NO];
-//    CGRect  showRect = CGRectMake(0,self.view.bounds.size.height-250, self.view.bounds.size.width, 250);
-//    [UIView animateWithDuration:0.2
-//                     animations:^{
-//                         self.datePickerViewContainer.frame = showRect;
-//                     }
-//                     completion:^(BOOL finished){
-//                         
-//                     }];
-}
-
--(void) hideDatePicker
-{
-//    
-//    CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
-//    [UIView animateWithDuration:0.2
-//                     animations:^{
-//                         self.datePickerViewContainer.frame = hideRect;
-//                         
-//                     }
-//                     completion:^(BOOL finished){
-//                         self.datePickerViewContainer.hidden = YES;
-//                     }];
-//    
-//    
-//    
-}
-
--(void) resetDay
-{
-//    self.dayLabel.text = [TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime];
-//    if (self.foodTrackerViewController)
-//    {
-//        [self.foodTrackerViewController resetDay];
-//    }
-//    
-//    if (self.sleepTrackerViewController)
-//    {
-//        [self.sleepTrackerViewController resetDay];
-//    }
-//    
-//    if (self.stressTrackerViewController)
-//    {
-//        [self.stressTrackerViewController resetDay];
-//    }
-//    
-//    if (self.drinkTrackerViewController)
-//    {
-//        [self.drinkTrackerViewController resetDay];
-//    }
-//    
-//    if (self.activityTrackerViewController)
-//    {
-//        [self.activityTrackerViewController resetDay];
-//    }
-}
-
-// Food Sub Contollers
-
-//-(void) addFood:(UIButton*)sender
-//{
-//    ChoosePlateViewController* choosePlateViewController = (ChoosePlateViewController*)
-//    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-//     instantiateViewControllerWithIdentifier:@"ChoosePlateViewController"];
-//    choosePlateViewController.mealType = sender.tag;
-//
-//    [self.navigationController pushViewController:choosePlateViewController animated:YES];
-//   // [self.masterTrackerViewController loadViewController:choosePlateViewController];
-// //   [self.masterTrackerViewController presentAsFullModel:choosePlateViewController];
-//
-//}
 @end
 
 /*

@@ -8,6 +8,7 @@
 
 #import "GoalCalendarViewController.h"
 #import "GoalSetViewController.h"
+#import "GoalGamePlanViewController.h"
 
 @interface GoalCalendarViewController ()
 

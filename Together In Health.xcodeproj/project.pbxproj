@@ -20,6 +20,8 @@
 		361BC4571F9177180011A20E /* GoalGP2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4561F9177180011A20E /* GoalGP2ViewController.m */; };
 		361BC45A1F9177280011A20E /* GoalGP3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4591F9177280011A20E /* GoalGP3ViewController.m */; };
 		361BC45C1F92E6F80011A20E /* Panang Curry.html in Resources */ = {isa = PBXBuildFile; fileRef = 361BC45B1F92E6F80011A20E /* Panang Curry.html */; };
+		361BC4611F9D2AB40011A20E /* DessertPlate.png in Resources */ = {isa = PBXBuildFile; fileRef = 361BC4601F9D2AB30011A20E /* DessertPlate.png */; };
+		361BC4631F9D30C50011A20E /* FriedGreasyPlate.png in Resources */ = {isa = PBXBuildFile; fileRef = 361BC4621F9D30C50011A20E /* FriedGreasyPlate.png */; };
 		36278DAA1C2AF9F900B899E4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36278DA91C2AF9F800B899E4 /* CoreMotion.framework */; };
 		36278DAC1C2AFA0300B899E4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36278DAB1C2AFA0300B899E4 /* HealthKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		36278DAF1C2DAD8F00B899E4 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 36278DAE1C2DAD8F00B899E4 /* MenuItem.m */; };
@@ -283,6 +285,8 @@
 		361BC4581F9177280011A20E /* GoalGP3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalGP3ViewController.h; sourceTree = "<group>"; };
 		361BC4591F9177280011A20E /* GoalGP3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalGP3ViewController.m; sourceTree = "<group>"; };
 		361BC45B1F92E6F80011A20E /* Panang Curry.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Panang Curry.html"; sourceTree = "<group>"; };
+		361BC4601F9D2AB30011A20E /* DessertPlate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DessertPlate.png; sourceTree = "<group>"; };
+		361BC4621F9D30C50011A20E /* FriedGreasyPlate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FriedGreasyPlate.png; sourceTree = "<group>"; };
 		36278DA91C2AF9F800B899E4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		36278DAB1C2AFA0300B899E4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		36278DAD1C2DAD8F00B899E4 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
@@ -645,6 +649,7 @@
 		6A91E3171BE2625500A72CCA = {
 			isa = PBXGroup;
 			children = (
+				361BC4621F9D30C50011A20E /* FriedGreasyPlate.png */,
 				6A2CA35E1F8EAF0400DC7668 /* DatePickerView.h */,
 				6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */,
 				367D6FCF1F83D566006281D3 /* GoalSetViewController.h */,
@@ -786,6 +791,7 @@
 				6A91E3691BE2679200A72CCA /* ChoosePlateCollectionView.m */,
 				6A91E36A1BE2679200A72CCA /* ChoosePlateViewController.h */,
 				6A91E36B1BE2679200A72CCA /* ChoosePlateViewController.m */,
+				361BC4601F9D2AB30011A20E /* DessertPlate.png */,
 				6A91E36C1BE2679200A72CCA /* Completed.h */,
 				6A91E36D1BE2679200A72CCA /* Completed.m */,
 				6A91E36E1BE2679200A72CCA /* Day.h */,
@@ -1154,6 +1160,7 @@
 				6A91E49E1BE2679300A72CCA /* Arrowforward.png in Resources */,
 				360DB1871C12809F00FBE90F /* TrackWaterAddRow.png in Resources */,
 				6A91E4AA1BE2679300A72CCA /* Balanced Plate16.png in Resources */,
+				361BC4631F9D30C50011A20E /* FriedGreasyPlate.png in Resources */,
 				6A91E49D1BE2679300A72CCA /* Answer line.png in Resources */,
 				6A91E4BD1BE2679300A72CCA /* FoodLabel3.png in Resources */,
 				6A91E48E1BE2679300A72CCA /* Organic.html in Resources */,
@@ -1228,6 +1235,7 @@
 				6A91E4A81BE2679300A72CCA /* Balanced Plate14.png in Resources */,
 				36FE39321C0B65C5002E341E /* TrackFoodwithWaterFood.png in Resources */,
 				6A91E49C1BE2679300A72CCA /* addButtonImage.png in Resources */,
+				361BC4611F9D2AB40011A20E /* DessertPlate.png in Resources */,
 				6A91E4C01BE2679300A72CCA /* Nutrition Questions Icon.ai in Resources */,
 				6A91E3311BE2625500A72CCA /* Main.storyboard in Resources */,
 				36FE38C61C023370002E341E /* TrackersTabImage.png in Resources */,

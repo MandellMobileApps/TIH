@@ -16,6 +16,9 @@
     
     self.thisScrollView.contentSize = CGSizeMake(320, 720);
     
+    self.checkConfident.selectedSegmentIndex = self.confidentRating-1;
+    self.checkImportant.selectedSegmentIndex = 1;
+    
 }
 
 
@@ -68,7 +71,7 @@
             self.textViewGoalCheck.text = @"Why is your goal not very important to you? Can you think of a goal that is really important to you?";
             break;
         case 3:
-            self.textViewGoalCheck.text = @"That's great you have a goal that is important to you. If you're confident in your goal, you're ready to get started!";
+            self.textViewGoalCheck.text = @"That's great you have a goal that is important to you. Is there anything you could do to make your goal more important to you? If you're confident in your goal, you're ready to get started!";
             break;
         case 4:
             self.textViewGoalCheck.text = @"That's great you have a goal that is important to you. If you're confident in your goal, you're ready to get started!";

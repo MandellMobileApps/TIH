@@ -25,8 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.thisView setFrame:CGRectMake(0,0, self.view.bounds.size.width, self.view.bounds.size.height)];
     self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 700);
     [self.thisScrollView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    self.title = self.goalTextField.text;
     // Do any additional setup after loading the view.
     
 }
@@ -62,32 +64,32 @@
 
 -(IBAction)buttonTapped1:(id)sender
 {
-    if (self.goal.Step1IsOn) {
+    if (self.goal.G1Step1IsOn) {
         [self.step1 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
-        self.goal.Step1IsOn = YES;
+        self.goal.G1Step1IsOn = YES;
         
         
     }
     else {
         [self.step1 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
-        self.goal.Step1IsOn = NO;
-        
+        self.goal.G1Step1IsOn = NO;
+    
         
     }
 }
 
 -(IBAction)buttonTapped2:(id)sender
 {
-    if (self.goal.Step2IsOn) {
+    if (self.goal.G1Step2IsOn) {
         [self.step2 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
-        self.goal.Step2IsOn = NO;
+        self.goal.G1Step2IsOn = NO;
     }
     
     
     
     else {
         [self.step2 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
-        self.goal.Step2IsOn = YES;
+        self.goal.G1Step2IsOn = YES;
     }
     
 }
@@ -95,39 +97,39 @@
 
 -(IBAction)buttonTapped3:(id)sender
 {
-    if (self.goal.Step3IsOn) {
+    if (self.goal.G1Step3IsOn) {
         [self.step3 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
-        self.goal.Step3IsOn = NO;
+        self.goal.G1Step3IsOn = NO;
     }
     else {
         [self.step3 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
-        self.goal.Step3IsOn = YES;
+        self.goal.G1Step3IsOn = YES;
     }
     
     
 }
 -(IBAction)buttonTapped4:(id)sender
 {
-    if (self.goal.Step4IsOn) {
+    if (self.goal.G1Step4IsOn) {
         [self.step4 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
         
-        self.goal.Step4IsOn = NO;
+        self.goal.G1Step4IsOn = NO;
     }
     else {
         [self.step4 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
-        self.goal.Step4IsOn = YES;
+        self.goal.G1Step4IsOn = YES;
     }
     
 }
 -(IBAction)buttonTapped5:(id)sender
 {
-    if (self.goal.Step5IsOn) {
+    if (self.goal.G1Step5IsOn) {
         [self.step5 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
-        self.goal.Step5IsOn = NO;
+        self.goal.G1Step5IsOn = NO;
     }
     else {
         [self.step5 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
-        self.goal.Step5IsOn = YES;
+        self.goal.G1Step5IsOn = YES;
     }
 }
 
@@ -153,17 +155,31 @@
         self.step4TextField.text = @"";
         self.step5TextField.text = @"";
 
-        self.goal.Step1IsOn = NO;
+        self.goal.G1Step1IsOn = NO;
         [self.step1 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
-        self.goal.Step2IsOn = NO;
+        self.goal.G1Step2IsOn = NO;
         [self.step2 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
-        self.goal.Step3IsOn = NO;
+        self.goal.G1Step3IsOn = NO;
         [self.step3 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
-        self.goal.Step4IsOn = NO;
+        self.goal.G1Step4IsOn = NO;
         [self.step4 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
-        self.goal.Step5IsOn = NO;
+        self.goal.G1Step5IsOn = NO;
         [self.step5 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
     }
+}
+
+-(IBAction)resignKeyboard:(id)sender {
+    [self.goalTextField resignFirstResponder];
+    [self.daysTextField resignFirstResponder];
+    [self.timesTextField resignFirstResponder];
+    [self.whereTextField resignFirstResponder];
+    [self.amountTextField resignFirstResponder];
+    [self.step1TextField resignFirstResponder];
+    [self.step2TextField resignFirstResponder];
+    [self.step3TextField resignFirstResponder];
+    [self.step4TextField resignFirstResponder];
+    [self.step5TextField resignFirstResponder];
+    
 }
 
 /*

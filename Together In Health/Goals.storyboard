@@ -28,9 +28,9 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Set Goals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mVx-jL-jrL">
-                                <rect key="frame" x="0.0" y="400" width="375" height="21"/>
+                                <rect key="frame" x="0.0" y="400" width="375" height="34"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -176,7 +176,6 @@
         <!--Goal Game Plan View Controller-->
         <scene sceneID="fkJ-XR-Gcc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I1u-gq-JjU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="GoalGamePlanViewController" id="OVt-g4-fh1" customClass="GoalGamePlanViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tyu-8t-sA6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -305,6 +304,7 @@
                         <outlet property="vacationTextView" destination="jlG-V2-5Fs" id="izE-yE-7GJ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I1u-gq-JjU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1731" y="1502"/>
         </scene>

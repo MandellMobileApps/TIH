@@ -8,18 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import "AbstractViewController.h"
-#import "GoalGP1ViewController.h"
-#import "GoalGP2ViewController.h"
-#import "GoalGP3ViewController.h"
 
-@interface GoalGamePlanViewController : AbstractViewController
 
-@property (nonatomic, strong)  GoalGP1ViewController* goalGP1ViewController;
-@property (nonatomic, strong)  GoalGP2ViewController* goalGP2ViewController;
-@property (nonatomic, strong)  GoalGP3ViewController* goalGP3ViewController;
+enum gamePlanIndex {
+    Plan1Index = 0,
+    Plan2Index = 1,
+    Plan3Index = 2,
+    
+    
+};
+
+@interface GoalGamePlanViewController :AbstractViewController
+
+
 @property (nonatomic) NSInteger gamePlanIndex;
-@property (nonatomic, strong) IBOutlet UIButton* goalGP1Button;
-@property (nonatomic, strong) IBOutlet UIButton* goalGP2Button;
-@property (nonatomic, strong) IBOutlet UIButton* goalGP3Button;
-
+@property(nonatomic,strong) IBOutlet UIScrollView* thisScrollView;
+@property(nonatomic,strong) NSDictionary* object;
+@property(nonnull, strong) IBOutlet UITextView* holidaysTextView;
+@property(nonnull, strong) IBOutlet UITextView* vacationTextView;
+@property(nonnull, strong) IBOutlet UITextView* sickDaysTextView;
+@property(nonnull, strong) IBOutlet UITextField* other1TextView;
+@property(nonnull, strong) IBOutlet UITextField* other2TextView;
+@property(nonnull, strong) IBOutlet UITextView* other1InfoTextView;
+@property(nonnull, strong) IBOutlet UITextView* other2InfoTextView;
 @end

@@ -18,8 +18,9 @@
 #import "TIHDate.h"
 #import "SQLiteAccess.h"
 #import "Day.h"
+#import "Goal.h"
 
-@class Goal;
+
 @class ProgressViewController;
 @class AppDelegate;
 
@@ -42,16 +43,13 @@ enum CornerType {
 - (NSString *)dataFilePathofBundle:(NSString *)nameoffile;
 -(void) openEmailClientWithTo:(NSString*)to andSubject:(NSString*)subject andBody:(NSString*)body;
 
-@property (nonatomic, strong) Goal* goal;
-
-@property (nonatomic) int goalNumber;
 
 @property (nonatomic, weak) ProgressViewController* progressViewController;
 
-@property (nonatomic, strong) NSMutableArray* goalPackage;
-@property (nonatomic, strong) NSMutableArray* goal2Package;
-@property (nonatomic, strong) NSMutableArray* goal3Package;
-@property (nonatomic, strong) NSMutableArray *goals;
+//@property (nonatomic, strong) NSMutableArray* goalPackage;
+//@property (nonatomic, strong) NSMutableArray* goal2Package;
+//@property (nonatomic, strong) NSMutableArray* goal3Package;
+//@property (nonatomic, strong) NSMutableArray *goals;
 
 
 //- (IBAction)buttonTapped1:(id)sender;

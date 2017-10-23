@@ -23,14 +23,14 @@
     self.navigationController.navigationBar.titleTextAttributes = size;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     self.title = @"Goals Calendar";
+    [self loadGoals];
+    [self updateGoalButtons];
 
     UIColor *defaultBackgroundColor = [ColorsClass lightgray];
     self.view.backgroundColor = defaultBackgroundColor;
-    self.overallView.backgroundColor = defaultBackgroundColor;
-    self.calendardaysview.backgroundColor =  defaultBackgroundColor; 
+    self.calendardaysview.backgroundColor =  defaultBackgroundColor;
     self.calendarnavview.backgroundColor =  defaultBackgroundColor;   
-    self.calendarview.backgroundColor =	[UIColor yellowColor];
-    self.containerview.backgroundColor =	defaultBackgroundColor;
+    self.calendarview.backgroundColor =	 defaultBackgroundColor;
     self.prevYearButton.backgroundColor = defaultBackgroundColor;
     self.prevMonthButton.backgroundColor = defaultBackgroundColor;
     self.nextMonthButton.backgroundColor = defaultBackgroundColor;
@@ -63,8 +63,8 @@
     }
     
 
-    
-    [self.calendardaysview setFrame:CGRectMake(kCalendarDaysleft,kCalendarDaystop,kCalendarwidth,kCalendarDaysHeight6)];
+    [self.calendarview setFrame:CGRectMake(0,108,self.view.bounds.size.width,kCalendarDaysHeight6+44)];
+    [self.calendardaysview setFrame:CGRectMake((self.view.bounds.size.width-kCalendarContainerwidth)/2,kCalendarDaystop,kCalendarwidth,kCalendarDaysHeight6)];
     self.calendarcurrent = [[Calendar alloc]initWithHandler:self forMonth:self.currentMonth andYear:self.currentYear];
 
 	NSString *monthyearlabeltemp  = [[NSString alloc] initWithFormat:@"%@  %ld",[self monthName:self.currentMonth], self.currentYear];
@@ -257,10 +257,68 @@
 
 -(IBAction)setGoal:(id)sender {
     GoalSetViewController* goalSetViewController = (GoalSetViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+    [[UIStoryboard storyboardWithName:@"Goals" bundle:nil]
      instantiateViewControllerWithIdentifier:@"GoalSetViewController"];
     [self.navigationController pushViewController:goalSetViewController animated:YES];
     
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    GoalSetViewController* goalSetViewController = [segue destinationViewController];
+    if ([segue.identifier isEqualToString:@"1"])
+    {
+        goalSetViewController.goalIndex = Goal1Index;
+    }
+    else if ([segue.identifier isEqualToString:@"2"])
+    {
+        goalSetViewController.goalIndex = Goal2Index;
+    }
+    else if ([segue.identifier isEqualToString:@"3"])
+    {
+        goalSetViewController.goalIndex = Goal3Index;
+    }
+
+}
+
+-(void) loadGoals
+{
+    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
+    self.goalsArray = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if (!self.goalsArray)
+    {
+        self.goalsArray = [NSArray arrayWithObjects:
+           [[Goal alloc] init],
+           [[Goal alloc] init],
+           [[Goal alloc] init],
+                           nil];
+        NSInteger g = 1;
+        for (Goal* item in self.goalsArray)
+        {
+            item.goalName = [NSString stringWithFormat:@"Goal %lu",g];
+            g++;
+        }
+
+    }
+}
+
+-(void)saveGoals
+{
+
+    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
+    BOOL success = [NSKeyedArchiver archiveRootObject:self.goalsArray toFile:path];
+    if (!success) {
+        NSLog(@"GoalsArray.archive Did Not Save");
+    }
+}
+
+-(void)updateGoalButtons
+{
+    [self.goal1Button setTitle:@"This is my goal" forState:UIControlStateNormal];
+    [self.goal2Button setTitle:[[self.goalsArray objectAtIndex:1] goalName] forState:UIControlStateNormal];
+    [self.goal3Button setTitle:[[self.goalsArray objectAtIndex:2] goalName] forState:UIControlStateNormal];
 }
 
 @end

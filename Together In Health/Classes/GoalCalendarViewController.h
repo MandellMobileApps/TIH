@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong) Calendar	*calendarcurrent;
 @property (nonatomic, strong) Calendar	*calendarnext;
-
+@property (nonatomic, strong) NSArray    *goalsArray;
 @property (nonatomic	) NSInteger			currentYear;
 @property (nonatomic	) NSInteger			currentMonth;
 
@@ -38,8 +38,10 @@
 @property (nonatomic, strong) IBOutlet UIButton		*nextMonthButton;
 @property (nonatomic, strong) IBOutlet UIButton		*nextYearButton;
 
-@property (nonatomic, strong) IBOutlet UIView *overallView;
-@property (nonatomic, strong) IBOutlet UIView *containerview;
+@property (nonatomic, strong) IBOutlet UIButton        *goal1Button;
+@property (nonatomic, strong) IBOutlet UIButton        *goal2Button;
+@property (nonatomic, strong) IBOutlet UIButton        *goal3Button;
+
 @property (nonatomic, strong) IBOutlet UIView *calendarview;
 @property (nonatomic, strong) IBOutlet UIView *calendarnavview;
 @property (nonatomic, strong) IBOutlet UIView *calendardaysview;

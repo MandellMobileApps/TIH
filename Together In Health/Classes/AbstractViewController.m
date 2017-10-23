@@ -7,7 +7,7 @@
 //
 
 #import "AbstractViewController.h"
-#import "Goal.h"
+
 #import "ProgressViewController.h"
 #import "SQLiteAccess.h"
 #import "AppDelegate.h"
@@ -152,36 +152,13 @@
 
 }
 
--(void)loadGoalPersistent
-{
-    
-    NSString* path = [self dataFilePathofDocuments:@"GoalPersistent.archive"];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path])
-    {
-        
-        self.goals = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-        
-    }
-    else
-    {
-        self.goals = [NSMutableArray array];
-    }
-}
 
--(void)saveGoalPersistent
-{
-    NSString* path = [self dataFilePathofDocuments:@"GoalPersistent.archive"];
-    BOOL success = [NSKeyedArchiver archiveRootObject:self.goals toFile:path];
-    if (!success) {
-        
-    }
-}
 
 
 -(void)createGoalPakcage
 
 {
-    self.goalPackage = [NSMutableArray array];
+    //self.goalPackage = [NSMutableArray array];
     
     
 //    Goal* goal1 = [[Goal alloc] init];

@@ -7,21 +7,11 @@
 //
 
 #import "GoalSetViewController.h"
-#import "AbstractViewController.h"
-#import "Goal1ViewController.h"
-#import "Goal2ViewController.h"
-#import "Goal3ViewController.h"
 #import "AppDelegate.h"
-#import "TIHDate.h"
 
 
-enum goalIndex {
-    Goal1Index = 0,
-    Goal2Index = 1,
-    Goal3Index = 2,
 
-    
-};
+
 
 
 @interface GoalSetViewController ()
@@ -39,11 +29,7 @@ enum goalIndex {
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     
     self.appDelegate.goalSetViewController = self;
-    
-    self.goalIndex =  [[NSUserDefaults standardUserDefaults] integerForKey:@"goalIndex"];
-    
-    [self goal1:nil];
-    [self updateMenuButtons];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -59,57 +45,6 @@ enum goalIndex {
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
--(void)updateMenuButtons
-{
-    // clear buttons
-    self.goal1Button.enabled = YES;
-    self.goal2Button.enabled = YES;
-    self.goal3Button.enabled = YES;
-
-    
-    self.goal1Button.backgroundColor = [UIColor whiteColor];
-    [self.goal1Button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    self.goal2Button.backgroundColor = [UIColor whiteColor];
-    [self.goal2Button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    self.goal3Button.backgroundColor = [UIColor whiteColor];
-    [self.goal3Button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-
-    // update selected button
-    switch (self.goalIndex) {
-        case Goal1Index:
-            self.goal1Button.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
-            [self.goal1Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            self.goal1Button.enabled = NO;
-            break;
-        case Goal2Index:
-            self.goal2Button.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
-            [self.goal2Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            self.goal2Button.enabled = NO;
-            break;
-        case Goal3Index:
-            self.goal3Button.backgroundColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
-            [self.goal3Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            self.goal3Button.enabled = NO;
-            break;
-            
-        default:
-            break;
-    }
-    
-    
-    
-}
 
 -(CGRect)baseRect
 {
@@ -120,93 +55,117 @@ enum goalIndex {
     return baseRect;
     
 }
--(IBAction)goal1:(UIButton*)sender
+
+
+-(IBAction)buttonTapped1:(id)sender
 {
-    
-    if (!self.goal1ViewController)
-    {
-        self.goal1ViewController = (Goal1ViewController*)
-        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-         instantiateViewControllerWithIdentifier:@"Goal1ViewController"];
-        self.goal1ViewController.view.frame = [self baseRect];
-        self.goal1ViewController.goalSetViewController = self;
+    if (self.goal.Step1IsOn) {
+        [self.step1 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
+        self.goal.Step1IsOn = YES;
+        
+        
+    }
+    else {
+        [self.step1 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
+        self.goal.Step1IsOn = NO;
+        
+        
+    }
+}
+
+-(IBAction)buttonTapped2:(id)sender
+{
+    if (self.goal.Step2IsOn) {
+        [self.step2 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
+        self.goal.Step2IsOn = NO;
     }
     
     
     
-    
-    
-    [self addChildViewController:self.goal1ViewController];
-    [self.view addSubview:self.goal1ViewController.view];
-    [self.goal1ViewController didMoveToParentViewController:self];
-    self.title = @"Goal1";
-    self.goalIndex = Goal1Index;
-    [self updateMenuButtons];
-    //     [self unloadOtherViewControllersExceptIndex:FoodIndex];
-    
-    
-}
-
-
--(IBAction)goal2:(UIButton*)sender
-{
-    
-    if (!self.goal2ViewController)
-    {
-        self.goal2ViewController = (Goal2ViewController*)
-        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-         instantiateViewControllerWithIdentifier:@"Goal2ViewController"];
+    else {
+        [self.step2 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
+        self.goal.Step2IsOn = YES;
     }
     
-    self.goal2ViewController.view.frame = [self baseRect];
-    
-    self.goal2ViewController.goalSetViewController = self;
-    
-    [self addChildViewController:self.goal2ViewController];
-    [self.view addSubview:self.goal2ViewController.view];
-    [self.goal2ViewController didMoveToParentViewController:self];
-    self.title = @"Goal 2";
-    self.goalIndex = Goal2Index;
-    [self updateMenuButtons];
-    
-    //   [self unloadOtherViewControllersExceptIndex:SleepIndex];
-    
-    
 }
 
 
--(IBAction)goal3:(UIButton*)sender
+-(IBAction)buttonTapped3:(id)sender
 {
-    
-    if (!self.goal3ViewController)
-    {
-        self.goal3ViewController = (Goal3ViewController*)
-        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-         instantiateViewControllerWithIdentifier:@"Goal3ViewController"];
+    if (self.goal.Step3IsOn) {
+        [self.step3 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
+        self.goal.Step3IsOn = NO;
+    }
+    else {
+        [self.step3 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
+        self.goal.Step3IsOn = YES;
     }
     
-    self.goal3ViewController.view.frame = [self baseRect];
     
-    self.goal3ViewController.goalSetViewController = self;
+}
+-(IBAction)buttonTapped4:(id)sender
+{
+    if (self.goal.Step4IsOn) {
+        [self.step4 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
+        
+        self.goal.Step4IsOn = NO;
+    }
+    else {
+        [self.step4 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
+        self.goal.Step4IsOn = YES;
+    }
     
-    [self addChildViewController:self.goal3ViewController];
-    [self.view addSubview:self.goal3ViewController.view];
-    [self.goal3ViewController didMoveToParentViewController:self];
-    self.title = @"Goal 3";
-    self.goalIndex = Goal3Index;
-    [self updateMenuButtons];
-
+}
+-(IBAction)buttonTapped5:(id)sender
+{
+    if (self.goal.Step5IsOn) {
+        [self.step5 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
+        self.goal.Step5IsOn = NO;
+    }
+    else {
+        [self.step5 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
+        self.goal.Step5IsOn = YES;
+    }
 }
 
+-(IBAction)clearAll:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you want to clear all?" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Clear all",nil];
+    [alert show];
+    
+}
 
--(IBAction)backDay:(id)sender {
-    
-//    self.appDelegate.day = [self.appDelegate dayForDate:[TIHDate dateYesterdayAtMidnightFromDate:self.appDelegate.day.date]];
-//    
-//    [self resetDay];
-//    
-    
-    
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+    }
+    else if (buttonIndex == 1) {
+        self.goalTextField.text = @"";
+        self.daysTextField.text = @"";
+        self.timesTextField.text = @"";
+        self.whereTextField.text = @"";
+        self.amountTextField.text = @"";
+        self.step1TextField.text = @"";
+        self.step2TextField.text = @"";
+        self.step3TextField.text = @"";
+        self.step4TextField.text = @"";
+        self.step5TextField.text = @"";
+        
+        self.goal.Step1IsOn = NO;
+        [self.step1 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+        self.goal.Step2IsOn = NO;
+        [self.step2 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+        self.goal.Step3IsOn = NO;
+        [self.step3 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+        self.goal.Step4IsOn = NO;
+        [self.step4 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+        self.goal.Step5IsOn = NO;
+        [self.step5 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction)gamePlan:(id)sender
+{
+
 }
 
 -(IBAction)forwardDay:(id)sender{
@@ -333,5 +292,93 @@ enum goalIndex {
     // Drawing code
 }
 */
-
+//
+//-(IBAction)goal1:(UIButton*)sender
+//{
+//
+//    if (!self.goal1ViewController)
+//    {
+//        self.goal1ViewController = (Goal1ViewController*)
+//        [[UIStoryboard storyboardWithName:@"Goals" bundle:nil]
+//         instantiateViewControllerWithIdentifier:@"Goal1ViewController"];
+//        self.goal1ViewController.view.frame = [self baseRect];
+//        self.goal1ViewController.goalSetViewController = self;
+//    }
+//
+//
+//
+//
+//
+//    [self addChildViewController:self.goal1ViewController];
+//    [self.view addSubview:self.goal1ViewController.view];
+//    [self.goal1ViewController didMoveToParentViewController:self];
+//    self.title = @"Goal1";
+//    self.goalIndex = Goal1Index;
+//    [self updateMenuButtons];
+//    //     [self unloadOtherViewControllersExceptIndex:FoodIndex];
+//
+//
+//}
+//
+//
+//-(IBAction)goal2:(UIButton*)sender
+//{
+//
+//    if (!self.goal2ViewController)
+//    {
+//        self.goal2ViewController = (Goal2ViewController*)
+//        [[UIStoryboard storyboardWithName:@"Goals" bundle:nil]
+//         instantiateViewControllerWithIdentifier:@"Goal2ViewController"];
+//    }
+//
+//    self.goal2ViewController.view.frame = [self baseRect];
+//
+//    self.goal2ViewController.goalSetViewController = self;
+//
+//    [self addChildViewController:self.goal2ViewController];
+//    [self.view addSubview:self.goal2ViewController.view];
+//    [self.goal2ViewController didMoveToParentViewController:self];
+//    self.title = @"Goal 2";
+//    self.goalIndex = Goal2Index;
+//    [self updateMenuButtons];
+//
+//    //   [self unloadOtherViewControllersExceptIndex:SleepIndex];
+//
+//
+//}
+//
+//
+//-(IBAction)goal3:(UIButton*)sender
+//{
+//
+//    if (!self.goal3ViewController)
+//    {
+//        self.goal3ViewController = (Goal3ViewController*)
+//        [[UIStoryboard storyboardWithName:@"Goals" bundle:nil]
+//         instantiateViewControllerWithIdentifier:@"Goal3ViewController"];
+//    }
+//
+//    self.goal3ViewController.view.frame = [self baseRect];
+//
+//    self.goal3ViewController.goalSetViewController = self;
+//
+//    [self addChildViewController:self.goal3ViewController];
+//    [self.view addSubview:self.goal3ViewController.view];
+//    [self.goal3ViewController didMoveToParentViewController:self];
+//    self.title = @"Goal 3";
+//    self.goalIndex = Goal3Index;
+//    [self updateMenuButtons];
+//
+//}
+//
+//
+//-(IBAction)backDay:(id)sender {
+//
+//    //    self.appDelegate.day = [self.appDelegate dayForDate:[TIHDate dateYesterdayAtMidnightFromDate:self.appDelegate.day.date]];
+//    //
+//    //    [self resetDay];
+//    //
+//
+//
+//}
 

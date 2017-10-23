@@ -443,7 +443,7 @@
 
     
     for (Day* day in self.days) {
-       NSLog(@"thisDay %@  %@", day.date,day);
+//       NSLog(@"thisDay %@  %@", day.date,day);
         if ([atMidnight compare:day.date] == NSOrderedSame) {
             thisDay = day;
             return thisDay;
@@ -454,7 +454,7 @@
     
     [self.days addObject:newDay];
     [self savePersistent];
-    NSLog(@"newDay %@  %@", newDay.date,newDay);
+//    NSLog(@"newDay %@  %@", newDay.date,newDay);
     return newDay;
     
 }

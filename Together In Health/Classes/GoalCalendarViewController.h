@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong) Calendar	*calendarcurrent;
 @property (nonatomic, strong) Calendar	*calendarnext;
-@property (nonatomic, strong) NSArray    *goalsArray;
+
 @property (nonatomic	) NSInteger			currentYear;
 @property (nonatomic	) NSInteger			currentMonth;
 

@@ -22,7 +22,7 @@ enum goalIndex {
 
 @property (nonatomic) NSInteger goalIndex;
 
-- (IBAction)gamePlan:(id)sender;
+
 - (IBAction)buttonTapped1:(id)sender;
 - (IBAction)buttonTapped2:(id)sender;
 - (IBAction)buttonTapped3:(id)sender;
@@ -30,7 +30,7 @@ enum goalIndex {
 - (IBAction)buttonTapped5:(id)sender;
 
 @property (nonatomic, strong) Goal *goal;
-
+@property (nonatomic, strong) IBOutlet UIScrollView *thisScrollView;
 @property (nonatomic, strong) IBOutlet UITextField *goalTextField;
 @property (nonatomic, strong) IBOutlet UITextField *daysTextField;
 @property (nonatomic, strong) IBOutlet UITextField *timesTextField;

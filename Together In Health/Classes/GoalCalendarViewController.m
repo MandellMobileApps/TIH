@@ -9,6 +9,7 @@
 #import "GoalCalendarViewController.h"
 #import "GoalSetViewController.h"
 #import "GoalGamePlanViewController.h"
+#import "AppDelegate.h"
 
 @interface GoalCalendarViewController ()
 
@@ -24,7 +25,7 @@
     self.navigationController.navigationBar.titleTextAttributes = size;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     self.title = @"Goals Calendar";
-    [self loadGoals];
+    [self.appDelegate loadGoals];
     [self updateGoalButtons];
 
     UIColor *defaultBackgroundColor = [ColorsClass lightgray];
@@ -272,61 +273,30 @@
     if ([segue.identifier isEqualToString:@"1"])
     {
         goalSetViewController.goalIndex = Goal1Index;
-        goalSetViewController.goal = [self.goalsArray objectAtIndex:0];
+        goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:0];
     }
     else if ([segue.identifier isEqualToString:@"2"])
     {
         goalSetViewController.goalIndex = Goal2Index;
-        goalSetViewController.goal = [self.goalsArray objectAtIndex:1];
+        goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:1];
     }
     else if ([segue.identifier isEqualToString:@"3"])
     {
         goalSetViewController.goalIndex = Goal3Index;
-        goalSetViewController.goal = [self.goalsArray objectAtIndex:2];
+        goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:2];
     }
 
 }
 
 
 
--(void) loadGoals
-{
-    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
-    self.goalsArray = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-    if (!self.goalsArray)
-    {
-        self.goalsArray = [NSArray arrayWithObjects:
-           [[Goal alloc] init],
-           [[Goal alloc] init],
-           [[Goal alloc] init],
-                           nil];
-        NSInteger g = 1;
-        for (Goal* item in self.goalsArray)
-        {
-            item.goalName = [NSString stringWithFormat:@"Goal %lu",g];
-            g++;
-        }
-        [self saveGoals];
-
-    }
-}
-
--(void)saveGoals
-{
-
-    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
-    BOOL success = [NSKeyedArchiver archiveRootObject:self.goalsArray toFile:path];
-    if (!success) {
-        NSLog(@"GoalsArray.archive Did Not Save");
-    }
-}
 
 -(void)updateGoalButtons
 {
-    [self.goal1Button setTitle:[[self.goalsArray objectAtIndex:0] goalName]
+    [self.goal1Button setTitle:[[self.appDelegate.goalsArray objectAtIndex:0] goalName]
      forState:UIControlStateNormal];
-     [self.goal2Button setTitle:[[self.goalsArray objectAtIndex:1] goalName] forState:UIControlStateNormal];
-    [self.goal3Button setTitle:[[self.goalsArray objectAtIndex:2] goalName] forState:UIControlStateNormal];
+     [self.goal2Button setTitle:[[self.appDelegate.goalsArray objectAtIndex:1] goalName] forState:UIControlStateNormal];
+    [self.goal3Button setTitle:[[self.appDelegate.goalsArray objectAtIndex:2] goalName] forState:UIControlStateNormal];
 }
 
 @end

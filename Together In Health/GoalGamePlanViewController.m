@@ -22,15 +22,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
+   self.changeMade = NO; self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
     self.navigationController.navigationBar.titleTextAttributes = size;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     
     self.appDelegate.goalGamePlanViewController = self;
     
+    self.titleLabel.text = self.goal.goalName;
+    
+    [self.thisScrollView setFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
+    
     self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 650);
-    [self.thisScrollView setFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     
     self.holidaysTextView.text = self.goal.holidays;
     self.vacationTextView.text = self.goal.vacation;
@@ -40,23 +43,6 @@
     self.other1TextView.text = self.goal.other1Text;
     self.other2TextView.text = self.goal.other2Text;
 
-    
-    // Do any additional setup after loading the view.
-//    NSString* RecordId = [self.object objectForKey:@"RecordId"];
-//    NSString* sql2 = [NSString stringWithFormat:@"SELECT * FROM Goal1 WHERE RecordId = \"%@\" ",RecordId];
-//    NSArray* temp = [SQLiteAccess selectManyRowsWithSQL:sql2];
-//    if (temp.count > 0)
-//    {
-//        self.object = [temp objectAtIndex:0];
-//    }
-    
-//    self.holidaysTextView.text = [self.object objectForKey:@"Holidays"];
-//    self.vacationTextView.text = [self.object objectForKey:@"Vacations"];
-//    self.sickDaysTextView.text = [self.object objectForKey:@"SickDays"];
-//    self.other1InfoTextView.text = [self.object objectForKey:@"Other1Info"];
-//    self.other2InfoTextView.text = [self.object objectForKey:@"Other2Info"];
-//    self.other1TextView.text = [self.object objectForKey:@"Other1"];
-//    self.other2TextView.text = [self.object objectForKey:@"Other2"];
 
 }
 
@@ -118,7 +104,33 @@
     self.goal.other2 = self.other2InfoTextView.text;
     self.goal.other1Text = self.other1TextView.text;
     self.goal.other2Text = self.other2TextView.text;
+    self.changeMade = YES;
+}
 
+-(IBAction)navbuttonTapped:(UIButton*)sender
+{
+    if (sender.tag == 0)
+    {
+        if (self.changeMade)
+        {
+           // alert
+        
+        }
+        else
+        {
+            [self dismissViewControllerAnimated:YES completion:^{
+ 
+            }];
+        }
+    }
+    else if (sender.tag == 1)
+    {
+        [self.appDelegate saveGoals];
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }
+        
 }
 
 @end

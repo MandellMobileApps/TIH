@@ -29,6 +29,8 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     
     self.appDelegate.goalSetViewController = self;
+    self.thisScrollView.contentSize = CGSizeMake( self.view.bounds.size.width, 700);
+    
 
 }
 
@@ -61,13 +63,13 @@
 {
     if (self.goal.Step1IsOn) {
         [self.step1 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
-        self.goal.Step1IsOn = YES;
+        self.goal.Step1IsOn = NO;
         
         
     }
     else {
         [self.step1 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
-        self.goal.Step1IsOn = NO;
+        self.goal.Step1IsOn = YES;
         
         
     }

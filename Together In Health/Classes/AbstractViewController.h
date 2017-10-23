@@ -34,6 +34,8 @@ enum CornerType {
 
 @property (nonatomic, weak) AppDelegate *appDelegate;
 
+@property(nonatomic) BOOL changeMade;
+
 -(void)bannerViewDidLoadAd:(ADBannerView *)banner;
 @property(nonatomic) BOOL loadAd;
 -(void)viewDidAppear:(BOOL)animated;

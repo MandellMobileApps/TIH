@@ -1227,6 +1227,37 @@
 
 
 
+-(void) loadGoals
+{
+    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
+    self.goalsArray = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if (!self.goalsArray)
+    {
+        self.goalsArray = [NSArray arrayWithObjects:
+                           [[Goal alloc] init],
+                           [[Goal alloc] init],
+                           [[Goal alloc] init],
+                           nil];
+        NSInteger g = 1;
+        for (Goal* item in self.goalsArray)
+        {
+            item.goalName = [NSString stringWithFormat:@"Goal %lu",g];
+            g++;
+        }
+        [self saveGoals];
+        
+    }
+}
+
+-(void)saveGoals
+{
+    
+    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
+    BOOL success = [NSKeyedArchiver archiveRootObject:self.goalsArray toFile:path];
+    if (!success) {
+        NSLog(@"GoalsArray.archive Did Not Save");
+    }
+}
 
 
 

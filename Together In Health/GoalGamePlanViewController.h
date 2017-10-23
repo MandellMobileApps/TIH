@@ -16,6 +16,7 @@
 
 
 @property (nonatomic, strong) Goal *goal;
+@property(nonatomic, strong) IBOutlet UILabel* titleLabel;
 
 @property(nonatomic,strong) IBOutlet UIScrollView* thisScrollView;
 @property(nonatomic,strong) NSDictionary* object;

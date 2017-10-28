@@ -14,16 +14,28 @@
 {
     [super viewDidLoad];
     
-    self.thisScrollView.contentSize = CGSizeMake(320, 720);
-    
-    self.checkConfident.selectedSegmentIndex = self.confidentRating-1;
-    self.checkImportant.selectedSegmentIndex = 1;
+    self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 720);
+    self.checkConfident.selectedSegmentIndex = self.goal.confidentRating-1;
+    self.checkImportant.selectedSegmentIndex = self.goal.importantRating-1;
+    self.goalTitleLabel.text = [NSString stringWithFormat:@"Check %@",self.goal.goalName];
     
 }
 
+-(IBAction)cancelButtonTapped:(UIButton*)sender
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+
+    }];
+}
 
 - (IBAction)segmentConfident:(UISegmentedControl* )sender {
-    switch (sender.selectedSegmentIndex) {
+    self.goal.confidentRating = sender.selectedSegmentIndex + 1;
+    [self checkConfidentIndex:sender.selectedSegmentIndex];
+}
+
+-(void) checkConfidentIndex:(NSInteger)index
+{
+    switch (index) {
         case 0:
             self.textViewGoalCheck2.text = @"Why are you not confident in your goal? Is there a similar goal that you are confident in? Would it help to start with a smaller goal?";
             break;
@@ -58,9 +70,14 @@
             break;
     }
 }
-
 -(IBAction)segmentImportant:(UISegmentedControl* )sender {
-    switch (sender.selectedSegmentIndex) {
+    self.goal.importantRating = sender.selectedSegmentIndex + 1;
+    [self checkImportantIndex:sender.selectedSegmentIndex];
+}
+
+-(void) checkImportantIndex:(NSInteger)index
+{
+    switch (index) {
         case 0:
             self.textViewGoalCheck.text = @"Think about why your goal isn't important to you. Is there anything you can change about your goal to make it more important to you? It's important that your goal is important to you.";
             break;
@@ -83,10 +100,21 @@
 
 -(IBAction)goalCheck {
     
+    [self checkImportantIndex:self.goal.importantRating];
+    [self checkConfidentIndex:self.goal.confidentRating];
     self.textViewGoalCheck.hidden = NO;
     self.textViewGoalCheck2.hidden = NO;
     
 }
 
+-(IBAction)clearButtonTapped:(id)sender
+{
+    self.goal.importantRating = 0;
+    self.goal.confidentRating = 0;
+    self.textViewGoalCheck.text = @"";
+    self.textViewGoalCheck2.text = @"";
+    self.textViewGoalCheck.hidden = YES;
+    self.textViewGoalCheck2.hidden = YES;
+}
 
 @end

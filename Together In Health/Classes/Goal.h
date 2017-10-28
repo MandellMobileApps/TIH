@@ -71,4 +71,6 @@
 @property (nonatomic, strong)  NSString* other1Text;
 @property (nonatomic, strong)  NSString* other2Text;
 
+@property (nonatomic) NSUInteger importantRating;
+@property (nonatomic) NSUInteger confidentRating;
 @end

@@ -32,11 +32,11 @@
 //        self.textFieldOften2 = [decoder decodeObjectForKey:@"textFieldOften2"];
 
         
-        self.Step1IsOn = [decoder decodeBoolForKey:@"Step1IsOn;"];
-        self.Step2IsOn = [decoder decodeBoolForKey:@"Step2IsOn;"];
-        self.Step3IsOn = [decoder decodeBoolForKey:@"Step3IsOn;"];
-        self.Step4IsOn = [decoder decodeBoolForKey:@"Step4IsOn;"];
-        self.Step5IsOn = [decoder decodeBoolForKey:@"Step5IsOn;"];
+        self.Step1IsOn = [decoder decodeBoolForKey:@"Step1IsOn"];
+        self.Step2IsOn = [decoder decodeBoolForKey:@"Step2IsOn"];
+        self.Step3IsOn = [decoder decodeBoolForKey:@"Step3IsOn"];
+        self.Step4IsOn = [decoder decodeBoolForKey:@"Step4IsOn"];
+        self.Step5IsOn = [decoder decodeBoolForKey:@"Step5IsOn"];
         
         
         self.vacation = [decoder decodeObjectForKey:@"vacation"];
@@ -46,7 +46,10 @@
         self.other2 = [decoder decodeObjectForKey:@"other2"];
         self.other1Text = [decoder decodeObjectForKey:@"other1Text"];
         self.other2Text = [decoder decodeObjectForKey:@"other2Text"];
-    
+ 
+        self.importantRating = [decoder decodeIntegerForKey:@"importantRating"];
+        self.confidentRating = [decoder decodeIntegerForKey:@"confidentRating"];
+
     }
     return self;
     
@@ -84,7 +87,9 @@
     [encoder encodeObject:self.other2 forKey:@"other2"];
     [encoder encodeObject:self.other1Text forKey:@"other1Text"];
     [encoder encodeObject:self.other2Text forKey:@"other2Text"];
-    
+
+    [encoder encodeInteger:self.importantRating forKey:@"importantRating"];
+    [encoder encodeInteger:self.confidentRating forKey:@"confidentRating"];
 }
 
 @end

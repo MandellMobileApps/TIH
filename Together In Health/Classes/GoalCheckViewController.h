@@ -13,6 +13,7 @@
 @property (nonatomic, strong) Goal *goal;
 
 @property (nonatomic,strong) IBOutlet UIButton* checkButton;
+@property (nonatomic,strong) IBOutlet UILabel* goalTitleLabel;
 @property (nonatomic,strong) IBOutlet UITextView* textViewGoalCheck;
 @property (nonatomic,strong) IBOutlet UITextView* textViewGoalCheck2;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *checkConfident;
@@ -25,7 +26,7 @@
 
 -(IBAction)segmentImportant:(id)sender;
 -(IBAction)segmentConfident:(id)sender;
-@property (nonatomic) int importantRating;
-@property (nonatomic) int confidentRating;
+@property (nonatomic) NSUInteger importantRating;
+@property (nonatomic) NSUInteger confidentRating;
 
 @end

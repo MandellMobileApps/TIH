@@ -9,13 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#define kCalendarwidth 315
-#define kCalendarContainerwidth 320
-#define kCalendarDaysleft 4
-#define kCalendarDaystop 44
-#define kCalendarDaysHeight4 153+12
-#define kCalendarDaysHeight5 191+12
-#define kCalendarDaysHeight6 230+12
+
 
 @class GoalCalendarViewController;
 
@@ -24,7 +18,7 @@
 
 }
 
-@property (nonatomic, strong) GoalCalendarViewController *goalCalendarViewController;
+@property (nonatomic, weak) GoalCalendarViewController *goalCalendarViewController;
 
 @property (nonatomic	) NSInteger			currentYear;
 @property (nonatomic	) NSInteger			currentMonth;
@@ -41,6 +35,14 @@
 @property (nonatomic, strong	) UIColor			*nonMonthDayBackgroundColor;
 @property (nonatomic, strong	) UIColor			*todaytextColor;
 @property (nonatomic, strong	) UIColor			*todayBackgroundColor;
+
+@property (nonatomic) float calendarWidth;
+@property (nonatomic) float calendarHeight;
+@property (nonatomic) float calendarDaysWidth;
+@property (nonatomic) float calendarDaysHeight;
+@property (nonatomic) float calendarDaySide;
+
+
 
 - (id)initWithHandler:(id)handler forMonth:(NSInteger)month andYear:(NSInteger)year;
 -(void) loadWeekdayNameLabels;

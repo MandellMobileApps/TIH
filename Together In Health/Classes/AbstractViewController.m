@@ -588,7 +588,7 @@
     {
         UIView* thisObject = (UIView*)object;
         [thisObject.layer setBorderColor:[color CGColor]];
-        [thisObject.layer setBorderWidth:1.0];
+        [thisObject.layer setBorderWidth:10.0];
         if (corner == CornerTypeRounded)
         {
             [thisObject.layer setCornerRadius:8.0f];

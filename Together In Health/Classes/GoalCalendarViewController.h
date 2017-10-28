@@ -10,6 +10,7 @@
 #import "Calendar.h"
 #import "ColorsClass.h"
 #import <QuartzCore/QuartzCore.h>
+#import "DatePickerView.h"
 
 
 
@@ -18,14 +19,16 @@
 @interface GoalCalendarViewController : AbstractViewController <CAAnimationDelegate>
 
 
-@property (nonatomic, strong) Calendar	*calendarcurrent;
-@property (nonatomic, strong) Calendar	*calendarnext;
+
+
+@property (nonatomic, strong) IBOutlet UIView *calendarview;
+@property (nonatomic, strong) IBOutlet UIView *calendarDaysview;
+@property (nonatomic, strong) IBOutlet UIView *calendarnavview;
+@property (nonatomic, strong)  Calendar    *calendarcurrent;
+
 
 @property (nonatomic	) NSInteger			currentYear;
 @property (nonatomic	) NSInteger			currentMonth;
-
-@property (nonatomic	) NSInteger			nextYear;
-@property (nonatomic	) NSInteger			nextMonth;
 
 @property (nonatomic, strong) IBOutlet UILabel *otherLabels; 
 
@@ -42,9 +45,7 @@
 @property (nonatomic, strong) IBOutlet UIButton        *goal2Button;
 @property (nonatomic, strong) IBOutlet UIButton        *goal3Button;
 
-@property (nonatomic, strong) IBOutlet UIView *calendarview;
-@property (nonatomic, strong) IBOutlet UIView *calendarnavview;
-@property (nonatomic, strong) IBOutlet UIView *calendardaysview;
+
 @property (nonatomic, strong) IBOutlet UIView *swipeview;
 @property (nonatomic, strong) IBOutlet UIImageView *pictureview;
 
@@ -55,6 +56,7 @@
 @property (nonatomic, strong) NSTimer	*timer;
 @property (nonatomic, strong) UIView *navbarView;
 
+@property (nonatomic, strong) DatePickerView *datePickerView;
 
 
 -(IBAction)setGoal:(id)sender;
@@ -81,7 +83,6 @@
 -(NSString*)monthName:(NSInteger)month;
 
 
--(void)adjustCalendarframewith:(float)height;
 
 -(IBAction)gamePlan:(id)sender;
 

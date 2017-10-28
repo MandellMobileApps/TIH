@@ -13,6 +13,7 @@
 #import "GoalCalendarViewController.h"
 #import "Day.h"
 #import "AppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface Calendar () {
@@ -37,7 +38,7 @@
 		self.currentYear = year;
 		self.currentMonth = month;
         self.goalCalendarViewController = handler;
-        
+       
         // set colors
 		self.daytextColor = [ColorsClass black];
 		self.dayBackgroundColor = [ColorsClass white];
@@ -48,9 +49,14 @@
 		self.todaytextColor = [ColorsClass white];
 		self.todayBackgroundColor = [ColorsClass blue];
         
+        
+        
+        self.calendarWidth = self.goalCalendarViewController.view.bounds.size.width-40;
+        self.calendarDaySide = self.calendarWidth/7;
+        
         // initialize and add weekday name labels
 		[self loadWeekdayNameLabels];
-		
+
         [self drawCalendarForYear:self.currentYear month:self.currentMonth];
 
     }
@@ -65,11 +71,13 @@
 	// initialize and add weekday name labels
 	NSArray *weekdaynames = [[NSArray alloc] initWithObjects:@"Sun", @"Mon", @"Tue", @"Wed", @"Thu", @"Fri", @"Sat", nil];
 	for(int i = 0; i < 7; i++) {
-		UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(i * 44, 0, 45, 12)];
+		UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(i * self.calendarDaySide, 0, self.calendarDaySide, 12)];
 		lbl.text = [weekdaynames objectAtIndex:i];
 		lbl.textAlignment = NSTextAlignmentCenter;
 		lbl.font = [UIFont systemFontOfSize:12];
-		lbl.backgroundColor = [ColorsClass LightBlue];
+		lbl.backgroundColor = self.weekdayLabelsBackgroundColor;
+        lbl.textColor = self.weekdayLabelsTextColor;
+        //NSLog(@"lbl.frame %@",NSStringFromCGRect(lbl.frame));
         [self addSubview:lbl];
 	}
 
@@ -82,6 +90,12 @@
 
 // draw the calendar for scrolling months  //////////////////////////////////////////////////////////////////////////////////////////
 - (void)drawCalendarForYear:(NSInteger)year month:(NSInteger)month {
+
+
+//    for (UIView* thisView in self.subviews)
+//    {
+//        [thisView removeFromSuperview];
+//    }
 
 	// find number of days in given month
 	NSInteger daysinmonth = [self getdaysinmonth:month year:year];
@@ -110,11 +124,12 @@
 		self.totaldays = 42;
 	}
 
-    NSInteger viewheight = [self getviewheight];
-    CGRect calendardaysframe = CGRectMake(kCalendarDaysleft,kCalendarDaystop,kCalendarwidth,viewheight);
+    self.calendarHeight = self.totalweeks*self.calendarDaySide+12;
+    CGRect calendardaysframe = CGRectMake(0,0,self.calendarWidth,self.calendarHeight);
     [self setFrame:calendardaysframe];
-    [self.goalCalendarViewController adjustCalendarframewith:viewheight];
     [self setNeedsDisplay];
+    NSLog(@"self.calendarHeight %f",self.calendarHeight);
+    NSLog(@"days %lu, weeks %lu, day1 %lu, inmonth %lu",self.totaldays,self.totalweeks,self.day1weekday,daysinmonth);
     
 	//  get first day of calendar page
 	NSInteger amount = 1-self.day1weekday;
@@ -123,20 +138,21 @@
     NSInteger todayMonth = [todaycomps month];
     NSInteger todayDay = [todaycomps day];
     
-        for(int i = 0; i < 6; i++) {
+        for(int i = 0; i < self.totalweeks; i++) {
 			for(int j = 0; j < 7; j++) {
+                NSLog(@"i %i",i);
 
-                CGRect dayRect = CGRectMake(j * 44, (i * 38)+12, 45, 40);
+                CGRect dayRect = CGRectMake(j * self.calendarDaySide, (i * self.calendarDaySide)+12, self.calendarDaySide, self.calendarDaySide);
 				UIView *dayView = [[UIView alloc]initWithFrame:dayRect];
-                //NSLog(@"dayRect %@",NSStringFromCGRect(dayRect));
-                // get day object for this day.
-                Day* thisDayObject = [self.appDelegate calendarDayForDate:startdate];
+//                NSLog(@"dayRect %@",NSStringFromCGRect(dayRect));
+                dayView.backgroundColor = [ColorsClass lightgray];
                 
+
                 NSDateComponents *dayofmonthcomps = [gregorian components:NSCalendarUnitDay | NSCalendarUnitMonth fromDate:startdate];
                 NSInteger thisMonth = [dayofmonthcomps month];
                 NSInteger dayOfMonth = [dayofmonthcomps day];
 
-                UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 45, 40)];
+                UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(2, 2, self.calendarDaySide-2, self.calendarDaySide-2)];
 				lbl.textAlignment = NSTextAlignmentCenter;
 				lbl.font = [UIFont systemFontOfSize:24];
                 lbl.text = [NSString stringWithFormat:@"%ld",dayOfMonth];
@@ -164,7 +180,7 @@
                 startdate = [self dateincrement:startdate daystostep:1 monthstostep:0];
                 //NSLog(@"%@",startdate);
                 
-				UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 45, 40)];
+				UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.calendarDaySide, self.calendarDaySide)];
 				[btn addTarget:self.goalCalendarViewController action:@selector(dayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
                 if (thisMonth == month)
                 {
@@ -176,29 +192,31 @@
                 }
 				[dayView addSubview:btn];
 
-                
+                // get day object for this day.  returns nil if not in days array
+                Day* thisDayObject = [self.appDelegate calendarDayForDate:startdate];
+
                 if (thisDayObject)
                 {
                     if (thisDayObject.goal1)
                     {
-                        UIView *goal1View = [[UIView alloc] initWithFrame:CGRectMake(10,20,20,20)];
-                        goal1View.layer.cornerRadius = 50;  // half the width/height
+                        UIView *goal1View = [[UIView alloc] initWithFrame:CGRectMake(1,1,15,15)];
+                        //goal1View.layer.cornerRadius = 50;  // half the width/height
                         goal1View.backgroundColor = [UIColor blueColor];
-                        [dayView addSubview:goal1View];
+                        [lbl addSubview:goal1View];
                     }
                     if (thisDayObject.goal2)
                     {
-                        UIView *goal2View = [[UIView alloc] initWithFrame:CGRectMake(40,20,20,20)];
-                        goal2View.layer.cornerRadius = 50;  // half the width/height
+                        UIView *goal2View = [[UIView alloc] initWithFrame:CGRectMake(17,1,15,15)];
+                        //goal2View.layer.cornerRadius = 50;  // half the width/height
                         goal2View.backgroundColor = [UIColor redColor];
-                        [dayView addSubview:goal2View];
+                        [lbl addSubview:goal2View];
                     }
                     if (thisDayObject.goal3)
                     {
-                        UIView *goal3View = [[UIView alloc] initWithFrame:CGRectMake(70,20,20,20)];
-                        goal3View.layer.cornerRadius = 50;  // half the width/height
+                        UIView *goal3View = [[UIView alloc] initWithFrame:CGRectMake(33,1,15,15)];
+                        //goal3View.layer.cornerRadius = 50;  // half the width/height
                         goal3View.backgroundColor = [UIColor yellowColor];
-                        [dayView addSubview:goal3View];
+                        [lbl addSubview:goal3View];
                     }
 
                 }
@@ -270,23 +288,6 @@
 	return newdate;
 }
 
-
-
-
--(NSInteger)getviewheight {
-
-	int height = 0;
-	if(self.totalweeks == 4) {
-		height = kCalendarDaysHeight4;
-	}	
-	if(self.totalweeks == 5) {
-		height = kCalendarDaysHeight5;
-	}	
-	if(self.totalweeks == 6) {
-		height = kCalendarDaysHeight6;
-	}
-	return height;
-}
 
 
 

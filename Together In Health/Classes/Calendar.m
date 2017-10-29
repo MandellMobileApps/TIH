@@ -195,33 +195,37 @@
                 // get day object for this day.  returns nil if not in days array
                 Day* thisDayObject = [self.appDelegate calendarDayForDate:startdate];
 
+            if (thisMonth == month)
+            {
 //                if (thisDayObject)
 //                {
 //                    if (thisDayObject.goal1)
 //                    {
-                        UIView *goal1View = [[UIView alloc] initWithFrame:CGRectMake(1,1,15,15)];
-                        goal1View.layer.cornerRadius = 50;  // half the width/height
+                        UIView *goal1View = [[UIView alloc] initWithFrame:CGRectMake(0,1,self.calendarDaySide/3,15)];
+                        //goal1View.layer.cornerRadius = 50;  // half the width/height
+                        [self addBorderAround:goal1View cornerType:CornerTypeSquare withColor:[UIColor blackColor]];
                         goal1View.backgroundColor = [UIColor blueColor];
                         [lbl addSubview:goal1View];
 //                    }
 //                    if (thisDayObject.goal2)
 //                    {
-                        UIView *goal2View = [[UIView alloc] initWithFrame:CGRectMake(17,1,15,15)];
+                        UIView *goal2View = [[UIView alloc] initWithFrame:CGRectMake(self.calendarDaySide/3,1,self.calendarDaySide/3,15)];
                         //goal2View.layer.cornerRadius = 50;  // half the width/height
                         goal2View.backgroundColor = [UIColor redColor];
                         [lbl addSubview:goal2View];
 //                    }
 //                    if (thisDayObject.goal3)
 //                    {
-                        UIView *goal3View = [[UIView alloc] initWithFrame:CGRectMake(33,1,15,15)];
+                        UIView *goal3View = [[UIView alloc] initWithFrame:CGRectMake((self.calendarDaySide/3)*2,1,self.calendarDaySide/3,15)];
                         //goal3View.layer.cornerRadius = 50;  // half the width/height
                         goal3View.backgroundColor = [UIColor yellowColor];
                         [lbl addSubview:goal3View];
 //                        }
 //
-//                    }
+                }
                 [self addSubview:dayView];
-            }
+
+          }
 
         }  // end of looping through days
 		
@@ -289,6 +293,70 @@
 }
 
 
+-(void)addBorderAround:(id)object cornerType:(NSInteger)corner withColor:(UIColor*)color
+{
+
+    if ([object isKindOfClass:[UIButton class]])
+    {
+        UIButton* thisObject = (UIButton*)object;
+        [thisObject.layer setBorderColor:[color CGColor]];
+        [thisObject.layer setBorderWidth:1.0];
+        if (corner == CornerTypeRounded)
+        {
+            [thisObject.layer setCornerRadius:8.0f];
+            [thisObject.layer setMasksToBounds:YES];
+        }
+    
+    }
+    else if ([object isKindOfClass:[UITextField class]])
+    {
+        UITextField* thisObject = (UITextField*)object;
+        [thisObject.layer setBorderColor:[color CGColor]];
+        [thisObject.layer setBorderWidth:1.0];
+        if (corner == CornerTypeRounded)
+        {
+            [thisObject.layer setCornerRadius:8.0f];
+            [thisObject.layer setMasksToBounds:YES];
+        }
+    
+    }
+     else if ([object isKindOfClass:[UITextView class]])
+    {
+        UITextView* thisObject = (UITextView*)object;
+        [thisObject.layer setBorderColor:[color CGColor]];
+        [thisObject.layer setBorderWidth:1.0];
+        if (corner == CornerTypeRounded)
+        {
+            [thisObject.layer setCornerRadius:8.0f];
+            [thisObject.layer setMasksToBounds:YES];
+        }
+    
+    }
+     else if ([object isKindOfClass:[UILabel class]])
+    {
+        UILabel* thisObject = (UILabel*)object;
+        [thisObject.layer setBorderColor:[color CGColor]];
+        [thisObject.layer setBorderWidth:1.0];
+        if (corner == CornerTypeRounded)
+        {
+            [thisObject.layer setCornerRadius:8.0f];
+            [thisObject.layer setMasksToBounds:YES];
+        }
+    
+    }
+     else if ([object isKindOfClass:[UIView class]])
+    {
+        UIView* thisObject = (UIView*)object;
+        [thisObject.layer setBorderColor:[color CGColor]];
+        [thisObject.layer setBorderWidth:2.0];
+        if (corner == CornerTypeRounded)
+        {
+            [thisObject.layer setCornerRadius:8.0f];
+            [thisObject.layer setMasksToBounds:YES];
+        }
+    
+    }
+}
 
 
 

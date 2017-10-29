@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="Hfv-Bn-tBo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="Hfv-Bn-tBo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -59,10 +58,10 @@
                                         <color key="tintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell" id="3cc-VN-O1L" customClass="ActivityTrackerCell">
-                                                <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
+                                                <rect key="frame" x="0.0" y="56" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3cc-VN-O1L" id="H6K-67-R14">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4DG-vB-AC9">
@@ -118,162 +117,114 @@
             <objects>
                 <viewController storyboardIdentifier="SleepTrackerViewController" title="Sleep Tracker" id="zKu-FW-mWU" customClass="SleepTrackerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MGC-2I-Jwq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" id="X3C-JB-Qrf">
-                                <rect key="frame" x="0.0" y="8" width="320" height="496"/>
+                                <rect key="frame" x="0.0" y="8" width="320" height="516"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="yf0-8o-ikV">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="404"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate your sleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F97-iP-9po">
-                                                <rect key="frame" x="0.0" y="271" width="320" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.1051810629" green="0.33685427299999998" blue="0.19922382599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you wake up feeling rested?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qks-CL-RbU">
-                                                <rect key="frame" x="0.0" y="183" width="320" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.1051810629" green="0.33685427299999998" blue="0.19922382599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="bqB-L1-par">
-                                                <rect key="frame" x="8" y="309" width="274" height="29"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <segments>
-                                                    <segment title="Very poor"/>
-                                                    <segment title="Poor"/>
-                                                    <segment title="Ok"/>
-                                                    <segment title="Good"/>
-                                                    <segment title="Great"/>
-                                                </segments>
-                                                <color key="tintColor" red="0.22985092469999999" green="0.22985092469999999" blue="0.22985092469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <connections>
-                                                    <action selector="rateSleep:" destination="zKu-FW-mWU" eventType="valueChanged" id="CDU-TA-HrY"/>
-                                                </connections>
-                                            </segmentedControl>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bmY-Gn-I74">
-                                                <rect key="frame" x="290" y="312" width="22" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="Resetimage3.png">
-                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="resetRate:" destination="zKu-FW-mWU" eventType="touchUpInside" id="Amw-2U-WPz"/>
-                                                </connections>
-                                            </button>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="7uM-0F-Mf9">
-                                                <rect key="frame" x="51" y="221" width="188" height="29"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <segments>
-                                                    <segment title="Yes"/>
-                                                    <segment title="No"/>
-                                                </segments>
-                                                <color key="tintColor" red="0.22985092469999999" green="0.22985092469999999" blue="0.22985092469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <connections>
-                                                    <action selector="rested:" destination="zKu-FW-mWU" eventType="valueChanged" id="9bk-N3-dTT"/>
-                                                </connections>
-                                            </segmentedControl>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Tfh-9N-eYC" customClass="SleepTrackerTableView">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <prototypes>
-                                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell" textLabel="PlY-oD-0kn" detailTextLabel="GQI-dE-M0U" style="IBUITableViewCellStyleValue1" id="dkV-Tf-uCr" customClass="SleepTrackerCell">
-                                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dkV-Tf-uCr" id="yM5-oG-AV5">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PlY-oD-0kn">
-                                                                    <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GQI-dE-M0U">
-                                                                    <rect key="frame" x="264" y="12" width="41" height="19"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </tableViewCellContentView>
-                                                    </tableViewCell>
-                                                </prototypes>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="zKu-FW-mWU" id="fJQ-yC-R6Z"/>
-                                                    <outlet property="delegate" destination="zKu-FW-mWU" id="eiG-tT-EDi"/>
-                                                </connections>
-                                            </tableView>
-                                            <view contentMode="scaleToFill" id="T2p-e2-LE2">
-                                                <rect key="frame" x="0.0" y="352" width="320" height="212"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" id="KIQ-sc-a2f">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="l6w-wG-eyK">
-                                                        <rect key="frame" x="271" y="0.0" width="37" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="Done">
-                                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="datePickerDoneButtonTapped:" destination="zKu-FW-mWU" eventType="touchUpInside" id="U2R-B5-7tY"/>
-                                                        </connections>
-                                                    </button>
-                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" id="TeH-h0-6n7">
-                                                        <rect key="frame" x="0.0" y="38" width="320" height="174"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                        <date key="date" timeIntervalSinceReferenceDate="454603753.321392">
-                                                            <!--2015-05-29 14:49:13 +0000-->
-                                                        </date>
-                                                        <connections>
-                                                            <action selector="datePickerValueChanged:" destination="zKu-FW-mWU" eventType="valueChanged" id="m7R-ra-ou7"/>
-                                                        </connections>
-                                                    </datePicker>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mFU-xG-Mlv">
-                                                        <rect key="frame" x="11" y="0.0" width="40" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="Reset">
-                                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="resetHours:" destination="zKu-FW-mWU" eventType="touchUpInside" id="PzI-Kd-6J0"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="clv-o5-hsa">
-                                                <rect key="frame" x="267" y="224" width="22" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="Resetimage3.png">
-                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="resetRested:" destination="zKu-FW-mWU" eventType="touchUpInside" id="aMK-LN-ef1"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </scrollView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Did you wake up feeling rested?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wva-BM-D6a">
+                                        <rect key="frame" x="0.0" y="184" width="320" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.1051810629" green="0.33685427299999998" blue="0.19922382599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="fvc-0q-VSS">
+                                        <rect key="frame" x="50" y="222" width="188" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="Yes"/>
+                                            <segment title="No"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.22985092469999999" green="0.22985092469999999" blue="0.22985092469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="rested:" destination="zKu-FW-mWU" eventType="valueChanged" id="MHM-Ug-TiG"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rate your sleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J4S-7C-at4">
+                                        <rect key="frame" x="0.0" y="271" width="320" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.1051810629" green="0.33685427299999998" blue="0.19922382599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Crp-R7-OAY">
+                                        <rect key="frame" x="259" y="225" width="22" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Resetimage3.png">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetRested:" destination="zKu-FW-mWU" eventType="touchUpInside" id="QlO-Mn-WUb"/>
+                                        </connections>
+                                    </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" id="5co-th-2RD">
+                                        <rect key="frame" x="7" y="309" width="274" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="Very poor"/>
+                                            <segment title="Poor"/>
+                                            <segment title="Ok"/>
+                                            <segment title="Good"/>
+                                            <segment title="Great"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.22985092469999999" green="0.22985092469999999" blue="0.22985092469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="rateSleep:" destination="zKu-FW-mWU" eventType="valueChanged" id="L5N-4n-zhy"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="C3x-Jt-wiO">
+                                        <rect key="frame" x="289" y="312" width="22" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Resetimage3.png">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetRate:" destination="zKu-FW-mWU" eventType="touchUpInside" id="BgO-09-Ywb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94891980229999995" green="0.94891980229999995" blue="0.94891980229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="JsH-bQ-JWF" customClass="SleepTrackerTableView">
+                                <rect key="frame" x="0.0" y="8" width="320" height="143"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell" textLabel="nQX-ek-7Yo" detailTextLabel="ifs-Rb-Mp7" style="IBUITableViewCellStyleValue1" id="cK5-R5-noA" customClass="SleepTrackerCell">
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cK5-R5-noA" id="1Hk-aB-LMY">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nQX-ek-7Yo">
+                                                    <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ifs-Rb-Mp7">
+                                                    <rect key="frame" x="264" y="12" width="41" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zKu-FW-mWU" id="EqN-2Q-fP2"/>
+                                    <outlet property="delegate" destination="zKu-FW-mWU" id="7QK-YR-qZ1"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -286,12 +237,6 @@
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="baseContentView" destination="X3C-JB-Qrf" id="YF9-pw-R8T"/>
-                        <outlet property="pickerView" destination="TeH-h0-6n7" id="UKG-Ep-TB9"/>
-                        <outlet property="pickerViewContainer" destination="T2p-e2-LE2" id="RuW-dr-0ho"/>
-                        <outlet property="rateSleepSegment" destination="bqB-L1-par" id="K40-f1-b6M"/>
-                        <outlet property="restedSegment" destination="7uM-0F-Mf9" id="Gtu-3o-WHh"/>
-                        <outlet property="thisScrollView" destination="yf0-8o-ikV" id="egk-C9-MxD"/>
-                        <outlet property="thisTableView" destination="Tfh-9N-eYC" id="bDU-zn-i0T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxC-Pv-O7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -316,10 +261,10 @@
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell" rowHeight="50" id="JtU-DP-Lyf" customClass="ChooseActivityCell">
-                                                <rect key="frame" x="0.0" y="55.5" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="56" width="375" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JtU-DP-Lyf" id="fsj-Qd-3hs">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tf3-Nk-HwM">
@@ -571,7 +516,7 @@
             <objects>
                 <viewController storyboardIdentifier="StressTrackerViewController" id="aKs-yD-3Hv" customClass="StressTrackerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O50-bX-Zia">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="FT4-LU-csZ">
@@ -742,7 +687,7 @@
                                                 </connections>
                                             </segmentedControl>
                                             <view contentMode="scaleToFill" id="EUm-i8-PH7">
-                                                <rect key="frame" x="0.0" y="186.5" width="320" height="212"/>
+                                                <rect key="frame" x="0.0" y="186" width="320" height="212"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" id="K1w-3U-IPC">
@@ -820,30 +765,30 @@
             <objects>
                 <viewController storyboardIdentifier="DrinkTrackerViewController" id="O21-Pb-oPu" customClass="DrinkTrackerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xSf-UZ-ioL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="h3s-yB-PfE">
-                                <rect key="frame" x="0.0" y="8" width="375" height="514"/>
+                                <rect key="frame" x="0.0" y="8" width="375" height="534"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell" textLabel="l7c-qZ-Ooq" detailTextLabel="3Go-ub-zPF" style="IBUITableViewCellStyleValue1" id="EAQ-pI-JdL" customClass="DrinkTrackerCell">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EAQ-pI-JdL" id="Bn1-gH-RPj">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l7c-qZ-Ooq">
-                                                    <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
+                                                    <rect key="frame" x="15" y="12" width="31" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Go-ub-zPF">
-                                                    <rect key="frame" x="318.5" y="12" width="41.5" height="19.5"/>
+                                                    <rect key="frame" x="318" y="12" width="42" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -891,10 +836,10 @@
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell" editingAccessoryType="checkmark" id="H4Z-8g-gGE" customClass="ChooseDrinkCell">
-                                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H4Z-8g-gGE" id="cLA-pJ-pYf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
@@ -990,7 +935,7 @@
             <objects>
                 <viewController storyboardIdentifier="ChoosePlateViewController" title="Choose Plate" id="XEF-Pu-WzJ" customClass="ChoosePlateViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fNY-4T-oDT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="kEX-gp-a3s">
@@ -1061,7 +1006,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="baseContentView" destination="kEX-gp-a3s" id="Xof-9d-ghg"/>
@@ -1078,7 +1023,7 @@
             <objects>
                 <viewController storyboardIdentifier="MasterTrackerViewController" title="Master Tracker" id="uBf-Ny-Jrw" customClass="MasterTrackerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bwc-pS-X8w">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="xau-47-cOT">
@@ -1275,10 +1220,10 @@
                                         <color key="separatorColor" red="0.2376434949" green="0.2376434949" blue="0.2376434949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell" rowHeight="70" id="yzJ-3B-C9H" customClass="FoodTrackerCell">
-                                                <rect key="frame" x="0.0" y="55.5" width="320" height="70"/>
+                                                <rect key="frame" x="0.0" y="56" width="320" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yzJ-3B-C9H" id="CFz-2Q-ktQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pje-gp-POX">
@@ -1467,4 +1412,9 @@
         <image name="checkbox-empty.V2.png" width="30" height="30"/>
         <image name="first" width="30" height="30"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>

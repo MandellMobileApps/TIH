@@ -44,7 +44,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-     [self.navigationController setNavigationBarHidden:YES];
+     //[self.navigationController setNavigationBarHidden:YES];
     if (self.food)
     {
         self.food = [self copyFood:self.food];

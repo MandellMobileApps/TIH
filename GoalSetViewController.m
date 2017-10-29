@@ -31,7 +31,7 @@
     self.changeMade = NO;
     self.appDelegate.goalSetViewController = self;
     self.thisScrollView.contentSize = CGSizeMake( self.view.bounds.size.width, 700);
-    [self loadGoal];
+    [self loadGoalIntoUI];
 
 }
 
@@ -49,15 +49,15 @@
 }
 
 
--(CGRect)baseRect
-{
-    CGRect baseRect = self.view.bounds;
-    NSInteger menuHeight = 105;
-    baseRect.origin.y = menuHeight;
-    baseRect.size.height = self.view.frame.size.height-menuHeight;
-    return baseRect;
-    
-}
+//-(CGRect)baseRect
+//{
+//    CGRect baseRect = self.view.bounds;
+//    NSInteger menuHeight = 105;
+//    baseRect.origin.y = menuHeight;
+//    baseRect.size.height = self.view.frame.size.height-menuHeight;
+//    return baseRect;
+//    
+//}
 
 -(IBAction)navbuttonTapped:(UIButton*)sender
 {
@@ -65,8 +65,9 @@
     {
         if (self.changeMade)
         {
-           // alert
-        
+           // alert first
+            [self.navigationController popViewControllerAnimated:YES];
+
         }
         else
         {
@@ -75,15 +76,16 @@
     }
     else if (sender.tag == 1)
     {
-        [self saveGoal];
+        [self saveGoalFromUI];
         [self.appDelegate saveGoals];
         [self.navigationController popViewControllerAnimated:YES];
     }
     
 }
 
--(void)loadGoal
+-(void)loadGoalIntoUI
 {
+    self.titleLabel.text = self.goal.goalName;
     self.goalTextField.text = self.goal.goalName;
 //    self.daysTextField.text = self.goal.;
 //    self.timesTextField.text = self.goal;
@@ -103,7 +105,7 @@
     [self updateCheckBoxImages];
 }
 
--(void)saveGoal
+-(void)saveGoalFromUI
 {
     self.goal.goalName = self.goalTextField.text;
 
@@ -113,7 +115,7 @@
     self.goal.Step3IsOn = self.Step3IsOn;
     self.goal.Step4IsOn = self.Step4IsOn;
     self.goal.Step5IsOn = self.Step5IsOn;
-    
+        
 }
 
 -(void)updateCheckBoxImages
@@ -268,11 +270,7 @@
         GoalCheckViewController* goalCheckViewController = [segue destinationViewController];
         goalCheckViewController.goal = self.goal;
     }
-    else if ([segue.identifier isEqualToString:@"GoalProgress"])
-    {
-        ProgressViewController* progressViewController = [segue destinationViewController];
-        progressViewController.goal = self.goal;
-    }
+
     
 }
 

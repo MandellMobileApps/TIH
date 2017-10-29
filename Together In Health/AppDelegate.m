@@ -1234,7 +1234,7 @@
     self.goalsArray = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     if (!self.goalsArray)
     {
-        self.goalsArray = [NSArray arrayWithObjects:
+        self.goalsArray = [NSMutableArray arrayWithObjects:
                            [[Goal alloc] init],
                            [[Goal alloc] init],
                            [[Goal alloc] init],
@@ -1248,6 +1248,7 @@
         [self saveGoals];
         
     }
+
 }
 
 -(void)saveGoals

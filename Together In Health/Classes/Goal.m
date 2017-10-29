@@ -20,16 +20,15 @@
 //        self.textFieldStep3 = [decoder decodeObjectForKey:@"textFieldStep3"];
 //        self.textFieldStep4 = [decoder decodeObjectForKey:@"textFieldStep4"];
 //        self.textFieldStep5 = [decoder decodeObjectForKey:@"textFieldStep5"];
+
+
+
         self.goalName = [decoder decodeObjectForKey:@"goalName"];
-        self.by1 = [decoder decodeObjectForKey:@"by1"];
-        self.by2 = [decoder decodeObjectForKey:@"by2"];
         self.when = [decoder decodeObjectForKey:@"when"];
         self.where = [decoder decodeObjectForKey:@"where"];
-        self.often = [decoder decodeObjectForKey:@"often"];
-        self.when2 = [decoder decodeObjectForKey:@"when2"];
-        self.where2 = [decoder decodeObjectForKey:@"where2"];
-        self.often2 = [decoder decodeObjectForKey:@"often2"];
-//        self.textFieldOften2 = [decoder decodeObjectForKey:@"textFieldOften2"];
+        self.times = [decoder decodeObjectForKey:@"times"];
+        self.where = [decoder decodeObjectForKey:@"where"];
+        self.amount = [decoder decodeObjectForKey:@"amount"];
 
         
         self.Step1IsOn = [decoder decodeBoolForKey:@"Step1IsOn"];
@@ -65,15 +64,13 @@
 //    [encoder encodeObject:self.textFieldStep5 forKey:@"textFieldStep5"];
     
      [encoder encodeObject:self.goalName forKey:@"goalName"];
-     [encoder encodeObject:self.by1 forKey:@"by1"];
-     [encoder encodeObject:self.by2 forKey:@"by2"];
      [encoder encodeObject:self.when forKey:@"when"];
+     [encoder encodeObject:self.days forKey:@"days"];
+    [encoder encodeObject:self.times forKey:@"times"];
      [encoder encodeObject:self.where forKey:@"where"];
-    [encoder encodeObject:self.often forKey:@"often"];
-     [encoder encodeObject:self.when2 forKey:@"when2"];
-     [encoder encodeObject:self.where2 forKey:@"where2"];
-     [encoder encodeObject:self.often2 forKey:@"often2"];
-    
+     [encoder encodeObject:self.amount forKey:@"amount"];
+
+
     [encoder encodeBool:self.Step1IsOn forKey:@"Step1IsOn"];
     [encoder encodeBool:self.Step2IsOn forKey:@"Step2IsOn"];
     [encoder encodeBool:self.Step3IsOn forKey:@"Step3IsOn"];

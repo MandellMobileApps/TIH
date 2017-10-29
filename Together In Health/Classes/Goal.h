@@ -10,16 +10,13 @@
 
 @interface Goal : NSObject <NSCoding>
 
-@property (weak, nonatomic)  NSString *goalName;
-@property (weak, nonatomic)  NSString *by1;
-@property (weak, nonatomic)  NSString *by2;
+@property (strong, nonatomic)  NSString *goalName;
 
 @property (nonatomic, strong)  NSString *when;
+@property (nonatomic, strong)  NSString *days;
+@property (nonatomic, strong)  NSString *times;
 @property (nonatomic, strong)  NSString *where;
-@property (nonatomic, strong)  NSString *often;
-@property (nonatomic, strong)  NSString *when2;
-@property (nonatomic, strong)  NSString *where2;
-@property (nonatomic, strong)  NSString *often2;
+@property (nonatomic, strong)  NSString *amount;
 
 @property (nonatomic, strong)  NSString *step1;
 @property (nonatomic, strong)  NSString *step2;
@@ -61,7 +58,7 @@
 
 
 
-@property NSString* indexString;
+//@property NSString* indexString;
 
 @property (nonatomic, strong)  NSString* vacation;
 @property (nonatomic, strong)  NSString* holidays;

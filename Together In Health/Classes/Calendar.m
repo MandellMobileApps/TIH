@@ -195,31 +195,31 @@
                 // get day object for this day.  returns nil if not in days array
                 Day* thisDayObject = [self.appDelegate calendarDayForDate:startdate];
 
-                if (thisDayObject)
-                {
-                    if (thisDayObject.goal1)
-                    {
+//                if (thisDayObject)
+//                {
+//                    if (thisDayObject.goal1)
+//                    {
                         UIView *goal1View = [[UIView alloc] initWithFrame:CGRectMake(1,1,15,15)];
-                        //goal1View.layer.cornerRadius = 50;  // half the width/height
+                        goal1View.layer.cornerRadius = 50;  // half the width/height
                         goal1View.backgroundColor = [UIColor blueColor];
                         [lbl addSubview:goal1View];
-                    }
-                    if (thisDayObject.goal2)
-                    {
+//                    }
+//                    if (thisDayObject.goal2)
+//                    {
                         UIView *goal2View = [[UIView alloc] initWithFrame:CGRectMake(17,1,15,15)];
                         //goal2View.layer.cornerRadius = 50;  // half the width/height
                         goal2View.backgroundColor = [UIColor redColor];
                         [lbl addSubview:goal2View];
-                    }
-                    if (thisDayObject.goal3)
-                    {
+//                    }
+//                    if (thisDayObject.goal3)
+//                    {
                         UIView *goal3View = [[UIView alloc] initWithFrame:CGRectMake(33,1,15,15)];
                         //goal3View.layer.cornerRadius = 50;  // half the width/height
                         goal3View.backgroundColor = [UIColor yellowColor];
                         [lbl addSubview:goal3View];
-                    }
-
-                }
+//                        }
+//
+//                    }
                 [self addSubview:dayView];
             }
 

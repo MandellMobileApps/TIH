@@ -49,15 +49,15 @@
 }
 
 
--(CGRect)baseRect
-{
-    CGRect baseRect = self.view.bounds;
-    NSInteger menuHeight = 105;
-    baseRect.origin.y = menuHeight;
-    baseRect.size.height = self.view.frame.size.height-menuHeight;
-    return baseRect;
-    
-}
+//-(CGRect)baseRect
+//{
+//    CGRect baseRect = self.view.bounds;
+//    NSInteger menuHeight = 105;
+//    baseRect.origin.y = menuHeight;
+//    baseRect.size.height = self.view.frame.size.height-menuHeight;
+//    return baseRect;
+//    
+//}
 
 -(IBAction)navbuttonTapped:(UIButton*)sender
 {

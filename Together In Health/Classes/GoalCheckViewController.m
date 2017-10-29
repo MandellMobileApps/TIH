@@ -107,14 +107,34 @@
     
 }
 
--(IBAction)clearButtonTapped:(id)sender
-{
-    self.goal.importantRating = 0;
-    self.goal.confidentRating = 0;
-    self.textViewGoalCheck.text = @"";
-    self.textViewGoalCheck2.text = @"";
-    self.textViewGoalCheck.hidden = YES;
-    self.textViewGoalCheck2.hidden = YES;
+//-(IBAction)clearButtonTapped:(id)sender
+//{
+//    self.goal.importantRating = 0;
+//    self.goal.confidentRating = 0;
+//    self.textViewGoalCheck.text = @"";
+//    self.textViewGoalCheck2.text = @"";
+//    self.textViewGoalCheck.hidden = YES;
+//    self.textViewGoalCheck2.hidden = YES;
+//}
+
+-(IBAction)clearButtonTapped:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you want to clear all?" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Clear all",nil];
+    [alert show];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+    }
+    else if (buttonIndex == 1) {
+        self.goal.importantRating = 0;
+        self.goal.confidentRating = 0;
+        self.textViewGoalCheck.text = @"";
+        self.textViewGoalCheck2.text = @"";
+        self.textViewGoalCheck.hidden = YES;
+        self.textViewGoalCheck2.hidden = YES;
+    }
 }
 
 @end

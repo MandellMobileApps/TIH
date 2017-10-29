@@ -458,7 +458,8 @@
     
 }
     
-    
+    //  doesn't create day object, returns nil if none.
+    // Don't want to create day object just for displaying goals on calendar
 -(Day*)calendarDayForDate:(NSDate*)thisDate
 {
     NSDate* atMidnight = [TIHDate dateAtMidnightFromDate:thisDate];

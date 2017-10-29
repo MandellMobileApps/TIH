@@ -29,6 +29,12 @@ enum goalIndex {
 - (IBAction)buttonTapped4:(id)sender;
 - (IBAction)buttonTapped5:(id)sender;
 
+@property (nonatomic) BOOL Step1IsOn;
+@property (nonatomic) BOOL Step2IsOn;
+@property (nonatomic) BOOL Step3IsOn;
+@property (nonatomic) BOOL Step4IsOn;
+@property (nonatomic) BOOL Step5IsOn;
+
 @property (nonatomic, strong) Goal *goal;
 @property (nonatomic, strong) IBOutlet UIScrollView *thisScrollView;
 @property (nonatomic, strong) IBOutlet UITextField *goalTextField;

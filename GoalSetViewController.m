@@ -23,21 +23,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
-    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
-    self.navigationController.navigationBar.titleTextAttributes = size;
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    
+//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
+//    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
+//    self.navigationController.navigationBar.titleTextAttributes = size;
+//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+//
+    self.changeMade = NO;
     self.appDelegate.goalSetViewController = self;
     self.thisScrollView.contentSize = CGSizeMake( self.view.bounds.size.width, 700);
-    
+    [self loadGoal];
 
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:YES];
     
     
 }
@@ -58,110 +59,195 @@
     
 }
 
+-(IBAction)navbuttonTapped:(UIButton*)sender
+{
+    if (sender.tag == 0)
+    {
+        if (self.changeMade)
+        {
+           // alert
+        
+        }
+        else
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+    else if (sender.tag == 1)
+    {
+        [self saveGoal];
+        [self.appDelegate saveGoals];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+}
 
+-(void)loadGoal
+{
+    self.goalTextField.text = self.goal.goalName;
+//    self.daysTextField.text = self.goal.;
+//    self.timesTextField.text = self.goal;
+//    self.whereTextField.text = self.goal;
+//    self.amountTextField.text = self.goal;
+//    self.step1TextField.text = self.goal;
+//    self.step2TextField.text = self.goal;
+//    self.step3TextField.text = self.goal;
+//    self.step4TextField.text = self.goal;
+//    self.step5TextField.text = self.goal
+
+    self.Step1IsOn = self.goal.Step1IsOn;
+    self.Step2IsOn = self.goal.Step2IsOn;
+    self.Step3IsOn = self.goal.Step3IsOn;
+    self.Step4IsOn = self.goal.Step4IsOn;
+    self.Step5IsOn = self.goal.Step5IsOn;
+    [self updateCheckBoxImages];
+}
+
+-(void)saveGoal
+{
+    self.goal.goalName = self.goalTextField.text;
+
+
+    self.goal.Step1IsOn = self.Step1IsOn;
+    self.goal.Step2IsOn = self.Step2IsOn;
+    self.goal.Step3IsOn = self.Step3IsOn;
+    self.goal.Step4IsOn = self.Step4IsOn;
+    self.goal.Step5IsOn = self.Step5IsOn;
+    
+}
+
+-(void)updateCheckBoxImages
+{
+    if (self.Step1IsOn) {
+        [self.step1 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState: UIControlStateNormal];
+    }
+    else
+    {
+        [self.step1 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+    }
+ 
+    if (self.Step2IsOn) {
+        [self.step2 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState: UIControlStateNormal];
+    }
+    else
+    {
+        [self.step2 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+    }
+    
+    if (self.Step3IsOn) {
+        [self.step3 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState: UIControlStateNormal];
+    }
+    else
+    {
+        [self.step3 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+    }
+    
+    if (self.Step4IsOn) {
+        [self.step4 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState: UIControlStateNormal];
+    }
+    else
+    {
+        [self.step4 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+    }
+    
+   if (self.Step5IsOn) {
+        [self.step5 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState: UIControlStateNormal];
+    }
+    else
+    {
+        [self.step5 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+    }
+}
 -(IBAction)buttonTapped1:(id)sender
 {
-    if (self.goal.Step1IsOn) {
-        [self.step1 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
-        self.goal.Step1IsOn = NO;
-        
-        
-    }
-    else {
-        [self.step1 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
-        self.goal.Step1IsOn = YES;
-        
-        
-    }
+    self.Step1IsOn = !self.Step1IsOn;
+    self.changeMade = YES;
+    [self updateCheckBoxImages];
 }
 
 -(IBAction)buttonTapped2:(id)sender
 {
-    if (self.goal.Step2IsOn) {
-        [self.step2 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
-        self.goal.Step2IsOn = NO;
-    }
-    
-    
-    
-    else {
-        [self.step2 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
-        self.goal.Step2IsOn = YES;
-    }
-    
+    self.Step2IsOn = !self.Step2IsOn;
+    self.changeMade = YES;
+    [self updateCheckBoxImages];
 }
 
 
 -(IBAction)buttonTapped3:(id)sender
 {
-    if (self.goal.Step3IsOn) {
-        [self.step3 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
-        self.goal.Step3IsOn = NO;
-    }
-    else {
-        [self.step3 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
-        self.goal.Step3IsOn = YES;
-    }
-    
+    self.Step3IsOn = !self.Step3IsOn;
+    self.changeMade = YES;
+    [self updateCheckBoxImages];
     
 }
 -(IBAction)buttonTapped4:(id)sender
 {
-    if (self.goal.Step4IsOn) {
-        [self.step4 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
-        
-        self.goal.Step4IsOn = NO;
-    }
-    else {
-        [self.step4 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
-        self.goal.Step4IsOn = YES;
-    }
-    
+    self.Step4IsOn = !self.Step4IsOn;
+    self.changeMade = YES;
+    [self updateCheckBoxImages];
 }
 -(IBAction)buttonTapped5:(id)sender
 {
-    if (self.goal.Step5IsOn) {
-        [self.step5 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
-        self.goal.Step5IsOn = NO;
-    }
-    else {
-        [self.step5 setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
-        self.goal.Step5IsOn = YES;
-    }
+    self.Step5IsOn = !self.Step5IsOn;
+    self.changeMade = YES;
+    [self updateCheckBoxImages];
 }
 
 -(IBAction)clearAll:(id)sender {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you want to clear all?" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Clear all",nil];
+    alert.tag = 1;
     [alert show];
     
 }
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-    }
-    else if (buttonIndex == 1) {
-        self.goalTextField.text = @"";
-        self.daysTextField.text = @"";
-        self.timesTextField.text = @"";
-        self.whereTextField.text = @"";
-        self.amountTextField.text = @"";
-        self.step1TextField.text = @"";
-        self.step2TextField.text = @"";
-        self.step3TextField.text = @"";
-        self.step4TextField.text = @"";
-        self.step5TextField.text = @"";
+-(IBAction)verifyCancel:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You've made changes, are you sure you want to close goal?" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Close Goal",nil];
+    alert.tag = 2;
+    [alert show];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+
+{
+    if (alertView.tag == 1)
+    {
+        if (buttonIndex == 0) {
+        }
+        else if (buttonIndex == 1) {
+            self.goalTextField.text = @"";
+            self.daysTextField.text = @"";
+            self.timesTextField.text = @"";
+            self.whereTextField.text = @"";
+            self.amountTextField.text = @"";
+            self.step1TextField.text = @"";
+            self.step2TextField.text = @"";
+            self.step3TextField.text = @"";
+            self.step4TextField.text = @"";
+            self.step5TextField.text = @"";
+            
+            self.goal.Step1IsOn = NO;
+            [self.step1 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+            self.goal.Step2IsOn = NO;
+            [self.step2 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+            self.goal.Step3IsOn = NO;
+            [self.step3 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+            self.goal.Step4IsOn = NO;
+            [self.step4 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+            self.goal.Step5IsOn = NO;
+            [self.step5 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+        }
+    } else if (alertView.tag == 2)
+    {
+        if (buttonIndex == 1) {
+            [self dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }
         
-        self.goal.Step1IsOn = NO;
-        [self.step1 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
-        self.goal.Step2IsOn = NO;
-        [self.step2 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
-        self.goal.Step3IsOn = NO;
-        [self.step3 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
-        self.goal.Step4IsOn = NO;
-        [self.step4 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
-        self.goal.Step5IsOn = NO;
-        [self.step5 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+        
     }
 }
 #pragma mark - Navigation
@@ -193,100 +279,5 @@
 
 @end
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-//
-//-(IBAction)goal1:(UIButton*)sender
-//{
-//
-//    if (!self.goal1ViewController)
-//    {
-//        self.goal1ViewController = (Goal1ViewController*)
-//        [[UIStoryboard storyboardWithName:@"Goals" bundle:nil]
-//         instantiateViewControllerWithIdentifier:@"Goal1ViewController"];
-//        self.goal1ViewController.view.frame = [self baseRect];
-//        self.goal1ViewController.goalSetViewController = self;
-//    }
-//
-//
-//
-//
-//
-//    [self addChildViewController:self.goal1ViewController];
-//    [self.view addSubview:self.goal1ViewController.view];
-//    [self.goal1ViewController didMoveToParentViewController:self];
-//    self.title = @"Goal1";
-//    self.goalIndex = Goal1Index;
-//    [self updateMenuButtons];
-//    //     [self unloadOtherViewControllersExceptIndex:FoodIndex];
-//
-//
-//}
-//
-//
-//-(IBAction)goal2:(UIButton*)sender
-//{
-//
-//    if (!self.goal2ViewController)
-//    {
-//        self.goal2ViewController = (Goal2ViewController*)
-//        [[UIStoryboard storyboardWithName:@"Goals" bundle:nil]
-//         instantiateViewControllerWithIdentifier:@"Goal2ViewController"];
-//    }
-//
-//    self.goal2ViewController.view.frame = [self baseRect];
-//
-//    self.goal2ViewController.goalSetViewController = self;
-//
-//    [self addChildViewController:self.goal2ViewController];
-//    [self.view addSubview:self.goal2ViewController.view];
-//    [self.goal2ViewController didMoveToParentViewController:self];
-//    self.title = @"Goal 2";
-//    self.goalIndex = Goal2Index;
-//    [self updateMenuButtons];
-//
-//    //   [self unloadOtherViewControllersExceptIndex:SleepIndex];
-//
-//
-//}
-//
-//
-//-(IBAction)goal3:(UIButton*)sender
-//{
-//
-//    if (!self.goal3ViewController)
-//    {
-//        self.goal3ViewController = (Goal3ViewController*)
-//        [[UIStoryboard storyboardWithName:@"Goals" bundle:nil]
-//         instantiateViewControllerWithIdentifier:@"Goal3ViewController"];
-//    }
-//
-//    self.goal3ViewController.view.frame = [self baseRect];
-//
-//    self.goal3ViewController.goalSetViewController = self;
-//
-//    [self addChildViewController:self.goal3ViewController];
-//    [self.view addSubview:self.goal3ViewController.view];
-//    [self.goal3ViewController didMoveToParentViewController:self];
-//    self.title = @"Goal 3";
-//    self.goalIndex = Goal3Index;
-//    [self updateMenuButtons];
-//
-//}
-//
-//
-//-(IBAction)backDay:(id)sender {
-//
-//    //    self.appDelegate.day = [self.appDelegate dayForDate:[TIHDate dateYesterdayAtMidnightFromDate:self.appDelegate.day.date]];
-//    //
-//    //    [self resetDay];
-//    //
-//
-//
-//}
+
 

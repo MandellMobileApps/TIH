@@ -21,12 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-   self.changeMade = NO; self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
-    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
-    self.navigationController.navigationBar.titleTextAttributes = size;
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    
+        [self.navigationController setNavigationBarHidden:YES];
+
+   self.changeMade = NO;
+//   self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
+//    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
+//    self.navigationController.navigationBar.titleTextAttributes = size;
+//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+//
     self.appDelegate.goalGamePlanViewController = self;
     
     self.titleLabel.text = self.goal.goalName;
@@ -49,7 +51,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:YES];
     
     
 }

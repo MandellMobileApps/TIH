@@ -690,6 +690,8 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="amountTextField" destination="0pB-oG-PTX" id="6ai-PI-Pkn"/>
+                        <outlet property="baseContentView" destination="RZq-IJ-7t4" id="lqL-5i-Ikt"/>
+                        <outlet property="clearAllButton" destination="0Fy-PO-mwv" id="Y9p-7f-VBY"/>
                         <outlet property="daysTextField" destination="m18-Zd-vfd" id="hGQ-1U-2b7"/>
                         <outlet property="goalTextField" destination="YYL-5X-VD1" id="aTT-fR-A1l"/>
                         <outlet property="step1" destination="Lub-uA-lfK" id="P6D-pL-vew"/>

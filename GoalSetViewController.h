@@ -35,6 +35,13 @@ enum goalIndex {
 @property (nonatomic) BOOL Step4IsOn;
 @property (nonatomic) BOOL Step5IsOn;
 
+@property (nonatomic, strong) IBOutlet UIButton *step1;
+@property (nonatomic, strong) IBOutlet UIButton *step2;
+@property (nonatomic, strong) IBOutlet UIButton *step3;
+@property (nonatomic, strong) IBOutlet UIButton *step4;
+@property (nonatomic, strong) IBOutlet UIButton *step5;
+@property (nonatomic, strong) IBOutlet UIButton *clearAllButton;
+
 @property (nonatomic, strong) Goal *goal;
 @property (nonatomic, strong) IBOutlet UIScrollView *thisScrollView;
 @property (nonatomic, strong) IBOutlet UITextField *goalTextField;

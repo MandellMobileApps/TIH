@@ -60,32 +60,32 @@ enum CornerType {
 //- (IBAction)buttonTapped4:(id)sender;
 //- (IBAction)buttonTapped5:(id)sender;
 
-@property (nonatomic, strong) IBOutlet UIButton *step1;
-@property (nonatomic, strong) IBOutlet UIButton *step2;
-@property (nonatomic, strong) IBOutlet UIButton *step3;
-@property (nonatomic, strong) IBOutlet UIButton *step4;
-@property (nonatomic, strong) IBOutlet UIButton *step5;
-@property (nonatomic, strong) IBOutlet UIButton *clearAllButton;
+//@property (nonatomic, strong) IBOutlet UIButton *step1;
+//@property (nonatomic, strong) IBOutlet UIButton *step2;
+//@property (nonatomic, strong) IBOutlet UIButton *step3;
+//@property (nonatomic, strong) IBOutlet UIButton *step4;
+//@property (nonatomic, strong) IBOutlet UIButton *step5;
+//@property (nonatomic, strong) IBOutlet UIButton *clearAllButton;
 @property (nonatomic, strong) IBOutlet UIButton *resignKeyboardButton;
 //-(IBAction)resignKeyboard:(id)sender;
 
 
-//@property (weak, nonatomic) IBOutlet UITextField *textFieldGoal;
-@property (weak, nonatomic) IBOutlet UITextField *textFieldBy1;
-@property (weak, nonatomic) IBOutlet UITextField *textFieldBy2;
-
-@property (nonatomic, strong) IBOutlet UITextField *textFieldWhen;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldWhere;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldOften;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldWhen2;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldWhere2;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldOften2;
-
-@property (nonatomic, strong) IBOutlet UITextField *textFieldStep1;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldStep2;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldStep3;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldStep4;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldStep5;
+////@property (weak, nonatomic) IBOutlet UITextField *textFieldGoal;
+//@property (weak, nonatomic) IBOutlet UITextField *textFieldBy1;
+//@property (weak, nonatomic) IBOutlet UITextField *textFieldBy2;
+//
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldWhen;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldWhere;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldOften;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldWhen2;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldWhere2;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldOften2;
+//
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep1;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep2;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep3;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep4;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep5;
 
 //-(IBAction)trackProgress:(id)sender;
 //-(IBAction)checkGoal:(id)sender;

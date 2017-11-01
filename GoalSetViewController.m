@@ -30,6 +30,7 @@
 //
     self.changeMade = NO;
     self.appDelegate.goalSetViewController = self;
+    self.thisScrollView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-64);
     self.thisScrollView.contentSize = CGSizeMake( self.view.bounds.size.width, 700);
     [self loadGoalIntoUI];
 

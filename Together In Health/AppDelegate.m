@@ -255,8 +255,8 @@
                 [Plate plateImage:@"Balanced Plate28.png" protein:@"2/3 Protein" carbs:@"0 Carbs" vegetables:@"1/3 Vegetables" plateId:25],
                 [Plate plateImage:@"Balanced Plate29.png" protein:@"2/3 Protein" carbs:@"1/3 Carbs" vegetables:@"0 Vegetables" plateId:26],
                 [Plate plateImage:@"Balanced Plate5.png" protein:@"1/3 Protein" carbs:@"1/3 Carbs" vegetables:@"1/3 Vegetables" plateId:27],
-                [Plate plateImage:@"DessertPlate.png" protein:@"" carbs:@"" vegetables:@"" plateId:28],
-                [Plate plateImage:@"FriedGreasyPlate.png" protein:@"" carbs:@"" vegetables:@"" plateId:29],
+                [Plate plateImage:@"DessertPlate.png" protein:@"" carbs:@"" vegetables:@"Sweets/Desserts" plateId:28],
+                [Plate plateImage:@"FriedGreasyPlate.png" protein:@"" carbs:@"" vegetables:@"Fried/Greasy" plateId:29],
                                          
                                      
                                          nil];

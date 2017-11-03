@@ -29,7 +29,7 @@
     [self hideDatePicker];
     self.pickerViewContainer.hidden = YES;
     
-    self.thisScrollView.contentSize = CGSizeMake(320, 700);
+    self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 650);
     
     self.sleepButton.enabled = NO;
     

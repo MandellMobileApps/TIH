@@ -44,7 +44,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-     [self.navigationController setNavigationBarHidden:YES];
+     //[self.navigationController setNavigationBarHidden:YES];
     if (self.food)
     {
         self.food = [self copyFood:self.food];
@@ -108,6 +108,9 @@
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
     switch (self.appDelegate.subscriptionLevel) {
     
+            
+        case SubscriptionFree:
+            return 1;
       case SubscriptionPaid1:
             return 2;
         break;
@@ -125,13 +128,22 @@
 {
 
     switch (self.appDelegate.subscriptionLevel) {
-    
+            
+        case SubscriptionFree:
+            if (section == 0)
+            {
+                return 0;
+            }
+            return self.appDelegate.allPlates.count-2;
+            break;
+
       case SubscriptionPaid1:
       
         if (section == 0)
         {
             return self.appDelegate.allMoods.count;
         }
+            return self.appDelegate.allPlates.count;
 
         break;
       case SubscriptionPaid2:
@@ -140,10 +152,12 @@
         {
            return self.appDelegate.allMoods.count;
         }
+            return self.appDelegate.allPlates.count;
         break;
       default:
         break;
     }
+    
     return self.appDelegate.allPlates.count;
     
 }
@@ -167,7 +181,7 @@
       
         if (section == 0)
         {
-           return UIEdgeInsetsMake(5, 5, 40, 5);
+           return UIEdgeInsetsMake(0, 0, 20, 0);
         }
         break;
       default:
@@ -224,20 +238,13 @@
     switch (self.appDelegate.subscriptionLevel) {
     
       case SubscriptionFree:
-      
-        if (indexPath.section == 0)
-        {
-            if (self.view.bounds.size.height >355) {
+            if (indexPath.section ==0)
+            {
             MyCell = [self plateCellForIndexPath:indexPath];
-            MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
-            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
+            MyCell.plateImage.frame = CGRectMake(0, 0, 90, 90);
+            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 90, 90);
             }
-            else {
-            MyCell = [self plateCellForIndexPath:indexPath];
-            MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 50, 50);
-            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 54, 54);
-            }
-        }
+
         break;
         
       case SubscriptionPaid1:

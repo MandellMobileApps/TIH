@@ -153,7 +153,6 @@
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
     [self resetDay];
     
 }
@@ -562,10 +561,10 @@
      instantiateViewControllerWithIdentifier:@"ChoosePlateViewController"];
      choosePlateViewController.foodTrackerViewController = self;
     choosePlateViewController.mealType = sender.tag;
-    [self.navigationController pushViewController:choosePlateViewController animated:YES];
+   // [self.navigationController pushViewController:choosePlateViewController animated:YES];
 
     
- //   [self.masterTrackerViewController addFood:sender];
+    [self.masterTrackerViewController addFood:choosePlateViewController];
 }
 
 -(void)increaseWater{

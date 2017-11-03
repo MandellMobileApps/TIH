@@ -37,7 +37,7 @@
 @property (nonatomic, strong) IBOutlet UILabel* dayLabel;
 
 // Food Sub Contollers
--(void) addFood:(UIButton*)sender;
+-(void) addFood:(ChoosePlateViewController*)choosePlateViewController;
 
 
 @end

@@ -26,6 +26,10 @@
 //	UIBarButtonItem *backBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelData:)];
 	self.navigationController.navigationBar.hidden = YES;
     
+    self.navbarView.backgroundColor =  [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    self.navbarTitleLabel.font = [UIFont fontWithName:@"Arial" size:22.0];
+    self.navbarTitleLabel.textColor = [UIColor whiteColor];
+    
     UIImage* image = [UIImage imageNamed:@"QuestionMark.png"];
     
     CGRect frameimg = CGRectMake(0, 0, 30, 40);
@@ -43,8 +47,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     [super viewWillAppear:animated];
-     //[self.navigationController setNavigationBarHidden:YES];
     if (self.food)
     {
         self.food = [self copyFood:self.food];
@@ -67,6 +71,11 @@
 
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+   
+    [super viewDidDisappear:animated];
+}
 -(Food*)copyFood:(Food*)food
 {
     if (food)

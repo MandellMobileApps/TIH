@@ -33,11 +33,13 @@ enum trackerIndex {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
-    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
-    self.navigationController.navigationBar.titleTextAttributes = size;
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-
+//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+//    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
+//    self.navigationController.navigationBar.titleTextAttributes = size;
+//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    self.navbarView.backgroundColor =  [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    self.navbarTitleLabel.font = [UIFont fontWithName:@"Arial" size:24.0];
+    self.navbarTitleLabel.textColor = [UIColor whiteColor];
     self.trackerIndex =  [[NSUserDefaults standardUserDefaults] integerForKey:@"trackerIndex"];
    
     [self food:nil];
@@ -60,7 +62,7 @@ enum trackerIndex {
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-     [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 
 
 }
@@ -136,7 +138,7 @@ enum trackerIndex {
 -(CGRect)baseRect
 {
         CGRect baseRect = self.view.bounds;
-        NSInteger menuHeight = 77;
+        NSInteger menuHeight = 77+64;
         baseRect.origin.y = menuHeight;
         baseRect.size.height = self.view.frame.size.height-menuHeight;
         return baseRect;
@@ -161,7 +163,7 @@ enum trackerIndex {
         [self addChildViewController:self.foodTrackerViewController];
         [self.view addSubview:self.foodTrackerViewController.view];
         [self.foodTrackerViewController didMoveToParentViewController:self];
-        self.title = @"Food Tracker";
+        self.navbarTitleLabel.text = @"Food Tracker";
         self.trackerIndex = FoodIndex;
         [self updateMenuButtons];
    //     [self unloadOtherViewControllersExceptIndex:FoodIndex];
@@ -187,7 +189,7 @@ enum trackerIndex {
         [self addChildViewController:self.sleepTrackerViewController];
         [self.view addSubview:self.sleepTrackerViewController.view];
         [self.sleepTrackerViewController didMoveToParentViewController:self];
-        self.title = @"Sleep Tracker";
+        self.navbarTitleLabel.text = @"Sleep Tracker";
         self.trackerIndex = SleepIndex;
         [self updateMenuButtons];
         
@@ -214,7 +216,7 @@ enum trackerIndex {
         [self addChildViewController:self.stressTrackerViewController];
         [self.view addSubview:self.stressTrackerViewController.view];
         [self.stressTrackerViewController didMoveToParentViewController:self];
-        self.title = @"Stress Tracker";
+        self.navbarTitleLabel.text = @"Stress Tracker";
         self.trackerIndex = StressIndex;
         [self updateMenuButtons];
         
@@ -239,7 +241,7 @@ enum trackerIndex {
         [self addChildViewController:self.activityTrackerViewController];
         [self.view addSubview:self.activityTrackerViewController.view];
         [self.activityTrackerViewController didMoveToParentViewController:self];
-        self.title  = @"Activity Tracker";
+        self.navbarTitleLabel.text = @"Activity Tracker";
          self.trackerIndex = ActivityIndex;
         [self updateMenuButtons];
    //     [self unloadOtherViewControllersExceptIndex:ActivityIndex];
@@ -264,7 +266,7 @@ enum trackerIndex {
         [self addChildViewController:self.drinkTrackerViewController];
         [self.view addSubview:self.drinkTrackerViewController.view];
         [self.drinkTrackerViewController didMoveToParentViewController:self];
-        self.title = @"Drink Tracker";
+        self.navbarTitleLabel.text = @"Drink Tracker";
          self.trackerIndex = DrinkIndex;
         [self updateMenuButtons];
       //  [self unloadOtherViewControllersExceptIndex:DrinkIndex];
@@ -424,18 +426,18 @@ enum trackerIndex {
         }
 }
 
-// Food Sub Contollers
+ // Food Sub Contollers
 
-//-(void) addFood:(UIButton*)sender
-//{
+-(void) addFood:(ChoosePlateViewController*)choosePlateViewController
+{
 //    ChoosePlateViewController* choosePlateViewController = (ChoosePlateViewController*)
-//    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+//    [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
 //     instantiateViewControllerWithIdentifier:@"ChoosePlateViewController"];
 //    choosePlateViewController.mealType = sender.tag;
-//
-//    [self.navigationController pushViewController:choosePlateViewController animated:YES];
-//   // [self.masterTrackerViewController loadViewController:choosePlateViewController];
-// //   [self.masterTrackerViewController presentAsFullModel:choosePlateViewController];
-//
-//}
+
+    [self.navigationController pushViewController:choosePlateViewController animated:YES];
+   // [self.masterTrackerViewController loadViewController:choosePlateViewController];
+ //   [self.masterTrackerViewController presentAsFullModel:choosePlateViewController];
+
+}
 @end

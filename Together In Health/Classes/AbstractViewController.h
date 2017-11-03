@@ -34,6 +34,9 @@ enum CornerType {
 
 @property (nonatomic, weak) AppDelegate *appDelegate;
 
+@property(nonatomic,strong) IBOutlet UILabel* navbarTitleLabel;
+@property(nonatomic,strong) IBOutlet UIView* navbarView;
+
 @property(nonatomic) BOOL changeMade;
 
 -(void)bannerViewDidLoadAd:(ADBannerView *)banner;

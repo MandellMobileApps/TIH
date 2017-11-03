@@ -154,7 +154,7 @@
 
                 UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(2, 2, self.calendarDaySide-2, self.calendarDaySide-2)];
 				lbl.textAlignment = NSTextAlignmentCenter;
-				lbl.font = [UIFont systemFontOfSize:24];
+				lbl.font = [UIFont systemFontOfSize:22];
                 lbl.text = [NSString stringWithFormat:@"%ld",dayOfMonth];
                 if (thisMonth == month)
                 {
@@ -199,9 +199,11 @@
             {
 //                if (thisDayObject)
 //                {
+                    float goalSpace = 1.5;
+                    float goalSide = (self.calendarDaySide/3) - (goalSpace*4);
 //                    if (thisDayObject.goal1)
 //                    {
-                        UIView *goal1View = [[UIView alloc] initWithFrame:CGRectMake(0,1,self.calendarDaySide/3,15)];
+                        UIView *goal1View = [[UIView alloc] initWithFrame:CGRectMake(goalSpace,goalSpace,goalSide,goalSide)];
                         //goal1View.layer.cornerRadius = 50;  // half the width/height
                         [self addBorderAround:goal1View cornerType:CornerTypeSquare withColor:[UIColor blackColor]];
                         goal1View.backgroundColor = [UIColor blueColor];
@@ -209,15 +211,15 @@
 //                    }
 //                    if (thisDayObject.goal2)
 //                    {
-                        UIView *goal2View = [[UIView alloc] initWithFrame:CGRectMake(self.calendarDaySide/3,1,self.calendarDaySide/3,15)];
-                        //goal2View.layer.cornerRadius = 50;  // half the width/height
+                        UIView *goal2View = [[UIView alloc] initWithFrame:CGRectMake((goalSpace*2)+goalSide,goalSpace,goalSide,goalSide)];
+                        [self addBorderAround:goal2View cornerType:CornerTypeSquare withColor:[UIColor blackColor]];
                         goal2View.backgroundColor = [UIColor redColor];
                         [lbl addSubview:goal2View];
 //                    }
 //                    if (thisDayObject.goal3)
 //                    {
-                        UIView *goal3View = [[UIView alloc] initWithFrame:CGRectMake((self.calendarDaySide/3)*2,1,self.calendarDaySide/3,15)];
-                        //goal3View.layer.cornerRadius = 50;  // half the width/height
+                        UIView *goal3View = [[UIView alloc] initWithFrame:CGRectMake((goalSpace*3)+(goalSide*2),goalSpace,goalSide,goalSide)];
+                        [self addBorderAround:goal3View cornerType:CornerTypeSquare withColor:[UIColor blackColor]];
                         goal3View.backgroundColor = [UIColor yellowColor];
                         [lbl addSubview:goal3View];
 //                        }
@@ -348,7 +350,7 @@
     {
         UIView* thisObject = (UIView*)object;
         [thisObject.layer setBorderColor:[color CGColor]];
-        [thisObject.layer setBorderWidth:2.0];
+        [thisObject.layer setBorderWidth:1.0];
         if (corner == CornerTypeRounded)
         {
             [thisObject.layer setCornerRadius:8.0f];

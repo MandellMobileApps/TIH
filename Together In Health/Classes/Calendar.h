@@ -44,9 +44,9 @@
 
 
 
-- (id)initWithHandler:(id)handler forMonth:(NSInteger)month andYear:(NSInteger)year;
+-(id) initWithHandler:(id)handler forMonth:(NSInteger)month andYear:(NSInteger)year;
 -(void) loadWeekdayNameLabels;
-- (void)drawCalendarForYear:(NSInteger)year month:(NSInteger)month;
+-(void) drawCalendarForYear:(NSInteger)year month:(NSInteger)month;
 
 -(NSDate*) dateincrement:(NSDate*)date daystostep:(NSInteger)daystoStep monthstostep:(NSInteger)monthstoStep;
 -(NSInteger)getdaysinmonth:(NSInteger)month year:(NSInteger)year;

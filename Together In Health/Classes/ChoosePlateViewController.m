@@ -55,8 +55,11 @@
     {
     
         self.food = [[Food alloc]init];
-        self.food.plate = [self.appDelegate.allPlates objectAtIndex:0];
-        self.food.mood = [self.appDelegate.allMoods firstObject];
+        //self.food.plate = nil;//[self.appDelegate.allPlates objectAtIndex:0];
+        self.food.plate = [[Plate alloc] init];
+        self.food.plate.plateId = -1;
+        self.food.mood = [[Mood alloc] init]; //[self.appDelegate.allMoods firstObject];
+        self.food.mood.moodId = -1;
         self.food.mealType = self.mealType;
         self.isNew = YES;
     }
@@ -252,12 +255,12 @@
         if (indexPath.section == 0)
         {
             if (self.view.bounds.size.height >355) {
-                MyCell = [self plateCellForIndexPath:indexPath];
+                MyCell = [self moodCellForIndexPath:indexPath];
                 MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
                 MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
             }
             {
-                MyCell = [self plateCellForIndexPath:indexPath];
+                MyCell = [self moodCellForIndexPath:indexPath];
                 MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 50, 50);
                 MyCell.plateImageSelected.frame = CGRectMake(0, 0, 54, 54);
             }
@@ -276,12 +279,12 @@
         if (indexPath.section == 0)
         {
             if (self.view.bounds.size.height >355) {
-                MyCell = [self plateCellForIndexPath:indexPath];
+                MyCell = [self moodCellForIndexPath:indexPath];
                 MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
                 MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
             }
             {
-                MyCell = [self plateCellForIndexPath:indexPath];
+                MyCell = [self moodCellForIndexPath:indexPath];
                 MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 50, 50);
                 MyCell.plateImageSelected.frame = CGRectMake(0, 0, 54, 54);
             }
@@ -392,23 +395,37 @@
 }
 
 -(IBAction)saveData:(id)sender {
-    if (self.isNew)
+    
+    if ((self.food.mood.moodId > -1)&&(self.food.plate.plateId > -1))
     {
-        [self.appDelegate.day.foodArray addObject:self.food];
+        
+        if (self.isNew)
+        {
+            [self.appDelegate.day.foodArray addObject:self.food];
+        }
+        else
+        {
+            [self.appDelegate.day.foodArray replaceObjectAtIndex:self.food.foodArrayIndex withObject:self.food];
+        
+        }
+
+            [self.navigationController popViewControllerAnimated:YES];
     }
     else
     {
-        [self.appDelegate.day.foodArray replaceObjectAtIndex:self.food.foodArrayIndex withObject:self.food];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must select a Mood and a Plate\nbefore you save." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        alertView.tag = 2;
+        [alertView show];
+    
     
     }
-
-        [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(IBAction)cancelData:(id)sender {
     if (self.isNew || self.changesMade)
     {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Are you sure you want to cancel" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        alertView.tag = 1;
         [alertView show];
         
     }
@@ -421,10 +438,18 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1)
+    if (alertView.tag == 2)
     {
-        [self.navigationController popViewControllerAnimated:YES];
+    
+    
+    }
+    else
+    {
 
+        if (buttonIndex == 1)
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 

@@ -18,7 +18,7 @@ enum goalIndex {
     
 };
 
-@interface GoalSetViewController : AbstractViewController
+@interface GoalSetViewController : AbstractViewController <UITextFieldDelegate>
 
 @property (nonatomic) NSInteger goalIndex;
 
@@ -29,11 +29,6 @@ enum goalIndex {
 - (IBAction)buttonTapped4:(id)sender;
 - (IBAction)buttonTapped5:(id)sender;
 
-@property (nonatomic) BOOL Step1IsOn;
-@property (nonatomic) BOOL Step2IsOn;
-@property (nonatomic) BOOL Step3IsOn;
-@property (nonatomic) BOOL Step4IsOn;
-@property (nonatomic) BOOL Step5IsOn;
 
 @property (nonatomic, strong) IBOutlet UIButton *step1;
 @property (nonatomic, strong) IBOutlet UIButton *step2;
@@ -55,5 +50,9 @@ enum goalIndex {
 @property (nonatomic, strong) IBOutlet UITextField *step4TextField;
 @property (nonatomic, strong) IBOutlet UITextField *step5TextField;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UIView *colorView;
+@property (nonatomic, strong) IBOutlet UILabel *colorLabel;
+@property (nonatomic, strong) IBOutlet UIView *colorSelectionView;
+- (IBAction)colorButtonTapped:(id)sender;
 @end
 

@@ -45,6 +45,9 @@
 @property (nonatomic, strong) IBOutlet UIButton        *goal2Button;
 @property (nonatomic, strong) IBOutlet UIButton        *goal3Button;
 
+@property (nonatomic, strong) IBOutlet UILabel        *goal1Label;
+@property (nonatomic, strong) IBOutlet UILabel        *goal2Label;
+@property (nonatomic, strong) IBOutlet UILabel        *goal3Label;
 
 @property (nonatomic, strong) IBOutlet UIView *swipeview;
 @property (nonatomic, strong) IBOutlet UIImageView *pictureview;
@@ -54,9 +57,13 @@
 @property (nonatomic) CGPoint startTouchPosition;
 @property (nonatomic, strong) NSString *displayoption;
 @property (nonatomic, strong) NSTimer	*timer;
-@property (nonatomic, strong) UIView *navbarView;
 
 @property (nonatomic, strong) DatePickerView *datePickerView;
+
+@property (nonatomic, strong) IBOutlet UIView *goal1ColorView;
+@property (nonatomic, strong) IBOutlet UIView *goal2ColorView;
+@property (nonatomic, strong) IBOutlet UIView *goal3ColorView;
+
 
 
 -(IBAction)setGoal:(id)sender;

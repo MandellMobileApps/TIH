@@ -42,7 +42,7 @@ enum SubscriptionLevel {
 @property (nonatomic, strong) GoalGamePlanViewController* goalGamePlanViewController;
 @property (nonatomic, strong) GoalSetViewController *goalSetViewController;
 
-@property (nonatomic, strong) NSArray    *goalsArray;
+@property (nonatomic, strong) NSMutableArray    *goalsArray;
 @property (nonatomic) int subscriptionLevel;
 
 
@@ -56,6 +56,7 @@ enum SubscriptionLevel {
 -(Day*)calendarDayForDate:(NSDate*)thisDate;
 - (BOOL)string:(NSString*)string containsString:(NSString*)other;
 -(void) loadGoals;
+-(UIColor*)defaultGoalColors:(NSInteger)g;
 -(void)saveGoals;
 @end
 

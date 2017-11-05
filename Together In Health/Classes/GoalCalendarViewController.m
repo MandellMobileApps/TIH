@@ -359,7 +359,14 @@
         CGRect currentframe = self.view.bounds;
         currentframe.size.height = self.view.bounds.size.height-40;
         
-        self.datePickerView = [DatePickerView initializeWithSelfBounds:currentframe andDate:self.appDelegate.day.date];
+        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];        NSDateComponents *components = [[NSDateComponents alloc] init];
+        [components setMonth:self.currentMonth];
+        [components setYear:self.currentYear];
+        [components setDay:1];
+        NSDate *date = [gregorian dateFromComponents:components];
+
+        
+        self.datePickerView = [DatePickerView initializeWithSelfBounds:currentframe andDate:date];
         self.datePickerView.datePickerViewDelegate = self;
         [self addBorderAround:self.datePickerView cornerType:CornerTypeRounded withColor:[UIColor darkGrayColor]];
         [self.view addSubview:self.datePickerView];

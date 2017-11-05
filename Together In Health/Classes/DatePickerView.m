@@ -36,7 +36,7 @@
     thisView.datePicker.datePickerMode = UIDatePickerModeDate;
     [thisView.datePicker addTarget:thisView action:@selector(datePickerDidChange) forControlEvents:UIControlEventValueChanged];
 
-    thisView.datePicker.date = [NSDate date];
+    thisView.datePicker.date = thisDate;
     [thisView addSubview:thisView.datePicker];
 
     

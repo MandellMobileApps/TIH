@@ -11,20 +11,55 @@
 @implementation Goal
 
 
++(Goal*) thisGoal
+{
+    Goal* thisNewGoal = [[Goal alloc]init];
+    thisNewGoal.goalName = [NSString string];
+    thisNewGoal.goalColor = [UIColor whiteColor];
+
+    thisNewGoal.days = [NSString string];
+    thisNewGoal.times = [NSString string];
+    thisNewGoal.where = [NSString string];
+    thisNewGoal.amount = [NSString string];
+    thisNewGoal.step1 = [NSString string];
+    thisNewGoal.step2 = [NSString string];
+    thisNewGoal.step3 = [NSString string];
+    thisNewGoal.step4 = [NSString string];
+    thisNewGoal.step5 = [NSString string];
+
+    thisNewGoal.Step1IsOn = NO;
+    thisNewGoal.Step2IsOn = NO;
+    thisNewGoal.Step3IsOn = NO;
+    thisNewGoal.Step4IsOn = NO;
+    thisNewGoal.Step5IsOn = NO;
+
+    thisNewGoal.vacation = [NSString string];
+    thisNewGoal.holidays = [NSString string];
+    thisNewGoal.sick = [NSString string];
+    thisNewGoal.other1 = [NSString string];
+    thisNewGoal.other2 = [NSString string];
+    thisNewGoal.other1Text = [NSString string];
+    thisNewGoal.other2Text = [NSString string];
+
+    thisNewGoal.importantRating = -1;
+    thisNewGoal.confidentRating = -1;
+
+    return thisNewGoal;
+}
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
         
-//        self.Step1 = [decoder decodeObjectForKey:@"textFieldStep1"];
-//        self.textFieldStep2 = [decoder decodeObjectForKey:@"textFieldStep2"];
-//        self.textFieldStep3 = [decoder decodeObjectForKey:@"textFieldStep3"];
-//        self.textFieldStep4 = [decoder decodeObjectForKey:@"textFieldStep4"];
-//        self.textFieldStep5 = [decoder decodeObjectForKey:@"textFieldStep5"];
+        self.step1 = [decoder decodeObjectForKey:@"step1"];
+        self.step2 = [decoder decodeObjectForKey:@"step2"];
+        self.step3 = [decoder decodeObjectForKey:@"step3"];
+        self.step4 = [decoder decodeObjectForKey:@"step4"];
+        self.step5 = [decoder decodeObjectForKey:@"step5"];
 
 
 
         self.goalName = [decoder decodeObjectForKey:@"goalName"];
-        self.when = [decoder decodeObjectForKey:@"when"];
+        self.goalColor = [decoder decodeObjectForKey:@"goalColor"];
         self.where = [decoder decodeObjectForKey:@"where"];
         self.times = [decoder decodeObjectForKey:@"times"];
         self.where = [decoder decodeObjectForKey:@"where"];
@@ -64,14 +99,14 @@
 - (void) encodeWithCoder:(NSCoder *)encoder {
     
     
-//    [encoder encodeObject:self.textFieldStep1 forKey:@"textFieldStep1"];
-//    [encoder encodeObject:self.textFieldStep2 forKey:@"textFieldStep2"];
-//    [encoder encodeObject:self.textFieldStep3 forKey:@"textFieldStep3"];
-//    [encoder encodeObject:self.textFieldStep4 forKey:@"textFieldStep4"];
-//    [encoder encodeObject:self.textFieldStep5 forKey:@"textFieldStep5"];
+    [encoder encodeObject:self.step1 forKey:@"step1"];
+    [encoder encodeObject:self.step2 forKey:@"step2"];
+    [encoder encodeObject:self.step3 forKey:@"step3"];
+    [encoder encodeObject:self.step4 forKey:@"step4"];
+    [encoder encodeObject:self.step5 forKey:@"step5"];
     
      [encoder encodeObject:self.goalName forKey:@"goalName"];
-     [encoder encodeObject:self.when forKey:@"when"];
+     [encoder encodeObject:self.goalColor forKey:@"goalColor"];
      [encoder encodeObject:self.days forKey:@"days"];
     [encoder encodeObject:self.times forKey:@"times"];
      [encoder encodeObject:self.where forKey:@"where"];
@@ -100,6 +135,14 @@
 
     [encoder encodeInteger:self.importantRating forKey:@"importantRating"];
     [encoder encodeInteger:self.confidentRating forKey:@"confidentRating"];
+}
+
+
+-(Goal*) copyGoal
+{
+  NSData* selfArchive = [NSKeyedArchiver archivedDataWithRootObject:self];
+  Goal* goalCopy = [NSKeyedUnarchiver unarchiveObjectWithData:selfArchive];
+  return goalCopy;
 }
 
 @end

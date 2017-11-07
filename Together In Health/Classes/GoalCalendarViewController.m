@@ -17,6 +17,28 @@
 
 @implementation GoalCalendarViewController
 
+
+-(IBAction)tempRefreshGoals:(id)sender
+{
+
+        self.appDelegate.goalsArray = [NSMutableArray arrayWithObjects:
+                           [Goal thisGoal],
+                           [Goal thisGoal],
+                           [Goal thisGoal],
+                           nil];
+        NSInteger g = 1;
+        for (Goal* item in self.appDelegate.goalsArray)
+        {
+            item.goalName = [NSString stringWithFormat:@"Goal %lu",g];
+            item.goalColor = [self.appDelegate defaultGoalColors:g];
+            g++;
+        }
+        [self.appDelegate saveGoals];
+        [self updateGoalButtons];
+        self.goal1ColorView.backgroundColor = [[self.appDelegate.goalsArray objectAtIndex:0] goalColor];
+        self.goal2ColorView.backgroundColor = [[self.appDelegate.goalsArray objectAtIndex:1] goalColor];
+        self.goal3ColorView.backgroundColor = [[self.appDelegate.goalsArray objectAtIndex:2] goalColor];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -65,21 +87,7 @@
     }
     
 
-    self.calendarcurrent = [[Calendar alloc]initWithHandler:self forMonth:self.currentMonth andYear:self.currentYear];
-	NSString *monthyearlabeltemp  = [[NSString alloc] initWithFormat:@"%@  %ld",[self monthName:self.currentMonth], self.currentYear];
-	self.monthNameLabel.text = monthyearlabeltemp;
-    
-	
 
-	
-//	UIBarButtonItem *backBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
-//	self.navigationItem.backBarButtonItem = backBarItem;
-//    
-	
-//
-    [self getNewRects];
-
-	[self.calendarDaysview addSubview:self.calendarcurrent];
 //
 
 }
@@ -90,8 +98,22 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
      [self.navigationController setNavigationBarHidden:NO];
-     [self updateGoalButtons];
+    
+    if (self.calendarcurrent)
+    {
+        [self.calendarcurrent removeFromSuperview];
+    }
+    self.calendarcurrent = [[Calendar alloc]initWithHandler:self forMonth:self.currentMonth andYear:self.currentYear];
+    NSString *monthyearlabeltemp  = [[NSString alloc] initWithFormat:@"%@  %ld",[self monthName:self.currentMonth], self.currentYear];
+    self.monthNameLabel.text = monthyearlabeltemp;
+    
+    [self getNewRects];
 
+    [self.calendarDaysview addSubview:self.calendarcurrent];
+     [self updateGoalButtons];
+    self.goal1ColorView.backgroundColor = [[self.appDelegate.goalsArray objectAtIndex:0] goalColor];
+    self.goal2ColorView.backgroundColor = [[self.appDelegate.goalsArray objectAtIndex:1] goalColor];
+    self.goal3ColorView.backgroundColor = [[self.appDelegate.goalsArray objectAtIndex:2] goalColor];
 }
 
 
@@ -100,8 +122,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 - (void)dayButtonTapped:(UIButton*)sender {
 	if (sender.tag > 0) {
@@ -302,7 +322,8 @@
     if ([segue.identifier isEqualToString:@"1"])
     {
         goalSetViewController.goalIndex = Goal1Index;
-        goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:0];
+        goalSetViewController.goal = [[self.appDelegate.goalsArray objectAtIndex:0] copyGoal];
+
     }
     else if ([segue.identifier isEqualToString:@"2"])
     {
@@ -322,10 +343,13 @@
 
 -(void)updateGoalButtons
 {
-    [self.goal1Button setTitle:[[self.appDelegate.goalsArray objectAtIndex:0] goalName]
-     forState:UIControlStateNormal];
-     [self.goal2Button setTitle:[[self.appDelegate.goalsArray objectAtIndex:1] goalName] forState:UIControlStateNormal];
-    [self.goal3Button setTitle:[[self.appDelegate.goalsArray objectAtIndex:2] goalName] forState:UIControlStateNormal];
+    [self.goal1Button setTitle:@"" forState:UIControlStateNormal];
+    [self.goal2Button setTitle:@"" forState:UIControlStateNormal];
+    [self.goal3Button setTitle:@"" forState:UIControlStateNormal];
+    
+    self.goal1Label.text = [[self.appDelegate.goalsArray objectAtIndex:0] goalName];
+    self.goal2Label.text = [[self.appDelegate.goalsArray objectAtIndex:1] goalName];
+    self.goal3Label.text = [[self.appDelegate.goalsArray objectAtIndex:2] goalName];
 }
 
 -(IBAction)changeDay:(id)sender {
@@ -335,7 +359,14 @@
         CGRect currentframe = self.view.bounds;
         currentframe.size.height = self.view.bounds.size.height-40;
         
-        self.datePickerView = [DatePickerView initializeWithSelfBounds:currentframe andDate:self.appDelegate.day.date];
+        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];        NSDateComponents *components = [[NSDateComponents alloc] init];
+        [components setMonth:self.currentMonth];
+        [components setYear:self.currentYear];
+        [components setDay:1];
+        NSDate *date = [gregorian dateFromComponents:components];
+
+        
+        self.datePickerView = [DatePickerView initializeWithSelfBounds:currentframe andDate:date];
         self.datePickerView.datePickerViewDelegate = self;
         [self addBorderAround:self.datePickerView cornerType:CornerTypeRounded withColor:[UIColor darkGrayColor]];
         [self.view addSubview:self.datePickerView];

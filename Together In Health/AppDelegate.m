@@ -1231,24 +1231,43 @@
 -(void) loadGoals
 {
     NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
-    self.goalsArray = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    self.goalsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path]];
     if (!self.goalsArray)
     {
         self.goalsArray = [NSMutableArray arrayWithObjects:
-                           [[Goal alloc] init],
-                           [[Goal alloc] init],
-                           [[Goal alloc] init],
+                           [Goal thisGoal],
+                           [Goal thisGoal],
+                           [Goal thisGoal],
                            nil];
         NSInteger g = 1;
         for (Goal* item in self.goalsArray)
         {
             item.goalName = [NSString stringWithFormat:@"Goal %lu",g];
+            item.goalColor = [self defaultGoalColors:g];
             g++;
         }
         [self saveGoals];
         
     }
 
+}
+
+-(UIColor*)defaultGoalColors:(NSInteger)g
+{
+        switch (g) {
+      case 1:
+            return [UIColor blueColor];
+        break;
+      case 2:
+            return [UIColor redColor];
+        break;
+      case 3:
+            return [UIColor yellowColor];
+        break;
+      default:
+        break;
+    }
+    return [UIColor whiteColor];
 }
 
 -(void)saveGoals

@@ -29,6 +29,13 @@
         self.times = [decoder decodeObjectForKey:@"times"];
         self.where = [decoder decodeObjectForKey:@"where"];
         self.amount = [decoder decodeObjectForKey:@"amount"];
+        
+        self.step1 = [decoder decodeObjectForKey:@"step1"];
+        self.step2 = [decoder decodeObjectForKey:@"step2"];
+        self.step3 = [decoder decodeObjectForKey:@"step3"];
+        self.step4 = [decoder decodeObjectForKey:@"step4"];
+        self.step5 = [decoder decodeObjectForKey:@"step5"];
+
 
         
         self.Step1IsOn = [decoder decodeBoolForKey:@"Step1IsOn"];
@@ -69,6 +76,12 @@
     [encoder encodeObject:self.times forKey:@"times"];
      [encoder encodeObject:self.where forKey:@"where"];
      [encoder encodeObject:self.amount forKey:@"amount"];
+    
+    [encoder encodeObject:self.step1 forKey:@"step1"];
+    [encoder encodeObject:self.step2 forKey:@"step2"];
+    [encoder encodeObject:self.step3 forKey:@"step3"];
+    [encoder encodeObject:self.step4 forKey:@"step4"];
+    [encoder encodeObject:self.step5 forKey:@"step5"];
 
 
     [encoder encodeBool:self.Step1IsOn forKey:@"Step1IsOn"];

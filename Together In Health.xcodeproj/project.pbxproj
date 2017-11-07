@@ -22,6 +22,8 @@
 		365847601F704F3F006DF9E4 /* ExercisePlanSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */; };
 		365847631F709637006DF9E4 /* ExercisePlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847621F709637006DF9E4 /* ExercisePlanCell.m */; };
 		365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */; };
+		365AAC661FB2064C00A5450A /* FoodLabelNew.png in Resources */ = {isa = PBXBuildFile; fileRef = 365AAC651FB2064A00A5450A /* FoodLabelNew.png */; };
+		365AAC691FB21AD200A5450A /* UpGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AAC681FB21AD200A5450A /* UpGradeViewController.m */; };
 		365EB8271C00F88F00D757F7 /* vegplateapp.png in Resources */ = {isa = PBXBuildFile; fileRef = 365EB8261C00F88F00D757F7 /* vegplateapp.png */; };
 		365EB8291C00FBF200D757F7 /* stressreduction.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365EB8281C00FBF200D757F7 /* stressreduction.jpg */; };
 		365EB82C1C00FD3600D757F7 /* movement.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365EB82A1C00FD3600D757F7 /* movement.jpg */; };
@@ -279,6 +281,9 @@
 		365847621F709637006DF9E4 /* ExercisePlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanCell.m; sourceTree = "<group>"; };
 		365847641F709E71006DF9E4 /* ExercisePlanCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanCollectionView.h; sourceTree = "<group>"; };
 		365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanCollectionView.m; sourceTree = "<group>"; };
+		365AAC651FB2064A00A5450A /* FoodLabelNew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FoodLabelNew.png; sourceTree = "<group>"; };
+		365AAC671FB21AD100A5450A /* UpGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpGradeViewController.h; sourceTree = "<group>"; };
+		365AAC681FB21AD200A5450A /* UpGradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpGradeViewController.m; sourceTree = "<group>"; };
 		365EB8261C00F88F00D757F7 /* vegplateapp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vegplateapp.png; sourceTree = "<group>"; };
 		365EB8281C00FBF200D757F7 /* stressreduction.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stressreduction.jpg; sourceTree = "<group>"; };
 		365EB82A1C00FD3600D757F7 /* movement.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = movement.jpg; sourceTree = "<group>"; };
@@ -725,6 +730,7 @@
 			children = (
 				36D9D53A1BE80481003658FE /* GenericWebViewController2.h */,
 				36D9D53B1BE80481003658FE /* GenericWebViewController2.m */,
+				365AAC651FB2064A00A5450A /* FoodLabelNew.png */,
 				6A91E4CC1BE2D26600A72CCA /* StressTrackerViewController.h */,
 				6A91E4CD1BE2D26600A72CCA /* StressTrackerViewController.m */,
 				6A91E34A1BE2679200A72CCA /* AbstractViewController.h */,
@@ -889,6 +895,8 @@
 				6AD7A80C1C3051C0004BD58F /* Mood.m */,
 				6A799F7A1F859E9F008E6EA3 /* MasterTrackerViewController.h */,
 				6A799F7B1F859E9F008E6EA3 /* MasterTrackerViewController.m */,
+				365AAC671FB21AD100A5450A /* UpGradeViewController.h */,
+				365AAC681FB21AD200A5450A /* UpGradeViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1135,6 +1143,7 @@
 				6A91E4BD1BE2679300A72CCA /* FoodLabel3.png in Resources */,
 				6A91E48E1BE2679300A72CCA /* Organic.html in Resources */,
 				6A91E4AF1BE2679300A72CCA /* Balanced Plate5.png in Resources */,
+				365AAC661FB2064C00A5450A /* FoodLabelNew.png in Resources */,
 				6A91E4C41BE2679300A72CCA /* Resetimage3.png in Resources */,
 				36FE38FE1C0A0874002E341E /* Balanced Plate25.png in Resources */,
 				6A91E3361BE2625500A72CCA /* LaunchScreen.storyboard in Resources */,
@@ -1259,6 +1268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				365AAC691FB21AD200A5450A /* UpGradeViewController.m in Sources */,
 				365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */,
 				6A91E45D1BE2679300A72CCA /* MgNetworkOperation2.m in Sources */,
 				6A91E45B1BE2679300A72CCA /* MenuPlanCell.m in Sources */,

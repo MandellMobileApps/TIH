@@ -35,7 +35,7 @@
     
     [self.thisScrollView setFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
     
-    self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 650);
+    self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 720);
     
     self.holidaysTextView.text = self.goal.holidays;
     self.vacationTextView.text = self.goal.vacation;
@@ -133,6 +133,50 @@
         }];
     }
         
+}
+
+-(IBAction)clearAll:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Do you want to clear all?" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Clear all",nil];
+    alert.tag = 1;
+    [alert show];
+    
+}
+
+-(IBAction)verifyCancel:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You've made changes, are you sure you want to close goal?" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Close Goal",nil];
+    alert.tag = 2;
+    [alert show];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+
+{
+    if (alertView.tag == 1)
+    {
+        if (buttonIndex == 0) {
+        }
+        else if (buttonIndex == 1) {
+            self.holidaysTextView.text = @"";
+            self.vacationTextView.text = @"";
+            self.sickDaysTextView.text = @"";
+            self.other1InfoTextView.text = @"";
+            self.other2InfoTextView.text = @"";
+            self.other1TextView.text = @"";
+            self.other2TextView.text = @"";
+        }
+    } else if (alertView.tag == 2)
+    {
+        if (buttonIndex == 1) {
+            [self dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }
+        
+        
+    }
 }
 
 @end

@@ -134,6 +134,8 @@
         self.textViewGoalCheck2.text = @"";
         self.textViewGoalCheck.hidden = YES;
         self.textViewGoalCheck2.hidden = YES;
+        self.checkConfident.selectedSegmentIndex = self.goal.confidentRating-1;
+        self.checkImportant.selectedSegmentIndex = self.goal.importantRating-1;
     }
 }
 

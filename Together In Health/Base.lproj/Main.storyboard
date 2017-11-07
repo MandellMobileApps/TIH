@@ -1278,6 +1278,20 @@
             </objects>
             <point key="canvasLocation" x="-1856" y="-87"/>
         </scene>
+        <!--Up Grade View Controller-->
+        <scene sceneID="NOz-kV-1Gw">
+            <objects>
+                <viewController storyboardIdentifier="UpGradeViewController" id="73i-DR-kIY" customClass="UpGradeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uvL-2s-pgT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pYy-5n-7VT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1380" y="-601"/>
+        </scene>
         <!--Item-->
         <scene sceneID="2ts-Tq-m8X">
             <objects>

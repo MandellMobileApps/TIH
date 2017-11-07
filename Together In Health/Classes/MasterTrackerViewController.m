@@ -12,6 +12,7 @@
 #import "Day.h"
 #import "ChoosePlateViewController.h"
 #import "OpeningViewViewController.h"
+#import "UpGradeViewController.h"
 
 
 enum trackerIndex {
@@ -148,6 +149,8 @@ enum trackerIndex {
 {
 
     if (!self.foodTrackerViewController)
+        
+
     {
         self.foodTrackerViewController = (FoodTrackerViewController*)
         [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
@@ -155,10 +158,6 @@ enum trackerIndex {
         self.foodTrackerViewController.view.frame = [self baseRect];
         self.foodTrackerViewController.masterTrackerViewController = self;
     }
-
-    
-
-    
 
         [self addChildViewController:self.foodTrackerViewController];
         [self.view addSubview:self.foodTrackerViewController.view];
@@ -176,22 +175,56 @@ enum trackerIndex {
 {
 
     if (!self.sleepTrackerViewController)
-    {
-        self.sleepTrackerViewController = (SleepTrackerViewController*)
-        [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
-        instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
-    }
+        
+        switch (self.appDelegate.subscriptionLevel) {
+                
+                
+            case SubscriptionFree:
+                self.upGradeViewController = (UpGradeViewController*)
+                [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+                 instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
+                self.upGradeViewController.view.frame = [self baseRect];
+                
+            case SubscriptionPaid1:
+            {
+                self.sleepTrackerViewController = (SleepTrackerViewController*)
+                [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
+                 instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
+            }
+                
+                self.sleepTrackerViewController.view.frame = [self baseRect];
+                
+                self.sleepTrackerViewController.masterTrackerViewController = self;
+                
+                [self addChildViewController:self.sleepTrackerViewController];
+                [self.view addSubview:self.sleepTrackerViewController.view];
+                [self.sleepTrackerViewController didMoveToParentViewController:self];
+                self.navbarTitleLabel.text = @"Sleep Tracker";
+                self.trackerIndex = SleepIndex;
+                [self updateMenuButtons];
+                break;
+            case SubscriptionPaid2:
+            {
+                self.sleepTrackerViewController = (SleepTrackerViewController*)
+                [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
+                 instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
+            }
+                
+                self.sleepTrackerViewController.view.frame = [self baseRect];
+                
+                self.sleepTrackerViewController.masterTrackerViewController = self;
+                
+                [self addChildViewController:self.sleepTrackerViewController];
+                [self.view addSubview:self.sleepTrackerViewController.view];
+                [self.sleepTrackerViewController didMoveToParentViewController:self];
+                self.navbarTitleLabel.text = @"Sleep Tracker";
+                self.trackerIndex = SleepIndex;
+                [self updateMenuButtons];
+                break;
+            default:
+                break;
+        }
 
-        self.sleepTrackerViewController.view.frame = [self baseRect];
-
-        self.sleepTrackerViewController.masterTrackerViewController = self;
-
-        [self addChildViewController:self.sleepTrackerViewController];
-        [self.view addSubview:self.sleepTrackerViewController.view];
-        [self.sleepTrackerViewController didMoveToParentViewController:self];
-        self.navbarTitleLabel.text = @"Sleep Tracker";
-        self.trackerIndex = SleepIndex;
-        [self updateMenuButtons];
         
      //   [self unloadOtherViewControllersExceptIndex:SleepIndex];
    

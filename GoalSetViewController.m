@@ -88,15 +88,15 @@
 {
     self.titleLabel.text = self.goal.goalName;
     self.goalTextField.text = self.goal.goalName;
-//    self.daysTextField.text = self.goal.;
-//    self.timesTextField.text = self.goal;
-//    self.whereTextField.text = self.goal;
-//    self.amountTextField.text = self.goal;
-//    self.step1TextField.text = self.goal;
-//    self.step2TextField.text = self.goal;
-//    self.step3TextField.text = self.goal;
-//    self.step4TextField.text = self.goal;
-//    self.step5TextField.text = self.goal
+    self.daysTextField.text = self.goal.days;
+    self.timesTextField.text = self.goal.times;
+    self.whereTextField.text = self.goal.where;
+    self.amountTextField.text = self.goal.amount;
+    self.step1TextField.text = self.goal.step1;
+    self.step2TextField.text = self.goal.step2;
+    self.step3TextField.text = self.goal.step3;
+    self.step4TextField.text = self.goal.step4;
+    self.step5TextField.text = self.goal.step5;
 
     self.Step1IsOn = self.goal.Step1IsOn;
     self.Step2IsOn = self.goal.Step2IsOn;
@@ -109,6 +109,16 @@
 -(void)saveGoalFromUI
 {
     self.goal.goalName = self.goalTextField.text;
+    self.goal.days = self.daysTextField.text;
+    self.goal.times = self.timesTextField.text;
+    self.goal.where = self.whereTextField.text;
+    self.goal.amount = self.amountTextField.text;
+    
+    self.goal.step1 = self.step1TextField.text;
+    self.goal.step2 = self.step2TextField.text;
+    self.goal.step3 = self.step3TextField.text;
+    self.goal.step4 = self.step4TextField.text;
+    self.goal.step5 = self.step5TextField.text;
 
 
     self.goal.Step1IsOn = self.Step1IsOn;

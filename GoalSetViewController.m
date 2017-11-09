@@ -173,11 +173,11 @@
     self.step4TextField.text = self.goal.step4;
     self.step5TextField.text = self.goal.step5;
 
-    self.Step1IsOn = self.goal.Step1IsOn;
-    self.Step2IsOn = self.goal.Step2IsOn;
-    self.Step3IsOn = self.goal.Step3IsOn;
-    self.Step4IsOn = self.goal.Step4IsOn;
-    self.Step5IsOn = self.goal.Step5IsOn;
+    self.goal.Step1IsOn = self.goal.Step1IsOn;
+    self.goal.Step2IsOn = self.goal.Step2IsOn;
+    self.goal.Step3IsOn = self.goal.Step3IsOn;
+    self.goal.Step4IsOn = self.goal.Step4IsOn;
+    self.goal.Step5IsOn = self.goal.Step5IsOn;
     [self updateCheckBoxImages];
 }
 
@@ -194,6 +194,7 @@
     self.goal.step3 = self.step3TextField.text;
     self.goal.step4 = self.step4TextField.text;
     self.goal.step5 = self.step5TextField.text;
+}
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {

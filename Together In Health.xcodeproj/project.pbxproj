@@ -24,6 +24,7 @@
 		365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */; };
 		365AAC661FB2064C00A5450A /* FoodLabelNew.png in Resources */ = {isa = PBXBuildFile; fileRef = 365AAC651FB2064A00A5450A /* FoodLabelNew.png */; };
 		365AAC691FB21AD200A5450A /* UpGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AAC681FB21AD200A5450A /* UpGradeViewController.m */; };
+		365AAC6B1FB36C3400A5450A /* FoodLabelNew2.png in Resources */ = {isa = PBXBuildFile; fileRef = 365AAC6A1FB36C3400A5450A /* FoodLabelNew2.png */; };
 		365EB8271C00F88F00D757F7 /* vegplateapp.png in Resources */ = {isa = PBXBuildFile; fileRef = 365EB8261C00F88F00D757F7 /* vegplateapp.png */; };
 		365EB8291C00FBF200D757F7 /* stressreduction.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365EB8281C00FBF200D757F7 /* stressreduction.jpg */; };
 		365EB82C1C00FD3600D757F7 /* movement.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365EB82A1C00FD3600D757F7 /* movement.jpg */; };
@@ -284,6 +285,7 @@
 		365AAC651FB2064A00A5450A /* FoodLabelNew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FoodLabelNew.png; sourceTree = "<group>"; };
 		365AAC671FB21AD100A5450A /* UpGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpGradeViewController.h; sourceTree = "<group>"; };
 		365AAC681FB21AD200A5450A /* UpGradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpGradeViewController.m; sourceTree = "<group>"; };
+		365AAC6A1FB36C3400A5450A /* FoodLabelNew2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FoodLabelNew2.png; sourceTree = "<group>"; };
 		365EB8261C00F88F00D757F7 /* vegplateapp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vegplateapp.png; sourceTree = "<group>"; };
 		365EB8281C00FBF200D757F7 /* stressreduction.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stressreduction.jpg; sourceTree = "<group>"; };
 		365EB82A1C00FD3600D757F7 /* movement.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = movement.jpg; sourceTree = "<group>"; };
@@ -939,6 +941,7 @@
 				6A91E3F21BE2679300A72CCA /* PolentaVegetableBake.html */,
 				6A91E3F31BE2679300A72CCA /* Proteinfacts.html */,
 				6A91E3F41BE2679300A72CCA /* ReadingAFoodLabel.html */,
+				365AAC6A1FB36C3400A5450A /* FoodLabelNew2.png */,
 				36FE38C91C04CD35002E341E /* Ingredients.png */,
 				6A91E3F51BE2679300A72CCA /* RecipeMacCheese.html */,
 				6A91E3F61BE2679300A72CCA /* RecipeMacCheeseTest.html */,
@@ -1137,6 +1140,7 @@
 				6A91E4B91BE2679300A72CCA /* Checkmark.png in Resources */,
 				6A91E49E1BE2679300A72CCA /* Arrowforward.png in Resources */,
 				360DB1871C12809F00FBE90F /* TrackWaterAddRow.png in Resources */,
+				365AAC6B1FB36C3400A5450A /* FoodLabelNew2.png in Resources */,
 				6A91E4AA1BE2679300A72CCA /* Balanced Plate16.png in Resources */,
 				361BC4631F9D30C50011A20E /* FriedGreasyPlate.png in Resources */,
 				6A91E49D1BE2679300A72CCA /* Answer line.png in Resources */,

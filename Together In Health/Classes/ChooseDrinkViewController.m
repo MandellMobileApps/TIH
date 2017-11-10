@@ -127,6 +127,8 @@
 {
     [self hideSearchBar];
     [self.searchBar resignFirstResponder];
+    [self loadArrays];
+    [self hideDatePicker];
 }
 
 
@@ -136,12 +138,15 @@
  {
         NSMutableArray *predicates = [NSMutableArray array];
                                                             // [NSPredicate predicateWithFormat:filter, @"SELF", @"a"];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@",@"SELF",filter];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"Name CONTAINS[cd] %@",filter];
         [predicates addObject:predicate];
 
         NSPredicate *compoundPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
         self.healthyDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.healthyDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
-
+    self.sugaryDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.sugaryDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
+    self.caffeineDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.caffeineDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
+    self.alcoholDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.alcoholDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
+    self.otherDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.otherDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
     
     [self.thisTableView reloadData];
  }
@@ -329,23 +334,23 @@
     switch (indexPath.section)
     {
         case 0:{
-            NSMutableDictionary* thisDrink = [self.healthyDrinkArray objectAtIndex:indexPath.row];
-            self.drinkPickerLabel.text = [thisDrink objectForKey:@"Name"];
+            self.thisDrink = [self.healthyDrinkArray objectAtIndex:indexPath.row];
+            self.drinkPickerLabel.text = [self.thisDrink objectForKey:@"Name"];
             break;}
             
         case 1:{
-            NSMutableDictionary* thisDrink = [self.sugaryDrinkArray objectAtIndex:indexPath.row];
-            self.drinkPickerLabel.text = [thisDrink objectForKey:@"Name"];
+            self.thisDrink = [self.sugaryDrinkArray objectAtIndex:indexPath.row];
+            self.drinkPickerLabel.text = [self.thisDrink objectForKey:@"Name"];
             break;}
             
         case 2:{
-            NSMutableDictionary* thisDrink = [self.caffeineDrinkArray objectAtIndex:indexPath.row];
-            self.drinkPickerLabel.text = [thisDrink objectForKey:@"Name"];
+            self.thisDrink = [self.caffeineDrinkArray objectAtIndex:indexPath.row];
+            self.drinkPickerLabel.text = [self.thisDrink objectForKey:@"Name"];
             break;}
             
         case 3:{
-            NSMutableDictionary* thisDrink = [self.alcoholDrinkArray objectAtIndex:indexPath.row];
-            self.drinkPickerLabel.text = [thisDrink objectForKey:@"Name"];
+            self.thisDrink = [self.alcoholDrinkArray objectAtIndex:indexPath.row];
+            self.drinkPickerLabel.text = [self.thisDrink objectForKey:@"Name"];
             break;}
             
         default:
@@ -401,9 +406,9 @@
 //}
 
 -(IBAction)datePickerDoneButtonTapped:(id)sender {
+    [self.day.drinksArray addObject:self.thisDrink];
     [self hideDatePicker];
-
-
+    [self.thisTableView reloadData];
 }
 
 -(void) showDatePickerForIndex:(NSInteger)selection {
@@ -458,15 +463,17 @@
 -(void) hideDatePicker
 {
     
-    CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 0);
-    [UIView animateWithDuration:0.2
-                     animations:^{
-                         self.pickerViewContainer.frame = hideRect;
-                     }
-                     completion:^(BOOL finished){
-                         [self.pickerViewContainer removeFromSuperview];
-                     }];
-    
+    if (self.pickerViewContainer)
+    {
+        CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, self.view.bounds.size.width, 0);
+        [UIView animateWithDuration:0.2
+                         animations:^{
+                             self.pickerViewContainer.frame = hideRect;
+                         }
+                         completion:^(BOOL finished){
+                             [self.pickerViewContainer removeFromSuperview];
+                         }];
+    }
     
 }
 
@@ -505,33 +512,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    switch (self.currentIndexPath.section)
-    {
-        case 0:{
-            NSMutableDictionary* thisDrink = [self.healthyDrinkArray objectAtIndex:self.currentIndexPath.row];
-            [thisDrink setObject:[self.amtArray objectAtIndex:row] forKey:@"Amount"];
-            break;}
-        case 1:{
-            NSMutableDictionary* thisDrink = [self.sugaryDrinkArray objectAtIndex:self.currentIndexPath.row];
-            [thisDrink setObject:[self.amtArray objectAtIndex:row] forKey:@"Amount"];
-            break;}
-            
-        case 2:{
-            NSMutableDictionary* thisDrink = [self.caffeineDrinkArray objectAtIndex:self.currentIndexPath.row];
-            [thisDrink setObject:[self.amtArray objectAtIndex:row] forKey:@"Amount"];
-            break;}
-            
-        case 3:{
-            NSMutableDictionary* thisDrink = [self.alcoholDrinkArray objectAtIndex:self.currentIndexPath.row];
-            [thisDrink setObject:[self.amtArray objectAtIndex:row] forKey:@"Amount"];
-            break;}
-            
-        default:
-            break;
-    }
-    
-    [self.thisTableView reloadData];
-    
+    [self.thisDrink setObject:[self.amtArray objectAtIndex:row] forKey:@"Amount"];
 }
 
 -(CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component

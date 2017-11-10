@@ -46,6 +46,7 @@
 @property (nonatomic, strong) NSDate *sugaryDrinks;
 @property (nonatomic, strong) NSDate *caffeineDrinks;
 @property (nonatomic, strong) NSDate *alcoholDrinks;
+@property (nonatomic, strong) NSMutableDictionary* thisDrink;
 
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSArray *detaildataArray;

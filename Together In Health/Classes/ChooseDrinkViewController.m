@@ -19,14 +19,13 @@
     
     self.navigationItem.backBarButtonItem = nil;
     [super viewDidLoad];
-    self.title = @"Choose Drinks";
-    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
+
     
-    self.navigationController.navigationBar.titleTextAttributes = size;
+//    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
+//    self.navigationController.navigationBar.titleTextAttributes = size;
+//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    
-   //self.navigationItem.backBarButtonItem.title = @"Drinks";
+//   self.navigationItem.backBarButtonItem.title = @"Back";
     
   //  [self.drinkTrackerViewController loadPersistent];
     
@@ -35,110 +34,39 @@
   //  self.day = [self.appDelegate dayForDateOffset:0];
     self.pickerViewContainer.hidden = YES;
     
+    [self loadArrays];
+
+    // set custom navbar
+    self.titleLabel.text = @"Choose Drinks";
+    self.navbarView.backgroundColor =   [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    self.titleLabel.backgroundColor =   [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    self.titleLabel.textColor = [UIColor whiteColor];
     
-    self.amtArray = [NSArray arrayWithObjects:
-                     @"0",
-                     @"1",
-                     @"2",
-                     @"3",
-                     @"4",
-                     @"5",
-                     @"6",
-                     @"7",
-                     @"8",
-                     @"9",
-                     @"10",
-                     @"11",
-                     @"12",
-                     @"13",
-                     @"14",
-                     @"15",
-                     @"16",
-                     @"17",
-                     @"18",
-                     @"19",
-                     @"20",
-                     @"21",
-                     nil];
+    // set frames and search button
+     self.searchBarShowRect = CGRectMake(0,64, self.view.bounds.size.width, 44);
+     self.searchBarHideRect = CGRectMake(0,64, self.view.bounds.size.width, 0);
+    self.searchBar.frame = self.searchBarHideRect;
+    [self.searchLabel setText:[[NSString alloc] initWithUTF8String:"\xF0\x9F\x94\x8D"]];
+    [self.searchLabel sizeToFit];
     
-    self.healthyDrinkArray = [NSMutableArray arrayWithObjects:
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Water",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Herbal tea",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Decaff green tea",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Decaff black tea",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Decaff coffee",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Sparkling/Mineral water",@"Name",
-                               @"0",@"Amount",nil],
-                              nil];
-    
-    self.sugaryDrinkArray = [NSMutableArray arrayWithObjects:
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Soda",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Diet Soda",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Sweet tea",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Juice cocktail ",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"100% juice",@"Name",
-                               @"0",@"Amount",nil],
-                              nil];
-    
-    self.caffeineDrinkArray = [NSMutableArray arrayWithObjects:
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Coffee",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Monster",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Redbull",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Decaff black tea",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Sparkling water",@"Name",
-                               @"0",@"Amount",nil],
-                              nil];
-    
-    self.alcoholDrinkArray = [NSMutableArray arrayWithObjects:
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Water",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Decaff herbal tea",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Decaff green tea",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Decaff black tea",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Sparkling water",@"Name",
-                               @"0",@"Amount",nil],
-                              nil];
-    
-    
+    self.navbarView.frame = CGRectMake(0,20, self.view.bounds.size.width, 44);
+    self.containerView.frame = CGRectMake(0,64, self.view.bounds.size.width, self.view.bounds.size.height-64);
+
+
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+-(void)dismiss
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 -(void)resetDay {
     [self.thisTableView reloadData];
     
@@ -147,6 +75,83 @@
 -(void)updateData
 {
     [self resetDay];
+}
+
+
+-(void)showSearchBar
+{
+   
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         self.searchBar.frame = self.searchBarShowRect;
+                         self.containerView.frame = CGRectMake(0,108, self.view.bounds.size.width, self.view.bounds.size.height-108);
+                     }
+                     completion:^(BOOL finished){
+
+                     }];
+}
+-(void)hideSearchBar
+{
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         self.searchBar.frame = self.searchBarHideRect;
+                        self.containerView.frame = CGRectMake(0,64, self.view.bounds.size.width, self.view.bounds.size.height-64);
+                     }
+                     completion:^(BOOL finished){
+                         
+                     }];
+    
+}
+
+-(IBAction)navbarButtonTapped:(UIButton*)sender
+{
+    switch (sender.tag) {
+  case 1:
+    [self dismiss];
+    break;
+  case 2:
+    [self showSearchBar];
+    [self.searchBar becomeFirstResponder];
+    break;
+  default:
+    break;
+    }
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self filterArrayWith:searchText];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self hideSearchBar];
+    [self.searchBar resignFirstResponder];
+}
+
+
+-(void)filterArrayWith:(NSString*)filter
+{
+ if (filter.length>0)
+ {
+        NSMutableArray *predicates = [NSMutableArray array];
+                                                            // [NSPredicate predicateWithFormat:filter, @"SELF", @"a"];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@",@"SELF",filter];
+        [predicates addObject:predicate];
+
+        NSPredicate *compoundPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
+        self.healthyDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.healthyDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
+
+    
+    [self.thisTableView reloadData];
+ }
+ else
+ {
+    [self loadArrays];
+ }
+
+
+
 }
 //
 //
@@ -254,16 +259,16 @@
     //    tableView.backgroundColor = [ColorsClass performSelector:NSSelectorFromString([self.appDelegate.backgroundColors objectAtIndex:7])];
     switch (section) {
         case 0:
-            return self.healthyDrinkArray.count;
+            return self.healthyDrinkFilteredArray.count;
             break;
         case 1:
-            return self.sugaryDrinkArray.count;
+            return self.sugaryDrinkFilteredArray.count;
             break;
         case 2:
-            return self.caffeineDrinkArray.count;
+            return self.caffeineDrinkFilteredArray.count;
             break;
         case 3:
-            return self.alcoholDrinkArray.count;
+            return self.alcoholDrinkFilteredArray.count;
             break;
         default:
             break;
@@ -281,23 +286,23 @@
     
     switch (indexPath.section) {
         case 0:{
-            NSMutableDictionary* thisDrink = [self.healthyDrinkArray objectAtIndex:indexPath.row];
+            NSMutableDictionary* thisDrink = [self.healthyDrinkFilteredArray objectAtIndex:indexPath.row];
             MyCell.textLabel.text = [thisDrink objectForKey:@"Name"];
             MyCell.detailTextLabel.text = [thisDrink objectForKey:@"Amount"];
             break;}
 
         case 1:{
-            NSMutableDictionary* thisDrink = [self.sugaryDrinkArray objectAtIndex:indexPath.row];
+            NSMutableDictionary* thisDrink = [self.sugaryDrinkFilteredArray objectAtIndex:indexPath.row];
             MyCell.textLabel.text = [thisDrink objectForKey:@"Name"];
             MyCell.detailTextLabel.text = [thisDrink objectForKey:@"Amount"];
             break;}
         case 2:{
-            NSMutableDictionary* thisDrink = [self.caffeineDrinkArray objectAtIndex:indexPath.row];
+            NSMutableDictionary* thisDrink = [self.caffeineDrinkFilteredArray objectAtIndex:indexPath.row];
             MyCell.textLabel.text = [thisDrink objectForKey:@"Name"];
             MyCell.detailTextLabel.text = [thisDrink objectForKey:@"Amount"];
             break;}
         case 3:{
-            NSMutableDictionary* thisDrink = [self.alcoholDrinkArray objectAtIndex:indexPath.row];
+            NSMutableDictionary* thisDrink = [self.alcoholDrinkFilteredArray objectAtIndex:indexPath.row];
             MyCell.textLabel.text = [thisDrink objectForKey:@"Name"];
             MyCell.detailTextLabel.text = [thisDrink objectForKey:@"Amount"];
             break;}
@@ -396,8 +401,8 @@
 //}
 
 -(IBAction)datePickerDoneButtonTapped:(id)sender {
-    //[self hideDatePicker];
-    self.pickerViewContainer.hidden = YES;
+    [self hideDatePicker];
+
 
 }
 
@@ -542,7 +547,116 @@
 }
 
 
+-(void)loadArrays
+{
+    self.amtArray = [NSArray arrayWithObjects:
+                     @"0",
+                     @"1",
+                     @"2",
+                     @"3",
+                     @"4",
+                     @"5",
+                     @"6",
+                     @"7",
+                     @"8",
+                     @"9",
+                     @"10",
+                     @"11",
+                     @"12",
+                     @"13",
+                     @"14",
+                     @"15",
+                     @"16",
+                     @"17",
+                     @"18",
+                     @"19",
+                     @"20",
+                     @"21",
+                     nil];
+    
+    self.healthyDrinkArray = [NSMutableArray arrayWithObjects:
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Water",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Herbal tea",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Decaff green tea",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Decaff black tea",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Decaff coffee",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Sparkling/Mineral water",@"Name",
+                               @"0",@"Amount",nil],
+                              nil];
+    
+    self.sugaryDrinkArray = [NSMutableArray arrayWithObjects:
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Soda",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Diet Soda",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Sweet tea",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Juice cocktail ",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"100% juice",@"Name",
+                               @"0",@"Amount",nil],
+                              nil];
+    
+    self.caffeineDrinkArray = [NSMutableArray arrayWithObjects:
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Coffee",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Monster",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Redbull",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Decaff black tea",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Sparkling water",@"Name",
+                               @"0",@"Amount",nil],
+                              nil];
+    
+    self.alcoholDrinkArray = [NSMutableArray arrayWithObjects:
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Water",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Decaff herbal tea",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Decaff green tea",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Decaff black tea",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Sparkling water",@"Name",
+                               @"0",@"Amount",nil],
+                              nil];
+    
 
+    self.healthyDrinkFilteredArray = [NSMutableArray arrayWithArray:self.healthyDrinkArray];
+    self.sugaryDrinkFilteredArray = [NSMutableArray arrayWithArray:self.sugaryDrinkArray];
+    self.caffeineDrinkFilteredArray = [NSMutableArray arrayWithArray:self.caffeineDrinkArray];
+    self.alcoholDrinkFilteredArray = [NSMutableArray arrayWithArray:self.alcoholDrinkArray];
+    self.otherDrinkFilteredArray = [NSMutableArray arrayWithArray:self.otherDrinkArray];
+    [self.thisTableView reloadData];
+}
 
 //    chooseDrinkCell.selectionStyle = UITableViewCellSelectionStyleNone;
 //    MyCell.accessoryType = UITableViewCellAccessoryNone;

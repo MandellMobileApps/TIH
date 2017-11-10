@@ -284,8 +284,11 @@
     ChooseDrinkViewController* chooseDrinkViewController = (ChooseDrinkViewController*)
     [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
      instantiateViewControllerWithIdentifier:@"ChooseDrinkViewController"];
-   // chooseDrinkViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:chooseDrinkViewController animated:YES];
+        chooseDrinkViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    
+        [self presentViewController:chooseDrinkViewController animated:YES completion:^{
+
+        }];
 }
 
 #pragma Change Day

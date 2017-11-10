@@ -194,6 +194,8 @@
     self.goal.step3 = self.step3TextField.text;
     self.goal.step4 = self.step4TextField.text;
     self.goal.step5 = self.step5TextField.text;
+    
+    return YES;
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField

@@ -61,8 +61,80 @@
     [self.navigationController setNavigationBarHidden:YES];
 }
 
+-(void) saveDrinks
+{
+    for (NSMutableDictionary* drinkDict in self.healthyDrinkArray)
+    {
+        if ([[drinkDict objectForKey:@"Amount"] integerValue] > 0)
+        {
+            Drink* thisDrink = [[Drink alloc]init];
+            thisDrink.drinkName = [drinkDict objectForKey:@"Name"];
+            thisDrink.drinkTextField = [[UITextField alloc] init];
+            thisDrink.drinkTextField.text = [drinkDict objectForKey:@"Name"];
+            thisDrink.amount = [drinkDict objectForKey:@"Amount"];
+            thisDrink.unit = @"Cup";
+            thisDrink.isChosen = YES;
+            thisDrink.indexString= @"index string";
+            thisDrink.drinkType = DrinkTypeWater;
+            [self.appDelegate.day.drinksArray addObject:thisDrink];
+        }
+    }
+
+     for (NSMutableDictionary* drinkDict in self.sugaryDrinkArray)
+    {
+        if ([[drinkDict objectForKey:@"Amount"] integerValue] > 0)
+        {
+            Drink* thisDrink = [[Drink alloc]init];
+            thisDrink.drinkName = [drinkDict objectForKey:@"Name"];
+            thisDrink.drinkTextField = [[UITextField alloc] init];
+            thisDrink.drinkTextField.text = [drinkDict objectForKey:@"Name"];
+            thisDrink.amount = [drinkDict objectForKey:@"Amount"];
+            thisDrink.unit = @"Cup";
+            thisDrink.isChosen = YES;
+            thisDrink.indexString= @"index string";
+            thisDrink.drinkType = DrinkTypeSugar;
+            [self.appDelegate.day.drinksArray addObject:thisDrink];
+        }
+    }
+    for (NSMutableDictionary* drinkDict in self.caffeineDrinkArray)
+    {
+        if ([[drinkDict objectForKey:@"Amount"] integerValue] > 0)
+        {
+            Drink* thisDrink = [[Drink alloc]init];
+            thisDrink.drinkName = [drinkDict objectForKey:@"Name"];
+            thisDrink.drinkTextField = [[UITextField alloc] init];
+            thisDrink.drinkTextField.text = [drinkDict objectForKey:@"Name"];
+            thisDrink.amount = [drinkDict objectForKey:@"Amount"];
+            thisDrink.unit = @"Cup";
+            thisDrink.isChosen = YES;
+            thisDrink.indexString= @"index string";
+            thisDrink.drinkType = DrinkTypeCaffeine;
+            [self.appDelegate.day.drinksArray addObject:thisDrink];
+        }
+    }
+    for (NSMutableDictionary* drinkDict in self.alcoholDrinkArray)
+    {
+        if ([[drinkDict objectForKey:@"Amount"] integerValue] > 0)
+        {
+            Drink* thisDrink = [[Drink alloc]init];
+            thisDrink.drinkName = [drinkDict objectForKey:@"Name"];
+            thisDrink.drinkTextField = [[UITextField alloc] init];
+            thisDrink.drinkTextField.text = [drinkDict objectForKey:@"Name"];
+            thisDrink.amount = [drinkDict objectForKey:@"Amount"];
+            thisDrink.unit = @"Cup";
+            thisDrink.isChosen = YES;
+            thisDrink.indexString= @"index string";
+            thisDrink.drinkType = DrinkTypeAlcohol;
+            [self.appDelegate.day.drinksArray addObject:thisDrink];
+        }
+    }
+    [self.appDelegate savePersistent];
+
+}
 -(void)dismiss
 {
+    
+    [self saveDrinks];
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
@@ -127,35 +199,34 @@
 {
     [self hideSearchBar];
     [self.searchBar resignFirstResponder];
-    [self loadArrays];
     [self hideDatePicker];
+    [self filterArrayWith:@""];
 }
 
 
 -(void)filterArrayWith:(NSString*)filter
 {
- if (filter.length>0)
- {
-        NSMutableArray *predicates = [NSMutableArray array];
-                                                            // [NSPredicate predicateWithFormat:filter, @"SELF", @"a"];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"Name CONTAINS[cd] %@",filter];
-        [predicates addObject:predicate];
+    NSPredicate *predicate;
+    if (filter.length>0)
+    {
+        predicate = [NSPredicate predicateWithFormat:@"Name CONTAINS[cd] %@",filter];
+    }
+    else
+    {
+        predicate = [NSPredicate predicateWithFormat:@"Name like[c] \"*\""];
+    }
+    NSMutableArray *predicates = [NSMutableArray array];
 
-        NSPredicate *compoundPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
-        self.healthyDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.healthyDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
+    [predicates addObject:predicate];
+
+    NSPredicate *compoundPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
+    self.healthyDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.healthyDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
     self.sugaryDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.sugaryDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
     self.caffeineDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.caffeineDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
     self.alcoholDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.alcoholDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
     self.otherDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.otherDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
-    
+
     [self.thisTableView reloadData];
- }
- else
- {
-    [self loadArrays];
- }
-
-
 
 }
 //
@@ -288,36 +359,34 @@
     
     static NSString *CellIdentifier = @"MyCell";
     UITableViewCell *MyCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+    NSMutableDictionary* thisDrink;
     switch (indexPath.section) {
         case 0:{
-            NSMutableDictionary* thisDrink = [self.healthyDrinkFilteredArray objectAtIndex:indexPath.row];
-            MyCell.textLabel.text = [thisDrink objectForKey:@"Name"];
-            MyCell.detailTextLabel.text = [thisDrink objectForKey:@"Amount"];
+            thisDrink = [self.healthyDrinkFilteredArray objectAtIndex:indexPath.row];
             break;}
-
         case 1:{
-            NSMutableDictionary* thisDrink = [self.sugaryDrinkFilteredArray objectAtIndex:indexPath.row];
-            MyCell.textLabel.text = [thisDrink objectForKey:@"Name"];
-            MyCell.detailTextLabel.text = [thisDrink objectForKey:@"Amount"];
+            thisDrink = [self.sugaryDrinkFilteredArray objectAtIndex:indexPath.row];
             break;}
         case 2:{
-            NSMutableDictionary* thisDrink = [self.caffeineDrinkFilteredArray objectAtIndex:indexPath.row];
-            MyCell.textLabel.text = [thisDrink objectForKey:@"Name"];
-            MyCell.detailTextLabel.text = [thisDrink objectForKey:@"Amount"];
+            thisDrink = [self.caffeineDrinkFilteredArray objectAtIndex:indexPath.row];
             break;}
         case 3:{
-            NSMutableDictionary* thisDrink = [self.alcoholDrinkFilteredArray objectAtIndex:indexPath.row];
-            MyCell.textLabel.text = [thisDrink objectForKey:@"Name"];
-            MyCell.detailTextLabel.text = [thisDrink objectForKey:@"Amount"];
+            thisDrink = [self.alcoholDrinkFilteredArray objectAtIndex:indexPath.row];
             break;}
-            break;
+
             default:
             break;
             
     }
-    
-  //  MyCell.detailTextLabel.delgate = self;
+    MyCell.textLabel.text = [thisDrink objectForKey:@"Name"];
+    if ([[thisDrink objectForKey:@"Amount"] integerValue] > 0)
+    {
+        MyCell.detailTextLabel.text = [NSString stringWithFormat:@"%@ Cup(s)",[thisDrink objectForKey:@"Amount"]];
+    }
+    else
+    {
+        MyCell.detailTextLabel.text = @"";
+    }
     MyCell.detailTextLabel.tag = indexPath.row;
     
     return MyCell;
@@ -326,31 +395,37 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+     [self.searchBar resignFirstResponder];
     self.pickerViewContainer.hidden = NO;
     self.pickerView.hidden = NO;
     
     [self showDatePicker];
     self.currentIndexPath = indexPath;
+    self.currentSelection = indexPath.row;
     switch (indexPath.section)
     {
         case 0:{
-            self.thisDrink = [self.healthyDrinkArray objectAtIndex:indexPath.row];
-            self.drinkPickerLabel.text = [self.thisDrink objectForKey:@"Name"];
+            self.thisDrinkDict = [self.healthyDrinkFilteredArray objectAtIndex:indexPath.row];
+            self.drinkPickerLabel.text = [self.thisDrinkDict objectForKey:@"Name"];
+            self.selectedDrinkType = DrinkTypeWater;
             break;}
             
         case 1:{
-            self.thisDrink = [self.sugaryDrinkArray objectAtIndex:indexPath.row];
-            self.drinkPickerLabel.text = [self.thisDrink objectForKey:@"Name"];
+            self.thisDrinkDict = [self.sugaryDrinkFilteredArray objectAtIndex:indexPath.row];
+            self.drinkPickerLabel.text = [self.thisDrinkDict objectForKey:@"Name"];
+            self.selectedDrinkType = DrinkTypeSugar;
             break;}
             
         case 2:{
-            self.thisDrink = [self.caffeineDrinkArray objectAtIndex:indexPath.row];
-            self.drinkPickerLabel.text = [self.thisDrink objectForKey:@"Name"];
+            self.thisDrinkDict = [self.caffeineDrinkFilteredArray objectAtIndex:indexPath.row];
+            self.drinkPickerLabel.text = [self.thisDrinkDict objectForKey:@"Name"];
+            self.selectedDrinkType = DrinkTypeCaffeine;
             break;}
             
         case 3:{
-            self.thisDrink = [self.alcoholDrinkArray objectAtIndex:indexPath.row];
-            self.drinkPickerLabel.text = [self.thisDrink objectForKey:@"Name"];
+            self.thisDrinkDict = [self.alcoholDrinkFilteredArray objectAtIndex:indexPath.row];
+            self.drinkPickerLabel.text = [self.thisDrinkDict objectForKey:@"Name"];
+            self.selectedDrinkType = DrinkTypeAlcohol;
             break;}
             
         default:
@@ -406,7 +481,27 @@
 //}
 
 -(IBAction)datePickerDoneButtonTapped:(id)sender {
-    [self.day.drinksArray addObject:self.thisDrink];
+    
+//        NSMutableDictionary* thisDrinkDict;
+//        switch (self.selectedDrinkType) {
+//          case DrinkTypeWater:{
+//            thisDrinkDict = [self.healthyDrinkFilteredArray objectAtIndex:self.currentSelection];
+//            break;}
+//          case DrinkTypeSugar:
+//            thisDrinkDict = [self.sugaryDrinkFilteredArray objectAtIndex:self.currentSelection];
+//            break;
+//          case DrinkTypeCaffeine:
+//            thisDrinkDict = [self.caffeineDrinkFilteredArray objectAtIndex:self.currentSelection];
+//            break;
+//          case DrinkTypeAlcohol:
+//            thisDrinkDict = [self.alcoholDrinkFilteredArray objectAtIndex:self.currentSelection];
+//            break;
+//          default:
+//            break;
+//        }
+//    NSInteger sum =  [[thisDrinkDict objectForKey:@"Amount"] integerValue] + [[thisDrinkDict objectForKey:@"Sum"] integerValue];
+//    [thisDrinkDict setObject:[NSString stringWithFormat:@"%@ Cup(s)",[thisDrinkDict objectForKey:@"Amount"]] forKey:@"Sum"];
+
     [self hideDatePicker];
     [self.thisTableView reloadData];
 }
@@ -512,7 +607,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    [self.thisDrink setObject:[self.amtArray objectAtIndex:row] forKey:@"Amount"];
+    [self.thisDrinkDict setObject:[self.amtArray objectAtIndex:row] forKey:@"Amount"];
 }
 
 -(CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component

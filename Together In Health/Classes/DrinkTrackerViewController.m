@@ -37,41 +37,66 @@
     
     self.navigationItem.backBarButtonItem = nil;
     [super viewDidLoad];
-    
-   // self.day = [self.appDelegate dayForDateOffset:0];
-    
-     // self.day = [self.appDelegate dayForDateOffset:0];
-    
+ 
     [self.thisTextView setReturnKeyType:UIReturnKeyDone];
     
     self.pickerViewContainer.hidden = YES;
- //   self.detaildataArray = [NSArray arrayWithObjects:self.drinkString, nil];
     
     self.datePickerViewContainer.hidden = YES;
     
     [self resetDay];
-    
-   // self.drinkArray = [NSMutableArray arrayWithObjects:@"test1", @"test2", @"test3",nil];
-    
-//    self.drinkArray = [NSMutableArray arrayWithObjects:self.drink.waterArray, self.drink.sugarArray, self.drink.caffeineArray, self.drink.alcoholArray, self.addDrinkArray, nil];
-    
- //   self.allDrinkArray = [NSMutableArray arrayWithObjects:self.appDelegate.day.healthyDrinkArray, self.appDelegate.day.sugaryDrinkArray, self.appDelegate.day.caffeineDrinkArray, self.appDelegate.day.alcoholDrinkArray, nil];
-    
-    
 
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self calculateTotals];
+    [self.thisTableView reloadData];
+}
+
+-(void)calculateTotals
+{
+    self.drinkTotalWater = 0;
+    self.drinkTotalSugar = 0;
+    self.drinkTotalCaffeine = 0;
+    self.drinkTotalAlcohol = 0;
+    
+    for (Drink* drink in self.appDelegate.day.drinksArray)
+    {
+        switch (drink.drinkType) {
+          case DrinkTypeWater:
+            self.drinkTotalWater = self.drinkTotalWater + [drink.amount integerValue];
+            break;
+          case DrinkTypeSugar:
+            self.drinkTotalSugar = self.drinkTotalSugar + [drink.amount integerValue];
+
+            break;
+          case DrinkTypeCaffeine:
+            self.drinkTotalCaffeine = self.drinkTotalCaffeine + [drink.amount integerValue];
+
+            break;
+          case DrinkTypeAlcohol:
+            self.drinkTotalAlcohol = self.drinkTotalAlcohol + [drink.amount integerValue];
+
+            break;
+          default:
+            break;
+        }
+    
+    
+    
+    }
+
+
+
+}
+
+
 -(void)resetDay {
     
-    if ([self.appDelegate.day.date compare:[TIHDate dateAtMidnightFromDate:[NSDate date]]] == NSOrderedSame) {
-        self.dayLabel.text = @"Today";
-    }
-    
-    else {
-        
-        self.dayLabel.text = [TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime];
-    }
     self.detaildataArray = [NSArray arrayWithObjects:self.drinkString, nil];
+    [self calculateTotals];
     [self.thisTableView reloadData];
     
 }
@@ -104,7 +129,7 @@
     
     if (section == 0) {
 
-     //   return self.appDelegate.day.healthyDrinkArray.count;
+       return self.appDelegate.day.drinksArray.count;
     }
 
     else {
@@ -174,24 +199,28 @@
 //    }
 //    
     if (indexPath.section == 0) {
-        //  MyCell.textLabel.text = [self.appDelegate.day.healthyDrinkArray objectAtIndex:indexPath.row];
+        MyCell.drink = [self.appDelegate.day.drinksArray objectAtIndex:indexPath.row];
+        [MyCell refreshDrinkCell];
 
     }
     
     else {
         if (indexPath.row == 0) {
             MyCell.textLabel.text = @"Total water intake";
-            MyCell.detailTextLabel.text = @"0";
+            MyCell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",self.drinkTotalWater];
         }
         
         else if (indexPath.row == 1) {
             MyCell.textLabel.text = @"Total sugary drink intake";
+            MyCell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",self.drinkTotalSugar];
         }
         else if (indexPath.row == 2) {
             MyCell.textLabel.text = @"Total caffeine drink intake";
+            MyCell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",self.drinkTotalCaffeine];
         }
         else {
             MyCell.textLabel.text = @"Total alcohol intake";
+            MyCell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",self.drinkTotalAlcohol];
         }
 
 

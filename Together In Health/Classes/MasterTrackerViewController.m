@@ -31,6 +31,14 @@ enum trackerIndex {
 
 @implementation MasterTrackerViewController
 
+
+-(IBAction)tempToDeleteDays:(id)sender
+{
+    [self.appDelegate.days removeAllObjects];
+    [self.appDelegate savePersistent];
+    NSLog(@"days count %lu",self.appDelegate.days.count);
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -432,7 +440,14 @@ enum trackerIndex {
 
 -(void) resetDay
 {
+    if ([self.appDelegate.day.date compare:[TIHDate dateAtMidnightFromDate:[NSDate date]]] == NSOrderedSame) {
+        self.dayLabel.text = @"Today";
+    }
+    
+    else {
+        
         self.dayLabel.text = [TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime];
+    }
         if (self.foodTrackerViewController)
         {
             [self.foodTrackerViewController resetDay];

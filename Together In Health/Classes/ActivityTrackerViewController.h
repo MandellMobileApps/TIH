@@ -61,7 +61,7 @@
 -(IBAction)backDay:(id)sender;
 -(IBAction)forwardDay:(id)sender;
 @property (nonatomic) int dayOffset;
--(void)resetDay;
+
 
 @property (nonatomic, strong) IBOutlet UILabel *dayLabel;
 

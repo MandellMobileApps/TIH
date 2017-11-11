@@ -33,7 +33,7 @@
 
 @property (nonatomic) int dayOffset;
 @property (nonatomic, strong) IBOutlet UILabel *dayLabel;
--(void)resetDay;
+
 
 
 @end

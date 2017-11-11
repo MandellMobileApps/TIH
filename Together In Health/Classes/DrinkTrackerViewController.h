@@ -32,6 +32,11 @@
 @property (nonatomic, strong) NSArray* addDrinkArray;
 @property (nonatomic, strong) NSString* drinkString;
 
+@property (nonatomic) NSInteger drinkTotalWater;
+@property (nonatomic) NSInteger drinkTotalSugar;
+@property (nonatomic) NSInteger drinkTotalCaffeine;
+@property (nonatomic) NSInteger drinkTotalAlcohol;
+
 @property (nonatomic, strong) NSMutableArray *allDrinkArray;
 
 @property (nonatomic, strong) IBOutlet UIView *pickerViewContainer;
@@ -49,7 +54,7 @@
 -(IBAction)sleep:(id)sender;
 -(IBAction)stress:(id)sender;
 
--(void)resetDay;
+
 -(IBAction)backDay:(id)sender;
 -(IBAction)forwardDay:(id)sender;
 @property (nonatomic) int dayOffset;

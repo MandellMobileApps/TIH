@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AbstractViewController.h"
 
 @class ChooseDrinkCell;
 @class Drink;
@@ -14,16 +15,14 @@
 @class Day;
 
 
-@interface ChooseDrinkViewController : UIViewController <UITableViewDataSource, UITableViewDataSource>
+@interface ChooseDrinkViewController : AbstractViewController <UITableViewDataSource, UITableViewDataSource>
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
-@property (nonatomic, strong) IBOutlet UIView *navbarView;
 @property (nonatomic, strong) IBOutlet UIView *containerView;
 
 @property (nonatomic, strong) ChooseDrinkCell *chooseDrinkCell;
 @property (nonatomic, strong) Drink *drink;
 @property (nonatomic, strong) DrinkTrackerViewController *drinkTrackerViewController;
-@property (nonatomic, strong) Day *day;
 
 @property (nonatomic, strong) IBOutlet UITableView *thisTableView;
 @property (nonatomic, strong) NSMutableArray *healthyDrinkArray;
@@ -46,7 +45,7 @@
 @property (nonatomic, strong) NSDate *sugaryDrinks;
 @property (nonatomic, strong) NSDate *caffeineDrinks;
 @property (nonatomic, strong) NSDate *alcoholDrinks;
-@property (nonatomic, strong) NSMutableDictionary* thisDrink;
+@property (nonatomic, strong) NSMutableDictionary* thisDrinkDict;
 
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSArray *detaildataArray;
@@ -59,7 +58,7 @@
 @property (nonatomic)  CGRect searchBarHideRect;
 @property (nonatomic)  CGRect searchBarShowRect;
 @property (nonatomic, retain) IBOutlet UILabel* searchLabel;
-
+@property NSInteger selectedDrinkType;
 -(void)addDrink;
 -(void)addHealthDrinkArrayObjectAtIndex;
 -(IBAction)datePickerDoneButtonTapped:(id)sender;

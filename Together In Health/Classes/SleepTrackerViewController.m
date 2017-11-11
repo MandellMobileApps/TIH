@@ -33,8 +33,10 @@
     
     self.sleepButton.enabled = NO;
     
+    self.rateSleepSegment.selectedSegmentIndex = self.appDelegate.day.sleepTimeRating-1;
+    self.restedSegment.selectedSegmentIndex = self.appDelegate.day.wakeTimeRating-1;
 
-                      
+    
 //    self.opendetaildataArray = [NSArray arrayWithObjects:
 //                                @"10:00PM",
 //                                @"6:00AM",

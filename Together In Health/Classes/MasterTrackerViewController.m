@@ -31,6 +31,14 @@ enum trackerIndex {
 
 @implementation MasterTrackerViewController
 
+
+-(IBAction)tempToDeleteDays:(id)sender
+{
+    [self.appDelegate.days removeAllObjects];
+    [self.appDelegate savePersistent];
+    NSLog(@"days count %lu",self.appDelegate.days.count);
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     

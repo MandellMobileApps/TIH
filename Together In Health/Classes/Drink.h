@@ -9,17 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+enum DrinkType {
+    DrinkTypeWater = 0,
+    DrinkTypeSugar = 1,
+    DrinkTypeCaffeine = 2,
+    DrinkTypeAlcohol = 3,
+    
+    
+};
+
 @interface Drink : NSObject <NSCoding>
-
 @property (nonatomic, strong) UITextField* drinkTextField;
-@property (nonatomic, strong) UITextField* sodaTextField;
-@property (nonatomic, strong) NSMutableArray* drinkArray;
-@property (nonatomic, strong) NSMutableArray* waterArray;
-@property (nonatomic, strong) NSMutableArray* sugarArray;
-@property (nonatomic, strong) NSMutableArray* caffeineArray;
-@property (nonatomic, strong) NSMutableArray* alcoholArray;
-
+@property (nonatomic, strong) NSString* drinkName;
+@property (nonatomic, strong) NSString* amount;
+@property (nonatomic, strong) NSString* unit;
 @property (nonatomic) BOOL isChosen;
 @property NSString* indexString;
-
+@property NSInteger drinkType;
 @end

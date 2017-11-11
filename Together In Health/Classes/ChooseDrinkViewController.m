@@ -334,23 +334,27 @@
     switch (indexPath.section)
     {
         case 0:{
-            self.thisDrink = [self.healthyDrinkArray objectAtIndex:indexPath.row];
-            self.drinkPickerLabel.text = [self.thisDrink objectForKey:@"Name"];
+            self.thisDrinkDict = [self.healthyDrinkFilteredArray objectAtIndex:indexPath.row];
+            self.drinkPickerLabel.text = [self.thisDrinkDict objectForKey:@"Name"];
+            self.selectedDrinkType = DrinkTypeWater;
             break;}
             
         case 1:{
-            self.thisDrink = [self.sugaryDrinkArray objectAtIndex:indexPath.row];
-            self.drinkPickerLabel.text = [self.thisDrink objectForKey:@"Name"];
+            self.thisDrinkDict = [self.sugaryDrinkFilteredArray objectAtIndex:indexPath.row];
+            self.drinkPickerLabel.text = [self.thisDrinkDict objectForKey:@"Name"];
+            self.selectedDrinkType = DrinkTypeSugar;
             break;}
             
         case 2:{
-            self.thisDrink = [self.caffeineDrinkArray objectAtIndex:indexPath.row];
-            self.drinkPickerLabel.text = [self.thisDrink objectForKey:@"Name"];
+            self.thisDrinkDict = [self.caffeineDrinkFilteredArray objectAtIndex:indexPath.row];
+            self.drinkPickerLabel.text = [self.thisDrinkDict objectForKey:@"Name"];
+            self.selectedDrinkType = DrinkTypeCaffeine;
             break;}
             
         case 3:{
-            self.thisDrink = [self.alcoholDrinkArray objectAtIndex:indexPath.row];
-            self.drinkPickerLabel.text = [self.thisDrink objectForKey:@"Name"];
+            self.thisDrinkDict = [self.alcoholDrinkFilteredArray objectAtIndex:indexPath.row];
+            self.drinkPickerLabel.text = [self.thisDrinkDict objectForKey:@"Name"];
+            self.selectedDrinkType = DrinkTypeAlcohol;
             break;}
             
         default:
@@ -406,7 +410,18 @@
 //}
 
 -(IBAction)datePickerDoneButtonTapped:(id)sender {
-    [self.day.drinksArray addObject:self.thisDrink];
+    
+    Drink* thisDrink = [[Drink alloc]init];
+    thisDrink.drinkName = [self.thisDrinkDict objectForKey:@"Name"];
+    thisDrink.drinkTextField.text = [self.thisDrinkDict objectForKey:@"Name"];
+    thisDrink.amount = [self.thisDrinkDict objectForKey:@"Amount"];
+    thisDrink.unit = @"Cup";
+    thisDrink.isChosen = YES;
+    thisDrink.indexString= @"index string";
+    thisDrink.drinkType = self.selectedDrinkType;
+    
+    [self.appDelegate.day.drinksArray addObject:thisDrink];
+    [self.appDelegate savePersistent];
     [self hideDatePicker];
     [self.thisTableView reloadData];
 }
@@ -512,7 +527,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    [self.thisDrink setObject:[self.amtArray objectAtIndex:row] forKey:@"Amount"];
+    [self.thisDrinkDict setObject:[self.amtArray objectAtIndex:row] forKey:@"Amount"];
 }
 
 -(CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component

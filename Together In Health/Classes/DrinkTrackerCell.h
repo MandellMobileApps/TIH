@@ -13,11 +13,13 @@
 @interface DrinkTrackerCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UITextField* thisTextField;
-@property (nonatomic, strong) IBOutlet UILabel* drinkLabel;
+//@property (nonatomic, strong) IBOutlet UILabel* drinkLabel;
+//@property (nonatomic, strong) IBOutlet UILabel* detailLabel;
 @property (nonatomic, strong) IBOutlet UIButton* addDrinkButton;
 @property (nonatomic) BOOL drinkButtonOn;
 
 @property (nonatomic, strong) Drink* drink;
 -(IBAction)addDrink:(id)sender;
+-(void)refreshDrinkCell;
 
 @end

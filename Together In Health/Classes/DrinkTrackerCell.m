@@ -13,15 +13,26 @@
 
 -(void)refreshDrinkCell {
     
-    if (self.drink.isChosen)
+//    if (self.drink.isChosen)
+//    {
+//        self.thisTextField.text = self.drink.drinkTextField.text;
+//    }
+//
+//    else {
+//
+//
+//    }
+    self.textLabel.text = self.drink.drinkName;
+    NSString* units;
+    if ([self.drink.amount integerValue]> 1)
     {
-        self.thisTextField.text = self.drink.drinkTextField.text;
+        units =  [NSString stringWithFormat:@"%@s",self.drink.unit];
     }
-    
-    else {
-        
-
+    else
+    {
+        units =  [NSString stringWithFormat:@"%@",self.drink.unit];
     }
+    self.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",self.drink.amount,units];
 }
 
 -(IBAction)addDrink:(id)sender {

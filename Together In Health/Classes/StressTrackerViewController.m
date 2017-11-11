@@ -73,17 +73,7 @@
 }
 
 -(void)resetDay {
-        
-    if ([self.appDelegate.day.date compare:[TIHDate dateAtMidnightFromDate:[NSDate date]]] == NSOrderedSame) {
-        self.dayLabel.text = @"Today";
-    }
-    
-    else {
-        
-        self.dayLabel.text = [TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime];
-    }
 
-    
     self.stressSegmentControl.selectedSegmentIndex = self.appDelegate.day.stressRating-1;
     self.energySegmentControl.selectedSegmentIndex = self.appDelegate.day.energyRating-1;
     self.moodSegmentControl.selectedSegmentIndex = self.appDelegate.day.moodRating-1;

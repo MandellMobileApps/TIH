@@ -432,7 +432,14 @@ enum trackerIndex {
 
 -(void) resetDay
 {
+    if ([self.appDelegate.day.date compare:[TIHDate dateAtMidnightFromDate:[NSDate date]]] == NSOrderedSame) {
+        self.dayLabel.text = @"Today";
+    }
+    
+    else {
+        
         self.dayLabel.text = [TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime];
+    }
         if (self.foodTrackerViewController)
         {
             [self.foodTrackerViewController resetDay];

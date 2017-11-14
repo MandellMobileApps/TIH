@@ -349,7 +349,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    self.subscriptionLevel = 0;
+    self.subscriptionLevel = 2;
     
     [Fabric with:@[[Crashlytics class]]];
 

@@ -21,6 +21,9 @@
     thisDay.moodRating = -1;
     thisDay.copingRating = -1;
 
+    thisDay.sleepTimeRating = -1;
+    thisDay.wakeTimeRating = -1;
+    
     thisDay.sleepTime = [NSDate date];
     thisDay.wakeTime = [NSDate date];
     

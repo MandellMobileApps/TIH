@@ -180,7 +180,7 @@
                 //NSLog(@"%@",startdate);
                 
 				UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.calendarDaySide, self.calendarDaySide)];
-				[btn addTarget:self.goalCalendarViewController action:@selector(dayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+				[btn addTarget:self.goalCalendarViewController action:@selector(showDayGoalsView:) forControlEvents:UIControlEventTouchUpInside];
                 if (thisMonth == month)
                 {
                     btn.tag = dayOfMonth;
@@ -197,33 +197,33 @@
             if (thisMonth == month)
             {
                 
-//                if (thisDayObject)
-//                {
+                if (thisDayObject)
+                {
                     float goalSpace = 1.5;
                     float goalSide = (self.calendarDaySide/3) - (goalSpace*4);
-//                    if (thisDayObject.goal1)
-//                    {
+                    if (thisDayObject.goal1)
+                    {
                         UIView *goal1View = [[UIView alloc] initWithFrame:CGRectMake(goalSpace,goalSpace,goalSide,goalSide)];
                         //goal1View.layer.cornerRadius = 50;  // half the width/height
                         [self addBorderAround:goal1View cornerType:CornerTypeSquare withColor:[UIColor blackColor]];
                         goal1View.backgroundColor = [[self.appDelegate.goalsArray objectAtIndex:0] goalColor];
                         [lbl addSubview:goal1View];
-//                    }
-//                    if (thisDayObject.goal2)
-//                    {
+                    }
+                    if (thisDayObject.goal2)
+                    {
                         UIView *goal2View = [[UIView alloc] initWithFrame:CGRectMake((goalSpace*2)+goalSide,goalSpace,goalSide,goalSide)];
                         [self addBorderAround:goal2View cornerType:CornerTypeSquare withColor:[UIColor blackColor]];
                         goal2View.backgroundColor =  [[self.appDelegate.goalsArray objectAtIndex:1] goalColor];
                         [lbl addSubview:goal2View];
-//                    }
-//                    if (thisDayObject.goal3)
-//                    {
+                    }
+                    if (thisDayObject.goal3)
+                    {
                         UIView *goal3View = [[UIView alloc] initWithFrame:CGRectMake((goalSpace*3)+(goalSide*2),goalSpace,goalSide,goalSide)];
                         [self addBorderAround:goal3View cornerType:CornerTypeSquare withColor:[UIColor blackColor]];
                         goal3View.backgroundColor = [[self.appDelegate.goalsArray objectAtIndex:2] goalColor];
                         [lbl addSubview:goal3View];
-//                        }
-//
+                        }
+                    }
                 }
                 [self addSubview:dayView];
 

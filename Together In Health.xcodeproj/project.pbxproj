@@ -86,12 +86,17 @@
 		36FE393D1C0BB46F002E341E /* TrackActivity.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FE393C1C0BB46F002E341E /* TrackActivity.png */; };
 		36FE39401C0F4EFC002E341E /* OpeningViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FE393F1C0F4EFC002E341E /* OpeningViewViewController.m */; };
 		6A2CA3601F8EAF0400DC7668 /* DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */; };
+		6A4726641FB91D3E0057C451 /* CheckBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4726621FB91D3D0057C451 /* CheckBoxView.m */; };
 		6A5541611F5C663500447A4E /* GoalCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5541601F5C663500447A4E /* GoalCalendarViewController.m */; };
 		6A5541641F5C82D700447A4E /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5541631F5C82D700447A4E /* Calendar.m */; };
 		6A5541671F5C842700447A4E /* ColorsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5541661F5C842700447A4E /* ColorsClass.m */; };
 		6A60E3DC1F911DAC00A48D03 /* Trackers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A60E3DA1F911DAC00A48D03 /* Trackers.storyboard */; };
 		6A799F7C1F859E9F008E6EA3 /* MasterTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A799F7B1F859E9F008E6EA3 /* MasterTrackerViewController.m */; };
 		6A83C61A1F9CFCEF0030A202 /* Goals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A83C6191F9CFCEF0030A202 /* Goals.storyboard */; };
+		6A90E08E1FB9248900714F4E /* AbstractCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A90E08D1FB9248800714F4E /* AbstractCustomView.m */; };
+		6A90E0911FBA104800714F4E /* CDatePickerViewEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A90E08F1FBA104800714F4E /* CDatePickerViewEx.m */; };
+		6A90E0941FBA60BF00714F4E /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A90E0921FBA60BF00714F4E /* More.storyboard */; };
+		6A90E0991FBA679300714F4E /* MenuPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A90E0971FBA679300714F4E /* MenuPlan.storyboard */; };
 		6A91E3251BE2625500A72CCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3241BE2625500A72CCA /* main.m */; };
 		6A91E3281BE2625500A72CCA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3271BE2625500A72CCA /* AppDelegate.m */; };
 		6A91E3311BE2625500A72CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A91E32F1BE2625500A72CCA /* Main.storyboard */; };
@@ -358,6 +363,8 @@
 		36FE393F1C0F4EFC002E341E /* OpeningViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpeningViewViewController.m; path = ../OpeningViewViewController.m; sourceTree = "<group>"; };
 		6A2CA35E1F8EAF0400DC7668 /* DatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerView.h; path = "Together In Health/Classes/DatePickerView.h"; sourceTree = "<group>"; };
 		6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerView.m; path = "Together In Health/Classes/DatePickerView.m"; sourceTree = "<group>"; };
+		6A4726621FB91D3D0057C451 /* CheckBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBoxView.m; sourceTree = "<group>"; };
+		6A4726631FB91D3E0057C451 /* CheckBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxView.h; sourceTree = "<group>"; };
 		6A55415F1F5C663500447A4E /* GoalCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalCalendarViewController.h; sourceTree = "<group>"; };
 		6A5541601F5C663500447A4E /* GoalCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalCalendarViewController.m; sourceTree = "<group>"; };
 		6A5541621F5C82D700447A4E /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
@@ -368,6 +375,12 @@
 		6A799F7A1F859E9F008E6EA3 /* MasterTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterTrackerViewController.h; sourceTree = "<group>"; };
 		6A799F7B1F859E9F008E6EA3 /* MasterTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterTrackerViewController.m; sourceTree = "<group>"; };
 		6A83C6191F9CFCEF0030A202 /* Goals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Goals.storyboard; sourceTree = "<group>"; };
+		6A90E08C1FB9248800714F4E /* AbstractCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractCustomView.h; sourceTree = "<group>"; };
+		6A90E08D1FB9248800714F4E /* AbstractCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractCustomView.m; sourceTree = "<group>"; };
+		6A90E08F1FBA104800714F4E /* CDatePickerViewEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDatePickerViewEx.m; sourceTree = "<group>"; };
+		6A90E0901FBA104800714F4E /* CDatePickerViewEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDatePickerViewEx.h; sourceTree = "<group>"; };
+		6A90E0931FBA60BF00714F4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Together In Health/Base.lproj/More.storyboard"; sourceTree = "<group>"; };
+		6A90E0981FBA679300714F4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Together In Health/Base.lproj/MenuPlan.storyboard"; sourceTree = "<group>"; };
 		6A91E3201BE2625500A72CCA /* Together In Health.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Together In Health.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A91E3241BE2625500A72CCA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A91E3261BE2625500A72CCA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -638,6 +651,8 @@
 		6A91E3171BE2625500A72CCA = {
 			isa = PBXGroup;
 			children = (
+				6A90E0971FBA679300714F4E /* MenuPlan.storyboard */,
+				6A90E0921FBA60BF00714F4E /* More.storyboard */,
 				361BC4621F9D30C50011A20E /* FriedGreasyPlate.png */,
 				6A2CA35E1F8EAF0400DC7668 /* DatePickerView.h */,
 				6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */,
@@ -689,6 +704,10 @@
 				6A91E32F1BE2625500A72CCA /* Main.storyboard */,
 				361BC44F1F9173830011A20E /* GoalGamePlanViewController.h */,
 				361BC4501F9173830011A20E /* GoalGamePlanViewController.m */,
+				6A4726631FB91D3E0057C451 /* CheckBoxView.h */,
+				6A4726621FB91D3D0057C451 /* CheckBoxView.m */,
+				6A90E08C1FB9248800714F4E /* AbstractCustomView.h */,
+				6A90E08D1FB9248800714F4E /* AbstractCustomView.m */,
 				6A60E3DA1F911DAC00A48D03 /* Trackers.storyboard */,
 				367D6FD21F83D871006281D3 /* ExercisePlanListViewController.h */,
 				367D6FD31F83D871006281D3 /* ExercisePlanListViewController.m */,
@@ -711,6 +730,8 @@
 				36FE39241C0B65C5002E341E /* TrackFoodwithWater.png */,
 				36FE39251C0B65C5002E341E /* TrackFoodwithWaterFood.png */,
 				36FE38C71C0236EC002E341E /* AppFrontImage.png */,
+				6A90E0901FBA104800714F4E /* CDatePickerViewEx.h */,
+				6A90E08F1FBA104800714F4E /* CDatePickerViewEx.m */,
 				6A91E3321BE2625500A72CCA /* Assets.xcassets */,
 				6A91E3341BE2625500A72CCA /* LaunchScreen.storyboard */,
 				6A91E3371BE2625500A72CCA /* Info.plist */,
@@ -1098,6 +1119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A91E49F1BE2679300A72CCA /* arrowleft.png in Resources */,
+				6A90E0941FBA60BF00714F4E /* More.storyboard in Resources */,
 				6A91E4841BE2679300A72CCA /* ChickenEnchiladaCasserole.html in Resources */,
 				360DB1881C12809F00FBE90F /* TrackWaterPickerView.png in Resources */,
 				6A91E4A21BE2679300A72CCA /* Balance it Out.png in Resources */,
@@ -1210,6 +1232,7 @@
 				6A91E4851BE2679300A72CCA /* Coffeehealth.html in Resources */,
 				36D9D53E1BE8445E003658FE /* CarbsProVeg.html in Resources */,
 				6A91E4A31BE2679300A72CCA /* Balanced Plate.png in Resources */,
+				6A90E0991FBA679300714F4E /* MenuPlan.storyboard in Resources */,
 				36FE39041C0A0E4B002E341E /* Directions.html in Resources */,
 				6A91E47C1BE2679300A72CCA /* BasicVinaigrette.html in Resources */,
 				36FE39271C0B65C5002E341E /* ChoosePlate.png in Resources */,
@@ -1297,6 +1320,7 @@
 				6A91E4331BE2679300A72CCA /* ActivityTrackerViewController.m in Sources */,
 				6A91E4661BE2679300A72CCA /* RecipeDetailViewController.m in Sources */,
 				6A91E43A1BE2679300A72CCA /* ChooseActivityCell.m in Sources */,
+				6A4726641FB91D3E0057C451 /* CheckBoxView.m in Sources */,
 				6A91E4411BE2679300A72CCA /* Completed.m in Sources */,
 				6A91E4631BE2679300A72CCA /* ProgressCollectionViewCell.m in Sources */,
 				6A91E4571BE2679300A72CCA /* HealthQuestionsViewController.m in Sources */,
@@ -1322,6 +1346,7 @@
 				6A91E4441BE2679300A72CCA /* DrinkTrackerCell.m in Sources */,
 				6A91E4621BE2679300A72CCA /* ProgressCollectionView.m in Sources */,
 				6A91E45A1BE2679300A72CCA /* MenuPlan.m in Sources */,
+				6A90E08E1FB9248900714F4E /* AbstractCustomView.m in Sources */,
 				36F433A31C151AE50053D4EE /* DirectionsViewController.m in Sources */,
 				6A5541641F5C82D700447A4E /* Calendar.m in Sources */,
 				365847631F709637006DF9E4 /* ExercisePlanCell.m in Sources */,
@@ -1339,6 +1364,7 @@
 				6A91E46C1BE2679300A72CCA /* SecondViewController.m in Sources */,
 				6A91E44B1BE2679300A72CCA /* FullOpeningViewController.m in Sources */,
 				6A91E4611BE2679300A72CCA /* ProblemsViewController.m in Sources */,
+				6A90E0911FBA104800714F4E /* CDatePickerViewEx.m in Sources */,
 				367D6FD11F83D566006281D3 /* GoalSetViewController.m in Sources */,
 				36278DAF1C2DAD8F00B899E4 /* MenuItem.m in Sources */,
 				6A91E4731BE2679300A72CCA /* Stress.m in Sources */,
@@ -1377,6 +1403,22 @@
 				6A60E3DB1F911DAC00A48D03 /* Base */,
 			);
 			name = Trackers.storyboard;
+			sourceTree = "<group>";
+		};
+		6A90E0921FBA60BF00714F4E /* More.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A90E0931FBA60BF00714F4E /* Base */,
+			);
+			name = More.storyboard;
+			sourceTree = "<group>";
+		};
+		6A90E0971FBA679300714F4E /* MenuPlan.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A90E0981FBA679300714F4E /* Base */,
+			);
+			name = MenuPlan.storyboard;
 			sourceTree = "<group>";
 		};
 		6A91E32F1BE2625500A72CCA /* Main.storyboard */ = {

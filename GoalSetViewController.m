@@ -84,9 +84,9 @@
 
 -(void)showColorSelection
 {
-    NSInteger numberOfColors = 5;
+    NSInteger numberOfColors = 8;
     float h = self.colorView.frame.origin.y + self.colorView.frame.size.height + 10;
-    CGRect frame1 = CGRectMake(10,h,(numberOfColors*30)+20,40);
+    CGRect frame1 = CGRectMake(30,h,(numberOfColors*30)+20,40);
     self.colorSelectionView = [[UIView alloc]initWithFrame:frame1];
     self.colorSelectionView.backgroundColor = [UIColor whiteColor];
     int t=0;
@@ -102,7 +102,7 @@
     CGRect frame = CGRectMake(10+(30*tag),10,20,20);
     UIView* view = [[UIView alloc]initWithFrame:frame];
     view.backgroundColor = [self colorForTag:tag];
-    CGRect frameB = CGRectMake(0,0,20,20);
+    CGRect frameB = CGRectMake(0,10,20,20);
     UIButton* button = [[UIButton alloc]initWithFrame:frameB];
     button.tag = tag;
     [button addTarget:self action:@selector(colorButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -129,6 +129,15 @@
         break;
       case 4:  // cyan
             return [UIColor cyanColor];
+        break;
+      case 5:  // cyan
+            return [UIColor purpleColor];
+        break;
+      case 6:  // cyan
+            return [UIColor magentaColor];
+        break;
+      case 7:  // cyan
+            return [UIColor orangeColor];
         break;
     }
     return [UIColor whiteColor];
@@ -178,6 +187,9 @@
     self.goal.Step3IsOn = self.goal.Step3IsOn;
     self.goal.Step4IsOn = self.goal.Step4IsOn;
     self.goal.Step5IsOn = self.goal.Step5IsOn;
+    
+    self.colorView.backgroundColor = self.goal.goalColor;
+    
     [self updateCheckBoxImages];
 }
 

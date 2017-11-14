@@ -11,6 +11,7 @@
 #import "GoalGamePlanViewController.h"
 #import "AppDelegate.h"
 
+
 @interface GoalCalendarViewController ()
 
 @end
@@ -86,7 +87,7 @@
     
     }
     
-
+    self.dayGoalsView.hidden = YES;
 
 //
 
@@ -196,10 +197,10 @@
     self.calendarview.frame = calendarviewframe;
    // [self addBorderAround:self.calendarview cornerType:CornerTypeRounded withColor:[UIColor redColor]];
     
-    NSLog(@"calendarnavview height %f",self.calendarnavview.frame.size.height);
-    NSLog(@"calendarview height %f",self.calendarview.frame.size.height);
-    NSLog(@"calendarDaysview height %f",self.calendarDaysview.frame.size.height);
-    NSLog(@"calendarcurrent height %f",self.calendarcurrent.frame.size.height);
+//    NSLog(@"calendarnavview height %f",self.calendarnavview.frame.size.height);
+//    NSLog(@"calendarview height %f",self.calendarview.frame.size.height);
+//    NSLog(@"calendarDaysview height %f",self.calendarDaysview.frame.size.height);
+//    NSLog(@"calendarcurrent height %f",self.calendarcurrent.frame.size.height);
 
 //    [self.calendarview setNeedsDisplay];
 //    [self.calendarDaysview setNeedsDisplay];
@@ -314,6 +315,98 @@
     
 }
 
+#pragma mark - Day View
+
+-(IBAction)showDayGoalsView:(UIButton*)sender
+{
+        NSInteger day = sender.tag;
+        // get date for title and to get Day.
+    
+        [self showDayView];
+}
+
+
+
+-(IBAction)dayViewButtonTapped:(UIButton*)sender
+{
+    if (sender.tag == 0)
+    {
+        //[self hideDayView];
+    }
+    else
+    {
+        [self hideDayView];
+    }
+
+}
+
+-(void) showDayView
+{
+    self.coverButton.enabled = YES;
+    float w = 300;
+    float h = 250;
+    float y = 200;
+    float x = (self.view.bounds.size.width - w)/2;
+    CGRect frameHide = CGRectMake(x,y,w,0);
+    CGRect frameShow = CGRectMake(x,y,w,h);
+    [self.dayGoalsView setFrame:frameHide];
+    self.dayViewGoal1Label.text = [[self.appDelegate.goalsArray objectAtIndex:0] goalName];
+    self.dayViewGoal2Label.text = [[self.appDelegate.goalsArray objectAtIndex:1] goalName];
+    self.dayViewGoal3Label.text = [[self.appDelegate.goalsArray objectAtIndex:2] goalName];
+    self.dayViewGoal1Label.textColor = [[self.appDelegate.goalsArray objectAtIndex:0] goalColor];
+    self.dayViewGoal2Label.textColor = [[self.appDelegate.goalsArray objectAtIndex:1] goalColor];
+    self.dayViewGoal3Label.textColor = [[self.appDelegate.goalsArray objectAtIndex:2] goalColor];
+    
+    
+    self.dayGoalsView.backgroundColor = [UIColor lightGrayColor];
+    [self addBorderAround:self.dayGoalsView cornerType:CornerTypeSquare withColor:[UIColor darkGrayColor]];
+    self.dayGoalsView.hidden = NO;
+    [UIView animateWithDuration:0.3
+        animations:^{
+            self.dayGoalsView.frame = frameShow;
+        }
+        completion:^(BOOL finished){
+
+        }];
+
+}
+
+-(void)hideDayView
+{
+
+    float w = 300;
+    float y = 200;
+    float x = (self.view.bounds.size.width - w)/2;
+    CGRect frameHide = CGRectMake(x,y,w,0);
+
+    [UIView animateWithDuration:0.3
+        animations:^{
+            self.dayGoalsView.frame = frameHide;
+        }
+        completion:^(BOOL finished){
+             self.dayGoalsView.hidden = YES;
+            self.coverButton.enabled = NO;
+ 
+        }];
+
+}
+
+-(void) checkBoxStatusChanged:(CheckBoxView *)thisCheckbox;
+{
+    switch (thisCheckbox.tag) {
+      case 1:
+            
+        break;
+      case 2:
+
+        break;
+      case 3:
+
+        break;
+      default:
+        break;
+    }
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -350,6 +443,13 @@
     self.goal1Label.text = [[self.appDelegate.goalsArray objectAtIndex:0] goalName];
     self.goal2Label.text = [[self.appDelegate.goalsArray objectAtIndex:1] goalName];
     self.goal3Label.text = [[self.appDelegate.goalsArray objectAtIndex:2] goalName];
+
+    self.goal1Label.textColor = [[self.appDelegate.goalsArray objectAtIndex:0] goalColor];
+    self.goal2Label.textColor = [[self.appDelegate.goalsArray objectAtIndex:1] goalColor];
+    self.goal3Label.textColor = [[self.appDelegate.goalsArray objectAtIndex:2] goalColor];
+
+
+
 }
 
 -(IBAction)changeDay:(id)sender {
@@ -365,6 +465,12 @@
         [components setDay:1];
         NSDate *date = [gregorian dateFromComponents:components];
 
+
+        self.datePickerView = [DatePickerView initializeWithSelfBounds:currentframe andDate:date];
+        self.datePickerView.datePickerViewDelegate = self;
+        [self addBorderAround:self.datePickerView cornerType:CornerTypeRounded withColor:[UIColor darkGrayColor]];
+        [self.view addSubview:self.datePickerView];
+        [self.datePickerView showDatePicker];
         
         self.datePickerView = [DatePickerView initializeWithSelfBounds:currentframe andDate:date];
         self.datePickerView.datePickerViewDelegate = self;
@@ -381,13 +487,13 @@
 -(void) datePickerViewChanged:(DatePickerView *)thisDatePickerView;
 {
     self.appDelegate.day = [self.appDelegate dayForDate:thisDatePickerView.datePicker.date];
-//NSLog(@"datePicker.date %@",thisDatePickerView.datePicker.date);
+NSLog(@"datePicker.date %@",thisDatePickerView.datePicker.date);
     NSDate *today = [thisDatePickerView.datePicker date];
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comps = [gregorian components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:today];
     self.currentYear = [comps year];
     self.currentMonth = [comps month];
-    //NSLog(@"current %lu,  %lu",self.currentYear,self.currentMonth);
+    NSLog(@"current %lu,  %lu",self.currentYear,self.currentMonth);
     [self.calendarcurrent drawCalendarForYear:self.currentYear month:self.currentMonth];
     NSString *monthyearlabeltemp  = [[NSString alloc] initWithFormat:@"%@  %ld",[self monthName:self.currentMonth], self.currentYear];
     self.monthNameLabel.text = monthyearlabeltemp;
@@ -395,6 +501,7 @@
     [self saveMonthYear];
 
 }
+
 
 
 

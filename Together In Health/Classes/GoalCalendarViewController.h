@@ -11,6 +11,8 @@
 #import "ColorsClass.h"
 #import <QuartzCore/QuartzCore.h>
 #import "DatePickerView.h"
+#import "CheckBoxView.h"
+
 
 
 
@@ -59,12 +61,25 @@
 @property (nonatomic, strong) NSTimer	*timer;
 
 @property (nonatomic, strong) DatePickerView *datePickerView;
+@property (nonatomic, strong) IBOutlet UIPickerView *pickerView;
 
 @property (nonatomic, strong) IBOutlet UIView *goal1ColorView;
 @property (nonatomic, strong) IBOutlet UIView *goal2ColorView;
 @property (nonatomic, strong) IBOutlet UIView *goal3ColorView;
 
+@property (nonatomic, strong) IBOutlet UIButton  *coverButton;
+@property (nonatomic, strong) IBOutlet UIView *dayGoalsView;
+@property (nonatomic, strong) Day *selectedGoalsDay;
 
+@property (nonatomic, strong) IBOutlet UILabel  *dayViewTitleLabel;
+@property (nonatomic, strong) IBOutlet UILabel  *dayViewGoal1Label;
+@property (nonatomic, strong) IBOutlet UILabel  *dayViewGoal2Label;
+@property (nonatomic, strong) IBOutlet UILabel  *dayViewGoal3Label;
+@property (nonatomic, strong) IBOutlet CheckBoxView  *dayViewGoal1Checkbox;
+@property (nonatomic, strong) IBOutlet CheckBoxView  *dayViewGoal2Checkbox;
+@property (nonatomic, strong) IBOutlet CheckBoxView  *dayViewGoal3Checkbox;
+
+-(IBAction)dayViewButtonTapped:(UIButton*)sender;
 
 -(IBAction)setGoal:(id)sender;
 

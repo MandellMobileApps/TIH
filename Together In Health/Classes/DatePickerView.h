@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CDatePickerViewEx.h"
 
 @protocol DatePickerViewDelegate;
 
@@ -19,6 +20,7 @@
 @property (nonatomic, strong)  UIButton *todayButton;
 @property (nonatomic, strong)  NSDate *date;
 @property (nonatomic, strong)  UIDatePicker *datePicker;
+@property (nonatomic, strong)  CDatePickerViewEx *picker;
 @property (nonatomic) CGRect hideRect;
 @property (nonatomic) CGRect showRect;
 @property (nonatomic) BOOL dateDidChange;

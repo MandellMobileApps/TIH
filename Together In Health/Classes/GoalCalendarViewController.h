@@ -11,6 +11,7 @@
 #import "ColorsClass.h"
 #import <QuartzCore/QuartzCore.h>
 #import "DatePickerView.h"
+#import "PickerContainerView.h"
 #import "CheckBoxView.h"
 
 
@@ -61,7 +62,7 @@
 @property (nonatomic, strong) NSTimer	*timer;
 
 @property (nonatomic, strong) DatePickerView *datePickerView;
-@property (nonatomic, strong) IBOutlet UIPickerView *pickerView;
+@property (nonatomic, strong) IBOutlet PickerContainerView *pickerContainerView;
 
 @property (nonatomic, strong) IBOutlet UIView *goal1ColorView;
 @property (nonatomic, strong) IBOutlet UIView *goal2ColorView;

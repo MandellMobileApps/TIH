@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 
 
+
 @interface GoalCalendarViewController ()
 
 @end
@@ -117,7 +118,12 @@
     self.goal3ColorView.backgroundColor = [[self.appDelegate.goalsArray objectAtIndex:2] goalColor];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.appDelegate savePersistent];
 
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -126,12 +132,10 @@
 
 - (void)dayButtonTapped:(UIButton*)sender {
 	if (sender.tag > 0) {
-        [self daySelectedSingleTap:(id)sender];
+        [self showDayGoalsView:sender];
     }
 }
-- (void)daySelectedSingleTap:(id)sender { 
-//	[self.calendarcurrent updateSelection:sender];
-}
+
 
 -(void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
 {
@@ -320,7 +324,8 @@
 -(IBAction)showDayGoalsView:(UIButton*)sender
 {
         NSInteger day = sender.tag;
-        // get date for title and to get Day.
+        NSDate* thisDate = [TIHDate dateFromComponentsMonth:self.currentMonth day:day year:self.currentYear];
+        self.selectedGoalsDay = [self.appDelegate dayForDate:thisDate];
     
         [self showDayView];
 }
@@ -335,6 +340,12 @@
     }
     else
     {
+        
+        if (self.dayViewGoal1Checkbox.changeMade||self.dayViewGoal2Checkbox.changeMade||self.dayViewGoal3Checkbox.changeMade)
+        {
+ 
+            [self.calendarcurrent drawCalendarForYear:self.currentYear month:self.currentMonth];
+        }
         [self hideDayView];
     }
 
@@ -356,7 +367,16 @@
     self.dayViewGoal1Label.textColor = [[self.appDelegate.goalsArray objectAtIndex:0] goalColor];
     self.dayViewGoal2Label.textColor = [[self.appDelegate.goalsArray objectAtIndex:1] goalColor];
     self.dayViewGoal3Label.textColor = [[self.appDelegate.goalsArray objectAtIndex:2] goalColor];
-    
+    NSString* dateString = [TIHDate dateStringFromDate:self.selectedGoalsDay.date withFormat:DateFormatMediumDateNoTime];
+    NSString* dayOfWeekString = [TIHDate dayOfWeekStringFromDate:self.selectedGoalsDay.date];
+    self.dayViewTitleLabel.text = [NSString stringWithFormat:@"%@ %@",dayOfWeekString,dateString];
+    self.dayViewGoal1Checkbox.checkboxDelegate = self;
+    self.dayViewGoal2Checkbox.checkboxDelegate = self;
+    self.dayViewGoal3Checkbox.checkboxDelegate = self;
+
+    self.dayViewGoal1Checkbox.checked = self.selectedGoalsDay.goal1;
+    self.dayViewGoal2Checkbox.checked = self.selectedGoalsDay.goal2;
+    self.dayViewGoal3Checkbox.checked = self.selectedGoalsDay.goal3;
     
     self.dayGoalsView.backgroundColor = [UIColor lightGrayColor];
     [self addBorderAround:self.dayGoalsView cornerType:CornerTypeSquare withColor:[UIColor darkGrayColor]];
@@ -395,13 +415,13 @@
 {
     switch (thisCheckbox.tag) {
       case 1:
-            
+            self.selectedGoalsDay.goal1 = thisCheckbox.checked;
         break;
       case 2:
-
+            self.selectedGoalsDay.goal2 = thisCheckbox.checked;
         break;
       case 3:
-
+            self.selectedGoalsDay.goal3 = thisCheckbox.checked;
         break;
       default:
         break;
@@ -458,49 +478,51 @@
         // subtract tabbar height since this view is behind the tab bar.
         CGRect currentframe = self.view.bounds;
         currentframe.size.height = self.view.bounds.size.height-40;
-        
-        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];        NSDateComponents *components = [[NSDateComponents alloc] init];
-        [components setMonth:self.currentMonth];
-        [components setYear:self.currentYear];
-        [components setDay:1];
-        NSDate *date = [gregorian dateFromComponents:components];
 
 
-        self.datePickerView = [DatePickerView initializeWithSelfBounds:currentframe andDate:date];
-        self.datePickerView.datePickerViewDelegate = self;
-        [self addBorderAround:self.datePickerView cornerType:CornerTypeRounded withColor:[UIColor darkGrayColor]];
-        [self.view addSubview:self.datePickerView];
-        [self.datePickerView showDatePicker];
+        self.pickerContainerView = [PickerContainerView initializeWithSelfBounds:currentframe andMonth:self.currentMonth andYear:self.currentYear];
+        self.pickerContainerView.pickerContainerViewDelegate = self;
+        [self addBorderAround:self.pickerContainerView cornerType:CornerTypeRounded withColor:[UIColor darkGrayColor]];
+        [self.view addSubview:self.pickerContainerView];
+        [self.pickerContainerView showPicker];
         
-        self.datePickerView = [DatePickerView initializeWithSelfBounds:currentframe andDate:date];
-        self.datePickerView.datePickerViewDelegate = self;
-        [self addBorderAround:self.datePickerView cornerType:CornerTypeRounded withColor:[UIColor darkGrayColor]];
-        [self.view addSubview:self.datePickerView];
-        [self.datePickerView showDatePicker];
     }
 }
 
 
 
-#pragma Date Picker delegates
+#pragma Picker delegates
 
--(void) datePickerViewChanged:(DatePickerView *)thisDatePickerView;
+-(void) pickerViewChanged:(PickerContainerView *)thisPickerView
 {
-    self.appDelegate.day = [self.appDelegate dayForDate:thisDatePickerView.datePicker.date];
-NSLog(@"datePicker.date %@",thisDatePickerView.datePicker.date);
-    NSDate *today = [thisDatePickerView.datePicker date];
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *comps = [gregorian components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:today];
-    self.currentYear = [comps year];
-    self.currentMonth = [comps month];
+    self.currentYear = thisPickerView.year;
+    self.currentMonth = thisPickerView.month+1;
     NSLog(@"current %lu,  %lu",self.currentYear,self.currentMonth);
     [self.calendarcurrent drawCalendarForYear:self.currentYear month:self.currentMonth];
     NSString *monthyearlabeltemp  = [[NSString alloc] initWithFormat:@"%@  %ld",[self monthName:self.currentMonth], self.currentYear];
     self.monthNameLabel.text = monthyearlabeltemp;
     [self performTransition:4];
     [self saveMonthYear];
-
 }
+
+
+//-(void) datePickerViewChanged:(DatePickerView *)thisDatePickerView;
+//{
+//    self.appDelegate.day = [self.appDelegate dayForDate:thisDatePickerView.datePicker.date];
+//NSLog(@"datePicker.date %@",thisDatePickerView.datePicker.date);
+//    NSDate *today = [thisDatePickerView.datePicker date];
+//    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+//    NSDateComponents *comps = [gregorian components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:today];
+//    self.currentYear = [comps year];
+//    self.currentMonth = [comps month];
+//    NSLog(@"current %lu,  %lu",self.currentYear,self.currentMonth);
+//    [self.calendarcurrent drawCalendarForYear:self.currentYear month:self.currentMonth];
+//    NSString *monthyearlabeltemp  = [[NSString alloc] initWithFormat:@"%@  %ld",[self monthName:self.currentMonth], self.currentYear];
+//    self.monthNameLabel.text = monthyearlabeltemp;
+//    [self performTransition:4];
+//    [self saveMonthYear];
+//
+//}
 
 
 

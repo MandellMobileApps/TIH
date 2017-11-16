@@ -32,6 +32,7 @@
     temp.checkboxDelegate = delegate;
     temp.tag = thisTag;
     temp.checked = isChecked;
+    temp.changeMade = NO;
 
 	return temp;
 }
@@ -45,6 +46,7 @@
     self.checkboxImageView = [[UIImageView alloc] initWithFrame:self.bounds];
     self.checkboxImageView.image = [UIImage imageNamed:EmptyCheckBox];
 	self.checked = NO;
+    self.changeMade = NO;
     [self addSubview:self.checkboxImageView];
     [self addSubview:self.checkboxButton];
 
@@ -60,6 +62,7 @@
         [self.checkboxButton addTarget:self action:@selector(checkBoxStatusChanged) forControlEvents:UIControlEventTouchUpInside];
         self.checkboxImageView = [[UIImageView alloc] initWithFrame:self.bounds];
         self.checkboxImageView.image = [UIImage imageNamed:EmptyCheckBox];
+        self.changeMade = NO;
 
         [self addSubview:self.checkboxImageView];
         [self addSubview:self.checkboxButton];
@@ -70,7 +73,9 @@
 
 -(void) checkBoxStatusChanged
 {
-	if (self.checked)
+self.changeMade = YES;
+
+    if (self.checked)
     {
     	self.checked = NO;
         self.checkboxImageView.image = [UIImage imageNamed:EmptyCheckBox];
@@ -85,21 +90,23 @@
         if ([self.checkboxDelegate respondsToSelector:@selector(checkBoxStatusChanged:)])
         {
             [self.checkboxDelegate checkBoxStatusChanged:self];
+            
         }
     }
 }
 
 
--(void) setChecked:(BOOL)checked
+-(void) setChecked:(BOOL)checked  // overrides the setter method
 {
-	_checked = checked;
+
+    _checked = checked;
     if (self.checked)
     {
-    	self.checkboxImageView.image =[UIImage imageNamed:EmptyCheckBox];
+        self.checkboxImageView.image = [UIImage imageNamed:FilledCheckMark];
     }
     else
     {
-    	self.checkboxImageView.image = [UIImage imageNamed:FilledCheckMark];
+        self.checkboxImageView.image =[UIImage imageNamed:EmptyCheckBox];
     }
     
 }

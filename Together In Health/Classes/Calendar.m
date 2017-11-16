@@ -128,8 +128,8 @@
     CGRect calendardaysframe = CGRectMake(0,0,self.calendarWidth,self.calendarHeight);
     [self setFrame:calendardaysframe];
     [self setNeedsDisplay];
-    NSLog(@"self.calendarHeight %f",self.calendarHeight);
-    NSLog(@"days %lu, weeks %lu, day1 %lu, inmonth %lu",self.totaldays,self.totalweeks,self.day1weekday,daysinmonth);
+//    NSLog(@"self.calendarHeight %f",self.calendarHeight);
+ //   NSLog(@"days %lu, weeks %lu, day1 %lu, inmonth %lu",self.totaldays,self.totalweeks,self.day1weekday,daysinmonth);
     
 	//  get first day of calendar page
 	NSInteger amount = 1-self.day1weekday;
@@ -140,7 +140,7 @@
     
         for(int i = 0; i < self.totalweeks; i++) {
 			for(int j = 0; j < 7; j++) {
-                NSLog(@"i %i",i);
+                //NSLog(@"i %i",i);
 
                 CGRect dayRect = CGRectMake(j * self.calendarDaySide, (i * self.calendarDaySide)+12, self.calendarDaySide, self.calendarDaySide);
 				UIView *dayView = [[UIView alloc]initWithFrame:dayRect];
@@ -174,13 +174,9 @@
                     lbl.textColor = self.nonMonthDaytextColor;
                 }
 				[dayView addSubview:lbl];
-                
-                // increment to the next day of the month
-                startdate = [self dateincrement:startdate daystostep:1 monthstostep:0];
-                //NSLog(@"%@",startdate);
-                
+
 				UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.calendarDaySide, self.calendarDaySide)];
-				[btn addTarget:self.goalCalendarViewController action:@selector(showDayGoalsView:) forControlEvents:UIControlEventTouchUpInside];
+				[btn addTarget:self.goalCalendarViewController action:@selector(dayButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
                 if (thisMonth == month)
                 {
                     btn.tag = dayOfMonth;
@@ -226,6 +222,9 @@
                     }
                 }
                 [self addSubview:dayView];
+                 // increment to the next day of the month
+                startdate = [self dateincrement:startdate daystostep:1 monthstostep:0];
+                //NSLog(@"startdate %@",startdate);
 
           }
 

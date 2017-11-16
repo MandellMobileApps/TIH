@@ -15,6 +15,7 @@
 	id<CheckboxDelegate> checkboxDelegate;
 }
 @property(nonatomic) BOOL checked;
+@property(nonatomic) BOOL changeMade;
 @property(atomic, assign)id IBOutlet checkboxDelegate;
 
 +(CheckBoxView*) checkboxWithFrame:(CGRect)frame isChecked:(BOOL)isChecked delegate:(id)delegate tag:(int)thisTag;

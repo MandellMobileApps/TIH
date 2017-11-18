@@ -43,7 +43,7 @@ enum SubscriptionLevel {
 @property (nonatomic, strong) GoalSetViewController *goalSetViewController;
 
 @property (nonatomic, strong) NSMutableArray    *goalsArray;
-@property (nonatomic) int subscriptionLevel;
+@property (nonatomic) NSInteger subscriptionLevel;
 
 
 

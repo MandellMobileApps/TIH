@@ -84,7 +84,7 @@
 
     }
     
-
+    self.subscriptionLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"subscriptionLevel"];
 }
 
 -(void)savePersistent
@@ -95,6 +95,8 @@
     if (!success) {
         NSLog(@"DaysPersistent.archive did not save");
     }
+    [[NSUserDefaults standardUserDefaults] setInteger:self.subscriptionLevel forKey:@"subscriptionLevel"];
+    
     [self saveFavoriteActivities];
 }
 

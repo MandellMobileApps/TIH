@@ -12,6 +12,7 @@
 		360DB1871C12809F00FBE90F /* TrackWaterAddRow.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1851C12809F00FBE90F /* TrackWaterAddRow.png */; };
 		360DB1881C12809F00FBE90F /* TrackWaterPickerView.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1861C12809F00FBE90F /* TrackWaterPickerView.png */; };
 		360DB18A1C14DDAC00FBE90F /* QuestionMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1891C14DDAC00FBE90F /* QuestionMark.png */; };
+		360F9E6E1FC0CCAB00190565 /* GoalTabImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 360F9E6D1FC0CCAA00190565 /* GoalTabImage.png */; };
 		361BC4511F9173830011A20E /* GoalGamePlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4501F9173830011A20E /* GoalGamePlanViewController.m */; };
 		361BC45C1F92E6F80011A20E /* Panang Curry.html in Resources */ = {isa = PBXBuildFile; fileRef = 361BC45B1F92E6F80011A20E /* Panang Curry.html */; };
 		361BC4611F9D2AB40011A20E /* DessertPlate.png in Resources */ = {isa = PBXBuildFile; fileRef = 361BC4601F9D2AB30011A20E /* DessertPlate.png */; };
@@ -273,6 +274,7 @@
 		360DB1851C12809F00FBE90F /* TrackWaterAddRow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrackWaterAddRow.png; sourceTree = "<group>"; };
 		360DB1861C12809F00FBE90F /* TrackWaterPickerView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrackWaterPickerView.png; sourceTree = "<group>"; };
 		360DB1891C14DDAC00FBE90F /* QuestionMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = QuestionMark.png; path = "../../Together In Health.xcodeproj/QuestionMark.png"; sourceTree = "<group>"; };
+		360F9E6D1FC0CCAA00190565 /* GoalTabImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoalTabImage.png; sourceTree = "<group>"; };
 		361BC44F1F9173830011A20E /* GoalGamePlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalGamePlanViewController.h; sourceTree = "<group>"; };
 		361BC4501F9173830011A20E /* GoalGamePlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalGamePlanViewController.m; sourceTree = "<group>"; };
 		361BC45B1F92E6F80011A20E /* Panang Curry.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Panang Curry.html"; sourceTree = "<group>"; };
@@ -696,6 +698,7 @@
 		6A91E3221BE2625500A72CCA /* Together In Health */ = {
 			isa = PBXGroup;
 			children = (
+				360F9E6D1FC0CCAA00190565 /* GoalTabImage.png */,
 				6A83C6191F9CFCEF0030A202 /* Goals.storyboard */,
 				6A91E3491BE2679200A72CCA /* Classes */,
 				6A91E3DC1BE2679300A72CCA /* html */,
@@ -1155,6 +1158,7 @@
 				6A91E4A61BE2679300A72CCA /* Balanced Plate12.png in Resources */,
 				6A91E45F1BE2679300A72CCA /* PlateExamples.html in Resources */,
 				36FE38F71C0A0874002E341E /* Balanced Plate18.png in Resources */,
+				360F9E6E1FC0CCAB00190565 /* GoalTabImage.png in Resources */,
 				6A91E4B61BE2679300A72CCA /* Blankstar.png in Resources */,
 				36FE39011C0A0874002E341E /* Balanced Plate28.png in Resources */,
 				36FE39141C0A1291002E341E /* TrackFoodwithPlates.png in Resources */,

@@ -292,7 +292,7 @@
         <scene sceneID="60y-1y-Sgi">
             <objects>
                 <navigationController title="Goals" id="OIG-fB-XYy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Goals" id="H0Z-32-D7s"/>
+                    <tabBarItem key="tabBarItem" title="Goals" selectedImage="GoalTabImage.png" id="H0Z-32-D7s"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3fM-n8-nYB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1012,6 +1012,7 @@
     <resources>
         <image name="Answer line.png" width="300" height="4"/>
         <image name="GlossSlateBlue.png" width="16" height="16"/>
+        <image name="GoalTabImage.png" width="276" height="276"/>
         <image name="checkbox-empty.V2.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>

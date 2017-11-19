@@ -1234,7 +1234,7 @@
 {
     NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
     self.goalsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path]];
-    if (!self.goalsArray)
+    if (self.goalsArray.count < 3)
     {
         self.goalsArray = [NSMutableArray arrayWithObjects:
                            [Goal thisGoal],

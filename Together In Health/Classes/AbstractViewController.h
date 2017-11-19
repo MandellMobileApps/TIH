@@ -9,8 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "iAd/iAd.h"
 #import <MessageUI/MFMailComposeViewController.h>
+#import "DatePickerView.h"
+#import <QuartzCore/QuartzCore.h>
+#import "Activity.h"
+#import "Food.h"
+#import "Plate.h"
+#import "Mood.h"
+#import "TIHDate.h"
+#import "SQLiteAccess.h"
+#import "Day.h"
+#import "Goal.h"
 
-@class Goal;
+
 @class ProgressViewController;
 @class AppDelegate;
 
@@ -24,6 +34,11 @@ enum CornerType {
 
 @property (nonatomic, weak) AppDelegate *appDelegate;
 
+@property(nonatomic,strong) IBOutlet UILabel* navbarTitleLabel;
+@property(nonatomic,strong) IBOutlet UIView* navbarView;
+
+@property(nonatomic) BOOL changeMade;
+
 -(void)bannerViewDidLoadAd:(ADBannerView *)banner;
 @property(nonatomic) BOOL loadAd;
 -(void)viewDidAppear:(BOOL)animated;
@@ -33,16 +48,13 @@ enum CornerType {
 - (NSString *)dataFilePathofBundle:(NSString *)nameoffile;
 -(void) openEmailClientWithTo:(NSString*)to andSubject:(NSString*)subject andBody:(NSString*)body;
 
-@property (nonatomic, strong) Goal* goal;
-
-@property (nonatomic) int goalNumber;
 
 @property (nonatomic, weak) ProgressViewController* progressViewController;
 
-@property (nonatomic, strong) NSMutableArray* goalPackage;
-@property (nonatomic, strong) NSMutableArray* goal2Package;
-@property (nonatomic, strong) NSMutableArray* goal3Package;
-@property (nonatomic, strong) NSMutableArray *goals;
+//@property (nonatomic, strong) NSMutableArray* goalPackage;
+//@property (nonatomic, strong) NSMutableArray* goal2Package;
+//@property (nonatomic, strong) NSMutableArray* goal3Package;
+//@property (nonatomic, strong) NSMutableArray *goals;
 
 
 //- (IBAction)buttonTapped1:(id)sender;
@@ -51,32 +63,32 @@ enum CornerType {
 //- (IBAction)buttonTapped4:(id)sender;
 //- (IBAction)buttonTapped5:(id)sender;
 
-@property (nonatomic, strong) IBOutlet UIButton *step1;
-@property (nonatomic, strong) IBOutlet UIButton *step2;
-@property (nonatomic, strong) IBOutlet UIButton *step3;
-@property (nonatomic, strong) IBOutlet UIButton *step4;
-@property (nonatomic, strong) IBOutlet UIButton *step5;
-@property (nonatomic, strong) IBOutlet UIButton *clearAllButton;
+//@property (nonatomic, strong) IBOutlet UIButton *step1;
+//@property (nonatomic, strong) IBOutlet UIButton *step2;
+//@property (nonatomic, strong) IBOutlet UIButton *step3;
+//@property (nonatomic, strong) IBOutlet UIButton *step4;
+//@property (nonatomic, strong) IBOutlet UIButton *step5;
+//@property (nonatomic, strong) IBOutlet UIButton *clearAllButton;
 @property (nonatomic, strong) IBOutlet UIButton *resignKeyboardButton;
 //-(IBAction)resignKeyboard:(id)sender;
 
 
-//@property (weak, nonatomic) IBOutlet UITextField *textFieldGoal;
-@property (weak, nonatomic) IBOutlet UITextField *textFieldBy1;
-@property (weak, nonatomic) IBOutlet UITextField *textFieldBy2;
-
-@property (nonatomic, strong) IBOutlet UITextField *textFieldWhen;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldWhere;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldOften;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldWhen2;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldWhere2;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldOften2;
-
-@property (nonatomic, strong) IBOutlet UITextField *textFieldStep1;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldStep2;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldStep3;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldStep4;
-@property (nonatomic, strong) IBOutlet UITextField *textFieldStep5;
+////@property (weak, nonatomic) IBOutlet UITextField *textFieldGoal;
+//@property (weak, nonatomic) IBOutlet UITextField *textFieldBy1;
+//@property (weak, nonatomic) IBOutlet UITextField *textFieldBy2;
+//
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldWhen;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldWhere;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldOften;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldWhen2;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldWhere2;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldOften2;
+//
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep1;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep2;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep3;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep4;
+//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep5;
 
 //-(IBAction)trackProgress:(id)sender;
 //-(IBAction)checkGoal:(id)sender;
@@ -128,6 +140,7 @@ enum CornerType {
 -(void) enlargeTable:(float)height;
 
 -(void)resetDay;
--(IBAction)backDay:(id)sender;
--(IBAction)forwardDay:(id)sender;
+
+
+
 @end

@@ -10,6 +10,7 @@
 #import <HealthKit/HealthKit.h>
 
 
+
 enum searchScope {
     BeginsWith = 1,
     EndsWith = 2,
@@ -25,10 +26,9 @@ enum SubscriptionLevel {
 
 
 @class Day;
-@class FoodTrackerViewController;
-@class DrinkTrackerViewController;
-@class StressTrackerViewController;
-@class ActivityTrackerViewController;
+
+@class GoalSetViewController;
+@class GoalGamePlanViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
@@ -39,12 +39,11 @@ enum SubscriptionLevel {
 @property (nonatomic, strong) NSMutableArray *allActivities;
 @property (nonatomic, strong) NSMutableArray *allPlates;
 @property (nonatomic, strong) NSMutableArray *allMoods;
-@property (nonatomic, strong) FoodTrackerViewController *foodTrackerViewController;
-@property (nonatomic, strong) DrinkTrackerViewController *drinkTrackerViewController;
-@property (nonatomic, strong) StressTrackerViewController *stressTrackerViewController;
-@property (nonatomic, strong) ActivityTrackerViewController *activityTrackerViewController;
+@property (nonatomic, strong) GoalGamePlanViewController* goalGamePlanViewController;
+@property (nonatomic, strong) GoalSetViewController *goalSetViewController;
 
-@property (nonatomic) int subscriptionLevel;
+@property (nonatomic, strong) NSMutableArray    *goalsArray;
+@property (nonatomic) NSInteger subscriptionLevel;
 
 
 
@@ -56,5 +55,8 @@ enum SubscriptionLevel {
 -(Day*)dayForDate:(NSDate*)thisDate;
 -(Day*)calendarDayForDate:(NSDate*)thisDate;
 - (BOOL)string:(NSString*)string containsString:(NSString*)other;
+-(void) loadGoals;
+-(UIColor*)defaultGoalColors:(NSInteger)g;
+-(void)saveGoals;
 @end
 

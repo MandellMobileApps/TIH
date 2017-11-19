@@ -6,11 +6,14 @@
 //  Copyright (c) 2014 Cami Mandell. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AbstractViewController.h"
 
-@interface GoalCheckViewController : UIViewController
+@interface GoalCheckViewController : AbstractViewController
+
+@property (nonatomic, strong) Goal *goal;
 
 @property (nonatomic,strong) IBOutlet UIButton* checkButton;
+@property (nonatomic,strong) IBOutlet UILabel* goalTitleLabel;
 @property (nonatomic,strong) IBOutlet UITextView* textViewGoalCheck;
 @property (nonatomic,strong) IBOutlet UITextView* textViewGoalCheck2;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *checkConfident;
@@ -23,5 +26,7 @@
 
 -(IBAction)segmentImportant:(id)sender;
 -(IBAction)segmentConfident:(id)sender;
+@property (nonatomic) NSUInteger importantRating;
+@property (nonatomic) NSUInteger confidentRating;
 
 @end

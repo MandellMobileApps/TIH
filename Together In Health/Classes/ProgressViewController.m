@@ -13,6 +13,7 @@
 #import "ProgressHeaderView.h"
 #import "ViewControllerGoal.h"
 #import "ViewControllerGamePlan.h"
+#import "AppDelegate.h"
 
 @implementation ProgressViewController
 

@@ -12,12 +12,20 @@
 		360DB1871C12809F00FBE90F /* TrackWaterAddRow.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1851C12809F00FBE90F /* TrackWaterAddRow.png */; };
 		360DB1881C12809F00FBE90F /* TrackWaterPickerView.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1861C12809F00FBE90F /* TrackWaterPickerView.png */; };
 		360DB18A1C14DDAC00FBE90F /* QuestionMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1891C14DDAC00FBE90F /* QuestionMark.png */; };
+		360F9E6E1FC0CCAB00190565 /* GoalTabImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 360F9E6D1FC0CCAA00190565 /* GoalTabImage.png */; };
+		361BC4511F9173830011A20E /* GoalGamePlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4501F9173830011A20E /* GoalGamePlanViewController.m */; };
+		361BC45C1F92E6F80011A20E /* Panang Curry.html in Resources */ = {isa = PBXBuildFile; fileRef = 361BC45B1F92E6F80011A20E /* Panang Curry.html */; };
+		361BC4611F9D2AB40011A20E /* DessertPlate.png in Resources */ = {isa = PBXBuildFile; fileRef = 361BC4601F9D2AB30011A20E /* DessertPlate.png */; };
+		361BC4631F9D30C50011A20E /* FriedGreasyPlate.png in Resources */ = {isa = PBXBuildFile; fileRef = 361BC4621F9D30C50011A20E /* FriedGreasyPlate.png */; };
 		36278DAA1C2AF9F900B899E4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36278DA91C2AF9F800B899E4 /* CoreMotion.framework */; };
 		36278DAC1C2AFA0300B899E4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36278DAB1C2AFA0300B899E4 /* HealthKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		36278DAF1C2DAD8F00B899E4 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 36278DAE1C2DAD8F00B899E4 /* MenuItem.m */; };
 		365847601F704F3F006DF9E4 /* ExercisePlanSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */; };
 		365847631F709637006DF9E4 /* ExercisePlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847621F709637006DF9E4 /* ExercisePlanCell.m */; };
 		365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */; };
+		365AAC661FB2064C00A5450A /* FoodLabelNew.png in Resources */ = {isa = PBXBuildFile; fileRef = 365AAC651FB2064A00A5450A /* FoodLabelNew.png */; };
+		365AAC691FB21AD200A5450A /* UpGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365AAC681FB21AD200A5450A /* UpGradeViewController.m */; };
+		365AAC6B1FB36C3400A5450A /* FoodLabelNew2.png in Resources */ = {isa = PBXBuildFile; fileRef = 365AAC6A1FB36C3400A5450A /* FoodLabelNew2.png */; };
 		365EB8271C00F88F00D757F7 /* vegplateapp.png in Resources */ = {isa = PBXBuildFile; fileRef = 365EB8261C00F88F00D757F7 /* vegplateapp.png */; };
 		365EB8291C00FBF200D757F7 /* stressreduction.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365EB8281C00FBF200D757F7 /* stressreduction.jpg */; };
 		365EB82C1C00FD3600D757F7 /* movement.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 365EB82A1C00FD3600D757F7 /* movement.jpg */; };
@@ -78,9 +86,19 @@
 		36FE39351C0B6BF2002E341E /* DisclaimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FE39341C0B6BF2002E341E /* DisclaimerViewController.m */; };
 		36FE393D1C0BB46F002E341E /* TrackActivity.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FE393C1C0BB46F002E341E /* TrackActivity.png */; };
 		36FE39401C0F4EFC002E341E /* OpeningViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FE393F1C0F4EFC002E341E /* OpeningViewViewController.m */; };
+		6A2CA3601F8EAF0400DC7668 /* DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */; };
+		6A4726641FB91D3E0057C451 /* CheckBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4726621FB91D3D0057C451 /* CheckBoxView.m */; };
 		6A5541611F5C663500447A4E /* GoalCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5541601F5C663500447A4E /* GoalCalendarViewController.m */; };
 		6A5541641F5C82D700447A4E /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5541631F5C82D700447A4E /* Calendar.m */; };
 		6A5541671F5C842700447A4E /* ColorsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5541661F5C842700447A4E /* ColorsClass.m */; };
+		6A60E3DC1F911DAC00A48D03 /* Trackers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A60E3DA1F911DAC00A48D03 /* Trackers.storyboard */; };
+		6A799F7C1F859E9F008E6EA3 /* MasterTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A799F7B1F859E9F008E6EA3 /* MasterTrackerViewController.m */; };
+		6A83C61A1F9CFCEF0030A202 /* Goals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A83C6191F9CFCEF0030A202 /* Goals.storyboard */; };
+		6A90E08E1FB9248900714F4E /* AbstractCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A90E08D1FB9248800714F4E /* AbstractCustomView.m */; };
+		6A90E0911FBA104800714F4E /* CDatePickerViewEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A90E08F1FBA104800714F4E /* CDatePickerViewEx.m */; };
+		6A90E0941FBA60BF00714F4E /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A90E0921FBA60BF00714F4E /* More.storyboard */; };
+		6A90E0991FBA679300714F4E /* MenuPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A90E0971FBA679300714F4E /* MenuPlan.storyboard */; };
+		6A90E09C1FBB6DEE00714F4E /* PickerContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A90E09B1FBB6DEE00714F4E /* PickerContainerView.m */; };
 		6A91E3251BE2625500A72CCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3241BE2625500A72CCA /* main.m */; };
 		6A91E3281BE2625500A72CCA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3271BE2625500A72CCA /* AppDelegate.m */; };
 		6A91E3311BE2625500A72CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A91E32F1BE2625500A72CCA /* Main.storyboard */; };
@@ -256,6 +274,12 @@
 		360DB1851C12809F00FBE90F /* TrackWaterAddRow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrackWaterAddRow.png; sourceTree = "<group>"; };
 		360DB1861C12809F00FBE90F /* TrackWaterPickerView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrackWaterPickerView.png; sourceTree = "<group>"; };
 		360DB1891C14DDAC00FBE90F /* QuestionMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = QuestionMark.png; path = "../../Together In Health.xcodeproj/QuestionMark.png"; sourceTree = "<group>"; };
+		360F9E6D1FC0CCAA00190565 /* GoalTabImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoalTabImage.png; sourceTree = "<group>"; };
+		361BC44F1F9173830011A20E /* GoalGamePlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalGamePlanViewController.h; sourceTree = "<group>"; };
+		361BC4501F9173830011A20E /* GoalGamePlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalGamePlanViewController.m; sourceTree = "<group>"; };
+		361BC45B1F92E6F80011A20E /* Panang Curry.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Panang Curry.html"; sourceTree = "<group>"; };
+		361BC4601F9D2AB30011A20E /* DessertPlate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DessertPlate.png; sourceTree = "<group>"; };
+		361BC4621F9D30C50011A20E /* FriedGreasyPlate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FriedGreasyPlate.png; sourceTree = "<group>"; };
 		36278DA91C2AF9F800B899E4 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		36278DAB1C2AFA0300B899E4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		36278DAD1C2DAD8F00B899E4 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
@@ -266,6 +290,10 @@
 		365847621F709637006DF9E4 /* ExercisePlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanCell.m; sourceTree = "<group>"; };
 		365847641F709E71006DF9E4 /* ExercisePlanCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanCollectionView.h; sourceTree = "<group>"; };
 		365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanCollectionView.m; sourceTree = "<group>"; };
+		365AAC651FB2064A00A5450A /* FoodLabelNew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FoodLabelNew.png; sourceTree = "<group>"; };
+		365AAC671FB21AD100A5450A /* UpGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpGradeViewController.h; sourceTree = "<group>"; };
+		365AAC681FB21AD200A5450A /* UpGradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpGradeViewController.m; sourceTree = "<group>"; };
+		365AAC6A1FB36C3400A5450A /* FoodLabelNew2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FoodLabelNew2.png; sourceTree = "<group>"; };
 		365EB8261C00F88F00D757F7 /* vegplateapp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vegplateapp.png; sourceTree = "<group>"; };
 		365EB8281C00FBF200D757F7 /* stressreduction.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stressreduction.jpg; sourceTree = "<group>"; };
 		365EB82A1C00FD3600D757F7 /* movement.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = movement.jpg; sourceTree = "<group>"; };
@@ -336,12 +364,28 @@
 		36FE393C1C0BB46F002E341E /* TrackActivity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrackActivity.png; path = ../../TrackActivity.png; sourceTree = "<group>"; };
 		36FE393E1C0F4EFC002E341E /* OpeningViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpeningViewViewController.h; path = ../OpeningViewViewController.h; sourceTree = "<group>"; };
 		36FE393F1C0F4EFC002E341E /* OpeningViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpeningViewViewController.m; path = ../OpeningViewViewController.m; sourceTree = "<group>"; };
+		6A2CA35E1F8EAF0400DC7668 /* DatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerView.h; path = "Together In Health/Classes/DatePickerView.h"; sourceTree = "<group>"; };
+		6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerView.m; path = "Together In Health/Classes/DatePickerView.m"; sourceTree = "<group>"; };
+		6A4726621FB91D3D0057C451 /* CheckBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBoxView.m; sourceTree = "<group>"; };
+		6A4726631FB91D3E0057C451 /* CheckBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxView.h; sourceTree = "<group>"; };
 		6A55415F1F5C663500447A4E /* GoalCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalCalendarViewController.h; sourceTree = "<group>"; };
 		6A5541601F5C663500447A4E /* GoalCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalCalendarViewController.m; sourceTree = "<group>"; };
 		6A5541621F5C82D700447A4E /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
 		6A5541631F5C82D700447A4E /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calendar.m; sourceTree = "<group>"; };
 		6A5541651F5C842700447A4E /* ColorsClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorsClass.h; sourceTree = "<group>"; };
 		6A5541661F5C842700447A4E /* ColorsClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorsClass.m; sourceTree = "<group>"; };
+		6A60E3DB1F911DAC00A48D03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trackers.storyboard; sourceTree = "<group>"; };
+		6A799F7A1F859E9F008E6EA3 /* MasterTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterTrackerViewController.h; sourceTree = "<group>"; };
+		6A799F7B1F859E9F008E6EA3 /* MasterTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterTrackerViewController.m; sourceTree = "<group>"; };
+		6A83C6191F9CFCEF0030A202 /* Goals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Goals.storyboard; sourceTree = "<group>"; };
+		6A90E08C1FB9248800714F4E /* AbstractCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractCustomView.h; sourceTree = "<group>"; };
+		6A90E08D1FB9248800714F4E /* AbstractCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractCustomView.m; sourceTree = "<group>"; };
+		6A90E08F1FBA104800714F4E /* CDatePickerViewEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDatePickerViewEx.m; sourceTree = "<group>"; };
+		6A90E0901FBA104800714F4E /* CDatePickerViewEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDatePickerViewEx.h; sourceTree = "<group>"; };
+		6A90E0931FBA60BF00714F4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Together In Health/Base.lproj/More.storyboard"; sourceTree = "<group>"; };
+		6A90E0981FBA679300714F4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Together In Health/Base.lproj/MenuPlan.storyboard"; sourceTree = "<group>"; };
+		6A90E09A1FBB6DEE00714F4E /* PickerContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PickerContainerView.h; path = Classes/PickerContainerView.h; sourceTree = "<group>"; };
+		6A90E09B1FBB6DEE00714F4E /* PickerContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PickerContainerView.m; path = Classes/PickerContainerView.m; sourceTree = "<group>"; };
 		6A91E3201BE2625500A72CCA /* Together In Health.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Together In Health.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A91E3241BE2625500A72CCA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A91E3261BE2625500A72CCA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -612,6 +656,11 @@
 		6A91E3171BE2625500A72CCA = {
 			isa = PBXGroup;
 			children = (
+				6A90E0971FBA679300714F4E /* MenuPlan.storyboard */,
+				6A90E0921FBA60BF00714F4E /* More.storyboard */,
+				361BC4621F9D30C50011A20E /* FriedGreasyPlate.png */,
+				6A2CA35E1F8EAF0400DC7668 /* DatePickerView.h */,
+				6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */,
 				367D6FCF1F83D566006281D3 /* GoalSetViewController.h */,
 				367D6FD01F83D566006281D3 /* GoalSetViewController.m */,
 				3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */,
@@ -649,6 +698,8 @@
 		6A91E3221BE2625500A72CCA /* Together In Health */ = {
 			isa = PBXGroup;
 			children = (
+				360F9E6D1FC0CCAA00190565 /* GoalTabImage.png */,
+				6A83C6191F9CFCEF0030A202 /* Goals.storyboard */,
 				6A91E3491BE2679200A72CCA /* Classes */,
 				6A91E3DC1BE2679300A72CCA /* html */,
 				6A91E3FF1BE2679300A72CCA /* Media */,
@@ -657,8 +708,17 @@
 				360DB1831C11F24000FBE90F /* ActivityMovementFav.png */,
 				6A91E3271BE2625500A72CCA /* AppDelegate.m */,
 				6A91E32F1BE2625500A72CCA /* Main.storyboard */,
+				361BC44F1F9173830011A20E /* GoalGamePlanViewController.h */,
+				361BC4501F9173830011A20E /* GoalGamePlanViewController.m */,
+				6A4726631FB91D3E0057C451 /* CheckBoxView.h */,
+				6A4726621FB91D3D0057C451 /* CheckBoxView.m */,
+				6A90E08C1FB9248800714F4E /* AbstractCustomView.h */,
+				6A90E08D1FB9248800714F4E /* AbstractCustomView.m */,
+				6A60E3DA1F911DAC00A48D03 /* Trackers.storyboard */,
 				367D6FD21F83D871006281D3 /* ExercisePlanListViewController.h */,
 				367D6FD31F83D871006281D3 /* ExercisePlanListViewController.m */,
+				6A90E09A1FBB6DEE00714F4E /* PickerContainerView.h */,
+				6A90E09B1FBB6DEE00714F4E /* PickerContainerView.m */,
 				365847641F709E71006DF9E4 /* ExercisePlanCollectionView.h */,
 				365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */,
 				360DB17F1C11EE5F00FBE90F /* ActivityList.png */,
@@ -678,6 +738,8 @@
 				36FE39241C0B65C5002E341E /* TrackFoodwithWater.png */,
 				36FE39251C0B65C5002E341E /* TrackFoodwithWaterFood.png */,
 				36FE38C71C0236EC002E341E /* AppFrontImage.png */,
+				6A90E0901FBA104800714F4E /* CDatePickerViewEx.h */,
+				6A90E08F1FBA104800714F4E /* CDatePickerViewEx.m */,
 				6A91E3321BE2625500A72CCA /* Assets.xcassets */,
 				6A91E3341BE2625500A72CCA /* LaunchScreen.storyboard */,
 				6A91E3371BE2625500A72CCA /* Info.plist */,
@@ -699,6 +761,7 @@
 			children = (
 				36D9D53A1BE80481003658FE /* GenericWebViewController2.h */,
 				36D9D53B1BE80481003658FE /* GenericWebViewController2.m */,
+				365AAC651FB2064A00A5450A /* FoodLabelNew.png */,
 				6A91E4CC1BE2D26600A72CCA /* StressTrackerViewController.h */,
 				6A91E4CD1BE2D26600A72CCA /* StressTrackerViewController.m */,
 				6A91E34A1BE2679200A72CCA /* AbstractViewController.h */,
@@ -735,6 +798,7 @@
 				6A91E3691BE2679200A72CCA /* ChoosePlateCollectionView.m */,
 				6A91E36A1BE2679200A72CCA /* ChoosePlateViewController.h */,
 				6A91E36B1BE2679200A72CCA /* ChoosePlateViewController.m */,
+				361BC4601F9D2AB30011A20E /* DessertPlate.png */,
 				6A91E36C1BE2679200A72CCA /* Completed.h */,
 				6A91E36D1BE2679200A72CCA /* Completed.m */,
 				6A91E36E1BE2679200A72CCA /* Day.h */,
@@ -860,6 +924,10 @@
 				6AD7A8091C3050E0004BD58F /* Plate.m */,
 				6AD7A80B1C3051C0004BD58F /* Mood.h */,
 				6AD7A80C1C3051C0004BD58F /* Mood.m */,
+				6A799F7A1F859E9F008E6EA3 /* MasterTrackerViewController.h */,
+				6A799F7B1F859E9F008E6EA3 /* MasterTrackerViewController.m */,
+				365AAC671FB21AD100A5450A /* UpGradeViewController.h */,
+				365AAC681FB21AD200A5450A /* UpGradeViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -870,6 +938,7 @@
 				6A91E3DD1BE2679300A72CCA /* 1903 World Series.html */,
 				6A91E3DE1BE2679300A72CCA /* AboutTIH.html */,
 				6A91E3DF1BE2679300A72CCA /* BasicVinaigrette.html */,
+				361BC45B1F92E6F80011A20E /* Panang Curry.html */,
 				6A91E3E01BE2679300A72CCA /* BlogPostW1.html */,
 				6A91E3E11BE2679300A72CCA /* BlogPostW2.html */,
 				6A91E3E21BE2679300A72CCA /* BlogPostW3.html */,
@@ -901,6 +970,7 @@
 				6A91E3F21BE2679300A72CCA /* PolentaVegetableBake.html */,
 				6A91E3F31BE2679300A72CCA /* Proteinfacts.html */,
 				6A91E3F41BE2679300A72CCA /* ReadingAFoodLabel.html */,
+				365AAC6A1FB36C3400A5450A /* FoodLabelNew2.png */,
 				36FE38C91C04CD35002E341E /* Ingredients.png */,
 				6A91E3F51BE2679300A72CCA /* RecipeMacCheese.html */,
 				6A91E3F61BE2679300A72CCA /* RecipeMacCheeseTest.html */,
@@ -1057,6 +1127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A91E49F1BE2679300A72CCA /* arrowleft.png in Resources */,
+				6A90E0941FBA60BF00714F4E /* More.storyboard in Resources */,
 				6A91E4841BE2679300A72CCA /* ChickenEnchiladaCasserole.html in Resources */,
 				360DB1881C12809F00FBE90F /* TrackWaterPickerView.png in Resources */,
 				6A91E4A21BE2679300A72CCA /* Balance it Out.png in Resources */,
@@ -1087,6 +1158,7 @@
 				6A91E4A61BE2679300A72CCA /* Balanced Plate12.png in Resources */,
 				6A91E45F1BE2679300A72CCA /* PlateExamples.html in Resources */,
 				36FE38F71C0A0874002E341E /* Balanced Plate18.png in Resources */,
+				360F9E6E1FC0CCAB00190565 /* GoalTabImage.png in Resources */,
 				6A91E4B61BE2679300A72CCA /* Blankstar.png in Resources */,
 				36FE39011C0A0874002E341E /* Balanced Plate28.png in Resources */,
 				36FE39141C0A1291002E341E /* TrackFoodwithPlates.png in Resources */,
@@ -1099,11 +1171,14 @@
 				6A91E4B91BE2679300A72CCA /* Checkmark.png in Resources */,
 				6A91E49E1BE2679300A72CCA /* Arrowforward.png in Resources */,
 				360DB1871C12809F00FBE90F /* TrackWaterAddRow.png in Resources */,
+				365AAC6B1FB36C3400A5450A /* FoodLabelNew2.png in Resources */,
 				6A91E4AA1BE2679300A72CCA /* Balanced Plate16.png in Resources */,
+				361BC4631F9D30C50011A20E /* FriedGreasyPlate.png in Resources */,
 				6A91E49D1BE2679300A72CCA /* Answer line.png in Resources */,
 				6A91E4BD1BE2679300A72CCA /* FoodLabel3.png in Resources */,
 				6A91E48E1BE2679300A72CCA /* Organic.html in Resources */,
 				6A91E4AF1BE2679300A72CCA /* Balanced Plate5.png in Resources */,
+				365AAC661FB2064C00A5450A /* FoodLabelNew.png in Resources */,
 				6A91E4C41BE2679300A72CCA /* Resetimage3.png in Resources */,
 				36FE38FE1C0A0874002E341E /* Balanced Plate25.png in Resources */,
 				6A91E3361BE2625500A72CCA /* LaunchScreen.storyboard in Resources */,
@@ -1141,6 +1216,7 @@
 				6A91E4A91BE2679300A72CCA /* Balanced Plate15.png in Resources */,
 				6A91E4B21BE2679300A72CCA /* Balanced Plate8.png in Resources */,
 				36FE392D1C0B65C5002E341E /* TrackFoodBfast2.png in Resources */,
+				6A83C61A1F9CFCEF0030A202 /* Goals.storyboard in Resources */,
 				6A91E4C21BE2679300A72CCA /* Resetimage.png in Resources */,
 				36FE38F91C0A0874002E341E /* Balanced Plate20.png in Resources */,
 				6A91E48C1BE2679300A72CCA /* MenuMadness.html in Resources */,
@@ -1150,6 +1226,7 @@
 				369E53191F82F6FB00F3D750 /* MoodImageSad.png in Resources */,
 				6A91E4C11BE2679300A72CCA /* PolentaVegBake.png in Resources */,
 				6A91E4951BE2679300A72CCA /* SteakFajitas.html in Resources */,
+				361BC45C1F92E6F80011A20E /* Panang Curry.html in Resources */,
 				6A91E4AC1BE2679300A72CCA /* Balanced Plate2.png in Resources */,
 				36FE38FB1C0A0874002E341E /* Balanced Plate22.png in Resources */,
 				6A91E4961BE2679300A72CCA /* SweetDilemma.html in Resources */,
@@ -1164,6 +1241,7 @@
 				6A91E4851BE2679300A72CCA /* Coffeehealth.html in Resources */,
 				36D9D53E1BE8445E003658FE /* CarbsProVeg.html in Resources */,
 				6A91E4A31BE2679300A72CCA /* Balanced Plate.png in Resources */,
+				6A90E0991FBA679300714F4E /* MenuPlan.storyboard in Resources */,
 				36FE39041C0A0E4B002E341E /* Directions.html in Resources */,
 				6A91E47C1BE2679300A72CCA /* BasicVinaigrette.html in Resources */,
 				36FE39271C0B65C5002E341E /* ChoosePlate.png in Resources */,
@@ -1172,6 +1250,7 @@
 				6A91E4A81BE2679300A72CCA /* Balanced Plate14.png in Resources */,
 				36FE39321C0B65C5002E341E /* TrackFoodwithWaterFood.png in Resources */,
 				6A91E49C1BE2679300A72CCA /* addButtonImage.png in Resources */,
+				361BC4611F9D2AB40011A20E /* DessertPlate.png in Resources */,
 				6A91E4C01BE2679300A72CCA /* Nutrition Questions Icon.ai in Resources */,
 				6A91E3311BE2625500A72CCA /* Main.storyboard in Resources */,
 				36FE38C61C023370002E341E /* TrackersTabImage.png in Resources */,
@@ -1179,6 +1258,7 @@
 				6A91E4891BE2679300A72CCA /* Freshfrozencanned.html in Resources */,
 				6A91E4C51BE2679300A72CCA /* SegmentImagesFood.png in Resources */,
 				36FE39161C0A1291002E341E /* TrackFoodwithWaterFood.png in Resources */,
+				6A60E3DC1F911DAC00A48D03 /* Trackers.storyboard in Resources */,
 				6A91E47A1BE2679300A72CCA /* 1903 World Series.html in Resources */,
 				36FE38FF1C0A0874002E341E /* Balanced Plate26.png in Resources */,
 				6A91E4871BE2679300A72CCA /* ErgonomicallyCorrect.html in Resources */,
@@ -1224,6 +1304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				365AAC691FB21AD200A5450A /* UpGradeViewController.m in Sources */,
 				365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */,
 				6A91E45D1BE2679300A72CCA /* MgNetworkOperation2.m in Sources */,
 				6A91E45B1BE2679300A72CCA /* MenuPlanCell.m in Sources */,
@@ -1241,12 +1322,14 @@
 				6A91E4401BE2679300A72CCA /* ChoosePlateViewController.m in Sources */,
 				6A91E4481BE2679300A72CCA /* FoodTrackerCell.m in Sources */,
 				6A91E4301BE2679300A72CCA /* AbstractViewController.m in Sources */,
+				361BC4511F9173830011A20E /* GoalGamePlanViewController.m in Sources */,
 				6A91E4641BE2679300A72CCA /* ProgressHeaderView.m in Sources */,
 				6A91E44E1BE2679300A72CCA /* Goal.m in Sources */,
 				36D9D53C1BE80481003658FE /* GenericWebViewController2.m in Sources */,
 				6A91E4331BE2679300A72CCA /* ActivityTrackerViewController.m in Sources */,
 				6A91E4661BE2679300A72CCA /* RecipeDetailViewController.m in Sources */,
 				6A91E43A1BE2679300A72CCA /* ChooseActivityCell.m in Sources */,
+				6A4726641FB91D3E0057C451 /* CheckBoxView.m in Sources */,
 				6A91E4411BE2679300A72CCA /* Completed.m in Sources */,
 				6A91E4631BE2679300A72CCA /* ProgressCollectionViewCell.m in Sources */,
 				6A91E4571BE2679300A72CCA /* HealthQuestionsViewController.m in Sources */,
@@ -1254,6 +1337,7 @@
 				6AD7A80A1C3050E0004BD58F /* Plate.m in Sources */,
 				6A91E43B1BE2679300A72CCA /* ChooseActivityViewController.m in Sources */,
 				6A91E4791BE2679300A72CCA /* ViewControllerGoal.m in Sources */,
+				6A90E09C1FBB6DEE00714F4E /* PickerContainerView.m in Sources */,
 				6A91E4781BE2679300A72CCA /* ViewControllerGamePlan.m in Sources */,
 				6A91E3281BE2625500A72CCA /* AppDelegate.m in Sources */,
 				6A91E4461BE2679300A72CCA /* FirstViewController.m in Sources */,
@@ -1272,6 +1356,7 @@
 				6A91E4441BE2679300A72CCA /* DrinkTrackerCell.m in Sources */,
 				6A91E4621BE2679300A72CCA /* ProgressCollectionView.m in Sources */,
 				6A91E45A1BE2679300A72CCA /* MenuPlan.m in Sources */,
+				6A90E08E1FB9248900714F4E /* AbstractCustomView.m in Sources */,
 				36F433A31C151AE50053D4EE /* DirectionsViewController.m in Sources */,
 				6A5541641F5C82D700447A4E /* Calendar.m in Sources */,
 				365847631F709637006DF9E4 /* ExercisePlanCell.m in Sources */,
@@ -1289,10 +1374,13 @@
 				6A91E46C1BE2679300A72CCA /* SecondViewController.m in Sources */,
 				6A91E44B1BE2679300A72CCA /* FullOpeningViewController.m in Sources */,
 				6A91E4611BE2679300A72CCA /* ProblemsViewController.m in Sources */,
+				6A90E0911FBA104800714F4E /* CDatePickerViewEx.m in Sources */,
 				367D6FD11F83D566006281D3 /* GoalSetViewController.m in Sources */,
 				36278DAF1C2DAD8F00B899E4 /* MenuItem.m in Sources */,
 				6A91E4731BE2679300A72CCA /* Stress.m in Sources */,
 				6A91E4561BE2679300A72CCA /* HealthQuestionsCell.m in Sources */,
+				6A799F7C1F859E9F008E6EA3 /* MasterTrackerViewController.m in Sources */,
+				6A2CA3601F8EAF0400DC7668 /* DatePickerView.m in Sources */,
 				6A91E46A1BE2679300A72CCA /* SeasonalVegGameViewController.m in Sources */,
 				6A91E4511BE2679300A72CCA /* GoalMoreViewController.m in Sources */,
 				6A91E4431BE2679300A72CCA /* Drink.m in Sources */,
@@ -1319,6 +1407,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		6A60E3DA1F911DAC00A48D03 /* Trackers.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A60E3DB1F911DAC00A48D03 /* Base */,
+			);
+			name = Trackers.storyboard;
+			sourceTree = "<group>";
+		};
+		6A90E0921FBA60BF00714F4E /* More.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A90E0931FBA60BF00714F4E /* Base */,
+			);
+			name = More.storyboard;
+			sourceTree = "<group>";
+		};
+		6A90E0971FBA679300714F4E /* MenuPlan.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A90E0981FBA679300714F4E /* Base */,
+			);
+			name = MenuPlan.storyboard;
+			sourceTree = "<group>";
+		};
 		6A91E32F1BE2625500A72CCA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

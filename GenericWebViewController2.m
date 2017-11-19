@@ -25,7 +25,16 @@ switch (self.webViewType2) {
         NSURL *baseURL = [NSURL fileURLWithPath:path];
         [self.thisWebView loadHTMLString:webString baseURL:baseURL];
     }
+        break;
         
+    case balance:{
+        NSString *path = [self pathForFilename:@"UnderstandingBalance.html"];
+        NSString *webString = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        NSURL *baseURL = [NSURL fileURLWithPath:path];
+        [self.thisWebView loadHTMLString:webString baseURL:baseURL];
+        
+    }
+        break;
     case fAQs:{
         NSString *path = [self pathForFilename:@"FAQs.html"];
         NSString *webString = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];

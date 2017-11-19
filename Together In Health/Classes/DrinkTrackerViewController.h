@@ -13,8 +13,9 @@
 @class Drink;
 @class ChooseDrinkViewController;
 @class Day;
-
+@class MasterTrackerViewController;
 @interface DrinkTrackerViewController : AbstractViewController
+@property (nonatomic, weak) MasterTrackerViewController *masterTrackerViewController;
 
 @property (nonatomic, strong) DrinkTrackerCell* drinkTrackerCell;
 @property (nonatomic, strong) Drink* drink;
@@ -30,6 +31,11 @@
 @property (nonatomic, strong) NSArray* detaildataArray;
 @property (nonatomic, strong) NSArray* addDrinkArray;
 @property (nonatomic, strong) NSString* drinkString;
+
+@property (nonatomic) NSInteger drinkTotalWater;
+@property (nonatomic) NSInteger drinkTotalSugar;
+@property (nonatomic) NSInteger drinkTotalCaffeine;
+@property (nonatomic) NSInteger drinkTotalAlcohol;
 
 @property (nonatomic, strong) NSMutableArray *allDrinkArray;
 
@@ -48,7 +54,7 @@
 -(IBAction)sleep:(id)sender;
 -(IBAction)stress:(id)sender;
 
--(void)resetDay;
+
 -(IBAction)backDay:(id)sender;
 -(IBAction)forwardDay:(id)sender;
 @property (nonatomic) int dayOffset;

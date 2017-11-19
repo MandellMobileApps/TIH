@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Cami Mandell. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "AppDelegate.h"
+
+#import "AbstractViewController.h"
 
 enum goalNumber {
     goal1 = 1,
@@ -21,14 +21,13 @@ enum goalNumber {
 @class ProgressCollectionView;
 @class ViewControllerGoal1;
 
-@interface ProgressViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ProgressViewController : AbstractViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic) int goalNumber;
-
+@property (nonatomic, strong) Goal *goal;
 @property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) IBOutlet UISegmentedControl* changeGoalSegment;
 
-@property (strong, nonatomic) AppDelegate *appDelegate;
 
 @property (nonatomic, weak) ViewControllerGoal1* viewControllerGoal1;
 @property (nonatomic, weak) ProgressCollectionView* progressCollectionView;

@@ -15,6 +15,7 @@
 #import "Day.h"
 #import "AppDelegate.h"
 #import "TIHDate.h"
+#import "MasterTrackerViewController.h"
 
 @implementation StressTrackerViewController
 
@@ -24,9 +25,7 @@
     self.navigationItem.backBarButtonItem = nil;
     [super viewDidLoad];
     
-    self.appDelegate.stressTrackerViewController = self;
-    
-    self.thisScrollView.contentSize = CGSizeMake(320, 700);
+    self.thisScrollView.contentSize = CGSizeMake(320, 650);
     
     [self resetDay];
     
@@ -74,17 +73,7 @@
 }
 
 -(void)resetDay {
-        
-    if ([self.appDelegate.day.date compare:[TIHDate dateAtMidnightFromDate:[NSDate date]]] == NSOrderedSame) {
-        self.dayLabel.text = @"Today";
-    }
-    
-    else {
-        
-        self.dayLabel.text = [TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime];
-    }
 
-    
     self.stressSegmentControl.selectedSegmentIndex = self.appDelegate.day.stressRating-1;
     self.energySegmentControl.selectedSegmentIndex = self.appDelegate.day.energyRating-1;
     self.moodSegmentControl.selectedSegmentIndex = self.appDelegate.day.moodRating-1;
@@ -224,37 +213,9 @@
     
     }
 
--(IBAction)food:(id)sender {
-    FoodTrackerViewController* foodTrackerViewController = (FoodTrackerViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"FoodTrackerViewController"];
-    foodTrackerViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:foodTrackerViewController animated:NO];
-}
 
--(IBAction)sleep:(id)sender {
-    SleepTrackerViewController* sleepTrackerViewController = (SleepTrackerViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
-    sleepTrackerViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:sleepTrackerViewController animated:NO];
-}
 
--(IBAction)activity:(id)sender {
-    ActivityTrackerViewController* activityTrackerViewController = (ActivityTrackerViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"ActivityTrackerViewController"];
-    activityTrackerViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:activityTrackerViewController animated:NO];
-}
 
--(IBAction)drink:(id)sender {
-    DrinkTrackerViewController* drinkTrackerViewController = (DrinkTrackerViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"DrinkTrackerViewController"];
-    drinkTrackerViewController.navigationItem.hidesBackButton = YES;
-    [self.navigationController pushViewController:drinkTrackerViewController animated:NO];
-}
 
 #pragma Change Day
 

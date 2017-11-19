@@ -15,11 +15,13 @@
 @class ChooseActivityCell;
 @class ChooseActivityViewController;
 @class Day;
+@class MasterTrackerViewController;
 
 @interface ActivityTrackerViewController : AbstractViewController <UITableViewDelegate, UITableViewDataSource, NSCopying>
 
 //@property (nonatomic, strong) NSArray *testActivity;
 //@property (nonatomic, strong) NSArray *testTime;
+@property (nonatomic, weak) MasterTrackerViewController *masterTrackerViewController;
 
 @property (nonatomic) int currentSelection;
 @property (nonatomic, retain) IBOutlet UIView *pickerViewContainer;
@@ -59,7 +61,7 @@
 -(IBAction)backDay:(id)sender;
 -(IBAction)forwardDay:(id)sender;
 @property (nonatomic) int dayOffset;
--(void)resetDay;
+
 
 @property (nonatomic, strong) IBOutlet UILabel *dayLabel;
 

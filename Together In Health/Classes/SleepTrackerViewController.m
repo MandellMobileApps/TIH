@@ -17,6 +17,7 @@
 #import "Day.h"
 #import "AppDelegate.h"
 #import "TIHDate.h"
+#import "MasterTrackerViewController.h"
 
 @implementation SleepTrackerViewController
 
@@ -28,12 +29,14 @@
     [self hideDatePicker];
     self.pickerViewContainer.hidden = YES;
     
-    self.thisScrollView.contentSize = CGSizeMake(320, 700);
+    self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 650);
     
     self.sleepButton.enabled = NO;
     
+    self.rateSleepSegment.selectedSegmentIndex = self.appDelegate.day.sleepTimeRating-1;
+    self.restedSegment.selectedSegmentIndex = self.appDelegate.day.wakeTimeRating-1;
 
-                      
+    
 //    self.opendetaildataArray = [NSArray arrayWithObjects:
 //                                @"10:00PM",
 //                                @"6:00AM",

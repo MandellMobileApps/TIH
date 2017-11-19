@@ -7,7 +7,7 @@
 //
 
 #import "AbstractViewController.h"
-#import "Goal.h"
+
 #import "ProgressViewController.h"
 #import "SQLiteAccess.h"
 #import "AppDelegate.h"
@@ -43,7 +43,9 @@
 //  ********************************************************************************************************
 //  Standard backbutton for all Navigation bars
 //  ********************************************************************************************************
-	UIBarButtonItem *backBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+	[super viewDidLoad];
+    
+    UIBarButtonItem *backBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
 	self.navigationItem.backBarButtonItem = backBarItem;
     
     self.appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -150,36 +152,13 @@
 
 }
 
--(void)loadGoalPersistent
-{
-    
-    NSString* path = [self dataFilePathofDocuments:@"GoalPersistent.archive"];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path])
-    {
-        
-        self.goals = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-        
-    }
-    else
-    {
-        self.goals = [NSMutableArray array];
-    }
-}
 
--(void)saveGoalPersistent
-{
-    NSString* path = [self dataFilePathofDocuments:@"GoalPersistent.archive"];
-    BOOL success = [NSKeyedArchiver archiveRootObject:self.goals toFile:path];
-    if (!success) {
-        
-    }
-}
 
 
 -(void)createGoalPakcage
 
 {
-    self.goalPackage = [NSMutableArray array];
+    //self.goalPackage = [NSMutableArray array];
     
     
 //    Goal* goal1 = [[Goal alloc] init];
@@ -229,7 +208,26 @@
     
 }
 
-
+-(void) checkForDatabaseInDocuments
+{
+    NSString *path1 = [self dataFilePathofBundle:@"TIHDatabase.sqlite"];
+    NSString *path2 = [self dataFilePathofDocuments:@"TIHDatabase.sqlite"];
+    
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:path2])
+    {
+        NSError* error;
+        [fileManager copyItemAtPath:path1 toPath: path2 error:&error];
+        
+        if (error != nil)
+        {
+            NSLog(@"Error message is %@", [error localizedDescription]);
+        }
+        
+    }
+    
+    
+}
 
 -(void) openEmailClientWithTo:(NSString*)to andSubject:(NSString*)subject andBody:(NSString*)body {
     
@@ -590,7 +588,7 @@
     {
         UIView* thisObject = (UIView*)object;
         [thisObject.layer setBorderColor:[color CGColor]];
-        [thisObject.layer setBorderWidth:1.0];
+        [thisObject.layer setBorderWidth:5.0];
         if (corner == CornerTypeRounded)
         {
             [thisObject.layer setCornerRadius:8.0f];
@@ -645,25 +643,39 @@
     }
 }
 
--(IBAction)backDay:(id)sender {
 
-    self.appDelegate.day = [self.appDelegate dayForDate:[TIHDate dateYesterdayAtMidnightFromDate:self.appDelegate.day.date]];
-    
-    [self resetDay];
-    
-    
-    
-}
-
--(IBAction)forwardDay:(id)sender{
-    
-    self.appDelegate.day = [self.appDelegate dayForDate:[TIHDate dateTomorrowAtMidnightFromDate:self.appDelegate.day.date]];
-
-    [self resetDay];
-    
-}
 
 -(void)resetDay{}
 
+#pragma mark - Custom Modal Presentation
+
+-(void)presentAsFullModel:(UIViewController *)thisViewController
+{
+	thisViewController.view.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+    [self.view addSubview:thisViewController.view];
+    
+        [UIView animateWithDuration:0.3
+			animations:^{
+    			thisViewController.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+			}
+			completion:^(BOOL finished){
+                [self addChildViewController:thisViewController];
+                [thisViewController didMoveToParentViewController:self];
+			}];
+}
+
+-(void) dismissAsFullModal:(UIViewController *)thisViewController
+{
+
+        [UIView animateWithDuration:0.3
+			animations:^{
+				thisViewController.view.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+			}
+			completion:^(BOOL finished){
+                [thisViewController.view removeFromSuperview];
+                [thisViewController removeFromParentViewController];
+			}];
+
+}
 
 @end

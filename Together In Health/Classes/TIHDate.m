@@ -60,6 +60,10 @@
             dateFormatter.dateStyle = NSDateFormatterShortStyle;
             dateFormatter.timeStyle = NSDateFormatterNoStyle;
             break;
+        case DateFormatLongDateNoTime:;
+            dateFormatter.dateStyle = NSDateFormatterLongStyle;
+            dateFormatter.timeStyle = NSDateFormatterNoStyle;
+            break;
             
         case DateFormatCustom1:;
             dateFormatter.dateFormat = DateFormatCustom1String;
@@ -106,6 +110,36 @@
 
 }
 
++(NSString*)dayOfWeekString:(NSInteger)dayOfWeek
+{
+    NSString* thisDayOfWeekString;
+      switch (dayOfWeek) {
+      case 0:
+        thisDayOfWeekString = @"Sunday";
+        break;
+      case 1:
+        thisDayOfWeekString = @"Monday";
+        break;
+      case 2:
+        thisDayOfWeekString = @"Tuesday";
+        break;
+      case 3:
+        thisDayOfWeekString = @"Wednesday";
+        break;
+      case 4:
+        thisDayOfWeekString = @"Thursday";
+        break;
+      case 5:
+        thisDayOfWeekString = @"Friday";
+        break;
+      case 6:
+        thisDayOfWeekString = @"Saturday";
+        break;
+      default:
+        break;
+    }
+    return thisDayOfWeekString;
+}
 #pragma mark Date Strings
 +(NSString*) dateStringfromEpoch:(NSString*)epoch withFormat:(int)formatType
 {
@@ -194,6 +228,15 @@
     NSString *stringDate = [dateFormatter stringFromDate:firstAtMonthMidnight];
     return stringDate;
 
+}
++(NSString*) dayOfWeekStringFromDate:(NSDate*)date
+{
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSUInteger unitFlags = NSCalendarUnitWeekday; // | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSDateComponents *comps = [gregorian components:unitFlags fromDate:date];
+    NSInteger dayOfWeek = comps.weekday;
+    return [TIHDate dayOfWeekString:dayOfWeek];
+    
 }
 +(NSString*) dateStringFirstOfLastMonthWithFormat:(int)formatType
 {
@@ -485,6 +528,18 @@
 	NSDate *yesterdayAtMidnight = [gregorian dateFromComponents:components];
     return yesterdayAtMidnight;
 }
+
++(NSDate*) dateFromComponentsMonth:(NSInteger)month day:(NSInteger)day year:(NSUInteger)year
+{
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [[NSDateComponents alloc]init];
+    comps.year = year;
+    comps.day = day;
+    comps.month = month;
+    NSDate *date = [gregorian dateFromComponents:comps];
+    return date;
+}
+
 
 //-(NSDate *) toLocalTime
 //{

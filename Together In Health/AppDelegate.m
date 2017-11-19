@@ -7,19 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "Day.h"
-#import "FoodTrackerViewController.h"
-#import "DrinkTrackerViewController.h"
-#import "StressTrackerViewController.h"
-#import "ActivityTrackerViewController.h"
-#import "TIHDate.h"
-#import "SQLiteAccess.h"
 #import "MgNetworkOperation2.h"
-#import "Activity.h"
-#import "Food.h"
-#import "Plate.h"
-#import "Mood.h"
-
+#import "GoalSetViewController.h"
+#import "GoalGamePlanViewController.h"
+#import "Day.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
@@ -93,7 +84,7 @@
 
     }
     
-
+    self.subscriptionLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"subscriptionLevel"];
 }
 
 -(void)savePersistent
@@ -104,6 +95,8 @@
     if (!success) {
         NSLog(@"DaysPersistent.archive did not save");
     }
+    [[NSUserDefaults standardUserDefaults] setInteger:self.subscriptionLevel forKey:@"subscriptionLevel"];
+    
     [self saveFavoriteActivities];
 }
 
@@ -263,10 +256,9 @@
                 [Plate plateImage:@"Balanced Plate27.png" protein:@"0 Protein" carbs:@"2/3 Carbs" vegetables:@"1/3 Vegetables" plateId:24],
                 [Plate plateImage:@"Balanced Plate28.png" protein:@"2/3 Protein" carbs:@"0 Carbs" vegetables:@"1/3 Vegetables" plateId:25],
                 [Plate plateImage:@"Balanced Plate29.png" protein:@"2/3 Protein" carbs:@"1/3 Carbs" vegetables:@"0 Vegetables" plateId:26],
-                                     
-                                     
                 [Plate plateImage:@"Balanced Plate5.png" protein:@"1/3 Protein" carbs:@"1/3 Carbs" vegetables:@"1/3 Vegetables" plateId:27],
-
+                [Plate plateImage:@"DessertPlate.png" protein:@"" carbs:@"" vegetables:@"Sweets/Desserts" plateId:28],
+                [Plate plateImage:@"FriedGreasyPlate.png" protein:@"" carbs:@"" vegetables:@"Fried/Greasy" plateId:29],
                                          
                                      
                                          nil];
@@ -397,14 +389,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     self.day = [self dayForDate:[NSDate date]];
-    if (self.foodTrackerViewController)
-    {
-        [self.foodTrackerViewController resetDay];
-    }
-    if (self.activityTrackerViewController)
-    {
-        [self.activityTrackerViewController resetDay];
-    }
+
     [self checkForUpdates];
 
 }
@@ -452,33 +437,31 @@
 
 
 -(Day*)dayForDate:(NSDate*)thisDate
-    {
-        
-        NSDate* atMidnight = [TIHDate dateAtMidnightFromDate:thisDate];
-        
-        Day* thisDay;
-        for (Day* day in self.days) {
-            
-            if ([atMidnight compare:day.date] == NSOrderedSame) {
-                thisDay = day;
-            }
-        }
-        
-        if (thisDay) {
-           // NSLog(@"Existing thisDay.date %@", thisDay.date);
+{
+    NSDate* atMidnight = [TIHDate dateAtMidnightFromDate:thisDate];
+    
+    Day* thisDay;
+
+    
+    for (Day* day in self.days) {
+        if ([atMidnight compare:day.date] == NSOrderedSame) {
+            thisDay = day;
+            NSLog(@"thisDay %@  %lu", day.date,day.drinksArray.count);
             return thisDay;
         }
-        
-        Day *newDay = [[Day alloc] initWithDate:atMidnight];
-        
-        [self.days addObject:newDay];
-        [self savePersistent];
-
-        return newDay;
-        
     }
+
+    Day *newDay = [[Day alloc] initWithDate:atMidnight];
     
+    [self.days addObject:newDay];
+    [self savePersistent];
+    NSLog(@"newDay %@  %lu", newDay.date,newDay.drinksArray.count);
+    return newDay;
     
+}
+    
+    //  doesn't create day object, returns nil if none.
+    // Don't want to create day object just for displaying goals on calendar
 -(Day*)calendarDayForDate:(NSDate*)thisDate
 {
     NSDate* atMidnight = [TIHDate dateAtMidnightFromDate:thisDate];
@@ -1247,6 +1230,57 @@
 
 
 
+-(void) loadGoals
+{
+    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
+    self.goalsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path]];
+    if (!self.goalsArray)
+    {
+        self.goalsArray = [NSMutableArray arrayWithObjects:
+                           [Goal thisGoal],
+                           [Goal thisGoal],
+                           [Goal thisGoal],
+                           nil];
+        NSInteger g = 1;
+        for (Goal* item in self.goalsArray)
+        {
+            item.goalName = [NSString stringWithFormat:@"Goal %lu",g];
+            item.goalColor = [self defaultGoalColors:g];
+            g++;
+        }
+        [self saveGoals];
+        
+    }
+
+}
+
+-(UIColor*)defaultGoalColors:(NSInteger)g
+{
+        switch (g) {
+      case 1:
+            return [UIColor blueColor];
+        break;
+      case 2:
+            return [UIColor redColor];
+        break;
+      case 3:
+            return [UIColor yellowColor];
+        break;
+      default:
+        break;
+    }
+    return [UIColor whiteColor];
+}
+
+-(void)saveGoals
+{
+    
+    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
+    BOOL success = [NSKeyedArchiver archiveRootObject:self.goalsArray toFile:path];
+    if (!success) {
+        NSLog(@"GoalsArray.archive Did Not Save");
+    }
+}
 
 
 

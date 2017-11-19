@@ -10,9 +10,13 @@
 #import "Food.h"
 #import "AbstractViewController.h"
 
+
 enum webViewType2 {
-    fAQs = 0,
-    disclaimer = 4,
+    aboutTIH = 0,
+    balance = 1,
+    fAQs = 2,
+    directions = 3,
+    disclaimer = 7,
     
 };
 
@@ -21,6 +25,7 @@ enum webViewType2 {
 @class ActivityTrackerViewController;
 @class ChoosePlateViewController;
 @class UnderstandBalanceViewController;
+@class MasterTrackerViewController;
 
 //NSString *const UITextAttributeTextColor;
 
@@ -31,26 +36,18 @@ enum webViewType2 {
 
 
 @property (nonatomic, strong) NSArray *addCellArray;
-
+@property (nonatomic, weak) MasterTrackerViewController *masterTrackerViewController;
 @property (nonatomic, strong) NSArray *plateImageArray;
 @property (nonatomic, strong) NSMutableArray *alldayFoodArray;
 
-@property (nonatomic, strong) IBOutlet UILabel *dayLabel;
-@property (nonatomic, strong) IBOutlet UILabel *locationLabel;
 @property (nonatomic, strong) IBOutlet UITableView* thisTableView;
-@property (nonatomic, strong) FoodTrackerViewController* foodTrackerViewController;
 @property (nonatomic, strong) Food* food;
-//@property (nonatomic, strong) FoodTrackerCell* foodTrackerCell;
 
 @property (nonatomic, strong) ActivityTrackerViewController* activityTrackerViewController;
 @property (nonatomic, strong) ChoosePlateViewController* choosePlateViewController;
 @property (nonatomic, strong) UnderstandBalanceViewController* understandBalanceViewController;
 
-@property (nonatomic, strong) IBOutlet UIButton* foodButton;
-@property (nonatomic, strong) IBOutlet UIButton* sleepButton;
-@property (nonatomic, strong) IBOutlet UIButton* stresButton;
-@property (nonatomic, strong) IBOutlet UIButton* activityButton;
-@property (nonatomic, strong) IBOutlet UIButton* drinkButton;
+
 
 -(IBAction)food:(id)sender;
 -(IBAction)sleep:(id)sender;
@@ -78,7 +75,6 @@ enum webViewType2 {
 -(IBAction)forwardDay:(id)sender;
 
 
-@property (nonatomic, strong) IBOutlet UIView *freeMenuView;
 @property (nonatomic, strong) IBOutlet UIView *paidMenuView;
 
 -(void)hideFreeTabs;
@@ -116,7 +112,7 @@ enum webViewType2 {
 -(IBAction)termsConditions:(id)sender;
 -(IBAction)continueProgram:(id)sender;
 @property (nonatomic, strong) IBOutlet UIButton *continueButton;
-@property (nonatomic) BOOL isAgree;
+
 @property (nonatomic) BOOL agreeIsOn;
 -(void)saveDefaults;
 @property (nonatomic, strong) IBOutlet UITextView *disclaimerTextView;

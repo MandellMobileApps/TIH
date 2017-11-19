@@ -21,6 +21,9 @@
     thisDay.moodRating = -1;
     thisDay.copingRating = -1;
 
+    thisDay.sleepTimeRating = -1;
+    thisDay.wakeTimeRating = -1;
+    
     thisDay.sleepTime = [NSDate date];
     thisDay.wakeTime = [NSDate date];
     
@@ -53,6 +56,7 @@
         self.foodArray = [decoder decodeObjectForKey:@"foodArray"];
         self.waterCupsString = [decoder decodeObjectForKey:@"waterCupsString"];
         self.moodArray = [decoder decodeObjectForKey:@"moodArray"];
+        self.drinksArray = [decoder decodeObjectForKey:@"drinksArray"];
         
         self.mealLocation = [decoder decodeIntForKey:@"mealLocation"];
         
@@ -89,9 +93,10 @@
     [encoder encodeObject:self.foodArray forKey:@"foodArray"];
     [encoder encodeObject:self.moodArray forKey:@"moodArray"];
     [encoder encodeObject:self.waterCupsString forKey:@"waterCupsString"];
+    [encoder encodeObject:self.drinksArray forKey:@"drinksArray"];
     
     [encoder encodeInt:self.stressRating forKey:@"stressRating"];
-     [encoder encodeInt:self.energyRating forKey:@"energyRating"];
+    [encoder encodeInt:self.energyRating forKey:@"energyRating"];
     [encoder encodeInt:self.concentrationRating forKey:@"concentrationRating"];
     [encoder encodeInt:self.moodRating forKey:@"moodRating"];
     [encoder encodeInt:self.copingRating forKey:@"copingRating"];

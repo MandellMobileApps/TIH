@@ -16,7 +16,7 @@ enum DateFormat {
     DateFormatMediumDateLongTime = 5,
     DateFormatNoDateShortTime = 6,
     DateFormatShortDateNoTime = 7,
-    
+    DateFormatLongDateNoTime = 8,
     DateFormatCustom1 = 11,
     DateFormatCustom2 = 12,
     DateFormatCustom3 = 13,
@@ -93,5 +93,7 @@ enum DateFormat {
 +(NSDate*) dateTomorrowAtMidnightFromDate:(NSDate*)thisDate;
 +(NSDate*) dateYesterdayAtMidnightFromDate:(NSDate*)thisDate;
 
-
++(NSDate*) dateFromComponentsMonth:(NSInteger)month day:(NSInteger)day year:(NSUInteger)year;
++(NSString*)dayOfWeekString:(NSInteger)dayOfWeek;
++(NSString*) dayOfWeekStringFromDate:(NSDate*)date;
 @end

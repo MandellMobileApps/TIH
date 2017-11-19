@@ -33,6 +33,9 @@
 @property (nonatomic) int moodRating;
 @property (nonatomic) int copingRating;
 
+@property (nonatomic) int sleepTimeRating;
+@property (nonatomic) int wakeTimeRating;
+
 @property (nonatomic) int mealLocation;
 @property (nonatomic) int restedRating;
 @property (nonatomic) int ratedRating;

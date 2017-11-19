@@ -16,6 +16,7 @@
 #import "AppDelegate.h"
 #import "GenericWebViewController.h"
 #import "PlateBreakdownViewController.h"
+#import "MasterTrackerViewController.h"
 
 @implementation ChoosePlateViewController
 - (void)viewDidLoad
@@ -24,6 +25,10 @@
 
 //	UIBarButtonItem *backBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelData:)];
 	self.navigationController.navigationBar.hidden = YES;
+    
+    self.navbarView.backgroundColor =  [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    self.navbarTitleLabel.font = [UIFont fontWithName:@"Arial" size:22.0];
+    self.navbarTitleLabel.textColor = [UIColor whiteColor];
     
     UIImage* image = [UIImage imageNamed:@"QuestionMark.png"];
     
@@ -42,8 +47,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     [super viewWillAppear:animated];
-    
     if (self.food)
     {
         self.food = [self copyFood:self.food];
@@ -54,8 +59,11 @@
     {
     
         self.food = [[Food alloc]init];
-        self.food.plate = [self.appDelegate.allPlates objectAtIndex:0];
-        self.food.mood = [self.appDelegate.allMoods firstObject];
+        //self.food.plate = nil;//[self.appDelegate.allPlates objectAtIndex:0];
+        self.food.plate = [[Plate alloc] init];
+        self.food.plate.plateId = -1;
+        self.food.mood = [[Mood alloc] init]; //[self.appDelegate.allMoods firstObject];
+        self.food.mood.moodId = -1;
         self.food.mealType = self.mealType;
         self.isNew = YES;
     }
@@ -63,6 +71,11 @@
 
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+   
+    [super viewDidDisappear:animated];
+}
 -(Food*)copyFood:(Food*)food
 {
     if (food)
@@ -107,6 +120,9 @@
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
     switch (self.appDelegate.subscriptionLevel) {
     
+            
+        case SubscriptionFree:
+            return 1;
       case SubscriptionPaid1:
             return 2;
         break;
@@ -124,13 +140,22 @@
 {
 
     switch (self.appDelegate.subscriptionLevel) {
-    
+            
+        case SubscriptionFree:
+            if (section == 0)
+            {
+                return 0;
+            }
+            return self.appDelegate.allPlates.count-2;
+            break;
+
       case SubscriptionPaid1:
       
         if (section == 0)
         {
             return self.appDelegate.allMoods.count;
         }
+            return self.appDelegate.allPlates.count;
 
         break;
       case SubscriptionPaid2:
@@ -139,10 +164,12 @@
         {
            return self.appDelegate.allMoods.count;
         }
+            return self.appDelegate.allPlates.count;
         break;
       default:
         break;
     }
+    
     return self.appDelegate.allPlates.count;
     
 }
@@ -166,7 +193,7 @@
       
         if (section == 0)
         {
-           return UIEdgeInsetsMake(5, 5, 40, 5);
+           return UIEdgeInsetsMake(0, 0, 20, 0);
         }
         break;
       default:
@@ -202,7 +229,11 @@
     }
     
     if (indexPath.section == 0) {
+        if (self.view.bounds.size.width > 355)
+        {
         return CGSizeMake(65,65);
+        }
+        return CGSizeMake(54,54);
     }
     
     else {
@@ -219,22 +250,29 @@
     switch (self.appDelegate.subscriptionLevel) {
     
       case SubscriptionFree:
-      
-        if (indexPath.section == 0)
-        {
+            if (indexPath.section ==0)
+            {
             MyCell = [self plateCellForIndexPath:indexPath];
-            MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
-            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
-        }
+            MyCell.plateImage.frame = CGRectMake(0, 0, 90, 90);
+            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 90, 90);
+            }
+
         break;
         
       case SubscriptionPaid1:
       
         if (indexPath.section == 0)
         {
-            MyCell = [self moodCellForIndexPath:indexPath];
-            MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
-            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
+            if (self.view.bounds.size.height >355) {
+                MyCell = [self moodCellForIndexPath:indexPath];
+                MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
+                MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
+            }
+            {
+                MyCell = [self moodCellForIndexPath:indexPath];
+                MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 50, 50);
+                MyCell.plateImageSelected.frame = CGRectMake(0, 0, 54, 54);
+            }
             
         }
         else if (indexPath.section == 1)
@@ -249,9 +287,16 @@
       
         if (indexPath.section == 0)
         {
-            MyCell = [self moodCellForIndexPath:indexPath];
-            MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
-            MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
+            if (self.view.bounds.size.height >355) {
+                MyCell = [self moodCellForIndexPath:indexPath];
+                MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 58, 58);
+                MyCell.plateImageSelected.frame = CGRectMake(0, 0, 65, 65);
+            }
+            {
+                MyCell = [self moodCellForIndexPath:indexPath];
+                MyCell.plateImage.frame = CGRectMake(2.5, 2.5, 50, 50);
+                MyCell.plateImageSelected.frame = CGRectMake(0, 0, 54, 54);
+            }
         }
         else if (indexPath.section == 1)
         {
@@ -359,37 +404,61 @@
 }
 
 -(IBAction)saveData:(id)sender {
-    if (self.isNew)
+    
+    if ((self.food.mood.moodId > -1)&&(self.food.plate.plateId > -1))
     {
-        [self.appDelegate.day.foodArray addObject:self.food];
+        
+        if (self.isNew)
+        {
+            [self.appDelegate.day.foodArray addObject:self.food];
+        }
+        else
+        {
+            [self.appDelegate.day.foodArray replaceObjectAtIndex:self.food.foodArrayIndex withObject:self.food];
+        
+        }
+
+            [self.navigationController popViewControllerAnimated:YES];
     }
     else
     {
-        [self.appDelegate.day.foodArray replaceObjectAtIndex:self.food.foodArrayIndex withObject:self.food];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must select a Mood and a Plate\nbefore you save." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        alertView.tag = 2;
+        [alertView show];
+    
     
     }
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(IBAction)cancelData:(id)sender {
     if (self.isNew || self.changesMade)
     {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Are you sure you want to cancel" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        alertView.tag = 1;
         [alertView show];
         
     }
     else
     {
+
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1)
+    if (alertView.tag == 2)
     {
-        [self.navigationController popViewControllerAnimated:YES];
     
+    
+    }
+    else
+    {
+
+        if (buttonIndex == 1)
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 

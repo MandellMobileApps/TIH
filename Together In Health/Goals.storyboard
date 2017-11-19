@@ -292,7 +292,7 @@
         <scene sceneID="60y-1y-Sgi">
             <objects>
                 <navigationController title="Goals" id="OIG-fB-XYy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Goals" selectedImage="GoalTabImage.png" id="H0Z-32-D7s"/>
+                    <tabBarItem key="tabBarItem" title="Goals" image="GoalTabImage.png" selectedImage="GoalTabImage.png" id="H0Z-32-D7s"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3fM-n8-nYB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

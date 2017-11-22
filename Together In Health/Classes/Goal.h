@@ -45,5 +45,5 @@
 
 +(Goal*) thisGoal;
 -(Goal*) copyGoal;
-
+-(void)logPropertiesWithTitle:(NSString*)title;
 @end

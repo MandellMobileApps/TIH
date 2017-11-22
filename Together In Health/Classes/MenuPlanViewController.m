@@ -266,15 +266,23 @@ return 0;
 //            break;
 //    }
 
--(IBAction)upgrade:(id)sender)
+-(IBAction)upgrade:(id)sender
 {
-self.upGradeViewController = (UpGradeViewController*)
-[[UIStoryboard storyboardWithName:@"Main" bundle:nil]
- instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
-self.upGradeViewController.view.frame = [self baseRect];
+    self.upGradeViewController = (UpGradeViewController*)
+    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+     instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
+    self.upGradeViewController.view.frame = [self baseRect];
 }
 
+-(CGRect)baseRect
+{
+        CGRect baseRect = self.view.bounds;
+        NSInteger menuHeight = 77+64;
+        baseRect.origin.y = menuHeight;
+        baseRect.size.height = self.view.frame.size.height-menuHeight;
+        return baseRect;
 
+}
 
 
 

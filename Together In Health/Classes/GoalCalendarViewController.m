@@ -33,6 +33,7 @@
         {
             item.goalName = [NSString stringWithFormat:@"Goal %lu",g];
             item.goalColor = [self.appDelegate defaultGoalColors:g];
+            [item logPropertiesWithTitle:@"tempRefreshGoals"];
             g++;
         }
         [self.appDelegate saveGoals];

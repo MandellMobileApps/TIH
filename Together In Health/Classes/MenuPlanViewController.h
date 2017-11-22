@@ -13,6 +13,7 @@
 @class MenuPlan;
 @class MenuPlanViewController;
 @class AppDelegate;
+@class UpGradeViewController;
 
 @interface MenuPlanViewController : UIViewController
 
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) MenuPlan *menuPlan;
 @property (nonatomic, strong) MenuPlanViewController *menuPlanViewController;
 @property (nonatomic, strong) AppDelegate *appDelegate;
+@property (nonatomic, strong) UpGradeViewController *upGradeViewController;
 
 @property (nonatomic, strong) NSArray *menuDayArray;
 @property (nonatomic, strong) NSMutableArray *sundayArray;

@@ -371,7 +371,7 @@
     self.mgOperationsQueue = [[NSOperationQueue alloc] init];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
         [self checkForUpdates];
-        [self loginToZoho];
+//        [self loginToZoho];
     
     return YES;
 }
@@ -1326,6 +1326,7 @@
 {
     NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
     self.goalsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path]];
+
     if (self.goalsArray.count < 3)
     {
         self.goalsArray = [NSMutableArray arrayWithObjects:
@@ -1338,6 +1339,7 @@
         {
             item.goalName = [NSString stringWithFormat:@"Goal %lu",g];
             item.goalColor = [self defaultGoalColors:g];
+            [item logPropertiesWithTitle:@"Create Goals"];
             g++;
         }
         [self saveGoals];
@@ -1345,6 +1347,21 @@
     }
 
 }
+
+-(void)saveGoals
+{
+    
+    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
+    BOOL success = [NSKeyedArchiver archiveRootObject:self.goalsArray toFile:path];
+        for (Goal* item in self.goalsArray)
+        {
+            [item logPropertiesWithTitle:@"Save Goals"];
+        }
+    if (!success) {
+        NSLog(@"GoalsArray.archive Did Not Save");
+    }
+}
+
 
 -(UIColor*)defaultGoalColors:(NSInteger)g
 {
@@ -1363,17 +1380,6 @@
     }
     return [UIColor whiteColor];
 }
-
--(void)saveGoals
-{
-    
-    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
-    BOOL success = [NSKeyedArchiver archiveRootObject:self.goalsArray toFile:path];
-    if (!success) {
-        NSLog(@"GoalsArray.archive Did Not Save");
-    }
-}
-
 
 
 @end

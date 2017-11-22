@@ -35,7 +35,7 @@
     self.appDelegate.goalSetViewController = self;
     self.thisScrollView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-64);
     self.thisScrollView.contentSize = CGSizeMake( self.view.bounds.size.width, 700);
-
+    
     [self loadGoalIntoUI];
 
 }
@@ -161,8 +161,17 @@
     else if (sender.tag == 1)
     {
         [self resignFirstResponders];
+        [self.goal logPropertiesWithTitle:@"This Goal"];
         [self.appDelegate.goalsArray replaceObjectAtIndex:self.goalIndex withObject:self.goal];
+        for (Goal* item in self.appDelegate.goalsArray)
+        {
+            [item logPropertiesWithTitle:@"Before Save Goals"];
+        }
         [self.appDelegate saveGoals];
+        for (Goal* item in self.appDelegate.goalsArray)
+        {
+            [item logPropertiesWithTitle:@"After Save Goals"];
+        }
         [self.navigationController popViewControllerAnimated:YES];
     }
     
@@ -170,6 +179,7 @@
 
 -(void)loadGoalIntoUI
 {
+    [self.goal logPropertiesWithTitle:@"loadGoalIntoUI"];
     self.titleLabel.text = self.goal.goalName;
     self.goalTextField.text = self.goal.goalName;
     self.daysTextField.text = self.goal.days;
@@ -195,18 +205,6 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    self.goal.goalName = self.goalTextField.text;
-    self.goal.days = self.daysTextField.text;
-    self.goal.times = self.timesTextField.text;
-    self.goal.where = self.whereTextField.text;
-    self.goal.amount = self.amountTextField.text;
-    
-    self.goal.step1 = self.step1TextField.text;
-    self.goal.step2 = self.step2TextField.text;
-    self.goal.step3 = self.step3TextField.text;
-    self.goal.step4 = self.step4TextField.text;
-    self.goal.step5 = self.step5TextField.text;
-    
     return YES;
 }
 
@@ -228,41 +226,16 @@
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-//    switch (textField.tag) {
-//        case 0:
-//            self.goal.goalName = textField.text;
-//        break;
-//        case 1:
-//            self.goal.days = textField.text;
-//        break;
-//        case 2:
-//            self.goal.times = textField.text;
-//        break;
-//        case 3:
-//            self.goal.where = textField.text;
-//        break;
-//        case 4:
-//            self.goal.amount = textField.text;
-//        break;
-//        case 5:
-//            self.goal.step1 = textField.text;
-//        break;
-//        case 6:
-//            self.goal.step2 = textField.text;
-//        break;
-//        case 7:
-//            self.goal.step3 = textField.text;
-//        break;
-//        case 8:
-//            self.goal.step4 = textField.text;
-//        break;
-//        case 9:
-//            self.goal.step5 = textField.text;
-//        break;
-//        default:
-//            NSLog(@"textField tag not set");
-//        break;
-//    }
+    self.goal.goalName = self.goalTextField.text;
+    self.goal.days = self.daysTextField.text;
+    self.goal.times = self.timesTextField.text;
+    self.goal.where = self.whereTextField.text;
+    self.goal.amount = self.amountTextField.text;
+    self.goal.step1 = self.step1TextField.text;
+    self.goal.step2 = self.step2TextField.text;
+    self.goal.step3 = self.step3TextField.text;
+    self.goal.step4 = self.step4TextField.text;
+    self.goal.step5 = self.step5TextField.text;
     self.changeMade = YES;
     if (textField.tag> 5)
     {

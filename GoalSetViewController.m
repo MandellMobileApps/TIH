@@ -161,17 +161,17 @@
     else if (sender.tag == 1)
     {
         [self resignFirstResponders];
-        [self.goal logPropertiesWithTitle:@"This Goal"];
+//        [self.goal logPropertiesWithTitle:@"This Goal"];
         [self.appDelegate.goalsArray replaceObjectAtIndex:self.goalIndex withObject:self.goal];
-        for (Goal* item in self.appDelegate.goalsArray)
-        {
-            [item logPropertiesWithTitle:@"Before Save Goals"];
-        }
+//        for (Goal* item in self.appDelegate.goalsArray)
+//        {
+//            [item logPropertiesWithTitle:@"Before Save Goals"];
+//        }
         [self.appDelegate saveGoals];
-        for (Goal* item in self.appDelegate.goalsArray)
-        {
-            [item logPropertiesWithTitle:@"After Save Goals"];
-        }
+//        for (Goal* item in self.appDelegate.goalsArray)
+//        {
+//            [item logPropertiesWithTitle:@"After Save Goals"];
+//        }
         [self.navigationController popViewControllerAnimated:YES];
     }
     
@@ -179,7 +179,7 @@
 
 -(void)loadGoalIntoUI
 {
-    [self.goal logPropertiesWithTitle:@"loadGoalIntoUI"];
+//    [self.goal logPropertiesWithTitle:@"loadGoalIntoUI"];
     self.titleLabel.text = self.goal.goalName;
     self.goalTextField.text = self.goal.goalName;
     self.daysTextField.text = self.goal.days;

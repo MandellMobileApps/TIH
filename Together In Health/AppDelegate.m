@@ -86,6 +86,7 @@
     }
     
     self.subscriptionLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"subscriptionLevel"];
+    self.subscriptionLevel = 2;
 }
 
 -(void)savePersistent
@@ -1339,7 +1340,7 @@
         {
             item.goalName = [NSString stringWithFormat:@"Goal %lu",g];
             item.goalColor = [self defaultGoalColors:g];
-            [item logPropertiesWithTitle:@"Create Goals"];
+//            [item logPropertiesWithTitle:@"Create Goals"];
             g++;
         }
         [self saveGoals];
@@ -1353,10 +1354,10 @@
     
     NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
     BOOL success = [NSKeyedArchiver archiveRootObject:self.goalsArray toFile:path];
-        for (Goal* item in self.goalsArray)
-        {
-            [item logPropertiesWithTitle:@"Save Goals"];
-        }
+//        for (Goal* item in self.goalsArray)
+//        {
+//            [item logPropertiesWithTitle:@"Save Goals"];
+//        }
     if (!success) {
         NSLog(@"GoalsArray.archive Did Not Save");
     }

@@ -11,12 +11,16 @@
 @class MenuPlanCell;
 @class AddMenuItemViewController;
 @class MenuPlan;
+@class MenuPlanViewController;
+@class AppDelegate;
 
 @interface MenuPlanViewController : UIViewController
 
 @property (nonatomic, strong) MenuPlanCell *menuPlanCell;
 @property (nonatomic, strong) AddMenuItemViewController *addMenuItemViewController;
 @property (nonatomic, strong) MenuPlan *menuPlan;
+@property (nonatomic, strong) MenuPlanViewController *menuPlanViewController;
+@property (nonatomic, strong) AppDelegate *appDelegate;
 
 @property (nonatomic, strong) NSArray *menuDayArray;
 @property (nonatomic, strong) NSMutableArray *sundayArray;
@@ -27,6 +31,9 @@
 @property (nonatomic, strong) NSMutableArray *fridayArray;
 @property (nonatomic, strong) NSMutableArray *saturdayArray;
 @property (nonatomic, strong) IBOutlet UITableView *thisTableView;
+@property (nonatomic,strong) UISegmentedControl *menutypeSegment;
+@property (nonatomic) int menuTypeRating;
+@property (nonatomic, strong) IBOutlet UIButton *upgradeButton;
 
 -(IBAction)recipes:(id)sender;
 

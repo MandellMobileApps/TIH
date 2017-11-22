@@ -39,6 +39,10 @@ enum trackerIndex {
     NSLog(@"days count %lu",self.appDelegate.days.count);
 
 }
+-(IBAction)tempToTestZoho:(id)sender
+{
+    [self.appDelegate loginToZoho];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     

@@ -34,6 +34,7 @@ enum SubscriptionLevel {
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) Day *day;
+@property (nonatomic, strong) NSString* zohoAuthToken;
 @property (nonatomic, strong) UITabBarController *tabBarController;
 @property (nonatomic, strong) NSMutableArray *days;
 @property (nonatomic, strong) NSMutableArray *allActivities;
@@ -58,5 +59,7 @@ enum SubscriptionLevel {
 -(void) loadGoals;
 -(UIColor*)defaultGoalColors:(NSInteger)g;
 -(void)saveGoals;
+ #pragma mark - API Methods
+-(void)loginToZoho;
 @end
 

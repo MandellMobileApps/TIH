@@ -99,6 +99,7 @@
 		6A90E0941FBA60BF00714F4E /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A90E0921FBA60BF00714F4E /* More.storyboard */; };
 		6A90E0991FBA679300714F4E /* MenuPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A90E0971FBA679300714F4E /* MenuPlan.storyboard */; };
 		6A90E09C1FBB6DEE00714F4E /* PickerContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A90E09B1FBB6DEE00714F4E /* PickerContainerView.m */; };
+		6A90E0A31FC491E300714F4E /* MgNetworkOperation2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A90E09F1FC491E200714F4E /* MgNetworkOperation2.m */; };
 		6A91E3251BE2625500A72CCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3241BE2625500A72CCA /* main.m */; };
 		6A91E3281BE2625500A72CCA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3271BE2625500A72CCA /* AppDelegate.m */; };
 		6A91E3311BE2625500A72CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A91E32F1BE2625500A72CCA /* Main.storyboard */; };
@@ -153,7 +154,6 @@
 		6A91E45A1BE2679300A72CCA /* MenuPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E39E1BE2679300A72CCA /* MenuPlan.m */; };
 		6A91E45B1BE2679300A72CCA /* MenuPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3A01BE2679300A72CCA /* MenuPlanCell.m */; };
 		6A91E45C1BE2679300A72CCA /* MenuPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3A21BE2679300A72CCA /* MenuPlanViewController.m */; };
-		6A91E45D1BE2679300A72CCA /* MgNetworkOperation2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3A41BE2679300A72CCA /* MgNetworkOperation2.m */; };
 		6A91E45E1BE2679300A72CCA /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3A61BE2679300A72CCA /* NoteViewController.m */; };
 		6A91E45F1BE2679300A72CCA /* PlateExamples.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A91E3A71BE2679300A72CCA /* PlateExamples.html */; };
 		6A91E4601BE2679300A72CCA /* ProblemsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3A91BE2679300A72CCA /* ProblemsCell.m */; };
@@ -386,6 +386,8 @@
 		6A90E0981FBA679300714F4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Together In Health/Base.lproj/MenuPlan.storyboard"; sourceTree = "<group>"; };
 		6A90E09A1FBB6DEE00714F4E /* PickerContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PickerContainerView.h; path = Classes/PickerContainerView.h; sourceTree = "<group>"; };
 		6A90E09B1FBB6DEE00714F4E /* PickerContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PickerContainerView.m; path = Classes/PickerContainerView.m; sourceTree = "<group>"; };
+		6A90E09F1FC491E200714F4E /* MgNetworkOperation2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MgNetworkOperation2.m; path = ../../../Projects/giLicenseManager/giLicenseManager/MgNetworkOperation2.m; sourceTree = "<group>"; };
+		6A90E0A01FC491E200714F4E /* MgNetworkOperation2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MgNetworkOperation2.h; path = ../../../Projects/giLicenseManager/giLicenseManager/MgNetworkOperation2.h; sourceTree = "<group>"; };
 		6A91E3201BE2625500A72CCA /* Together In Health.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Together In Health.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A91E3241BE2625500A72CCA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A91E3261BE2625500A72CCA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -487,8 +489,6 @@
 		6A91E3A01BE2679300A72CCA /* MenuPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuPlanCell.m; sourceTree = "<group>"; };
 		6A91E3A11BE2679300A72CCA /* MenuPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuPlanViewController.h; sourceTree = "<group>"; };
 		6A91E3A21BE2679300A72CCA /* MenuPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuPlanViewController.m; sourceTree = "<group>"; };
-		6A91E3A31BE2679300A72CCA /* MgNetworkOperation2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MgNetworkOperation2.h; sourceTree = "<group>"; };
-		6A91E3A41BE2679300A72CCA /* MgNetworkOperation2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MgNetworkOperation2.m; sourceTree = "<group>"; };
 		6A91E3A51BE2679300A72CCA /* NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
 		6A91E3A61BE2679300A72CCA /* NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
 		6A91E3A71BE2679300A72CCA /* PlateExamples.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = PlateExamples.html; sourceTree = "<group>"; };
@@ -759,6 +759,8 @@
 		6A91E3491BE2679200A72CCA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6A90E0A01FC491E200714F4E /* MgNetworkOperation2.h */,
+				6A90E09F1FC491E200714F4E /* MgNetworkOperation2.m */,
 				36D9D53A1BE80481003658FE /* GenericWebViewController2.h */,
 				36D9D53B1BE80481003658FE /* GenericWebViewController2.m */,
 				365AAC651FB2064A00A5450A /* FoodLabelNew.png */,
@@ -863,8 +865,6 @@
 				6A91E3A01BE2679300A72CCA /* MenuPlanCell.m */,
 				6A91E3A11BE2679300A72CCA /* MenuPlanViewController.h */,
 				6A91E3A21BE2679300A72CCA /* MenuPlanViewController.m */,
-				6A91E3A31BE2679300A72CCA /* MgNetworkOperation2.h */,
-				6A91E3A41BE2679300A72CCA /* MgNetworkOperation2.m */,
 				6A91E3A51BE2679300A72CCA /* NoteViewController.h */,
 				6A91E3A61BE2679300A72CCA /* NoteViewController.m */,
 				6A91E3A71BE2679300A72CCA /* PlateExamples.html */,
@@ -1306,7 +1306,6 @@
 			files = (
 				365AAC691FB21AD200A5450A /* UpGradeViewController.m in Sources */,
 				365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */,
-				6A91E45D1BE2679300A72CCA /* MgNetworkOperation2.m in Sources */,
 				6A91E45B1BE2679300A72CCA /* MenuPlanCell.m in Sources */,
 				6A91E4591BE2679300A72CCA /* HQViewController.m in Sources */,
 				6A91E4711BE2679300A72CCA /* SolutionsViewController.m in Sources */,
@@ -1353,6 +1352,7 @@
 				6A91E4311BE2679300A72CCA /* Activity.m in Sources */,
 				6A91E46B1BE2679300A72CCA /* SeasonalVegInfoViewController.m in Sources */,
 				6A91E4491BE2679300A72CCA /* FoodTrackerViewController.m in Sources */,
+				6A90E0A31FC491E300714F4E /* MgNetworkOperation2.m in Sources */,
 				6A91E4441BE2679300A72CCA /* DrinkTrackerCell.m in Sources */,
 				6A91E4621BE2679300A72CCA /* ProgressCollectionView.m in Sources */,
 				6A91E45A1BE2679300A72CCA /* MenuPlan.m in Sources */,

@@ -228,41 +228,41 @@
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    switch (textField.tag) {
-        case 0:
-            self.goal.goalName = textField.text;
-        break;
-        case 1:
-            self.goal.days = textField.text;
-        break;
-        case 2:
-            self.goal.times = textField.text;
-        break;
-        case 3:
-            self.goal.where = textField.text;
-        break;
-        case 4:
-            self.goal.amount = textField.text;
-        break;
-        case 5:
-            self.goal.step1 = textField.text;
-        break;
-        case 6:
-            self.goal.step2 = textField.text;
-        break;
-        case 7:
-            self.goal.step3 = textField.text;
-        break;
-        case 8:
-            self.goal.step4 = textField.text;
-        break;
-        case 9:
-            self.goal.step5 = textField.text;
-        break;
-        default:
-            NSLog(@"textField tag not set");
-        break;
-    }
+//    switch (textField.tag) {
+//        case 0:
+//            self.goal.goalName = textField.text;
+//        break;
+//        case 1:
+//            self.goal.days = textField.text;
+//        break;
+//        case 2:
+//            self.goal.times = textField.text;
+//        break;
+//        case 3:
+//            self.goal.where = textField.text;
+//        break;
+//        case 4:
+//            self.goal.amount = textField.text;
+//        break;
+//        case 5:
+//            self.goal.step1 = textField.text;
+//        break;
+//        case 6:
+//            self.goal.step2 = textField.text;
+//        break;
+//        case 7:
+//            self.goal.step3 = textField.text;
+//        break;
+//        case 8:
+//            self.goal.step4 = textField.text;
+//        break;
+//        case 9:
+//            self.goal.step5 = textField.text;
+//        break;
+//        default:
+//            NSLog(@"textField tag not set");
+//        break;
+//    }
     self.changeMade = YES;
     if (textField.tag> 5)
     {

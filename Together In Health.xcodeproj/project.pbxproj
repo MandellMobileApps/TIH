@@ -284,6 +284,7 @@
 		36278DAB1C2AFA0300B899E4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		36278DAD1C2DAD8F00B899E4 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		36278DAE1C2DAD8F00B899E4 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		3650D2571FC5E62E00F6AFAD /* Lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lock.png; path = /Users/Cami/Documents/TIH/Lock.png; sourceTree = "<absolute>"; };
 		3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanSetupViewController.h; sourceTree = "<group>"; };
 		3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanSetupViewController.m; sourceTree = "<group>"; };
 		365847611F709636006DF9E4 /* ExercisePlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanCell.h; sourceTree = "<group>"; };
@@ -656,6 +657,7 @@
 		6A91E3171BE2625500A72CCA = {
 			isa = PBXGroup;
 			children = (
+				3650D2571FC5E62E00F6AFAD /* Lock.png */,
 				6A90E0971FBA679300714F4E /* MenuPlan.storyboard */,
 				6A90E0921FBA60BF00714F4E /* More.storyboard */,
 				361BC4621F9D30C50011A20E /* FriedGreasyPlate.png */,

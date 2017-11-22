@@ -11,6 +11,8 @@
 #import "RecipeViewController.h"
 #import "MenuPlan.h"
 #import "AddMenuItemViewController.h"
+#import "AppDelegate.h"
+#import "UpGradeViewController.h"
 
 @implementation MenuPlanViewController
 
@@ -55,7 +57,28 @@
     
     [self.navigationItem setLeftBarButtonItem:barBtn2];
     
+        switch (self.appDelegate.subscriptionLevel) {
     
+            case SubscriptionFree:
+    
+                self.upgradeButton.hidden = NO;
+                self.upgradeButton.enabled = YES;
+    
+                break;
+            case SubscriptionPaid1:
+    
+               self.upgradeButton.hidden = YES;
+                self.upgradeButton.enabled = NO;
+                break;
+                
+            case SubscriptionPaid2:
+                
+                self.upgradeButton.hidden = NO;
+                self.upgradeButton.enabled = NO;
+                break;
+            default:
+                break;
+        }
 //    UIBarButtonItem* resetButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(reset:)];
 //    
 //    self.navigationItem.leftBarButtonItem = resetButton;
@@ -214,6 +237,41 @@ return 0;
 -(IBAction)textFieldReturn:(id)sender
 {
     [sender resignFirstResponder];
+}
+
+//- (IBAction)menutypeSegment:(UISegmentedControl* )sender {
+//
+//
+//    switch (sender.selectedSegmentIndex) {
+//        case 0:
+//         self.menuTypeRating = 1;
+//            {
+//            MenuPlanViewController* menuPlanViewController = (menuPlanViewController*)
+//            [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
+//             instantiateViewControllerWithIdentifier:@"MenuPlanViewController"];
+//            menuPlanViewController.navigationItem.hidesBackButton = YES;
+//            [self.navigationController pushViewController:menuPlanViewController animated:NO];
+//
+//        }
+//            break;
+//        case 1:
+//            self.menuTypeRating = 2;
+//            StressTrackerViewController* stressTrackerViewController = (StressTrackerViewController*)
+//            [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+//             instantiateViewControllerWithIdentifier:@"StressTrackerViewController"];
+//            stressTrackerViewController.navigationItem.hidesBackButton = YES;
+//            [self.navigationController pushViewController:stressTrackerViewController animated:NO];
+//            break;
+//        default:
+//            break;
+//    }
+
+-(IBAction)upgrade:(id)sender)
+{
+self.upGradeViewController = (UpGradeViewController*)
+[[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+ instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
+self.upGradeViewController.view.frame = [self baseRect];
 }
 
 

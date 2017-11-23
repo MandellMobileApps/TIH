@@ -57,28 +57,28 @@
     
     [self.navigationItem setLeftBarButtonItem:barBtn2];
     
-        switch (self.appDelegate.subscriptionLevel) {
-    
-            case SubscriptionFree:
-    
-                self.upgradeButton.hidden = NO;
-                self.upgradeButton.enabled = YES;
-    
-                break;
-            case SubscriptionPaid1:
-    
-               self.upgradeButton.hidden = YES;
-                self.upgradeButton.enabled = NO;
-                break;
-                
-            case SubscriptionPaid2:
-                
-                self.upgradeButton.hidden = NO;
-                self.upgradeButton.enabled = NO;
-                break;
-            default:
-                break;
-        }
+//        switch (self.appDelegate.subscriptionLevel) {
+//    
+//            case SubscriptionFree:
+//
+//                self.upgradeButton.hidden = NO;
+//                self.upgradeButton.enabled = YES;
+//
+//                break;
+//            case SubscriptionPaid1:
+//
+//               self.upgradeButton.hidden = NO;
+//                self.upgradeButton.enabled = NO;
+//                break;
+//
+//            case SubscriptionPaid2:
+//
+//                self.upgradeButton.hidden = NO;
+//                self.upgradeButton.enabled = NO;
+//                break;
+//            default:
+//                break;
+//        }
 //    UIBarButtonItem* resetButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(reset:)];
 //    
 //    self.navigationItem.leftBarButtonItem = resetButton;
@@ -266,7 +266,17 @@ return 0;
 //            break;
 //    }
 
--(IBAction)upgrade:(id)sender)
+-(CGRect)baseRect
+{
+    CGRect baseRect = self.view.bounds;
+    NSInteger menuHeight = 77+64;
+    baseRect.origin.y = menuHeight;
+    baseRect.size.height = self.view.frame.size.height-menuHeight;
+    return baseRect;
+    
+}
+
+-(IBAction)upgrade:(id)sender
 {
 self.upGradeViewController = (UpGradeViewController*)
 [[UIStoryboard storyboardWithName:@"Main" bundle:nil]

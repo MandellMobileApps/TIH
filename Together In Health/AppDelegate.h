@@ -34,7 +34,6 @@ enum SubscriptionLevel {
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) Day *day;
-@property (nonatomic, strong) NSString* zohoAuthToken;
 @property (nonatomic, strong) UITabBarController *tabBarController;
 @property (nonatomic, strong) NSMutableArray *days;
 @property (nonatomic, strong) NSMutableArray *allActivities;
@@ -44,6 +43,9 @@ enum SubscriptionLevel {
 @property (nonatomic, strong) GoalSetViewController *goalSetViewController;
 
 @property (nonatomic, strong) NSMutableArray    *goalsArray;
+
+@property (nonatomic, strong) NSString* zohoAuthToken;
+@property (nonatomic, strong) NSString* contactEmail;
 @property (nonatomic) NSInteger subscriptionLevel;
 
 

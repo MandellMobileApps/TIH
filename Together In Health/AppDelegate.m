@@ -353,7 +353,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    self.subscriptionLevel = 2;
+    
     
     [Fabric with:@[[Crashlytics class]]];
 
@@ -372,7 +372,7 @@
     self.mgOperationsQueue = [[NSOperationQueue alloc] init];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
         [self checkForUpdates];
-//        [self loginToZoho];
+
     
     return YES;
 }
@@ -502,7 +502,28 @@
 
 #pragma mark -
 #pragma mark  Zoho Methods
--(void)loginToZoho
+
+-(void)upgradeRequest
+{
+    self.zohoAuthToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"zohoAuthToken"];
+    self.contactEmail = [[NSUserDefaults standardUserDefaults] objectForKey:@"contactEmail"];
+    if (!self.zohoAuthToken)
+    {
+        self.zohoAuthToken = [NSString string];
+    }
+    if (self.zohoAuthToken.length == 0)
+    {
+        [self loginToZoho];
+    }
+    else
+    {
+        [self checkForExistingContact];
+    }
+
+
+}
+
+-(void)obtainZohoAutheniticationToken
 {
 
 
@@ -563,6 +584,7 @@
             if (range.length > 0)
             {
                 self.zohoAuthToken = [item substringFromIndex:10];
+                [[NSUserDefaults standardUserDefaults] setObject:self.zohoAuthToken forKey:@"zohoAuthToken"];
                 NSLog(@"self.zohoAuthToken %@",self.zohoAuthToken);
             }
         }
@@ -572,6 +594,92 @@
     [self.mgOperationsQueue addOperation:mgOperation];
 
 
+
+
+
+}
+
+
+
+-(void)checkForExistingContact
+{
+
+
+
+}
+
+
+
+
+-(void)findSubscriptionLevel
+{
+    if (self.zohoAuthToken.length == 0)
+    {
+        
+        NSString* method = @"https://accounts.zoho.com/apiauthtoken/nb/create";
+        NSDictionary* paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:
+        @"ZohoCRM/crmapi",
+        @"SCOPE",
+        @"cami.mandell@gmail.com",
+        @"EMAIL_ID",
+        @"Jn2ce2h27!",
+        @"PASSWORD",
+        @"TIH",
+        @"DISPLAY_NAME",
+            
+        nil];
+    
+ 
+
+
+
+    NSString* urlString = [NSMutableString stringWithFormat:@"%@?%@",method,[self keyValuesForDictionary:paramsDict]];
+    NSString* urlStringEscaped =[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"urlString %@\n\n",urlString);
+    NSLog(@"urlString escaped %@\n\n",urlStringEscaped);
+    NSURL* url = [NSURL URLWithString:urlStringEscaped];
+    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url
+    isJson:NO responseBlock:^(MgNetworkOperation2* completedOperation)
+    {
+        NSLog(@"rawResponse %@\n\n",completedOperation.rawResponse);
+        
+        NSLog(@"operationErrorMessage %@\n\n",completedOperation.operationErrorMessage);
+        
+        NSArray* results = [completedOperation.rawResponse componentsSeparatedByString:@"\n"];
+        NSLog(@"results %@",results);
+        for (NSString* item in results)
+        {
+            NSRange range = [item rangeOfString:@"AUTHTOKEN="];
+            if (range.length > 0)
+            {
+                self.zohoAuthToken = [item substringFromIndex:10];
+                [[NSUserDefaults standardUserDefaults] setObject:self.zohoAuthToken forKey:@"zohoAuthToken"];
+                NSLog(@"self.zohoAuthToken %@",self.zohoAuthToken);
+            }
+        }
+        
+    }];
+    
+    [self.mgOperationsQueue addOperation:mgOperation];
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    else
+    {
+        NSLog(@"No Zoho Authentication Token");
+    }
 
 
 

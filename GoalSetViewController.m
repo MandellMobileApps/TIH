@@ -209,9 +209,8 @@
     return YES;
 }
 
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    -(void)textFieldDidBeginEditing:(UITextField *)textField
     {
         if (textField.tag> 5)
         {

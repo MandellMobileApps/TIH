@@ -10,7 +10,29 @@
 
 @implementation Goal
 
-
+-(void)logPropertiesWithTitle:(NSString*)title
+{
+    NSLog(@"title %@",title);
+    NSLog(@"goalName %@",self.goalName);
+    NSLog(@"days %@",self.days);
+    NSLog(@"times %@",self.times);
+    NSLog(@"where %@",self.where);
+    NSLog(@"amount %@",self.amount);
+    NSLog(@"step1 %@",self.step1);
+    NSLog(@"step2 %@",self.step2);
+    NSLog(@"step3 %@",self.step3);
+    NSLog(@"step4 %@",self.step4);
+    NSLog(@"step5 %@",self.step5);
+    NSLog(@"vacation %@",self.vacation);
+    NSLog(@"sick %@",self.sick);
+    NSLog(@"other1 %@",self.other1);
+    NSLog(@"other2 %@",self.other2);
+    NSLog(@"other1Text %@",self.other1Text);
+    NSLog(@"other2Text %@",self.other2Text);
+    
+    
+    
+}
 +(Goal*) thisGoal
 {
     Goal* thisNewGoal = [[Goal alloc]init];
@@ -50,17 +72,12 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
         
-        self.step1 = [decoder decodeObjectForKey:@"step1"];
-        self.step2 = [decoder decodeObjectForKey:@"step2"];
-        self.step3 = [decoder decodeObjectForKey:@"step3"];
-        self.step4 = [decoder decodeObjectForKey:@"step4"];
-        self.step5 = [decoder decodeObjectForKey:@"step5"];
-
 
 
         self.goalName = [decoder decodeObjectForKey:@"goalName"];
         self.goalColor = [decoder decodeObjectForKey:@"goalColor"];
         self.where = [decoder decodeObjectForKey:@"where"];
+      self.days = [decoder decodeObjectForKey:@"days"];
         self.times = [decoder decodeObjectForKey:@"times"];
         self.where = [decoder decodeObjectForKey:@"where"];
         self.amount = [decoder decodeObjectForKey:@"amount"];
@@ -99,12 +116,7 @@
 - (void) encodeWithCoder:(NSCoder *)encoder {
     
     
-    [encoder encodeObject:self.step1 forKey:@"step1"];
-    [encoder encodeObject:self.step2 forKey:@"step2"];
-    [encoder encodeObject:self.step3 forKey:@"step3"];
-    [encoder encodeObject:self.step4 forKey:@"step4"];
-    [encoder encodeObject:self.step5 forKey:@"step5"];
-    
+
      [encoder encodeObject:self.goalName forKey:@"goalName"];
      [encoder encodeObject:self.goalColor forKey:@"goalColor"];
      [encoder encodeObject:self.days forKey:@"days"];

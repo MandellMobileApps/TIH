@@ -189,7 +189,16 @@
                                     <segment title="Create Plan"/>
                                     <segment title="Pre-Made Plans"/>
                                 </segments>
+                                <color key="tintColor" red="0.2666666667" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dH6-IA-yxr">
+                                <rect key="frame" x="16" y="18" width="25" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Lock.png"/>
+                                <connections>
+                                    <action selector="upgrade:" destination="xQK-X8-rgP" eventType="touchUpInside" id="XvB-x6-M7f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>

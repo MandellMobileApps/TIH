@@ -370,9 +370,10 @@
     self.mgOperationsQueue = [[NSOperationQueue alloc] init];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
         [self checkForUpdates];
-    
+    [self loginToZoho];
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     [self savePersistent];
@@ -484,7 +485,97 @@
         
 
 }
+#pragma mark - API Methods
+
+-(NSString*) keyValuesForDictionary:(NSDictionary*)theseParams {
     
+    NSMutableString *string = [NSMutableString string];
+    for (NSString *key in theseParams) {
+        NSString *value = [theseParams valueForKey:key];
+        [string appendFormat:@"%@=%@&", key, value];
+    }
+    
+    return [string substringToIndex:string.length-1];
+}
+
+#pragma mark -
+#pragma mark  Zoho Methods
+-(void)loginToZoho
+{
+    
+    
+    //  https://accounts.zoho.com/apiauthtoken/nb/create
+    // ?SCOPE=ZohoCRM/crmapi
+    // &EMAIL_ID=[Username/EmailID]
+    // &PASSWORD=[Password]
+    // &DISPLAY_NAME=[ApplicationName]
+    // https://accounts.zoho.com/apiauthtoken/nb/create?SCOPE=ZohoCRM/crmapi&EMAIL_ID=[Username/EmailID]&PASSWORD=[Password]&DISPLAY_NAME=[ApplicationName]
+    
+    //Parameters to be passed along with this URL are:
+    //
+    //Parameter    Description
+    //EMAIL_ID    Specify your Zoho CRM Username or Email ID
+    //scope    Specify the value as ZohoCRM/crmapi
+    //PASSWORD    Specify your Zoho CRM Password
+    //DISPLAY_NAME    Specify the Application Name that describes the purpose of using this AuthToken. For example, "MailChimp" or "Google Apps"
+    
+    NSString* method = @"https://accounts.zoho.com/apiauthtoken/nb/create";
+    NSDictionary* paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                @"ZohoCRM/crmapi",
+                                @"SCOPE",
+                                @"cami.mandell@gmail.com",
+                                @"EMAIL_ID",
+                                @"Jn2ce2h27!",
+                                @"PASSWORD",
+                                @"TIH",
+                                @"DISPLAY_NAME",
+                                
+                                nil];
+    
+    
+    
+    
+    
+    NSString* urlString = [NSMutableString stringWithFormat:@"%@?%@",method,[self keyValuesForDictionary:paramsDict]];
+    NSString* urlStringEscaped =[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"urlString %@\n\n",urlString);
+    NSLog(@"urlString escaped %@\n\n",urlStringEscaped);
+    NSURL* url = [NSURL URLWithString:urlStringEscaped];
+    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url
+                                                                         isJson:NO responseBlock:^(MgNetworkOperation2* completedOperation)
+                                        {
+                                            NSLog(@"rawResponse %@\n\n",completedOperation.rawResponse);
+                                            
+                                            NSLog(@"operationErrorMessage %@\n\n",completedOperation.operationErrorMessage);
+                                            
+                                            //        #
+                                            //        #Wed Nov 22 05:33:33 PST 2017
+                                            //        AUTHTOKEN=9ea5eeeaaca30ba17a33aeb902f64bb8
+                                            //        RESULT=TRUE
+                                            
+                                            NSArray* results = [completedOperation.rawResponse componentsSeparatedByString:@"\n"];
+                                            NSLog(@"results %@",results);
+                                            for (NSString* item in results)
+                                            {
+                                                NSRange range = [item rangeOfString:@"AUTHTOKEN="];
+                                                if (range.length > 0)
+                                                {
+                                                    self.zohoAuthToken = [item substringFromIndex:10];
+                                                    NSLog(@"self.zohoAuthToken %@",self.zohoAuthToken);
+                                                }
+                                            }
+                                            
+                                        }];
+    
+    [self.mgOperationsQueue addOperation:mgOperation];
+    
+    
+    
+    
+    
+}
+
+
  #pragma mark - Recipe Database Methods
 
 -(void)checkVersion
@@ -494,7 +585,7 @@
         NSURL* url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
     
-        MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url responseBlock:^(MgNetworkOperation2* completedOperation)
+        MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url isJson:YES responseBlock:^(MgNetworkOperation2* completedOperation)
                 {
                     if (completedOperation.operationErrorMessage.length == 0)
                         {
@@ -574,7 +665,7 @@
 -(void)getData {
     NSString* urlString = @"http://mandellmobileapps.com/TIHRecipes.php";
     NSURL* url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url responseBlock:^(MgNetworkOperation2* completedOperation)
+    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url isJson:YES responseBlock:^(MgNetworkOperation2* completedOperation)
                                         {
                                             if (completedOperation.operationErrorMessage.length == 0)
                                             {
@@ -742,7 +833,7 @@
     NSURL* url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
     
-    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url responseBlock:^(MgNetworkOperation2* completedOperation)
+    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url isJson:YES responseBlock:^(MgNetworkOperation2* completedOperation)
                                         {
                                             if (completedOperation.operationErrorMessage.length == 0)
                                             {
@@ -865,7 +956,7 @@
     NSURL* url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
     
-    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url responseBlock:^(MgNetworkOperation2* completedOperation)
+    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url isJson:YES responseBlock:^(MgNetworkOperation2* completedOperation)
                                         {
                                             if (completedOperation.operationErrorMessage.length == 0)
                                             {
@@ -946,7 +1037,7 @@
 -(void)getBlogData {
     NSString* urlString = @"http://mandellmobileapps.com/TIHWeeklyBlogPosts.php";
     NSURL* url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url responseBlock:^(MgNetworkOperation2* completedOperation)
+    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url isJson:YES responseBlock:^(MgNetworkOperation2* completedOperation)
                                         {
                                             if (completedOperation.operationErrorMessage.length == 0)
                                             {
@@ -1115,7 +1206,7 @@
     NSURL* url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
     
-    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url responseBlock:^(MgNetworkOperation2* completedOperation)
+    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url isJson:YES responseBlock:^(MgNetworkOperation2* completedOperation)
                                         {
                                             if (completedOperation.operationErrorMessage.length == 0)
                                             {

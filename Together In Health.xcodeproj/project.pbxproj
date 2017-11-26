@@ -87,6 +87,8 @@
 		36FE393D1C0BB46F002E341E /* TrackActivity.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FE393C1C0BB46F002E341E /* TrackActivity.png */; };
 		36FE39401C0F4EFC002E341E /* OpeningViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FE393F1C0F4EFC002E341E /* OpeningViewViewController.m */; };
 		6A2CA3601F8EAF0400DC7668 /* DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */; };
+		6A4239F51FCB6BC300567538 /* Lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4239F41FCB6BC300567538 /* Lock.png */; };
+		6A4239F91FCB879F00567538 /* MgNetworkOperation2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4239F71FCB879E00567538 /* MgNetworkOperation2.m */; };
 		6A4726641FB91D3E0057C451 /* CheckBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4726621FB91D3D0057C451 /* CheckBoxView.m */; };
 		6A5541611F5C663500447A4E /* GoalCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5541601F5C663500447A4E /* GoalCalendarViewController.m */; };
 		6A5541641F5C82D700447A4E /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5541631F5C82D700447A4E /* Calendar.m */; };
@@ -153,7 +155,6 @@
 		6A91E45A1BE2679300A72CCA /* MenuPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E39E1BE2679300A72CCA /* MenuPlan.m */; };
 		6A91E45B1BE2679300A72CCA /* MenuPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3A01BE2679300A72CCA /* MenuPlanCell.m */; };
 		6A91E45C1BE2679300A72CCA /* MenuPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3A21BE2679300A72CCA /* MenuPlanViewController.m */; };
-		6A91E45D1BE2679300A72CCA /* MgNetworkOperation2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3A41BE2679300A72CCA /* MgNetworkOperation2.m */; };
 		6A91E45E1BE2679300A72CCA /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3A61BE2679300A72CCA /* NoteViewController.m */; };
 		6A91E45F1BE2679300A72CCA /* PlateExamples.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A91E3A71BE2679300A72CCA /* PlateExamples.html */; };
 		6A91E4601BE2679300A72CCA /* ProblemsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E3A91BE2679300A72CCA /* ProblemsCell.m */; };
@@ -284,7 +285,6 @@
 		36278DAB1C2AFA0300B899E4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		36278DAD1C2DAD8F00B899E4 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		36278DAE1C2DAD8F00B899E4 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
-		3650D2571FC5E62E00F6AFAD /* Lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lock.png; path = /Users/Cami/Documents/TIH/Lock.png; sourceTree = "<absolute>"; };
 		3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanSetupViewController.h; sourceTree = "<group>"; };
 		3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanSetupViewController.m; sourceTree = "<group>"; };
 		365847611F709636006DF9E4 /* ExercisePlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanCell.h; sourceTree = "<group>"; };
@@ -367,6 +367,10 @@
 		36FE393F1C0F4EFC002E341E /* OpeningViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpeningViewViewController.m; path = ../OpeningViewViewController.m; sourceTree = "<group>"; };
 		6A2CA35E1F8EAF0400DC7668 /* DatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerView.h; path = "Together In Health/Classes/DatePickerView.h"; sourceTree = "<group>"; };
 		6A2CA35F1F8EAF0400DC7668 /* DatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerView.m; path = "Together In Health/Classes/DatePickerView.m"; sourceTree = "<group>"; };
+		6A4239F41FCB6BC300567538 /* Lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lock.png; sourceTree = SOURCE_ROOT; };
+		6A4239F61FCB845100567538 /* Lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lock.png; sourceTree = "<group>"; };
+		6A4239F71FCB879E00567538 /* MgNetworkOperation2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MgNetworkOperation2.m; sourceTree = "<group>"; };
+		6A4239F81FCB879E00567538 /* MgNetworkOperation2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MgNetworkOperation2.h; sourceTree = "<group>"; };
 		6A4726621FB91D3D0057C451 /* CheckBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBoxView.m; sourceTree = "<group>"; };
 		6A4726631FB91D3E0057C451 /* CheckBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxView.h; sourceTree = "<group>"; };
 		6A55415F1F5C663500447A4E /* GoalCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalCalendarViewController.h; sourceTree = "<group>"; };
@@ -488,8 +492,6 @@
 		6A91E3A01BE2679300A72CCA /* MenuPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuPlanCell.m; sourceTree = "<group>"; };
 		6A91E3A11BE2679300A72CCA /* MenuPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuPlanViewController.h; sourceTree = "<group>"; };
 		6A91E3A21BE2679300A72CCA /* MenuPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuPlanViewController.m; sourceTree = "<group>"; };
-		6A91E3A31BE2679300A72CCA /* MgNetworkOperation2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MgNetworkOperation2.h; sourceTree = "<group>"; };
-		6A91E3A41BE2679300A72CCA /* MgNetworkOperation2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MgNetworkOperation2.m; sourceTree = "<group>"; };
 		6A91E3A51BE2679300A72CCA /* NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
 		6A91E3A61BE2679300A72CCA /* NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
 		6A91E3A71BE2679300A72CCA /* PlateExamples.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = PlateExamples.html; sourceTree = "<group>"; };
@@ -657,7 +659,7 @@
 		6A91E3171BE2625500A72CCA = {
 			isa = PBXGroup;
 			children = (
-				3650D2571FC5E62E00F6AFAD /* Lock.png */,
+				6A4239F61FCB845100567538 /* Lock.png */,
 				6A90E0971FBA679300714F4E /* MenuPlan.storyboard */,
 				6A90E0921FBA60BF00714F4E /* More.storyboard */,
 				361BC4621F9D30C50011A20E /* FriedGreasyPlate.png */,
@@ -700,6 +702,7 @@
 		6A91E3221BE2625500A72CCA /* Together In Health */ = {
 			isa = PBXGroup;
 			children = (
+				6A4239F41FCB6BC300567538 /* Lock.png */,
 				360F9E6D1FC0CCAA00190565 /* GoalTabImage.png */,
 				6A83C6191F9CFCEF0030A202 /* Goals.storyboard */,
 				6A91E3491BE2679200A72CCA /* Classes */,
@@ -709,6 +712,8 @@
 				6A91E3261BE2625500A72CCA /* AppDelegate.h */,
 				360DB1831C11F24000FBE90F /* ActivityMovementFav.png */,
 				6A91E3271BE2625500A72CCA /* AppDelegate.m */,
+				6A4239F81FCB879E00567538 /* MgNetworkOperation2.h */,
+				6A4239F71FCB879E00567538 /* MgNetworkOperation2.m */,
 				6A91E32F1BE2625500A72CCA /* Main.storyboard */,
 				361BC44F1F9173830011A20E /* GoalGamePlanViewController.h */,
 				361BC4501F9173830011A20E /* GoalGamePlanViewController.m */,
@@ -865,8 +870,6 @@
 				6A91E3A01BE2679300A72CCA /* MenuPlanCell.m */,
 				6A91E3A11BE2679300A72CCA /* MenuPlanViewController.h */,
 				6A91E3A21BE2679300A72CCA /* MenuPlanViewController.m */,
-				6A91E3A31BE2679300A72CCA /* MgNetworkOperation2.h */,
-				6A91E3A41BE2679300A72CCA /* MgNetworkOperation2.m */,
 				6A91E3A51BE2679300A72CCA /* NoteViewController.h */,
 				6A91E3A61BE2679300A72CCA /* NoteViewController.m */,
 				6A91E3A71BE2679300A72CCA /* PlateExamples.html */,
@@ -1128,6 +1131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A4239F51FCB6BC300567538 /* Lock.png in Resources */,
 				6A91E49F1BE2679300A72CCA /* arrowleft.png in Resources */,
 				6A90E0941FBA60BF00714F4E /* More.storyboard in Resources */,
 				6A91E4841BE2679300A72CCA /* ChickenEnchiladaCasserole.html in Resources */,
@@ -1308,7 +1312,6 @@
 			files = (
 				365AAC691FB21AD200A5450A /* UpGradeViewController.m in Sources */,
 				365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */,
-				6A91E45D1BE2679300A72CCA /* MgNetworkOperation2.m in Sources */,
 				6A91E45B1BE2679300A72CCA /* MenuPlanCell.m in Sources */,
 				6A91E4591BE2679300A72CCA /* HQViewController.m in Sources */,
 				6A91E4711BE2679300A72CCA /* SolutionsViewController.m in Sources */,
@@ -1381,6 +1384,7 @@
 				36278DAF1C2DAD8F00B899E4 /* MenuItem.m in Sources */,
 				6A91E4731BE2679300A72CCA /* Stress.m in Sources */,
 				6A91E4561BE2679300A72CCA /* HealthQuestionsCell.m in Sources */,
+				6A4239F91FCB879F00567538 /* MgNetworkOperation2.m in Sources */,
 				6A799F7C1F859E9F008E6EA3 /* MasterTrackerViewController.m in Sources */,
 				6A2CA3601F8EAF0400DC7668 /* DatePickerView.m in Sources */,
 				6A91E46A1BE2679300A72CCA /* SeasonalVegGameViewController.m in Sources */,

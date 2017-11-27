@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-2490" y="726"/>
         </scene>
-        <!--Menu Plan View Controller-->
+        <!--Add Menu Item View Controller-->
         <scene sceneID="bGP-fY-vPt">
             <objects>
-                <viewController storyboardIdentifier="MenuPlanViewController" id="xQK-X8-rgP" customClass="MenuPlanViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddMenuItemViewController" id="xQK-X8-rgP" customClass="AddMenuItemViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dWd-Q8-nWk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,7 +49,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="6" id="Kfu-9Y-dcP">
                                                     <rect key="frame" x="85" y="39" width="290" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     <connections>
                                                         <action selector="textFieldReturn:" destination="xQK-X8-rgP" eventType="editingDidEndOnExit" id="Jdt-lF-eDD"/>
@@ -159,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="-2048.5" y="122.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu Plan View Controller-->
         <scene sceneID="sSw-L0-9jf">
             <objects>
-                <viewController id="F4J-l1-slD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuPlanViewController" id="F4J-l1-slD" customClass="MenuPlanViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YD6-Ne-qeX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

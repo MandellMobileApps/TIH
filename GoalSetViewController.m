@@ -161,7 +161,7 @@
     else if (sender.tag == 1)
     {
         [self resignFirstResponders];
-         [self.goal logPropertiesWithTitle:@"This Goal"];
+//         [self.goal logPropertiesWithTitle:@"This Goal"];
         [self.appDelegate.goalsArray replaceObjectAtIndex:self.goalIndex withObject:self.goal];
         for (Goal* item in self.appDelegate.goalsArray)
         {

@@ -121,7 +121,7 @@
     switch (self.appDelegate.subscriptionLevel) {
     
             
-        case SubscriptionFree:
+    case SubscriptionFree:
             return 1;
       case SubscriptionPaid1:
             return 2;

@@ -85,6 +85,7 @@
     }
     
     self.subscriptionLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"subscriptionLevel"];
+    self.subscriptionLevel = 2;
 }
 
 -(void)savePersistent

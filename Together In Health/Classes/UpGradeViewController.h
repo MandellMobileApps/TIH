@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface UpGradeViewController : UIViewController
-
+#import "AbstractViewController.h"
+@interface UpGradeViewController : AbstractViewController <UITextFieldDelegate>
+@property(nonatomic, strong) IBOutlet UITextField* emailTextField;
 @end

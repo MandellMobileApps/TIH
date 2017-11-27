@@ -7,6 +7,7 @@
 //
 
 #import "UpGradeViewController.h"
+#import "AppDelegate.h"
 
 @interface UpGradeViewController ()
 
@@ -22,6 +23,55 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(IBAction)buttonTapped:(UIButton*)sender
+{
+    switch (sender.tag) {
+        case 0:
+            
+            break;
+        case 1:
+            
+            break;
+        default:
+            break;
+    }
+    
+    
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)checkEmailFormat
+{
+    
+    
+}
+
+-(void)checkAuthToken
+{
+    
+    
+}
+
+-(void)checkExistingContact
+{
+    
+}
+
+-(void)createContact
+{
+    
+    
+}
+
+-(void)subscriptionComplete
+{
+    
+    
 }
 
 /*

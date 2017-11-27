@@ -21,6 +21,7 @@
 #import "Goal.h"
 
 
+@class UpGradeViewController;
 @class ProgressViewController;
 @class AppDelegate;
 
@@ -140,7 +141,7 @@ enum CornerType {
 -(void) enlargeTable:(float)height;
 
 -(void)resetDay;
-
-
+-(void)displayAlert:(NSString*)message;
+-(void)loadUpgradeViewController;
 
 @end

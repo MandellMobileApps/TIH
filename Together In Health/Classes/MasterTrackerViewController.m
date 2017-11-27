@@ -40,7 +40,7 @@ enum trackerIndex {
 }
 -(IBAction)tempToTestZoho:(id)sender
 {
-    [self.appDelegate loginToZoho];
+    [self loadUpgradeViewController];
 }
 
 - (void)viewDidLoad {

@@ -14,6 +14,7 @@
 #import "Day.h"
 #import "TIHDate.h"
 #import "Food.h"
+#import "UpGradeViewController.h"
 
 @interface AbstractViewController () {
     
@@ -676,6 +677,22 @@
                 [thisViewController removeFromParentViewController];
 			}];
 
+}
+
+-(void)displayAlert:(NSString*)message {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    alert.tag = 1000;
+    [alert show];
+    
+}
+
+-(void)loadUpgradeViewController {
+    UpGradeViewController* upGradeViewController = (UpGradeViewController*)
+    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+     instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
+
+    [self.navigationController pushViewController:upGradeViewController animated:YES];
 }
 
 @end

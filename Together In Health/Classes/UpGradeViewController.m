@@ -17,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self updateUI];
+    [self enableControls];
+
     // Do any additional setup after loading the view.
 }
 
@@ -25,23 +28,43 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)enableControls
+{
+    self.doneButton.enabled = YES;
+    self.sub1Button.enabled = YES;
+    self.sub2Button.enabled = YES;
+    self.emailTextField.enabled = YES;
+    [self.activityView stopAnimating];
+}
+-(void)disableControls
+{
+    self.doneButton.enabled = NO;
+    self.sub1Button.enabled = NO;
+    self.sub2Button.enabled = NO;
+    self.emailTextField.enabled = NO;
+    [self.activityView startAnimating];
+}
+-(void)updateUI
+{
+    // update if existing email and subscription
+}
+
 -(IBAction)doneButtonTapped:(UIButton*)sender
 {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-    
+        [self.navigationController popViewControllerAnimated:YES];
 }
+
 -(IBAction)buttonTapped:(UIButton*)sender
 {
     if ([self validEmail:self.emailTextField.text])
     {
-    
+        [self disableControls];
         switch (sender.tag) {
             case 0:
-                
+                [self.appDelegate upsertContactForEmail:self.emailTextField.text atSubcriptionLevel:1 inController:self];
                 break;
             case 1:
-                
+                [self.appDelegate upsertContactForEmail:self.emailTextField.text atSubcriptionLevel:2 inController:self];
                 break;
             default:
                 break;
@@ -70,27 +93,18 @@
     return [emailTest evaluateWithObject:checkString];
 }
 
--(void)checkAuthToken
-{
-    
-    
-}
 
--(void)checkExistingContact
-{
-    
-}
 
--(void)createContact
+-(void)subscriptionCompleteWithSuccess:(BOOL)success
 {
-    
-    
-}
-
--(void)subscriptionComplete
-{
-    
-    
+    if (success)
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else
+    {
+        [self enableControls];
+    }
 }
 
 /*

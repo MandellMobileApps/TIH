@@ -13,7 +13,7 @@
 #import "Day.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
-
+#import "UpGradeViewController.h"
 
 
 @interface AppDelegate ()
@@ -84,7 +84,19 @@
 
     }
     
+
     self.subscriptionLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"subscriptionLevel"];
+    
+    self.contactEmail = [[NSUserDefaults standardUserDefaults] objectForKey:@"contactEmail"];
+    if (!self.contactEmail)
+    {
+        self.contactEmail = [NSString string];
+    }
+    
+    // how to obviscate?
+    self.zohoAuthToken = @"1b761d65e759974cb77c0bf236ec1473";
+    
+    //  temp
     self.subscriptionLevel = 2;
 }
 
@@ -96,8 +108,7 @@
     if (!success) {
         NSLog(@"DaysPersistent.archive did not save");
     }
-    [[NSUserDefaults standardUserDefaults] setInteger:self.subscriptionLevel forKey:@"subscriptionLevel"];
-    
+   
     [self saveFavoriteActivities];
 }
 
@@ -371,7 +382,15 @@
     self.mgOperationsQueue = [[NSOperationQueue alloc] init];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
         [self checkForUpdates];
-
+    
+    if (self.contactEmail.length>0)
+    {
+        //[self checkSubscriptionLevel];
+    }
+    self.contactEmail = @"Jon.Mandell@comcast.net";
+//    [self createContactForFirstname:@"Joe" lastname:@"Mandell" email:@"Jon.Mandell@comcast.net"];
+    
+    [self checkSubscriptionLevel];
     return YES;
 }
 
@@ -486,6 +505,15 @@
         
 
 }
+
+-(void)displayAlert:(NSString*)message {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    alert.tag = 1001;
+    [alert show];
+    
+}
+
 #pragma mark - API Methods
 
 -(NSString*) keyValuesForDictionary:(NSDictionary*)theseParams {
@@ -502,187 +530,94 @@
 #pragma mark -
 #pragma mark  Zoho Methods
 
--(void)upgradeRequest
+
+-(void)upsertContactForEmail:(NSString*)email atSubcriptionLevel:(NSInteger)subscriptionLevel inController:(UpGradeViewController*)controller
 {
-    self.zohoAuthToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"zohoAuthToken"];
-    self.contactEmail = [[NSUserDefaults standardUserDefaults] objectForKey:@"contactEmail"];
-    if (!self.zohoAuthToken)
-    {
-        self.zohoAuthToken = [NSString string];
-    }
-    if (self.zohoAuthToken.length == 0)
-    {
-        [self loginToZoho];
-    }
-    else
-    {
-        [self checkForExistingContact];
-    }
+    self.contactEmail = email;
+    [[NSUserDefaults standardUserDefaults] setObject:self.contactEmail forKey:@"contactEmail"];
+    self.subscriptionLevel = subscriptionLevel;
+    [[NSUserDefaults standardUserDefaults] setInteger:self.subscriptionLevel forKey:@"subscriptionLevel"];
     
+    NSString *xmlString = [NSString stringWithFormat:
+       @"<Contacts>"
+       "<row no=\"1\">"
+       "<FL val=\"Last Name\">%@</FL>"
+       "<FL val=\"Email\">%@</FL>"
+       "<FL val=\"SubscriptionLevel\">%lu</FL>"
+       "</row>"
+       "</Contacts>",
+       email,email,subscriptionLevel];
     
+    NSString* urlString = [NSString stringWithFormat:@"https://crm.zoho.com/crm/private/xml/Contacts/insertRecords?newFormat=1&duplicateCheck=2&authtoken=%@&scope=crmapi&xmlData=%@",self.zohoAuthToken,xmlString];
+    NSString* urlStringEscaped =[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+    NSURL* url = [NSURL URLWithString:urlStringEscaped];
+    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url isJson:NO responseBlock:^(MgNetworkOperation2* completedOperation)
+        {
+            if (completedOperation.operationErrorMessage.length>0)
+            {
+                [self displayAlert:completedOperation.operationErrorMessage];
+                [controller subscriptionCompleteWithSuccess:NO];
+            }
+            else
+            {
+               NSLog(@"rawResponse %@\n\n",completedOperation.rawResponse);
+               [controller subscriptionCompleteWithSuccess:YES];
+
+            }
+            
+        }];
+    
+    [self.mgOperationsQueue addOperation:mgOperation];
+
 }
 
--(void)obtainZohoAutheniticationToken
+
+
+-(void)checkSubscriptionLevel
 {
-    
-    
-    //  https://accounts.zoho.com/apiauthtoken/nb/create
-    // ?SCOPE=ZohoCRM/crmapi
-    // &EMAIL_ID=[Username/EmailID]
-    // &PASSWORD=[Password]
-    // &DISPLAY_NAME=[ApplicationName]
-    // https://accounts.zoho.com/apiauthtoken/nb/create?SCOPE=ZohoCRM/crmapi&EMAIL_ID=[Username/EmailID]&PASSWORD=[Password]&DISPLAY_NAME=[ApplicationName]
-    
-    //Parameters to be passed along with this URL are:
-    //
-    //Parameter    Description
-    //EMAIL_ID    Specify your Zoho CRM Username or Email ID
-    //scope    Specify the value as ZohoCRM/crmapi
-    //PASSWORD    Specify your Zoho CRM Password
-    //DISPLAY_NAME    Specify the Application Name that describes the purpose of using this AuthToken. For example, "MailChimp" or "Google Apps"
-    
-    NSString* method = @"https://accounts.zoho.com/apiauthtoken/nb/create";
+    NSString* method = @"https://crm.zoho.com/crm/private/json/Contacts/getSearchRecordsByPDC";
     NSDictionary* paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                @"ZohoCRM/crmapi",
-                                @"SCOPE",
-                                @"cami.mandell@gmail.com",
-                                @"EMAIL_ID",
-                                @"Jn2ce2h27!",
-                                @"PASSWORD",
-                                @"TIH",
-                                @"DISPLAY_NAME",
-                                
+                                @"1",
+                                @"newFormat",
+                                self.zohoAuthToken,
+                                @"authtoken",
+                                @"crmapi",
+                                @"scope",
+                                @"email",
+                                @"searchColumn",
+                                self.contactEmail,
+                                @"searchValue",
                                 nil];
-    
-    
-    
-    
-    
+
     NSString* urlString = [NSMutableString stringWithFormat:@"%@?%@",method,[self keyValuesForDictionary:paramsDict]];
     NSString* urlStringEscaped =[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"urlString %@\n\n",urlString);
-    NSLog(@"urlString escaped %@\n\n",urlStringEscaped);
     NSURL* url = [NSURL URLWithString:urlStringEscaped];
-    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url
-                                                                         isJson:NO responseBlock:^(MgNetworkOperation2* completedOperation)
-                                        {
-                                            NSLog(@"rawResponse %@\n\n",completedOperation.rawResponse);
-                                            
-                                            NSLog(@"operationErrorMessage %@\n\n",completedOperation.operationErrorMessage);
-                                            
-                                            //        #
-                                            //        #Wed Nov 22 05:33:33 PST 2017
-                                            //        AUTHTOKEN=9ea5eeeaaca30ba17a33aeb902f64bb8
-                                            //        RESULT=TRUE
-                                            
-                                            NSArray* results = [completedOperation.rawResponse componentsSeparatedByString:@"\n"];
-                                            NSLog(@"results %@",results);
-                                            for (NSString* item in results)
-                                            {
-                                                NSRange range = [item rangeOfString:@"AUTHTOKEN="];
-                                                if (range.length > 0)
-                                                {
-                                                    self.zohoAuthToken = [item substringFromIndex:10];
+    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url isJson:YES responseBlock:^(MgNetworkOperation2* completedOperation)
+          {
+            if (completedOperation.operationErrorMessage.length>0)
+            {
+                [self displayAlert:completedOperation.operationErrorMessage];
+            }
+            else
+            {
+               NSLog(@"rawResponse %@\n\n",completedOperation.rawResponse);
+//                self.subscriptionLevel = subscriptionLevel;
+//                [[NSUserDefaults standardUserDefaults] setInteger:self.subscriptionLevel forKey:@"subscriptionLevel"];
+            }
+              
+    }];
 
-    
-                                                    [[NSUserDefaults standardUserDefaults] setObject:self.zohoAuthToken forKey:@"zohoAuthToken"];
-                                                    NSLog(@"self.zohoAuthToken %@",self.zohoAuthToken);
-                                                }
-                                            }
-                                            
-                                        }];
-    
     [self.mgOperationsQueue addOperation:mgOperation];
     
     
-    
-    
-    
-}
-
-
-
--(void)checkForExistingContact
-{
-    
-    
-    
 }
 
 
 
 
--(void)findSubscriptionLevel
-{
-    if (self.zohoAuthToken.length == 0)
-    {
-        
-        NSString* method = @"https://accounts.zoho.com/apiauthtoken/nb/create";
-        NSDictionary* paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"ZohoCRM/crmapi",
-                                    @"SCOPE",
-                                    @"cami.mandell@gmail.com",
-                                    @"EMAIL_ID",
-                                    @"Jn2ce2h27!",
-                                    @"PASSWORD",
-                                    @"TIH",
-                                    @"DISPLAY_NAME",
-                                    
-                                    nil];
-        
-        
-        
-        
-        
-        NSString* urlString = [NSMutableString stringWithFormat:@"%@?%@",method,[self keyValuesForDictionary:paramsDict]];
-        NSString* urlStringEscaped =[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSLog(@"urlString %@\n\n",urlString);
-        NSLog(@"urlString escaped %@\n\n",urlStringEscaped);
-        NSURL* url = [NSURL URLWithString:urlStringEscaped];
-        MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url
-                                                                             isJson:NO responseBlock:^(MgNetworkOperation2* completedOperation)
-                                            {
-                                                NSLog(@"rawResponse %@\n\n",completedOperation.rawResponse);
-                                                
-                                                NSLog(@"operationErrorMessage %@\n\n",completedOperation.operationErrorMessage);
-                                                
-                                                NSArray* results = [completedOperation.rawResponse componentsSeparatedByString:@"\n"];
-                                                NSLog(@"results %@",results);
-                                                for (NSString* item in results)
-                                                {
-                                                    NSRange range = [item rangeOfString:@"AUTHTOKEN="];
-                                                    if (range.length > 0)
-                                                    {
-                                                        self.zohoAuthToken = [item substringFromIndex:10];
-                                                        [[NSUserDefaults standardUserDefaults] setObject:self.zohoAuthToken forKey:@"zohoAuthToken"];
-                                                        NSLog(@"self.zohoAuthToken %@",self.zohoAuthToken);
-                                                    }
-                                                }
-                                                
-                                            }];
-        
-        [self.mgOperationsQueue addOperation:mgOperation];
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    }
-    else
-    {
-        NSLog(@"No Zoho Authentication Token");
-    }
-    
-}
+
+
 
 
  #pragma mark - Recipe Database Methods

@@ -383,14 +383,6 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
         [self checkForUpdates];
     
-    if (self.contactEmail.length>0)
-    {
-        //[self checkSubscriptionLevel];
-    }
-    self.contactEmail = @"Jon.Mandell@comcast.net";
-//    [self createContactForFirstname:@"Joe" lastname:@"Mandell" email:@"Jon.Mandell@comcast.net"];
-    
-    [self checkSubscriptionLevel];
     return YES;
 }
 

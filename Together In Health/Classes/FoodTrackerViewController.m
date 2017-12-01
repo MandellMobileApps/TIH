@@ -325,36 +325,37 @@
     
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.bounds.size.width, 22)];
      headerLabel.font = [UIFont boldSystemFontOfSize:18];
-
     [headerLabel setTextColor:[UIColor whiteColor]];
     
-    UIButton *addButton=[UIButton buttonWithType:UIButtonTypeContactAdd];
+    UIButton *addButton=[UIButton buttonWithType:UIButtonTypeCustom];
     [addButton addTarget:self action:@selector(addFood:) forControlEvents:UIControlEventTouchUpInside];
     addButton.frame=CGRectMake(280, 2.5, 28, 28);
-    addButton.titleLabel.text = @"+";
-
+    [addButton setTitle:@"+" forState:UIControlStateNormal];
+    [addButton setTitleColor:[UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1] forState:UIControlStateNormal];
     addButton.tag = section;
-    
     addButton.backgroundColor = [UIColor whiteColor];
     addButton.layer.cornerRadius = 15;
     
-    UIButton *addWaterButton=[UIButton buttonWithType:UIButtonTypeContactAdd];
+    UIButton *addWaterButton=[UIButton buttonWithType:UIButtonTypeCustom];
     [addWaterButton addTarget:self action:@selector(increaseWater) forControlEvents:UIControlEventTouchUpInside];
     addWaterButton.frame=CGRectMake(280, 2.5, 28, 28);
-    addWaterButton.titleLabel.text = @"+";
-    
+    [addWaterButton setTitle:@"+" forState:UIControlStateNormal];
+    [addWaterButton setTitleColor:[UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1] forState:UIControlStateNormal];
+    addWaterButton.backgroundColor = [UIColor whiteColor];
+    addWaterButton.layer.cornerRadius = 15;
 
     
     UIButton *removeWaterButton=[UIButton buttonWithType:UIButtonTypeCustom];
     [removeWaterButton addTarget:self action:@selector(decreaseWater) forControlEvents:UIControlEventTouchUpInside];
-    UIImage *removeWaterButtonImage = [UIImage imageNamed:@"removeWaterButtonImage"];
-    [removeWaterButton setImage:removeWaterButtonImage forState:UIControlStateNormal];
+//    UIImage *removeWaterButtonImage = [UIImage imageNamed:@"removeWaterButtonImage"];
+//    [removeWaterButton setImage:removeWaterButtonImage forState:UIControlStateNormal];
     removeWaterButton.frame=CGRectMake(220, 2.5, 28, 28);
-    //removeWaterButton.titleLabel.text = @"-";
+    [removeWaterButton setTitle:@"-" forState:UIControlStateNormal];
+    [removeWaterButton setTitleColor:[UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1] forState:UIControlStateNormal];
+    removeWaterButton.backgroundColor = [UIColor whiteColor];
+    removeWaterButton.layer.cornerRadius = 15;
     
-    
-    addWaterButton.backgroundColor = [UIColor whiteColor];
-    addWaterButton.layer.cornerRadius = 15;
+
     
     if (section == mealTypeBreakfast)
         [headerLabel setText:@"Breakfast"];

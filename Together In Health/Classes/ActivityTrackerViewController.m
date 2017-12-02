@@ -40,6 +40,8 @@
     
     self.datePickerViewContainer.hidden = YES;
     
+
+
     
     //step counter
 //    if ([CMStepCounter isStepCountingAvailable])
@@ -379,6 +381,8 @@
 
     
 }
+
+
 
 
 #pragma mark - Table edit methods

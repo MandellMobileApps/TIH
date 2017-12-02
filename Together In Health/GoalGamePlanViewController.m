@@ -159,13 +159,14 @@
         if (buttonIndex == 0) {
         }
         else if (buttonIndex == 1) {
-            self.holidaysTextView.text = @"";
-            self.vacationTextView.text = @"";
-            self.sickDaysTextView.text = @"";
-            self.other1InfoTextView.text = @"";
-            self.other2InfoTextView.text = @"";
-            self.other1TextView.text = @"";
-            self.other2TextView.text = @"";
+            self.goal.holidays = self.holidaysTextView.text = @"";
+            self.goal.vacation = self.vacationTextView.text = @"";
+            self.goal.sick = self.sickDaysTextView.text = @"";
+            self.goal.other1 = self.other1InfoTextView.text = @"";
+            self.goal.other2 = self.other2InfoTextView.text = @"";
+            self.goal.other1Text = self.other1TextView.text = @"";
+            self.goal.other2Text = self.other2TextView.text = @"";
+            
         }
     } else if (alertView.tag == 2)
     {

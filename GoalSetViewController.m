@@ -34,7 +34,7 @@
     self.changeMade = NO;
     self.appDelegate.goalSetViewController = self;
     self.thisScrollView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-64);
-    self.thisScrollView.contentSize = CGSizeMake( self.view.bounds.size.width, 700);
+    self.thisScrollView.contentSize = CGSizeMake( self.view.bounds.size.width, 710);
 
     [self loadGoalIntoUI];
 
@@ -370,16 +370,16 @@
         if (buttonIndex == 0) {
         }
         else if (buttonIndex == 1) {
-            self.goalTextField.text = @"";
-            self.daysTextField.text = @"";
-            self.timesTextField.text = @"";
-            self.whereTextField.text = @"";
-            self.amountTextField.text = @"";
-            self.step1TextField.text = @"";
-            self.step2TextField.text = @"";
-            self.step3TextField.text = @"";
-            self.step4TextField.text = @"";
-            self.step5TextField.text = @"";
+            self.goal.goalName = self.goalTextField.text = @"My Goal";
+            self.goal.days = self.daysTextField.text = @"";
+            self.goal.times = self.timesTextField.text = @"";
+            self.goal.where = self.whereTextField.text =@"";
+            self.goal.amount = self.amountTextField.text = @"";
+            self.goal.step1 = self.step1TextField.text = @"";
+            self.goal.step2 = self.step2TextField.text = @"";
+            self.goal.step3 = self.step3TextField.text = @"";
+            self.goal.step4 = self.step4TextField.text = @"";
+            self.goal.step5 = self.step5TextField.text = @"";
             
             self.goal.Step1IsOn = NO;
             [self.step1 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
@@ -391,6 +391,7 @@
             [self.step4 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
             self.goal.Step5IsOn = NO;
             [self.step5 setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState:UIControlStateNormal];
+       
         }
     } else if (alertView.tag == 2)
     {

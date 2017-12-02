@@ -27,6 +27,8 @@
 @property (nonatomic, retain) IBOutlet UIView *pickerViewContainer;
 @property (nonatomic, strong) IBOutlet UITableView* thisTableView;
 
+
+
 @property (nonatomic, strong) NSMutableArray *dailyActivityArray;
 @property (nonatomic, strong) NSMutableArray *addActivityArray;
 
@@ -89,6 +91,8 @@
 - (void)updateStepCounterLabelWithStepCounter:(NSInteger)countedSteps;
 - (void)updateLabels:(CMPedometerData *)pedometerData;
 - (NSOperationQueue *)operationQueue;
+
+
 
 
 @end

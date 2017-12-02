@@ -52,6 +52,13 @@
 @property (nonatomic, strong) NSArray *amtdescArray;
 @property (nonatomic, strong) IBOutlet UISearchBar *filterSearchBar;
 
+@property (nonatomic, retain) IBOutlet UISearchBar* searchBar;
+@property (nonatomic)  CGRect searchBarHideRect;
+@property (nonatomic)  CGRect searchBarShowRect;
+@property (nonatomic, retain) IBOutlet UILabel* searchLabel;
+@property (nonatomic, strong) IBOutlet UIView *containerView;
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+
 
 @end
 

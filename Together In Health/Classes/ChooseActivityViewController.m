@@ -28,6 +28,11 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     self.navigationItem.hidesBackButton = NO;
     
+    self.navbarView.backgroundColor =   [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    self.titleLabel.backgroundColor =   [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
+    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.text = @"Choose Activity";
+    
     self.amtdescArray = [NSArray arrayWithObjects:@"Minute(s)", nil];
     
     self.filteredActivityArray = [NSMutableArray arrayWithArray:self.appDelegate.allActivities];
@@ -756,6 +761,56 @@
 //                              @"Yoga (Vinyasa)",
 //                                nil];
 //
+
+
+-(void)showSearchBar
+{
+    
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         self.searchBar.frame = self.searchBarShowRect;
+                         self.containerView.frame = CGRectMake(0,108, self.view.bounds.size.width, self.view.bounds.size.height-108);
+                     }
+                     completion:^(BOOL finished){
+                         
+                     }];
+}
+-(void)hideSearchBar
+{
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         self.searchBar.frame = self.searchBarHideRect;
+                         self.containerView.frame = CGRectMake(0,64, self.view.bounds.size.width, self.view.bounds.size.height-64);
+                     }
+                     completion:^(BOOL finished){
+                         
+                     }];
+    
+}
+
+-(IBAction)navbarButtonTapped:(UIButton*)sender
+{
+    switch (sender.tag) {
+        case 1:
+            [self dismiss];
+            break;
+        case 2:
+            [self showSearchBar];
+            [self.searchBar becomeFirstResponder];
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)dismiss
+{
+    
+    //[self saveActivity];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 
 
 @end

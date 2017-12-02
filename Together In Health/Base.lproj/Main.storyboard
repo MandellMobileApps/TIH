@@ -1018,7 +1018,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Once you subscrbe you will receinv and email with account information" textAlignment="natural" id="KiT-EG-cne">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Once you subscrbe you will receive an email with account information" textAlignment="natural" id="KiT-EG-cne">
                                 <rect key="frame" x="37" y="124" width="301" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1043,7 +1043,7 @@
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JNN-6q-UQI">
                                 <rect key="frame" x="144" y="211" width="194" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="I's like to subscribe"/>
+                                <state key="normal" title="Subscribe"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="73i-DR-kIY" eventType="touchUpInside" id="KPH-H4-YXE"/>
                                 </connections>
@@ -1066,7 +1066,7 @@
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zbd-Pn-ytG">
                                 <rect key="frame" x="145" y="354" width="194" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="I's like to subscribe"/>
+                                <state key="normal" title="Subscribe"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="73i-DR-kIY" eventType="touchUpInside" id="N1d-JO-KyG"/>
                                 </connections>
@@ -1076,27 +1076,35 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="spG-7D-uLy">
-                                        <rect key="frame" x="8" y="14" width="88" height="30"/>
+                                        <rect key="frame" x="8" y="8" width="88" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Done"/>
                                         <connections>
                                             <action selector="doneButtonTapped:" destination="73i-DR-kIY" eventType="touchUpInside" id="Y2B-WJ-zzu"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="whiteLarge" id="pIe-P1-Pd8">
+                                        <rect key="frame" x="86" y="5" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.52700607719874792" green="1" blue="0.52997722325886665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
+                        <outlet property="activityView" destination="pIe-P1-Pd8" id="sXc-hK-v8M"/>
+                        <outlet property="doneButton" destination="spG-7D-uLy" id="Ebo-h3-Hu8"/>
                         <outlet property="emailTextField" destination="wvW-Hv-JBF" id="9Sb-tb-iag"/>
+                        <outlet property="sub1Button" destination="JNN-6q-UQI" id="fOe-uK-jCc"/>
+                        <outlet property="sub2Button" destination="zbd-Pn-ytG" id="dJN-2M-Rq0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pYy-5n-7VT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-266" y="-1034"/>
+            <point key="canvasLocation" x="71" y="-1053"/>
         </scene>
         <!--Item-->
         <scene sceneID="2ts-Tq-m8X">
@@ -1692,7 +1700,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p1V-cK-TEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-404" y="-1462"/>
+            <point key="canvasLocation" x="-397" y="-1192"/>
         </scene>
         <!--Directions View Controller-->
         <scene sceneID="aL6-b8-90g">

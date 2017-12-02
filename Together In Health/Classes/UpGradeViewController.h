@@ -11,4 +11,9 @@
 
 @interface UpGradeViewController : AbstractViewController <UITextFieldDelegate>
 @property(nonatomic, strong) IBOutlet UITextField* emailTextField;
+@property(nonatomic, strong) IBOutlet UIButton* doneButton;
+@property(nonatomic, strong) IBOutlet UIButton* sub1Button;
+@property(nonatomic, strong) IBOutlet UIButton* sub2Button;
+@property(nonatomic, strong) IBOutlet UIActivityIndicatorView* activityView;
+-(void)subscriptionCompleteWithSuccess:(BOOL)success;
 @end

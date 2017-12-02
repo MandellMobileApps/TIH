@@ -26,7 +26,7 @@ enum SubscriptionLevel {
 
 
 @class Day;
-
+@class UpGradeViewController;
 @class GoalSetViewController;
 @class GoalGamePlanViewController;
 
@@ -61,6 +61,7 @@ enum SubscriptionLevel {
 -(void) loadGoals;
 -(UIColor*)defaultGoalColors:(NSInteger)g;
 -(void)saveGoals;
--(void)loginToZoho;
+-(void)upsertContactForEmail:(NSString*)email atSubcriptionLevel:(NSInteger)subscriptionLevel inController:(UpGradeViewController*)controller;
+-(void)checkSubscriptionLevel;
 @end
 

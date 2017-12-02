@@ -757,5 +757,228 @@
 //                                nil];
 //
 
+#pragma mark - Search Bar
+
+//- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+//{
+//    [self showSearchScope];
+//    [self.searchBar setShowsScopeBar:YES];
+//    [self.searchBar setShowsCancelButton:YES animated:YES];
+//    CGRect newRect = self.searchBar.frame;
+//   // newRect.size = [self.searchBar sizeThatFits:self.searchBarContainer.frame.size];
+//    self.searchBar.frame = newRect;
+//
+//}
+//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+//{
+////    self.agentsVCPersistent.agentSearchTerm = searchBar.text;
+//    [self sortAgents];
+//}
+//
+//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+//{
+//    self.searchBar.text = @"";
+//    [self.searchBar resignFirstResponder];
+////    self.agentsVCPersistent.agentSearchTerm = @"";
+//
+//}
+//
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+//{
+//    [self.searchBar resignFirstResponder];
+//}
+//
+//- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+//{
+//    [self.searchBar resignFirstResponder];
+//    [self.searchBar setShowsScopeBar:NO];
+//    [searchBar setShowsCancelButton:NO animated:YES];
+//    [self hideSearchScope];
+//    CGRect newRect = self.searchBar.frame;
+//   // newRect.size = [self.searchBar sizeThatFits:self.searchBarContainer.frame.size];
+//    self.searchBar.frame = newRect;
+//
+////    self.agentsVCPersistent.agentSearchTerm = searchBar.text;
+//    [self sortAgents];
+//}
+//
+//- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
+//{
+////    self.agentsVCPersistent.agentSearchScope= selectedScope;
+//    [self sortAgents];
+//
+//}
+//
+//
+//-(void) sortAgents {
+//
+//    [self updateSelectedButton];
+////    if (self.agentsVCPersistent.agentSearchTerm.length>0)
+////    {
+////        self.filteredLabel.text = [NSString stringWithFormat:@"Filtered by \"%@\"",self.agentsVCPersistent.agentSearchTerm];
+////    }
+////    else
+////    {
+//        self.filteredLabel.text = @"";
+////    }
+//
+////    self.filteredAgents = [FilterEngine filterArray:self.agents options:self.filterOptions
+////                                         searchTerm:self.agentsVCPersistent.agentSearchTerm
+////                                        searchScope:self.agentsVCPersistent.agentSearchScope
+////                                          sortIndex:self.agentsVCPersistent.agentSortIndex
+////                                      sortAscending:self.agentsVCPersistent.agentSortAscending];
+//
+//    if (self.filteredAgents.count == 0)
+//    {
+////        if ([self iPad])
+////        {
+////            self.tableStatusMessage.text = @"     No Agents found for selected Group";
+////            self.tableStatusMessage.hidden = NO;
+////        }
+////        else
+////        {
+//            self.tableStatusMessage.text = @"     No Agents found";
+//            self.tableStatusMessage.hidden = NO;
+//        //}
+//    }
+//    else
+//    {
+//        self.tableStatusMessage.text = @"";
+//        self.tableStatusMessage.hidden = YES;
+//    }
+////    if (self.forceAnimatedRefresh)
+////    {
+////        self.forceAnimatedRefresh = NO;
+////        [self addNewTableData];
+////
+////    }
+////    else
+//
+//        [self.thisTableView reloadData];
+//        [self.view setNeedsDisplay];
+//
+//    [self scrollToSelectedAgent];
+//
+//
+//}
+//
+//+(NSMutableArray*)filterArray:(NSMutableArray*)objectsArray options:(NSArray*)filterOptionsArray
+//                   searchTerm:(NSString*)searchTerm searchScope:(int)searchScope sortIndex:(int)sortIndex sortAscending:(BOOL)ascending
+//{
+//
+//
+//    NSMutableArray* filteredObjects;
+//
+//    if (searchTerm.length > 0) {
+//
+//        NSMutableArray *predicates = [NSMutableArray array];
+//        for (NSDictionary* item in filterOptionsArray)
+//        {
+//            if ([[item objectForKey:@"SearchName"] length] > 0)
+//            {
+//                switch (searchScope) {
+//                    case BeginsWith:{
+//                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K BEGINSWITH[cd] %@",[item objectForKey:@"SearchName"],searchTerm];
+//                        [predicates addObject:predicate];
+//                        break;}
+//                    case EndsWith:{
+//                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K ENDSWITH[cd] %@",[item objectForKey:@"SearchName"],searchTerm];
+//                        [predicates addObject:predicate];
+//                        break;}
+//                    case Contains:{
+//                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@",[item objectForKey:@"SearchName"],searchTerm];
+//                        [predicates addObject:predicate];
+//                        break;}
+//                    default:
+//                        break;
+//                }
+//            }
+//
+//        }
+//        /// this is to make sure there is at least one searchName listed.  If not don't filter arrayky
+//        if (predicates.count>0)
+//        {
+//            NSPredicate *compoundPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
+//            filteredObjects =  [NSMutableArray arrayWithArray:[objectsArray filteredArrayUsingPredicate:compoundPredicate]];
+//        }
+//        else
+//        {
+//            filteredObjects = [NSMutableArray arrayWithArray:objectsArray];
+//        }
+//
+//    } else {
+//        filteredObjects = [NSMutableArray arrayWithArray:objectsArray];
+//    }
+//
+//
+//    NSString* sortProperty = [[filterOptionsArray objectAtIndex:sortIndex] objectForKey:@"SortName"];
+//    if (sortProperty.length>0)
+//    {
+//        NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:sortProperty ascending:ascending];
+//        NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+//        [filteredObjects sortUsingDescriptors:sortDescriptors];
+//    }
+//
+//
+//    return filteredObjects;
+//
+//}
+//
+//+(NSMutableArray*)filterArray:(NSMutableArray*)objectsArray searchTerm:(NSString*)searchTerm
+//             searchProperties:(NSMutableArray*)searchProperties searchScope:(int)searchScope sortProperty:(NSString*)sortProperty sortAscending:(BOOL)ascending
+//{
+//
+//    NSMutableArray* filteredObjects;
+//
+//    if (searchTerm.length > 0) {
+//
+//        NSMutableArray *predicates = [NSMutableArray array];
+//        for (NSString* item in searchProperties)
+//        {
+//            switch (searchScope) {
+//                case BeginsWith:{
+//                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K BEGINSWITH[cd] %@",item,searchTerm];
+//                    [predicates addObject:predicate];
+//                    break;}
+//                case EndsWith:{
+//                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K ENDSWITH[cd] %@",item,searchTerm];
+//                    [predicates addObject:predicate];
+//                    break;}
+//                case Contains:{
+//                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@",item,searchTerm];
+//                    [predicates addObject:predicate];
+//                    break;}
+//                default:
+//                    break;
+//            }
+//        }
+//        /// this is to make sure there is at least one searchName listed.  If not don't filter arrayky
+//        if (predicates.count>0)
+//        {
+//            NSPredicate *compoundPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
+//            filteredObjects =  [NSMutableArray arrayWithArray:[objectsArray filteredArrayUsingPredicate:compoundPredicate]];
+//        }
+//        else
+//        {
+//            filteredObjects = [NSMutableArray arrayWithArray:objectsArray];
+//        }
+//
+//    }
+//    else
+//    {
+//        filteredObjects = [NSMutableArray arrayWithArray:objectsArray];
+//    }
+//
+//
+//    if (sortProperty.length>0)
+//    {
+//        NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:sortProperty ascending:ascending];
+//        NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+//        [filteredObjects sortUsingDescriptors:sortDescriptors];
+//    }
+//
+//    return filteredObjects;
+//
+//}
 
 @end

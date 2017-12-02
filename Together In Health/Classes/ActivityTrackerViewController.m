@@ -217,8 +217,6 @@
     addButton.tag = section;
     addButton.backgroundColor = [UIColor whiteColor];
     addButton.layer.cornerRadius = 15;
-
-    
     
     if (section == 0) {
         

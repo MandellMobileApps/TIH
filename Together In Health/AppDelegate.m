@@ -97,7 +97,7 @@
     self.zohoAuthToken = @"1b761d65e759974cb77c0bf236ec1473";
     
     //  temp
-    self.subscriptionLevel = 2;
+    self.subscriptionLevel = 0;
 }
 
 -(void)savePersistent

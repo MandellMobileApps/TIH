@@ -383,7 +383,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar * _Nonnull)searchBar
 {
-    [self filterContentForSearchText:self.filterSearchBar.text scope:nil];
+    [self filterContentForSearchText:self.searchBar.text scope:nil];
     [searchBar resignFirstResponder];
 
 }

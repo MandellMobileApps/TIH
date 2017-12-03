@@ -192,18 +192,15 @@ enum trackerIndex {
                 
                 
             case SubscriptionFree:
-                self.upGradeViewController = (UpGradeViewController*)
-                [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-                 instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
+                [self loadUpgradeViewController];
                 self.upGradeViewController.view.frame = [self baseRect];
-                
+                break;
             case SubscriptionPaid1:
-            {
+ 
                 self.sleepTrackerViewController = (SleepTrackerViewController*)
                 [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
                  instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
-            }
-                
+  
                 self.sleepTrackerViewController.view.frame = [self baseRect];
                 
                 self.sleepTrackerViewController.masterTrackerViewController = self;

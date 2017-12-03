@@ -50,9 +50,12 @@
 @property (nonatomic) int currentSelection;
 @property (nonatomic, strong) NSArray *amtArray;
 @property (nonatomic, strong) NSArray *amtdescArray;
-@property (nonatomic, strong) IBOutlet UISearchBar *filterSearchBar;
+@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UIView *titleView;
+@property (nonatomic, strong) IBOutlet UIView *containerView;
+@property (nonatomic)  CGRect searchBarHideRect;
+@property (nonatomic)  CGRect searchBarShowRect;
 
 @end
 

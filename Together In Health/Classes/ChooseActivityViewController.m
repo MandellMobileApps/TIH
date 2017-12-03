@@ -33,6 +33,9 @@
     self.titleLabel.textColor = [UIColor whiteColor];
     self.titleLabel.text = @"Choose Activity";
     
+    [self.searchLabel setText:[[NSString alloc] initWithUTF8String:"\xF0\x9F\x94\x8D"]];
+    [self.searchLabel sizeToFit];
+    
     self.amtdescArray = [NSArray arrayWithObjects:@"Minute(s)", nil];
     
     self.filteredActivityArray = [NSMutableArray arrayWithArray:self.appDelegate.allActivities];

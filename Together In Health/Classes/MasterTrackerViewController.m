@@ -213,11 +213,11 @@ enum trackerIndex {
                 [self updateMenuButtons];
                 break;
             case SubscriptionPaid2:
-            {
+            
                 self.sleepTrackerViewController = (SleepTrackerViewController*)
                 [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
                  instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
-            }
+            
                 
                 self.sleepTrackerViewController.view.frame = [self baseRect];
                 

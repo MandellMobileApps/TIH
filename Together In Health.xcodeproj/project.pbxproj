@@ -20,6 +20,12 @@
 		36278DAA1C2AF9F900B899E4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36278DA91C2AF9F800B899E4 /* CoreMotion.framework */; };
 		36278DAC1C2AFA0300B899E4 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36278DAB1C2AFA0300B899E4 /* HealthKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		36278DAF1C2DAD8F00B899E4 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 36278DAE1C2DAD8F00B899E4 /* MenuItem.m */; };
+		3650D25C1FD58B0D00F6AFAD /* MoodImagesUpgradePage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D25B1FD58B0C00F6AFAD /* MoodImagesUpgradePage.png */; };
+		3650D2631FD5E23500F6AFAD /* Stress Upgrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D25E1FD5E22400F6AFAD /* Stress Upgrade.png */; };
+		3650D2641FD5E23500F6AFAD /* DrinksUpgrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D25F1FD5E22700F6AFAD /* DrinksUpgrade.png */; };
+		3650D2651FD5E23500F6AFAD /* SleepUpgrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D2601FD5E22B00F6AFAD /* SleepUpgrade.png */; };
+		3650D2661FD5E23500F6AFAD /* GoalRunning Upgrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D2611FD5E22E00F6AFAD /* GoalRunning Upgrade.png */; };
+		3650D2671FD5E23500F6AFAD /* GoalSugarUpgrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D2621FD5E23200F6AFAD /* GoalSugarUpgrade.png */; };
 		365847601F704F3F006DF9E4 /* ExercisePlanSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */; };
 		365847631F709637006DF9E4 /* ExercisePlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847621F709637006DF9E4 /* ExercisePlanCell.m */; };
 		365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */; };
@@ -285,6 +291,13 @@
 		36278DAB1C2AFA0300B899E4 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		36278DAD1C2DAD8F00B899E4 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		36278DAE1C2DAD8F00B899E4 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		3650D25B1FD58B0C00F6AFAD /* MoodImagesUpgradePage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoodImagesUpgradePage.png; sourceTree = "<group>"; };
+		3650D25D1FD5DC3800F6AFAD /* SweetsFriedUpGrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SweetsFriedUpGrade.png; path = "/Users/Cami/Desktop/TIH-Start/SweetsFriedUpGrade.png"; sourceTree = "<absolute>"; };
+		3650D25E1FD5E22400F6AFAD /* Stress Upgrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stress Upgrade.png"; sourceTree = "<group>"; };
+		3650D25F1FD5E22700F6AFAD /* DrinksUpgrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinksUpgrade.png; sourceTree = "<group>"; };
+		3650D2601FD5E22B00F6AFAD /* SleepUpgrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SleepUpgrade.png; sourceTree = "<group>"; };
+		3650D2611FD5E22E00F6AFAD /* GoalRunning Upgrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GoalRunning Upgrade.png"; sourceTree = "<group>"; };
+		3650D2621FD5E23200F6AFAD /* GoalSugarUpgrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoalSugarUpgrade.png; sourceTree = "<group>"; };
 		3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanSetupViewController.h; sourceTree = "<group>"; };
 		3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanSetupViewController.m; sourceTree = "<group>"; };
 		365847611F709636006DF9E4 /* ExercisePlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanCell.h; sourceTree = "<group>"; };
@@ -659,6 +672,7 @@
 		6A91E3171BE2625500A72CCA = {
 			isa = PBXGroup;
 			children = (
+				3650D25D1FD5DC3800F6AFAD /* SweetsFriedUpGrade.png */,
 				6A4239F61FCB845100567538 /* Lock.png */,
 				6A90E0971FBA679300714F4E /* MenuPlan.storyboard */,
 				6A90E0921FBA60BF00714F4E /* More.storyboard */,
@@ -715,6 +729,7 @@
 				6A4239F81FCB879E00567538 /* MgNetworkOperation2.h */,
 				6A4239F71FCB879E00567538 /* MgNetworkOperation2.m */,
 				6A91E32F1BE2625500A72CCA /* Main.storyboard */,
+				3650D25B1FD58B0C00F6AFAD /* MoodImagesUpgradePage.png */,
 				361BC44F1F9173830011A20E /* GoalGamePlanViewController.h */,
 				361BC4501F9173830011A20E /* GoalGamePlanViewController.m */,
 				6A4726631FB91D3E0057C451 /* CheckBoxView.h */,
@@ -998,6 +1013,11 @@
 		6A91E3FF1BE2679300A72CCA /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				3650D25F1FD5E22700F6AFAD /* DrinksUpgrade.png */,
+				3650D2611FD5E22E00F6AFAD /* GoalRunning Upgrade.png */,
+				3650D2621FD5E23200F6AFAD /* GoalSugarUpgrade.png */,
+				3650D2601FD5E22B00F6AFAD /* SleepUpgrade.png */,
+				3650D25E1FD5E22400F6AFAD /* Stress Upgrade.png */,
 				369E53121F82F6FB00F3D750 /* MoodImageHappy.png */,
 				369E53131F82F6FB00F3D750 /* MoodImageMad.png */,
 				369E53141F82F6FB00F3D750 /* MoodImageSad.png */,
@@ -1150,6 +1170,7 @@
 				6A91E49A1BE2679300A72CCA /* VitaminMineralSupp.html in Resources */,
 				6A91E4A11BE2679300A72CCA /* backgroundButton.png in Resources */,
 				6A91E4A71BE2679300A72CCA /* Balanced Plate13.png in Resources */,
+				3650D2641FD5E23500F6AFAD /* DrinksUpgrade.png in Resources */,
 				6A91E4A41BE2679300A72CCA /* Balanced Plate10.png in Resources */,
 				6A91E4B71BE2679300A72CCA /* checkbox-empty.V2.png in Resources */,
 				6A91E48B1BE2679300A72CCA /* LemonGarlicVinaigrette.html in Resources */,
@@ -1173,6 +1194,7 @@
 				36FE38F81C0A0874002E341E /* Balanced Plate19.png in Resources */,
 				6A91E4BA1BE2679300A72CCA /* ChosenPlate.png in Resources */,
 				36FE39021C0A0874002E341E /* Balanced Plate29.png in Resources */,
+				3650D25C1FD58B0D00F6AFAD /* MoodImagesUpgradePage.png in Resources */,
 				365EB82C1C00FD3600D757F7 /* movement.jpg in Resources */,
 				6A91E4B91BE2679300A72CCA /* Checkmark.png in Resources */,
 				6A91E49E1BE2679300A72CCA /* Arrowforward.png in Resources */,
@@ -1181,6 +1203,7 @@
 				6A91E4AA1BE2679300A72CCA /* Balanced Plate16.png in Resources */,
 				361BC4631F9D30C50011A20E /* FriedGreasyPlate.png in Resources */,
 				6A91E49D1BE2679300A72CCA /* Answer line.png in Resources */,
+				3650D2661FD5E23500F6AFAD /* GoalRunning Upgrade.png in Resources */,
 				6A91E4BD1BE2679300A72CCA /* FoodLabel3.png in Resources */,
 				6A91E48E1BE2679300A72CCA /* Organic.html in Resources */,
 				6A91E4AF1BE2679300A72CCA /* Balanced Plate5.png in Resources */,
@@ -1214,6 +1237,7 @@
 				36FE392E1C0B65C5002E341E /* TrackFoodDelete.png in Resources */,
 				6A91E4C81BE2679300A72CCA /* Sweetdilemma.png in Resources */,
 				6A91E4831BE2679300A72CCA /* Carbveggies.html in Resources */,
+				3650D2631FD5E23500F6AFAD /* Stress Upgrade.png in Resources */,
 				6A91E4991BE2679300A72CCA /* UnderstandingBalance.html in Resources */,
 				36FE38C81C0236EC002E341E /* AppFrontImage.png in Resources */,
 				6A91E4B51BE2679300A72CCA /* Blankplate.png in Resources */,
@@ -1221,6 +1245,7 @@
 				6A91E49B1BE2679300A72CCA /* ZucchiniLasagna.html in Resources */,
 				6A91E4A91BE2679300A72CCA /* Balanced Plate15.png in Resources */,
 				6A91E4B21BE2679300A72CCA /* Balanced Plate8.png in Resources */,
+				3650D2671FD5E23500F6AFAD /* GoalSugarUpgrade.png in Resources */,
 				36FE392D1C0B65C5002E341E /* TrackFoodBfast2.png in Resources */,
 				6A83C61A1F9CFCEF0030A202 /* Goals.storyboard in Resources */,
 				6A91E4C21BE2679300A72CCA /* Resetimage.png in Resources */,
@@ -1254,6 +1279,7 @@
 				6A91E44C1BE2679300A72CCA /* GardenVegetableSoup.html in Resources */,
 				6A91E4861BE2679300A72CCA /* Disclaimer.html in Resources */,
 				6A91E4A81BE2679300A72CCA /* Balanced Plate14.png in Resources */,
+				3650D2651FD5E23500F6AFAD /* SleepUpgrade.png in Resources */,
 				36FE39321C0B65C5002E341E /* TrackFoodwithWaterFood.png in Resources */,
 				6A91E49C1BE2679300A72CCA /* addButtonImage.png in Resources */,
 				361BC4611F9D2AB40011A20E /* DessertPlate.png in Resources */,

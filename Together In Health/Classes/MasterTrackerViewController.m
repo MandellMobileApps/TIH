@@ -189,25 +189,27 @@ enum trackerIndex {
     if (!self.sleepTrackerViewController)
         
         switch (self.appDelegate.subscriptionLevel) {
-                
-                
+
+
             case SubscriptionFree:
-                self.upGradeViewController = (UpGradeViewController*)
-                [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-                 instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
-                self.upGradeViewController.view.frame = [self baseRect];
-                
+            {
+        self.upGradeViewController = (UpGradeViewController*)
+        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+         instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
+            }
+                break;
+
             case SubscriptionPaid1:
-            
+
                 self.sleepTrackerViewController = (SleepTrackerViewController*)
                 [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
                  instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
-            
-                
+
+
                 self.sleepTrackerViewController.view.frame = [self baseRect];
-                
+
                 self.sleepTrackerViewController.masterTrackerViewController = self;
-                
+
                 [self addChildViewController:self.sleepTrackerViewController];
                 [self.view addSubview:self.sleepTrackerViewController.view];
                 [self.sleepTrackerViewController didMoveToParentViewController:self];
@@ -216,16 +218,16 @@ enum trackerIndex {
                 [self updateMenuButtons];
                 break;
             case SubscriptionPaid2:
-            
+
                 self.sleepTrackerViewController = (SleepTrackerViewController*)
                 [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
                  instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
-            
-                
+
+
                 self.sleepTrackerViewController.view.frame = [self baseRect];
-                
+
                 self.sleepTrackerViewController.masterTrackerViewController = self;
-                
+
                 [self addChildViewController:self.sleepTrackerViewController];
                 [self.view addSubview:self.sleepTrackerViewController.view];
                 [self.sleepTrackerViewController didMoveToParentViewController:self];
@@ -237,8 +239,8 @@ enum trackerIndex {
                 break;
         }
 
-        
-     //   [self unloadOtherViewControllersExceptIndex:SleepIndex];
+    
+      //  [self unloadOtherViewControllersExceptIndex:SleepIndex];
    
         
 }

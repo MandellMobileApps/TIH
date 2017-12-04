@@ -114,6 +114,11 @@
          self.baseContentView.userInteractionEnabled = YES;
          [self.thisTableView reloadData];
      }
+     else
+     {
+        self.baseContentView.userInteractionEnabled = YES;
+        [self.thisTableView reloadData];
+     }
      
      
      
@@ -451,9 +456,12 @@
     ChooseActivityViewController* chooseActivityViewController = (ChooseActivityViewController*)
     [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
      instantiateViewControllerWithIdentifier:@"ChooseActivityViewController"];
-    chooseActivityViewController.navigationItem.hidesBackButton = NO;
-    chooseActivityViewController.activityTrackerViewController = self;
-    [self.navigationController pushViewController:chooseActivityViewController animated:NO];
+        chooseActivityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        chooseActivityViewController.activityTrackerViewController = self;
+        [self presentViewController:chooseActivityViewController animated:YES completion:^{
+
+        }];
+
 }
 
 #pragma StepTracking methodes

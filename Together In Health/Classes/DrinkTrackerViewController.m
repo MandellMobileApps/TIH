@@ -236,7 +236,6 @@
         ChooseDrinkViewController* chooseDrinkViewController = (ChooseDrinkViewController*)
         [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
          instantiateViewControllerWithIdentifier:@"ChooseDrinkViewController"];
-        //        [self presentViewController:chooseActivityViewController animated:YES completion:nil];
         [self.navigationController pushViewController:chooseDrinkViewController animated:YES];
         
     }

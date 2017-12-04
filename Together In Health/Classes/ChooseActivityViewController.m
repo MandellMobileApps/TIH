@@ -19,27 +19,31 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-
+    self.navigationItem.backBarButtonItem = nil;
     [self filterContentForFavorites];
-    
-    self.title = @"Choose Activity";
-    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
-    self.navigationController.navigationBar.titleTextAttributes = size;
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    self.navigationItem.hidesBackButton = NO;
-    
+
+    // set custom navbar
+    self.titleLabel.text = @"Choose Activity";
     self.navbarView.backgroundColor =   [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
     self.titleLabel.backgroundColor =   [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
     self.titleLabel.textColor = [UIColor whiteColor];
-    self.titleLabel.text = @"Choose Activity";
     
+    // set frames and search button
+     self.searchBarShowRect = CGRectMake(0,64, self.view.bounds.size.width, 44);
+     self.searchBarHideRect = CGRectMake(0,64, self.view.bounds.size.width, 0);
+    self.searchBar.frame = self.searchBarHideRect;
     [self.searchLabel setText:[[NSString alloc] initWithUTF8String:"\xF0\x9F\x94\x8D"]];
     [self.searchLabel sizeToFit];
     
+    self.navbarView.frame = CGRectMake(0,20, self.view.bounds.size.width, 44);
+    self.containerView.frame = CGRectMake(0,64, self.view.bounds.size.width, self.view.bounds.size.height-64);
+
+
     self.amtdescArray = [NSArray arrayWithObjects:@"Minute(s)", nil];
     
     self.filteredActivityArray = [NSMutableArray arrayWithArray:self.appDelegate.allActivities];
     [self.thisTableView reloadData];
+    
     
     
 }
@@ -158,14 +162,14 @@
             
             Activity* thisActivity = [self.favoriteActivities objectAtIndex:indexPath.row];
             [self.activityTrackerViewController activitySelected:thisActivity];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self dismiss];
 
             break;}
         case 1:{
             
             Activity* thisActivity = [self.filteredActivityArray objectAtIndex:indexPath.row];
             [self.activityTrackerViewController activitySelected:thisActivity];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self dismiss];
 
         }
             break;
@@ -360,36 +364,6 @@
 //    return YES;
 //}
 
--(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-{
-    [self shrinkTable:170];
-}
-
--(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
-{
-    [self enlargeTable:170];
-}
-
-- (void)searchBar:(UISearchBar * _Nonnull)searchBar textDidChange:(NSString * _Nonnull)searchText
-{
-    [self filterContentForSearchText:searchText scope:nil];
-
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar * _Nonnull)searchBar
-{
-    self.filteredActivityArray = [NSMutableArray arrayWithArray:self.appDelegate.allActivities];
-    searchBar.text = @"";
-    [searchBar resignFirstResponder];
-    [self.thisTableView reloadData];
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar * _Nonnull)searchBar
-{
-    [self filterContentForSearchText:self.searchBar.text scope:nil];
-    [searchBar resignFirstResponder];
-
-}
 
 #pragma mark Content Filtering
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
@@ -991,14 +965,14 @@
 
 -(void)showSearchBar
 {
-    
+   
     [UIView animateWithDuration:0.2
                      animations:^{
                          self.searchBar.frame = self.searchBarShowRect;
                          self.containerView.frame = CGRectMake(0,108, self.view.bounds.size.width, self.view.bounds.size.height-108);
                      }
                      completion:^(BOOL finished){
-                         
+
                      }];
 }
 -(void)hideSearchBar
@@ -1006,7 +980,7 @@
     [UIView animateWithDuration:0.2
                      animations:^{
                          self.searchBar.frame = self.searchBarHideRect;
-                         self.containerView.frame = CGRectMake(0,64, self.view.bounds.size.width, self.view.bounds.size.height-64);
+                        self.containerView.frame = CGRectMake(0,64, self.view.bounds.size.width, self.view.bounds.size.height-64);
                      }
                      completion:^(BOOL finished){
                          
@@ -1017,18 +991,53 @@
 -(IBAction)navbarButtonTapped:(UIButton*)sender
 {
     switch (sender.tag) {
-        case 1:
-            [self dismiss];
-            break;
-        case 2:
-            [self showSearchBar];
-            [self.searchBar becomeFirstResponder];
-            break;
-        default:
-            break;
+  case 1:
+    [self dismiss];
+    break;
+  case 2:
+    [self showSearchBar];
+    [self.searchBar becomeFirstResponder];
+    break;
+  default:
+    break;
     }
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self filterArrayWith:searchText];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self hideSearchBar];
+    [self.searchBar resignFirstResponder];
+    [self hideDatePicker];
+    [self filterArrayWith:@""];
+}
+
+
+-(void)filterArrayWith:(NSString*)filter
+{
+    NSPredicate *predicate;
+    if (filter.length>0)
+    {
+        predicate = [NSPredicate predicateWithFormat:@"activityName CONTAINS[cd] %@",filter];
+    }
+    else
+    {
+        predicate = [NSPredicate predicateWithFormat:@"activityName like[c] \"*\""];
+    }
+    NSMutableArray *predicates = [NSMutableArray array];
+
+    [predicates addObject:predicate];
+
+    NSPredicate *compoundPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
+    self.filteredActivityArray = [NSMutableArray arrayWithArray:[self.appDelegate.allActivities filteredArrayUsingPredicate:compoundPredicate]];
+
+    [self.thisTableView reloadData];
+
+}
 -(void)dismiss
 {
     

@@ -19,7 +19,6 @@
 @interface ChooseActivityViewController : AbstractViewController <UISearchBarDelegate>
 
 @property (nonatomic, strong) NSMutableArray* favoriteActivities;
-//@property (nonatomic, strong) NSMutableArray* chosenActivityArray;
 @property (nonatomic, strong) NSMutableArray* filteredActivityArray;
 
 @property IBOutlet UISearchBar* activitySearchBar;
@@ -50,15 +49,13 @@
 @property (nonatomic) int currentSelection;
 @property (nonatomic, strong) NSArray *amtArray;
 @property (nonatomic, strong) NSArray *amtdescArray;
-@property (nonatomic, strong) IBOutlet UISearchBar *filterSearchBar;
-
-@property (nonatomic, retain) IBOutlet UISearchBar* searchBar;
+@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, strong) IBOutlet UILabel *searchLabel;
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UIView *titleView;
+@property (nonatomic, strong) IBOutlet UIView *containerView;
 @property (nonatomic)  CGRect searchBarHideRect;
 @property (nonatomic)  CGRect searchBarShowRect;
-@property (nonatomic, retain) IBOutlet UILabel* searchLabel;
-@property (nonatomic, strong) IBOutlet UIView *containerView;
-@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
-
 
 @end
 

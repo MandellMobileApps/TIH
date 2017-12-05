@@ -341,6 +341,7 @@
 
     self.keyboardView = [[UIView alloc] init];
     self.keyboardView.backgroundColor = [UIColor lightGrayColor];
+    self.keyboardView.clipsToBounds = YES;
 
     self.keyboardTitleLabel.backgroundColor = [UIColor lightGrayColor];
     self.keyboardUnitsLabel.backgroundColor = [UIColor lightGrayColor];
@@ -353,6 +354,20 @@
     [self.keyboardView addSubview:self.keyboardTitleLabel];
     [self.keyboardView addSubview:self.keyboardUnitsLabel];
     [self.keyboardView addSubview:self.keyboardEntryLabel];
+
+    UIButton* cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [cancelButton setBackgroundColor:[UIColor darkGrayColor]];
+    [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [cancelButton.layer setBorderColor:[[UIColor whiteColor] CGColor]];
+    [cancelButton.layer setBorderWidth:1.0];
+    [cancelButton.layer setCornerRadius:8.0f];
+    [cancelButton.layer setMasksToBounds:YES];
+    [cancelButton addTarget:self action:@selector(keyboardButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    cancelButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    cancelButton.tag = 13;
+    cancelButton.frame = CGRectMake(10,10,80,40);
+    [self.keyboardView addSubview:cancelButton];
     
     int i=1;
     for(int r = 0; r < 4; r++) {
@@ -403,15 +418,15 @@
 
     [self addBorderAround:self.keyboardView cornerType:CornerTypeSquare withColor:[UIColor blackColor]];
 
-    CGRect hideRect = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 300);
+    CGRect hideRect = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 0);
     CGRect showRect;
     if (self.adBannerViewIsVisible)
     {
-        showRect = CGRectMake(0, self.view.bounds.size.height-(300 + self.adBannerView.bounds.size.height), self.view.bounds.size.width, 300);
+        showRect = CGRectMake(0, self.view.bounds.size.height-(320 + self.adBannerView.bounds.size.height), self.view.bounds.size.width, 310);
     }
     else
     {
-        showRect = CGRectMake(0, self.view.bounds.size.height-300, self.view.bounds.size.width, 300);
+        showRect = CGRectMake(0, self.view.bounds.size.height-320, self.view.bounds.size.width, 310);
 
     }
     self.keyboardView.frame = hideRect;
@@ -446,6 +461,11 @@
                         self.keyboardEntry = [NSMutableString stringWithString:[self.keyboardEntry substringToIndex:self.keyboardEntry.length-1]];
                         self.keyboardEntryLabel.text = self.keyboardEntry;
                     }
+                }
+                else if (button.tag==13)
+                {
+                    [self keyboardEntryUpdated:self.keyboardEntry tag:13];
+                    [self removeNumberPad];
                 }
                 else
                 {

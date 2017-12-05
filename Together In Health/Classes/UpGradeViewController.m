@@ -19,6 +19,8 @@
     [super viewDidLoad];
     [self updateUI];
     [self enableControls];
+    
+    self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 2000);
 
     // Do any additional setup after loading the view.
 }

@@ -15,5 +15,6 @@
 @property(nonatomic, strong) IBOutlet UIButton* sub1Button;
 @property(nonatomic, strong) IBOutlet UIButton* sub2Button;
 @property(nonatomic, strong) IBOutlet UIActivityIndicatorView* activityView;
+@property (nonatomic, strong) IBOutlet UIScrollView *thisScrollView;
 -(void)subscriptionCompleteWithSuccess:(BOOL)success;
 @end

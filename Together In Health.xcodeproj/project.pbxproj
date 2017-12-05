@@ -26,6 +26,7 @@
 		3650D2651FD5E23500F6AFAD /* SleepUpgrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D2601FD5E22B00F6AFAD /* SleepUpgrade.png */; };
 		3650D2661FD5E23500F6AFAD /* GoalRunning Upgrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D2611FD5E22E00F6AFAD /* GoalRunning Upgrade.png */; };
 		3650D2671FD5E23500F6AFAD /* GoalSugarUpgrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D2621FD5E23200F6AFAD /* GoalSugarUpgrade.png */; };
+		3650D2691FD5E75B00F6AFAD /* GoalsCalendarUpgrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D2681FD5E75700F6AFAD /* GoalsCalendarUpgrade.png */; };
 		365847601F704F3F006DF9E4 /* ExercisePlanSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */; };
 		365847631F709637006DF9E4 /* ExercisePlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847621F709637006DF9E4 /* ExercisePlanCell.m */; };
 		365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */; };
@@ -298,6 +299,7 @@
 		3650D2601FD5E22B00F6AFAD /* SleepUpgrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SleepUpgrade.png; sourceTree = "<group>"; };
 		3650D2611FD5E22E00F6AFAD /* GoalRunning Upgrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GoalRunning Upgrade.png"; sourceTree = "<group>"; };
 		3650D2621FD5E23200F6AFAD /* GoalSugarUpgrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoalSugarUpgrade.png; sourceTree = "<group>"; };
+		3650D2681FD5E75700F6AFAD /* GoalsCalendarUpgrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoalsCalendarUpgrade.png; sourceTree = "<group>"; };
 		3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanSetupViewController.h; sourceTree = "<group>"; };
 		3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanSetupViewController.m; sourceTree = "<group>"; };
 		365847611F709636006DF9E4 /* ExercisePlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanCell.h; sourceTree = "<group>"; };
@@ -1013,6 +1015,7 @@
 		6A91E3FF1BE2679300A72CCA /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				3650D2681FD5E75700F6AFAD /* GoalsCalendarUpgrade.png */,
 				3650D25F1FD5E22700F6AFAD /* DrinksUpgrade.png */,
 				3650D2611FD5E22E00F6AFAD /* GoalRunning Upgrade.png */,
 				3650D2621FD5E23200F6AFAD /* GoalSugarUpgrade.png */,
@@ -1250,6 +1253,7 @@
 				6A83C61A1F9CFCEF0030A202 /* Goals.storyboard in Resources */,
 				6A91E4C21BE2679300A72CCA /* Resetimage.png in Resources */,
 				36FE38F91C0A0874002E341E /* Balanced Plate20.png in Resources */,
+				3650D2691FD5E75B00F6AFAD /* GoalsCalendarUpgrade.png in Resources */,
 				6A91E48C1BE2679300A72CCA /* MenuMadness.html in Resources */,
 				36FE390F1C0A1291002E341E /* ChoosePlate.png in Resources */,
 				6A91E4BE1BE2679300A72CCA /* forwardButton2.png in Resources */,

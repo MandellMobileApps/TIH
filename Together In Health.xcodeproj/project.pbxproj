@@ -27,6 +27,7 @@
 		3650D2661FD5E23500F6AFAD /* GoalRunning Upgrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D2611FD5E22E00F6AFAD /* GoalRunning Upgrade.png */; };
 		3650D2671FD5E23500F6AFAD /* GoalSugarUpgrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D2621FD5E23200F6AFAD /* GoalSugarUpgrade.png */; };
 		3650D2691FD5E75B00F6AFAD /* GoalsCalendarUpgrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D2681FD5E75700F6AFAD /* GoalsCalendarUpgrade.png */; };
+		3650D26B1FD84A0700F6AFAD /* SweetsFriedUpGrade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3650D26A1FD84A0300F6AFAD /* SweetsFriedUpGrade.png */; };
 		365847601F704F3F006DF9E4 /* ExercisePlanSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */; };
 		365847631F709637006DF9E4 /* ExercisePlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847621F709637006DF9E4 /* ExercisePlanCell.m */; };
 		365847661F709E71006DF9E4 /* ExercisePlanCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 365847651F709E71006DF9E4 /* ExercisePlanCollectionView.m */; };
@@ -300,6 +301,7 @@
 		3650D2611FD5E22E00F6AFAD /* GoalRunning Upgrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GoalRunning Upgrade.png"; sourceTree = "<group>"; };
 		3650D2621FD5E23200F6AFAD /* GoalSugarUpgrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoalSugarUpgrade.png; sourceTree = "<group>"; };
 		3650D2681FD5E75700F6AFAD /* GoalsCalendarUpgrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoalsCalendarUpgrade.png; sourceTree = "<group>"; };
+		3650D26A1FD84A0300F6AFAD /* SweetsFriedUpGrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SweetsFriedUpGrade.png; sourceTree = "<group>"; };
 		3658475E1F704F3F006DF9E4 /* ExercisePlanSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanSetupViewController.h; sourceTree = "<group>"; };
 		3658475F1F704F3F006DF9E4 /* ExercisePlanSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisePlanSetupViewController.m; sourceTree = "<group>"; };
 		365847611F709636006DF9E4 /* ExercisePlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisePlanCell.h; sourceTree = "<group>"; };
@@ -1015,6 +1017,7 @@
 		6A91E3FF1BE2679300A72CCA /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				3650D26A1FD84A0300F6AFAD /* SweetsFriedUpGrade.png */,
 				3650D2681FD5E75700F6AFAD /* GoalsCalendarUpgrade.png */,
 				3650D25F1FD5E22700F6AFAD /* DrinksUpgrade.png */,
 				3650D2611FD5E22E00F6AFAD /* GoalRunning Upgrade.png */,
@@ -1208,6 +1211,7 @@
 				6A91E49D1BE2679300A72CCA /* Answer line.png in Resources */,
 				3650D2661FD5E23500F6AFAD /* GoalRunning Upgrade.png in Resources */,
 				6A91E4BD1BE2679300A72CCA /* FoodLabel3.png in Resources */,
+				3650D26B1FD84A0700F6AFAD /* SweetsFriedUpGrade.png in Resources */,
 				6A91E48E1BE2679300A72CCA /* Organic.html in Resources */,
 				6A91E4AF1BE2679300A72CCA /* Balanced Plate5.png in Resources */,
 				365AAC661FB2064C00A5450A /* FoodLabelNew.png in Resources */,

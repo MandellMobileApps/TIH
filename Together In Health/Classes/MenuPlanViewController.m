@@ -153,7 +153,7 @@
     NSURL* url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
 
-    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url responseBlock:^(MgNetworkOperation2* completedOperation)
+    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url isJson:YES responseBlock:^(MgNetworkOperation2* completedOperation)
                                         {
                                             if (completedOperation.operationErrorMessage.length == 0)
                                             {
@@ -181,7 +181,8 @@
                                                 }
                                             }
                                         }
-                                        
+                                        ];
+}
                                         
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

@@ -130,45 +130,45 @@ enum menuPlanIndex {
     }
 }
 
--(IBAction)menuPlan:(*UIButton)sender
-        {
-            
-            if (!self.menuPlanViewController)
-            {
-                self.menuPlanViewController = (MenuPlanViewController*)
-                [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
-                 instantiateViewControllerWithIdentifier:@"MenuPlanViewController"];
-            }
+//-(IBAction)menuPlan:(*UIButton)sender
+//        {
+//            
+//            if (!self.menuPlanViewController)
+//            {
+//                self.menuPlanViewController = (MenuPlanViewController*)
+//                [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
+//                 instantiateViewControllerWithIdentifier:@"MenuPlanViewController"];
+//            }
+//
+//            self.navbarTitleLabel.text = @"Menu Plans";
+//           // self.menuPlanIndex = menuPlanIndex;
+//            [self updateMenuButtons];
+//
+//            //    [self unloadOtherViewControllersExceptIndex:StressIndex];
+//
+//
+//        }
+//-(IBAction)addMenuItem:(*UIButton)sender
+//        {
+//
+//            if (!self.addMenuItemViewController)
+//            {
+//                self.addMenuItemViewController = (AddMenuItemViewController*)
+//                [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
+//                 instantiateViewControllerWithIdentifier:@"AddMenuItemViewController"];
+//
+//            }
+//            //self.activityTrackerViewController.view.frame = [self baseRect];
+//
+//
+//            self.navbarTitleLabel.text = @"Create Menu Plan";
+//            self.menuPlanIndex = addItemIndex;
+//            [self updateMenuButtons];
+//            //     [self unloadOtherViewControllersExceptIndex:ActivityIndex];
+//
+//
+//        }
 
-            self.navbarTitleLabel.text = @"Menu Plans";
-           // self.menuPlanIndex = menuPlanIndex;
-            [self updateMenuButtons];
-            
-            //    [self unloadOtherViewControllersExceptIndex:StressIndex];
-            
-            
-        }
--(IBAction)addMenuItem:(*UIButton)sender
-        {
-            
-            if (!self.addMenuItemViewController)
-            {
-                self.addMenuItemViewController = (AddMenuItemViewController*)
-                [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
-                 instantiateViewControllerWithIdentifier:@"AddMenuItemViewController"];
-                
-            }
-            //self.activityTrackerViewController.view.frame = [self baseRect];
-            
-
-            self.navbarTitleLabel.text = @"Create Menu Plan";
-            self.menuPlanIndex = addItemIndex;
-            [self updateMenuButtons];
-            //     [self unloadOtherViewControllersExceptIndex:ActivityIndex];
-            
-            
-        }
-            
 -(void) checkForUpdates
 {
     // start version check

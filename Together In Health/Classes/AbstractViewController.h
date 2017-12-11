@@ -30,6 +30,11 @@ enum CornerType {
 	CornerTypeSquare = 1,
 };
 
+enum PickerType {
+    PickerTypeNumberPad = 0,
+    PickerTypePickerView = 1,
+    PickerTypeDatePicker = 2,
+};
 
 @interface AbstractViewController : UIViewController <ADBannerViewDelegate,MFMailComposeViewControllerDelegate>
 
@@ -42,7 +47,7 @@ enum CornerType {
 
 -(void)bannerViewDidLoadAd:(ADBannerView *)banner;
 @property(nonatomic) BOOL loadAd;
--(void)viewDidAppear:(BOOL)animated;
+
 @property (nonatomic, strong) IBOutlet UIView *baseContentView;
 
 - (NSString *)dataFilePathofDocuments:(NSString *)nameoffile;
@@ -119,6 +124,9 @@ enum CornerType {
 -(void) updateForOrientationChange;
 -(BOOL)string:(NSString*)string containsString:(NSString*)other;
 
+@property (nonatomic, strong) IBOutlet UILabel *drinkPickerLabel;
+@property (nonatomic, strong) IBOutlet UIView *pickerViewContainer;
+@property (nonatomic, strong) IBOutlet UIPickerView* pickerView;
 
 @property(nonatomic,strong) UIView* keyboardView;
 @property(nonatomic,strong) NSMutableString* keyboardEntry;

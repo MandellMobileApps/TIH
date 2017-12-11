@@ -73,7 +73,6 @@
 		36FE39021C0A0874002E341E /* Balanced Plate29.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FE38F61C0A0874002E341E /* Balanced Plate29.png */; };
 		36FE39041C0A0E4B002E341E /* Directions.html in Resources */ = {isa = PBXBuildFile; fileRef = 36FE39031C0A0E4B002E341E /* Directions.html */; };
 		36FE390E1C0A1291002E341E /* ActivityWithFav.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FE39051C0A1291002E341E /* ActivityWithFav.png */; };
-		36FE390F1C0A1291002E341E /* ChoosePlate.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FE39061C0A1291002E341E /* ChoosePlate.png */; };
 		36FE39101C0A1291002E341E /* FullActivity.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FE39071C0A1291002E341E /* FullActivity.png */; };
 		36FE39111C0A1291002E341E /* FullActivitywithTime.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FE39081C0A1291002E341E /* FullActivitywithTime.png */; };
 		36FE39141C0A1291002E341E /* TrackFoodwithPlates.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FE390B1C0A1291002E341E /* TrackFoodwithPlates.png */; };
@@ -1259,7 +1258,6 @@
 				36FE38F91C0A0874002E341E /* Balanced Plate20.png in Resources */,
 				3650D2691FD5E75B00F6AFAD /* GoalsCalendarUpgrade.png in Resources */,
 				6A91E48C1BE2679300A72CCA /* MenuMadness.html in Resources */,
-				36FE390F1C0A1291002E341E /* ChoosePlate.png in Resources */,
 				6A91E4BE1BE2679300A72CCA /* forwardButton2.png in Resources */,
 				6A91E4911BE2679300A72CCA /* ReadingAFoodLabel.html in Resources */,
 				369E53191F82F6FB00F3D750 /* MoodImageSad.png in Resources */,

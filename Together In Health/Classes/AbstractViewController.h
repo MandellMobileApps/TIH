@@ -30,11 +30,7 @@ enum CornerType {
 	CornerTypeSquare = 1,
 };
 
-enum PickerType {
-    PickerTypeNumberPad = 0,
-    PickerTypePickerView = 1,
-    PickerTypeDatePicker = 2,
-};
+
 
 @interface AbstractViewController : UIViewController <ADBannerViewDelegate,MFMailComposeViewControllerDelegate>
 
@@ -136,6 +132,7 @@ enum PickerType {
 @property (nonatomic)  NSInteger  keyboardTag;
 
 @property (nonatomic) BOOL stepsKeypadShowing;
+
 - (void)keyboardButtonClicked:(UIButton*)button;
 - (void)keyboardEntryUpdated:(NSString*)entry tag:(NSInteger)tag;
 -(void)addNumberPadForString:(NSString*)currentValue withTitle:(NSString*)title andUnits:(NSString*)units tag:(NSInteger)tag;

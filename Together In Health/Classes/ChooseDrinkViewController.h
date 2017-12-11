@@ -38,9 +38,7 @@
 
 @property (nonatomic, strong) NSIndexPath *currentIndexPath;
 
-@property (nonatomic, strong) IBOutlet UILabel *drinkPickerLabel;
-@property (nonatomic, strong) IBOutlet UIView *pickerViewContainer;
-@property (nonatomic, strong) IBOutlet UIPickerView* pickerView;
+
 @property (nonatomic, strong) NSDate *healthyDrinks;
 @property (nonatomic, strong) NSDate *sugaryDrinks;
 @property (nonatomic, strong) NSDate *caffeineDrinks;

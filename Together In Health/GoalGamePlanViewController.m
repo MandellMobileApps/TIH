@@ -24,11 +24,7 @@
         [self.navigationController setNavigationBarHidden:YES];
 
    self.changeMade = NO;
-//   self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
-//    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
-//    self.navigationController.navigationBar.titleTextAttributes = size;
-//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-//
+
     self.appDelegate.goalGamePlanViewController = self;
     
     self.titleLabel.text = self.goal.goalName;
@@ -57,13 +53,7 @@
 }
 -(void)viewWillDisappear:(BOOL)animated {
     
-    [self.holidaysTextView resignFirstResponder];
-    [self.vacationTextView resignFirstResponder];
-    [self.sickDaysTextView resignFirstResponder];
-    [self.other1TextView resignFirstResponder];
-    [self.other2TextView resignFirstResponder];
-    [self.other1InfoTextView resignFirstResponder];
-    [self.other2InfoTextView resignFirstResponder];
+
     
     
 //    NSString* RecordId = [self.object objectForKey:@"RecordId"];
@@ -99,6 +89,19 @@
 
 - (void)textViewDidChange:(UITextView *)textView
 {
+    self.changeMade = YES;
+}
+
+-(void)savePlan
+{
+    [self.holidaysTextView resignFirstResponder];
+    [self.vacationTextView resignFirstResponder];
+    [self.sickDaysTextView resignFirstResponder];
+    [self.other1TextView resignFirstResponder];
+    [self.other2TextView resignFirstResponder];
+    [self.other1InfoTextView resignFirstResponder];
+    [self.other2InfoTextView resignFirstResponder];
+    
     self.goal.holidays = self.holidaysTextView.text;
     self.goal.vacation = self.vacationTextView.text;
     self.goal.sick = self.sickDaysTextView.text;
@@ -106,7 +109,7 @@
     self.goal.other2 = self.other2InfoTextView.text;
     self.goal.other1Text = self.other1TextView.text;
     self.goal.other2Text = self.other2TextView.text;
-    self.changeMade = YES;
+
 }
 
 -(IBAction)navbuttonTapped:(UIButton*)sender
@@ -115,7 +118,7 @@
     {
         if (self.changeMade)
         {
-           // alert
+           [self verifyCancel];
         
         }
         else
@@ -127,6 +130,7 @@
     }
     else if (sender.tag == 1)
     {
+        [self savePlan];
         [self.appDelegate saveGoals];
         [self dismissViewControllerAnimated:YES completion:^{
             
@@ -143,9 +147,9 @@
     
 }
 
--(IBAction)verifyCancel:(id)sender {
+-(void)verifyCancel {
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You've made changes, are you sure you want to close goal?" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Close Goal",nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You've made changes, are you sure you want to cancel?" message:@"" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes",nil];
     alert.tag = 2;
     [alert show];
     
@@ -159,13 +163,14 @@
         if (buttonIndex == 0) {
         }
         else if (buttonIndex == 1) {
-            self.goal.holidays = self.holidaysTextView.text = @"";
-            self.goal.vacation = self.vacationTextView.text = @"";
-            self.goal.sick = self.sickDaysTextView.text = @"";
-            self.goal.other1 = self.other1InfoTextView.text = @"";
-            self.goal.other2 = self.other2InfoTextView.text = @"";
-            self.goal.other1Text = self.other1TextView.text = @"";
-            self.goal.other2Text = self.other2TextView.text = @"";
+            self.holidaysTextView.text = @"";
+            self.vacationTextView.text = @"";
+            self.sickDaysTextView.text = @"";
+            self.other1InfoTextView.text = @"";
+            self.other2InfoTextView.text = @"";
+            self.other1TextView.text = @"";
+            self.other2TextView.text = @"";
+            self.changeMade = YES;
             
         }
     } else if (alertView.tag == 2)

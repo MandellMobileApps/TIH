@@ -310,6 +310,18 @@
 
 #pragma mark - Number pad methods
 
+//-(void)addPickerType:(NSInteger)pickerType withTitle:(NSString*)title tag:(NSInteger)tag delegate:(id)delegate
+//{
+//    switch (pickerType) {
+//  case <#constant#>:
+//    <#statements#>
+//    break;
+//
+//  default:
+//    break;
+//}
+//}
+
 -(void)addNumberPadForString:(NSString*)currentValue withTitle:(NSString*)title andUnits:(NSString*)units tag:(NSInteger)tag
 {
 

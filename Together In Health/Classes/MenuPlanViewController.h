@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AbstractViewController.h"
 
 @class MenuPlanCell;
 @class AddMenuItemViewController;
@@ -15,7 +16,7 @@
 @class AppDelegate;
 @class UpGradeViewController;
 
-@interface MenuPlanViewController : UIViewController
+@interface MenuPlanViewController : AbstractViewController
 
 @property (nonatomic, strong) MenuPlanCell *menuPlanCell;
 @property (nonatomic, strong) AddMenuItemViewController *addMenuItemViewController;
@@ -36,6 +37,12 @@
 @property (nonatomic,strong) UISegmentedControl *menutypeSegment;
 @property (nonatomic) int menuTypeRating;
 @property (nonatomic, strong) IBOutlet UIButton *upgradeButton;
+@property(nonatomic,strong) NSDictionary* object;
+@property (nonatomic) BOOL updateEnabled;
+@property (strong, nonatomic) NSArray *updatedVersions;
+@property (strong, nonatomic) NSMutableArray *filesToUpdate;
+@property (nonatomic) NSInteger currentVersion;
+@property (nonatomic) NSInteger newVersion;
 
 -(IBAction)recipes:(id)sender;
 

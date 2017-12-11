@@ -727,4 +727,29 @@
     [self.navigationController pushViewController:upGradeViewController animated:YES];
 }
 
+-(NSArray*)objectsForFilename:(NSString*)filename
+{
+    NSString* path1 = [self dataFilePathofDocuments:[NSString stringWithFormat:@"%@.plist",filename]];
+    NSString* path2 = [self dataFilePathofBundle:[NSString stringWithFormat:@"%@.plist",filename]];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray* temp;
+    if ([fileManager fileExistsAtPath:path1])
+    {
+        temp = [NSArray arrayWithContentsOfFile:path1];
+    }
+    else if ([fileManager fileExistsAtPath:path2])
+    {
+        temp = [NSArray arrayWithContentsOfFile:path2];
+    }
+    if (temp)
+    {
+        return temp;
+    }
+    return nil;
+    
+}
+
+
+
 @end

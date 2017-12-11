@@ -13,6 +13,8 @@
 #import "AddMenuItemViewController.h"
 #import "AppDelegate.h"
 #import "UpGradeViewController.h"
+#import "MgNetworkOperation2.h"
+#import "AbstractViewController.h"
 
 @implementation MenuPlanViewController
 
@@ -57,6 +59,16 @@
     
     [self.navigationItem setLeftBarButtonItem:barBtn2];
     
+    [self checkForUpdates];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkForUpdates) name:@"checkForUpdates" object:nil];
+    
+    
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    [self performSelector:@selector(delayedLoad) withObject:nil afterDelay:0.5];
+    
 //        switch (self.appDelegate.subscriptionLevel) {
 //    
 //            case SubscriptionFree:
@@ -85,6 +97,92 @@
     
 }
 
+-(void) checkForUpdates
+{
+    // start version check
+    [self checkForDatabaseInDocuments];
+    [self checkVersion];
+    
+}
+
+
+-(void) checkForDatabaseInDocuments
+{
+    NSString *path1 = [self dataFilePathofBundle:@"TIHDatabase.sqlite"];
+    NSString *path2 = [self dataFilePathofDocuments:@"TIHDatabase.sqlite"];
+    
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:path2])
+    {
+        NSError* error;
+        [fileManager copyItemAtPath:path1 toPath: path2 error:&error];
+        
+        if (error != nil)
+        {
+            NSLog(@"Error message is %@", [error localizedDescription]);
+        }
+        
+    }
+    
+    
+}
+
+-(void)delayedLoad
+{
+    
+    //self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    
+    NSString* objects0Sql = @"SELECT * FROM TIHDatabase WHERE SectionNumber = \"0\" ORDER BY RowOrder";
+    self.object = [SQLiteAccess selectManyRowsWithSQL:objects0Sql];
+    
+//    NSString* objects1Sql = @"SELECT * FROM ProSports WHERE Type = \"Main\" AND  SectionNumber = \"1\" ORDER BY RowOrder";
+//    self.objects1 = [SQLiteAccess selectManyRowsWithSQL:objects1Sql];
+//
+//    NSString* objects2Sql = @"SELECT * FROM ProSports WHERE Type = \"Main\" AND  SectionNumber = \"2\" ORDER BY RowOrder";
+//    self.objects2 = [SQLiteAccess selectManyRowsWithSQL:objects2Sql];
+//
+//    self.loadAd = NO;
+    
+}
+
+-(void) checkVersion
+{
+    
+    NSString* urlString = @"http://mandellmobileapps.com/TIHversion.php";
+    NSURL* url = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+
+    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url responseBlock:^(MgNetworkOperation2* completedOperation)
+                                        {
+                                            if (completedOperation.operationErrorMessage.length == 0)
+                                            {
+                                                
+                                                if ([completedOperation.json isKindOfClass:[NSArray class]])
+                                                {
+                                                    self.updatedVersions = completedOperation.json;
+                                                    //                NSLog(@"self.updatedVersions %@",self.updatedVersions);
+                                                    if (self.updatedVersions.count > 0)
+                                                    {
+                                                        NSDictionary* thisVersion = [self.updatedVersions lastObject];
+                                                        
+                                                        self.updateEnabled = [[thisVersion objectForKey:@"Update Enabled"] boolValue];
+                                                        
+                                                        NSArray* files = [thisVersion objectForKey:@"FilesToUpdate"];
+                                                        self.filesToUpdate = [NSMutableArray array];
+                                                        
+                                                        for (NSDictionary* item in files)
+                                                        {
+                                                            [self.filesToUpdate addObject:[item objectForKey:@"filename"]];
+                                                        }
+                                                        
+                                                        self.newVersion = [[thisVersion objectForKey:@"NewVersion"] integerValue];
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        
+                                        
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     

@@ -199,7 +199,6 @@
 {
     [self hideSearchBar];
     [self.searchBar resignFirstResponder];
-    [self hideDatePicker];
     [self filterArrayWith:@""];
 }
 
@@ -396,10 +395,7 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
      [self.searchBar resignFirstResponder];
-    self.pickerViewContainer.hidden = NO;
-    self.pickerView.hidden = NO;
-    
-    [self showDatePicker];
+
     self.currentIndexPath = indexPath;
     self.currentSelection = indexPath.row;
     switch (indexPath.section)
@@ -431,200 +427,136 @@
         default:
             break;
     }
-   // [self addHealthyDrinkArrayObjectAtIndex:indexPath.row];
-}
+    NSArray* arrays = [NSArray arrayWithObjects:self.amtArray,[NSArray arrayWithObject:@"Cup(s)"], nil];
+    [self addPickerViewForArrays:arrays
+    defaultValues:nil animated:NO
+    withTitle:[self.thisDrinkDict objectForKey:@"Name"] tag:1];
     
-//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-//    self.chooseDrinkCell.checkImage.hidden = NO;
-// //   self.pickerView.date = [self.dataArray objectAtIndex:indexPath.row];
-//    self.
-//
-//    self.pickerViewContainer.hidden = NO;
-//    self.pickerView.hidden = NO;
-//    
-//    [self showDatePicker];
-//    
-//    switch (indexPath.section)
-//    {
-//        case 0:
-//            self.drinkPickerLabel.text = [self.healthyDrinkArray objectAtIndex:indexPath.row];
-//            break;
-//    
-//        case 1:
-//            self.drinkPickerLabel.text = [self.sugaryDrinkArray objectAtIndex:indexPath.row];
-//            break;
-//    
-//        case 2:
-//            self.drinkPickerLabel.text = [self.caffeineDrinkArray objectAtIndex:indexPath.row];
-//            break;
-//        case 3:
-//            self.drinkPickerLabel.text = [self.alcoholDrinkArray objectAtIndex:indexPath.row];
-//            break;
-//            default:
-//            break;
-//    }
-//    [self addHealthyDrinkArrayObjectAtIndex:indexPath.row];
-//}
-
-//
-//-(void)addHealthyDrinkArrayObjectAtIndex:(NSInteger)integer {
-//    NSString* newHealthyDrink = [self.healthyDrinkArray objectAtIndex:integer];
-//    [self.day.healthyDrinkArray addObject:newHealthyDrink];
-//    [self.drinkTrackerViewController.thisTableView reloadData];
-//}
-
-//
-//-(void)addHealthyDrinkArrayObjectAtIndex:(NSInteger)integer {
-//    NSString* newHealthyDrink = [self.healthyDrinkArray objectAtIndex:integer];
-////    [self.day.healthyDrinkArray addObject:newHealthyDrink];
-//    [self.drinkTrackerViewController.thisTableView reloadData];
-//}
-
-
-
--(IBAction)datePickerDoneButtonTapped:(id)sender {
-    
-//        NSMutableDictionary* thisDrinkDict;
-//        switch (self.selectedDrinkType) {
-//          case DrinkTypeWater:{
-//            thisDrinkDict = [self.healthyDrinkFilteredArray objectAtIndex:self.currentSelection];
-//            break;}
-//          case DrinkTypeSugar:
-//            thisDrinkDict = [self.sugaryDrinkFilteredArray objectAtIndex:self.currentSelection];
-//            break;
-//          case DrinkTypeCaffeine:
-//            thisDrinkDict = [self.caffeineDrinkFilteredArray objectAtIndex:self.currentSelection];
-//            break;
-//          case DrinkTypeAlcohol:
-//            thisDrinkDict = [self.alcoholDrinkFilteredArray objectAtIndex:self.currentSelection];
-//            break;
-//          default:
-//            break;
-//        }
-//    NSInteger sum =  [[thisDrinkDict objectForKey:@"Amount"] integerValue] + [[thisDrinkDict objectForKey:@"Sum"] integerValue];
-//    [thisDrinkDict setObject:[NSString stringWithFormat:@"%@ Cup(s)",[thisDrinkDict objectForKey:@"Amount"]] forKey:@"Sum"];
-
-    [self hideDatePicker];
-    [self.thisTableView reloadData];
 }
 
--(void) showDatePickerForIndex:(NSInteger)selection {
-    
-    if (selection == -1)
-    {
-        [self hideDatePicker];
-    }
-    else if (selection == 0)
-    {
-        if (self.currentSelection == 1)
-        {
-            [self hideDatePicker];
-            [self performSelector:@selector(showDatePicker) withObject:nil afterDelay:0.25];
-            
-        }
-        else if (self.currentSelection < 0)
-        {
-            [self showDatePicker];
-        }
-        
-    }
-    else if (selection == 1)
-    {
-        if (self.currentSelection == 0)
-        {
-            [self hideDatePicker];
-            [self performSelector:@selector(showDatePicker) withObject:nil afterDelay:0.25];
-            
-        }
-        else if (self.currentSelection < 0)
-        {
-            [self showDatePicker];
-        }
-    }
-    self.currentSelection = selection;
-}
 
--(void) showDatePicker
+
+- (void)pickerViewDidSelect:(UIPickerView *)pickerView tag:(NSInteger)tag
 {
-
-    CGRect  showRect = CGRectMake(0,self.view.bounds.size.height-250, self.view.bounds.size.width, 250);
-    [UIView animateWithDuration:0.2
-                     animations:^{
-                         [self.view addSubview:self.pickerViewContainer];
-                         self.pickerViewContainer.frame = showRect;
-                     }
-                     completion:^(BOOL finished){
-                         
-                     }];
-}
-
--(void) hideDatePicker
-{
-    
-    if (self.pickerViewContainer)
-    {
-        CGRect	hideRect = CGRectMake(0,self.view.bounds.size.height, self.view.bounds.size.width, 0);
-        [UIView animateWithDuration:0.2
-                         animations:^{
-                             self.pickerViewContainer.frame = hideRect;
-                         }
-                         completion:^(BOOL finished){
-                             [self.pickerViewContainer removeFromSuperview];
-                         }];
-    }
-    
-}
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
-    
-
-        return 2;
-
-}
-
-- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
-    
-    if (component == 0)
-    return self.amtArray.count;
-
-    else {
-        return 1;
-    }
-}
-
-- (NSString*)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    NSString *title;
-
-    if (component == 0)
-    {
-        title = self.amtArray[row];
-    }
-    else {
-        title = @"Cup(s)";
-    }
-    
-    return title;
-}
-
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
+    NSInteger row = [pickerView selectedRowInComponent:0];
     [self.thisDrinkDict setObject:[self.amtArray objectAtIndex:row] forKey:@"Amount"];
+    [self.thisTableView reloadData];
+    
 }
-
--(CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
-{
-    if (component == 0)
-    {
-        return (self.view.frame.size.width * 25 ) / 100  ;
-    }
-    else
-    {
-        return (self.view.frame.size.width * 25 ) / 100  ;
-    }
-}
-
+//
+//-(void) showDatePickerForIndex:(NSInteger)selection {
+//
+//    if (selection == -1)
+//    {
+//        [self hideDatePicker];
+//    }
+//    else if (selection == 0)
+//    {
+//        if (self.currentSelection == 1)
+//        {
+//            [self hideDatePicker];
+//            [self performSelector:@selector(showDatePicker) withObject:nil afterDelay:0.25];
+//
+//        }
+//        else if (self.currentSelection < 0)
+//        {
+//            [self showDatePicker];
+//        }
+//
+//    }
+//    else if (selection == 1)
+//    {
+//        if (self.currentSelection == 0)
+//        {
+//            [self hideDatePicker];
+//            [self performSelector:@selector(showDatePicker) withObject:nil afterDelay:0.25];
+//
+//        }
+//        else if (self.currentSelection < 0)
+//        {
+//            [self showDatePicker];
+//        }
+//    }
+//    self.currentSelection = selection;
+//}
+//
+//-(void) showDatePicker
+//{
+//
+//    CGRect  showRect = CGRectMake(0,self.view.bounds.size.height-250, self.view.bounds.size.width, 250);
+//    [UIView animateWithDuration:0.2
+//                     animations:^{
+//                         [self.view addSubview:self.pickerViewContainer];
+//                         self.pickerViewContainer.frame = showRect;
+//                     }
+//                     completion:^(BOOL finished){
+//
+//                     }];
+//}
+//
+//-(void) hideDatePicker
+//{
+//
+//    if (self.pickerViewContainer)
+//    {
+//        CGRect    hideRect = CGRectMake(0,self.view.bounds.size.height, self.view.bounds.size.width, 0);
+//        [UIView animateWithDuration:0.2
+//                         animations:^{
+//                             self.pickerViewContainer.frame = hideRect;
+//                         }
+//                         completion:^(BOOL finished){
+//                             [self.pickerViewContainer removeFromSuperview];
+//                         }];
+//    }
+//
+//}
+//
+//- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
+//
+//
+//        return 2;
+//
+//}
+//
+//- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
+//
+//    if (component == 0)
+//    return self.amtArray.count;
+//
+//    else {
+//        return 1;
+//    }
+//}
+//
+//- (NSString*)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+//{
+//    NSString *title;
+//
+//    if (component == 0)
+//    {
+//        title = self.amtArray[row];
+//    }
+//    else {
+//        title = @"Cup(s)";
+//    }
+//
+//    return title;
+//}
+//
+//
+//
+//-(CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
+//{
+//    if (component == 0)
+//    {
+//        return (self.view.frame.size.width * 25 ) / 100  ;
+//    }
+//    else
+//    {
+//        return (self.view.frame.size.width * 25 ) / 100  ;
+//    }
+//}
+//
 
 -(void)loadArrays
 {

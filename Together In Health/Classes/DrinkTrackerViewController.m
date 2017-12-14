@@ -233,10 +233,10 @@
     
     if (indexPath.section == 0) {
         
-        ChooseDrinkViewController* chooseDrinkViewController = (ChooseDrinkViewController*)
-        [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
-         instantiateViewControllerWithIdentifier:@"ChooseDrinkViewController"];
-        [self.navigationController pushViewController:chooseDrinkViewController animated:YES];
+//        ChooseDrinkViewController* chooseDrinkViewController = (ChooseDrinkViewController*)
+//        [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
+//         instantiateViewControllerWithIdentifier:@"ChooseDrinkViewController"];
+//        [self.navigationController pushViewController:chooseDrinkViewController animated:YES];
         
     }
     else {
@@ -280,20 +280,11 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    //    NSDictionary* object = [self.myStadiums objectAtIndex:indexPath.row];
-    //    [self.myStadiums removeObjectAtIndex:indexPath.row];
-    
-    
+    [tableView beginUpdates];
     [self.thisTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
-    
-    // NSString* rowid = [object objectForKey:@"RecordId"];
-    // NSString* sql2 = [NSString stringWithFormat:@"UPDATE ProSports Set BeenThere = \"NO\" WHERE RecordId = \"%@\" ",rowid];
-    // [SQLiteAccess updateWithSQL:sql2];
-    
-    //  [[NSNotificationCenter defaultCenter] postNotificationName:@"BeenThereDetailUpdated" object:nil];
-    
-    //    [GlobalMethods postNotification:@"UpdateBeenThere" withObject:NO];
-    
+    [self.appDelegate.day.drinksArray removeObjectAtIndex:indexPath.row];
+    [tableView endUpdates];
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

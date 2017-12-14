@@ -288,24 +288,6 @@
 
 }
 
-//-(void)GotoToday {
-//    if(!self.transitioning)
-//    {
-//    //get todays NSDate at midnight
-//        NSDate *today = [NSDate date];
-//        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-//        NSDateComponents *comps = [gregorian components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:today];
-//        self.nextYear = [comps year];
-//        self.nextMonth = [comps month];
-//        [self.calendarcurrent drawCalendarForYear:self.nextYear month:self.nextMonth];
-//        NSString *monthyearlabeltemp  = [[NSString alloc] initWithFormat:@"%@  %ld",[self monthName:self.currentMonth], self.currentYear];
-//        self.monthNameLabel.text = monthyearlabeltemp;
-//        [self performTransition:4];
-//
-//    }
-//
-//}
-
 
 -(NSString*)monthName:(NSInteger)month
 {

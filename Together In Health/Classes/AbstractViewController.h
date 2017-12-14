@@ -10,6 +10,7 @@
 #import "iAd/iAd.h"
 #import <MessageUI/MFMailComposeViewController.h>
 #import "DatePickerView.h"
+#import "PickerContainerView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Activity.h"
 #import "Food.h"
@@ -37,7 +38,7 @@ enum ButtonIndex {
     ButtonIndexBackspace = 23,
 };
 
-@interface AbstractViewController : UIViewController <ADBannerViewDelegate,MFMailComposeViewControllerDelegate>
+@interface AbstractViewController : UIViewController <ADBannerViewDelegate,MFMailComposeViewControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property (nonatomic, weak) AppDelegate *appDelegate;
 
@@ -66,8 +67,12 @@ enum ButtonIndex {
 -(void) updateForOrientationChange;
 -(BOOL)string:(NSString*)string containsString:(NSString*)other;
 
-
+@property (nonatomic) BOOL transitioning;
 @property (nonatomic) BOOL keypadShowing;
+
+@property (nonatomic, strong) DatePickerView *datePickerView;
+@property (nonatomic, strong) PickerContainerView *pickerContainerView;
+@property(nonatomic,strong) IBOutlet UILabel* drinkPickerLabel;
 
 @property(nonatomic,strong) UIView* numberPadView;
 @property(nonatomic,strong) NSMutableString* numberPadCurrentValue;
@@ -77,19 +82,15 @@ enum ButtonIndex {
 @property(nonatomic,strong) UILabel* numberPadEntryLabel;
 @property(nonatomic) float numberPadHeight;
 
-@property(nonatomic,strong) UIView* datePickerView;
-@property(nonatomic,strong) NSDate* datePickerDate;
-@property(nonatomic,strong) id datePickerDelegate;
-@property (nonatomic)  NSInteger  datePickerTag;
-
-@property (nonatomic, strong) IBOutlet UILabel *drinkPickerLabel;
 @property (nonatomic, strong) IBOutlet UIView *pickerViewContainer;
 @property (nonatomic, strong) IBOutlet UIPickerView* pickerView;
 @property(nonatomic,strong) UILabel* pickerTitleLabel;
-@property(nonatomic,strong) UILabel* pickerUnitsLabel;
-@property(nonatomic,strong) UILabel* pickerEntryLabel;
+@property(nonatomic,strong) NSArray* pickerComponentsArrays;
 @property (nonatomic)  NSInteger  pickerTag;
 @property(nonatomic) float pickerHeight;
+@property (nonatomic) CGRect pickerHideRect;
+@property (nonatomic) CGRect pickerShowRect;
+
 
 -(void)addNumberPadForString:(NSString*)currentValue withTitle:(NSString*)title andUnits:(NSString*)units tag:(NSInteger)tag;
 - (void)numberPadButtonClicked:(UIButton*)button;
@@ -100,9 +101,9 @@ enum ButtonIndex {
 - (void)datePickerButtonClicked:(UIButton*)button;
 - (void)datePickerDidChange:(NSDate*)date tag:(NSInteger)tag;
 
--(void)addPickerViewForRow:(NSInteger)rowIndex column:(NSInteger)columnIndex withTitle:(NSString*)title andDelegate:(id)delegate tag:(NSInteger)tag;
+-(void)addPickerViewForArrays:(NSArray*)arrays defaultValues:(NSArray*)defaults animated:(BOOL)animated withTitle:(NSString*)title tag:(NSInteger)tag;
 - (void)pickerViewButtonClicked:(UIButton*)button;
-- (void)pickerViewDidChange:(NSString*)entry tag:(NSInteger)tag;
+- (void)pickerViewDidSelect:(UIPickerView *)pickerView tag:(NSInteger)tag;
 
 -(void)addBorderAround:(id)object cornerType:(NSInteger)corner withColor:(UIColor*)color;
 -(void)removeBorderFrom:(id)object;

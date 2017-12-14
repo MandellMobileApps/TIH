@@ -44,6 +44,8 @@
 @property (nonatomic, strong) IBOutlet UIButton		*nextMonthButton;
 @property (nonatomic, strong) IBOutlet UIButton		*nextYearButton;
 
+@property (nonatomic, strong) IBOutlet UILabel        *setGoalLabel;
+
 @property (nonatomic, strong) IBOutlet UIButton        *goal1Button;
 @property (nonatomic, strong) IBOutlet UIButton        *goal2Button;
 @property (nonatomic, strong) IBOutlet UIButton        *goal3Button;

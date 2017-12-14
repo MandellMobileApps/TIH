@@ -151,7 +151,7 @@ enum trackerIndex {
 -(CGRect)baseRect
 {
         CGRect baseRect = self.view.bounds;
-        NSInteger menuHeight = 77+64;
+        NSInteger menuHeight = 77+66;
         baseRect.origin.y = menuHeight;
         baseRect.size.height = self.view.frame.size.height-menuHeight;
         return baseRect;

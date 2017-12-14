@@ -88,13 +88,12 @@
 }
 
 
-- (void)keyboardEntryUpdated:(NSString*)entry tag:(NSInteger)tag
+- (void)numberPadEntryUpdated:(NSString*)entry forTag:(NSInteger)tag
 {
     if (tag == 0)
     {
         self.addActivity.time = entry;
         [self.appDelegate.day.activityArray addObject:self.addActivity];
-        self.baseContentView.userInteractionEnabled = YES;
         [self.thisTableView reloadData];
      }
      else if (tag == 1)
@@ -105,22 +104,20 @@
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
         formatter.numberStyle = NSNumberFormatterDecimalStyle;
         self.lastSelectedCell.timeLabel.text = [formatter stringFromNumber:[NSNumber numberWithFloat:[entry floatValue]]];
-        self.baseContentView.userInteractionEnabled = YES;
      }
      else if (tag == 2)
      {
          self.editActivity.time = entry;
          [self activityUpdated:self.editActivity];
-         self.baseContentView.userInteractionEnabled = YES;
          [self.thisTableView reloadData];
      }
      else
      {
-        self.baseContentView.userInteractionEnabled = YES;
         [self.thisTableView reloadData];
      }
      
-     
+    self.baseContentView.userInteractionEnabled = YES;
+
      
 //    NSLog(@"self.addActivity.activityName%@",self.addActivity.activityName);
 //    NSLog(@"self.addActivity.time %@",self.addActivity.time);
@@ -347,7 +344,7 @@
     if (indexPath.section == 0)
     {
         self.editActivity = [self.appDelegate.day.activityArray objectAtIndex:indexPath.row];
-            [self addNumberPadForString:self.editActivity.time withTitle:self.editActivity.activityName andUnits:@"Enter Minutes" tag:2];
+        [self addNumberPadForString:self.editActivity.time withTitle:self.editActivity.activityName andUnits:@"Enter Minutes" tag:2];
     
     }
     else if (indexPath.section == 1)
@@ -360,7 +357,7 @@
     {
         
         self.baseContentView.userInteractionEnabled = NO;
-        [self addNumberPadForString:self.lastSelectedCell.timeLabel.text withTitle:[TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime] andUnits:@"Enter Steps" tag:1];
+        [self addNumberPadForString:@"0" withTitle:[TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime] andUnits:@"Enter Steps" tag:1];
 
     }
 

@@ -30,7 +30,12 @@ enum CornerType {
 	CornerTypeSquare = 1,
 };
 
-
+enum ButtonIndex {
+    ButtonIndexCancel = 20,
+    ButtonIndexDone = 21,
+    ButtonIndexSave = 22,
+    ButtonIndexBackspace = 23,
+};
 
 @interface AbstractViewController : UIViewController <ADBannerViewDelegate,MFMailComposeViewControllerDelegate>
 
@@ -53,89 +58,51 @@ enum CornerType {
 
 @property (nonatomic, weak) ProgressViewController* progressViewController;
 
-//@property (nonatomic, strong) NSMutableArray* goalPackage;
-//@property (nonatomic, strong) NSMutableArray* goal2Package;
-//@property (nonatomic, strong) NSMutableArray* goal3Package;
-//@property (nonatomic, strong) NSMutableArray *goals;
 
-
-//- (IBAction)buttonTapped1:(id)sender;
-//- (IBAction)buttonTapped2:(id)sender;
-//- (IBAction)buttonTapped3:(id)sender;
-//- (IBAction)buttonTapped4:(id)sender;
-//- (IBAction)buttonTapped5:(id)sender;
-
-//@property (nonatomic, strong) IBOutlet UIButton *step1;
-//@property (nonatomic, strong) IBOutlet UIButton *step2;
-//@property (nonatomic, strong) IBOutlet UIButton *step3;
-//@property (nonatomic, strong) IBOutlet UIButton *step4;
-//@property (nonatomic, strong) IBOutlet UIButton *step5;
-//@property (nonatomic, strong) IBOutlet UIButton *clearAllButton;
 @property (nonatomic, strong) IBOutlet UIButton *resignKeyboardButton;
-//-(IBAction)resignKeyboard:(id)sender;
-
-
-////@property (weak, nonatomic) IBOutlet UITextField *textFieldGoal;
-//@property (weak, nonatomic) IBOutlet UITextField *textFieldBy1;
-//@property (weak, nonatomic) IBOutlet UITextField *textFieldBy2;
-//
-//@property (nonatomic, strong) IBOutlet UITextField *textFieldWhen;
-//@property (nonatomic, strong) IBOutlet UITextField *textFieldWhere;
-//@property (nonatomic, strong) IBOutlet UITextField *textFieldOften;
-//@property (nonatomic, strong) IBOutlet UITextField *textFieldWhen2;
-//@property (nonatomic, strong) IBOutlet UITextField *textFieldWhere2;
-//@property (nonatomic, strong) IBOutlet UITextField *textFieldOften2;
-//
-//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep1;
-//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep2;
-//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep3;
-//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep4;
-//@property (nonatomic, strong) IBOutlet UITextField *textFieldStep5;
-
-//-(IBAction)trackProgress:(id)sender;
-//-(IBAction)checkGoal:(id)sender;
-//-(IBAction)gamePlan:(id)sender;
-//-(IBAction)clearAll:(id)sender;
-//-(void)saveDefaults;
-
-//@property (nonatomic, strong) IBOutlet UIButton *gamePlanButton;
-//@property (nonatomic, strong) IBOutlet UIButton *goalCheckButton;
-//@property (nonatomic) BOOL buttonTappedStep1On;
-//@property (nonatomic) BOOL buttonTappedStep2On;
-//@property (nonatomic) BOOL buttonTappedStep3On;
-//@property (nonatomic) BOOL buttonTappedStep4On;
-//@property (nonatomic) BOOL buttonTappedStep5On;
-
-
-//-(void) saveGoal1Persistent;
-//-(void) loadGoal1Persistent;
-//-(void) saveGoal2Persistent;
-//-(void) loadGoal2Persistent;
-//-(void) saveGoal3Persistent;
-//-(void) loadGoal3Persistent;
-//-(void) createGoalPackage;
 
 -(NSArray*)objectsForFilename:(NSString*)filename;
 -(NSString*)pathForFilename:(NSString*)filename;
 -(void) updateForOrientationChange;
 -(BOOL)string:(NSString*)string containsString:(NSString*)other;
 
+
+@property (nonatomic) BOOL keypadShowing;
+
+@property(nonatomic,strong) UIView* numberPadView;
+@property(nonatomic,strong) NSMutableString* numberPadCurrentValue;
+@property(nonatomic) NSInteger numberPadTag;
+@property(nonatomic,strong) UILabel* numberPadTitleLabel;
+@property(nonatomic,strong) UILabel* numberPadUnitsLabel;
+@property(nonatomic,strong) UILabel* numberPadEntryLabel;
+@property(nonatomic) float numberPadHeight;
+
+@property(nonatomic,strong) UIView* datePickerView;
+@property(nonatomic,strong) NSDate* datePickerDate;
+@property(nonatomic,strong) id datePickerDelegate;
+@property (nonatomic)  NSInteger  datePickerTag;
+
 @property (nonatomic, strong) IBOutlet UILabel *drinkPickerLabel;
 @property (nonatomic, strong) IBOutlet UIView *pickerViewContainer;
 @property (nonatomic, strong) IBOutlet UIPickerView* pickerView;
+@property(nonatomic,strong) UILabel* pickerTitleLabel;
+@property(nonatomic,strong) UILabel* pickerUnitsLabel;
+@property(nonatomic,strong) UILabel* pickerEntryLabel;
+@property (nonatomic)  NSInteger  pickerTag;
+@property(nonatomic) float pickerHeight;
 
-@property(nonatomic,strong) UIView* keyboardView;
-@property(nonatomic,strong) NSMutableString* keyboardEntry;
-@property(nonatomic,strong) UILabel* keyboardTitleLabel;
-@property(nonatomic,strong) UILabel* keyboardUnitsLabel;
-@property(nonatomic,strong) UILabel* keyboardEntryLabel;
-@property (nonatomic)  NSInteger  keyboardTag;
-
-@property (nonatomic) BOOL stepsKeypadShowing;
-
-- (void)keyboardButtonClicked:(UIButton*)button;
-- (void)keyboardEntryUpdated:(NSString*)entry tag:(NSInteger)tag;
 -(void)addNumberPadForString:(NSString*)currentValue withTitle:(NSString*)title andUnits:(NSString*)units tag:(NSInteger)tag;
+- (void)numberPadButtonClicked:(UIButton*)button;
+- (void)numberPadEntryUpdated:(NSString*)entry forTag:(NSInteger)tag;
+- (void)removeNumberPad;
+
+-(void)addDatePickerForDate:(NSDate*)date withTitle:(NSString*)title tag:(NSInteger)tag;
+- (void)datePickerButtonClicked:(UIButton*)button;
+- (void)datePickerDidChange:(NSDate*)date tag:(NSInteger)tag;
+
+-(void)addPickerViewForRow:(NSInteger)rowIndex column:(NSInteger)columnIndex withTitle:(NSString*)title andDelegate:(id)delegate tag:(NSInteger)tag;
+- (void)pickerViewButtonClicked:(UIButton*)button;
+- (void)pickerViewDidChange:(NSString*)entry tag:(NSInteger)tag;
 
 -(void)addBorderAround:(id)object cornerType:(NSInteger)corner withColor:(UIColor*)color;
 -(void)removeBorderFrom:(id)object;

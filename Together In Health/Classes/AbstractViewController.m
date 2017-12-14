@@ -77,83 +77,10 @@
 {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter]  removeObserver:self];
-    if (self.loadAd)
-    {
-        [self unloadBanner];
-        [self.adBannerView removeFromSuperview];
-        self.adBannerView = nil;
-    }
-    
-
-}
-
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner
-{
 
     
-    if (!self.adBannerViewIsVisible)
-    {
-        self.adBannerViewIsVisible = YES;
-        [UIView animateWithDuration:0.3
-                         animations:^{
-                             CGRect bannerFrame = banner.frame;
-                             bannerFrame.origin.y = self.view.bounds.size.height-bannerFrame.size.height;
-                             banner.frame = bannerFrame;
-         
-                             CGRect contentViewFrame = self.baseContentView.frame;
-                             contentViewFrame.size.height = self.view.bounds.size.height-bannerFrame.size.height;
-                             self.baseContentView.frame = contentViewFrame;
-                            if ([self.keyboardView superview])
-                            {
-                                self.keyboardView.frame = CGRectMake(0, self.view.bounds.size.height-(300 + self.adBannerView.bounds.size.height), self.view.bounds.size.width, 300);
-                            }
-                         }
-                         completion:^(BOOL finished){
-
-                         }];
-        
-        
-    }
-}
-
-
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
-{
-    [self unloadBanner];
-}
-
--(void) unloadBanner
-{
- 
-    if (self.adBannerViewIsVisible)
-    {
-        self.adBannerViewIsVisible = NO;
-        
-        [UIView animateWithDuration:0.3
-                         animations:^{
-                             
-                             CGRect contentViewFrame = self.baseContentView.frame;
-                             contentViewFrame.size.height = self.view.bounds.size.height;
-                             self.baseContentView.frame = contentViewFrame;
-                             
-                             CGRect bannerFrame = self.adBannerView.frame;
-                             bannerFrame.origin.y = self.view.bounds.size.height;
-                             self.adBannerView.frame = bannerFrame;
-                             if ([self.keyboardView superview])
-                             {
-                                 self.keyboardView.frame = CGRectMake(0, (self.view.bounds.size.height-300), self.view.bounds.size.width, 300);
-                             }
-                         }
-                         completion:^(BOOL finished){
-                         }];
-        
-        
-    }
-    
 
 }
-
-
 
 
 -(void)createGoalPakcage
@@ -310,62 +237,203 @@
 
 #pragma mark - Number pad methods
 
-//-(void)addPickerType:(NSInteger)pickerType withTitle:(NSString*)title tag:(NSInteger)tag delegate:(id)delegate
-//{
-//    switch (pickerType) {
-//  case <#constant#>:
-//    <#statements#>
-//    break;
-//
-//  default:
-//    break;
-//}
-//}
 
--(void)addNumberPadForString:(NSString*)currentValue withTitle:(NSString*)title andUnits:(NSString*)units tag:(NSInteger)tag
+
+-(void)addDatePickerForDate:(NSDate*)date withTitle:(NSString*)title tag:(NSInteger)tag
 {
 
+}
+- (void)datePickerButtonClicked:(UIButton*)button
+{
 
-    self.keyboardEntry = [NSMutableString stringWithString:currentValue];
-    self.keyboardTag = tag;
+}
+- (void)datePickerDidChange:(NSDate*)date tag:(NSInteger)tag
+{
+
+}
+
+-(void)addPickerViewForRow:(NSInteger)rowIndex column:(NSInteger)columnIndex withTitle:(NSString*)title andDelegate:(id)delegate tag:(NSInteger)tag
+{
+//    self.pickerHeight = 310;
+//    self.numberPadCurrentValue = [NSMutableString stringWithString:currentValue];
+//    self.numberPadTag = tag;
+//
+//    self.numberPadTitleLabel = [[UILabel alloc] init];
+//    self.numberPadUnitsLabel = [[UILabel alloc] init];
+//    self.numberPadEntryLabel = [[UILabel alloc] init];
+//
+//
+//    self.numberPadTitleLabel.text = title;
+//    self.numberPadUnitsLabel.text = units;
+//    self.numberPadEntryLabel.text = self.numberPadCurrentValue;
+//
+//    self.numberPadTitleLabel.textAlignment = NSTextAlignmentCenter;
+//    self.numberPadUnitsLabel.textAlignment = NSTextAlignmentCenter;
+//    self.numberPadEntryLabel.textAlignment = NSTextAlignmentRight;
+//
+//    self.numberPadTitleLabel.frame = CGRectMake(startX, 0, 210, 40);
+//    self.numberPadUnitsLabel.frame = CGRectMake(startX, 40, 210, 20);
+//    self.numberPadEntryLabel.frame = CGRectMake(startX, 60, 210, 40);
+//    [self addBorderAround:self.numberPadEntryLabel cornerType:CornerTypeSquare withColor:[UIColor darkGrayColor]];
+//
+//    self.numberPadTitleLabel.font = [UIFont systemFontOfSize:24];
+//    self.numberPadUnitsLabel.font = [UIFont systemFontOfSize:18];
+//    self.numberPadEntryLabel.font = [UIFont systemFontOfSize:40];
+//
+//    self.numberPadView = [[UIView alloc] init];
+//    self.numberPadView.backgroundColor = [UIColor whiteColor];
+//    self.numberPadView.clipsToBounds = YES;
+//
+//    self.numberPadTitleLabel.backgroundColor = [UIColor lightGrayColor];
+//    self.numberPadUnitsLabel.backgroundColor = [UIColor lightGrayColor];
+//    self.numberPadEntryLabel.backgroundColor = [UIColor whiteColor];
+//
+//    self.numberPadTitleLabel.textColor = [UIColor darkGrayColor];
+//    self.numberPadUnitsLabel.textColor = [UIColor darkGrayColor];
+//    self.numberPadEntryLabel.textColor = [UIColor darkGrayColor];
+//
+//    [self.numberPadView addSubview:self.numberPadTitleLabel];
+//    [self.numberPadView addSubview:self.numberPadUnitsLabel];
+//    [self.numberPadView addSubview:self.numberPadEntryLabel];
+//
+//    UIButton* cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    [cancelButton setBackgroundColor:[UIColor darkGrayColor]];
+//    [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [cancelButton.layer setBorderColor:[[UIColor whiteColor] CGColor]];
+//    [cancelButton.layer setBorderWidth:1.0];
+//    [cancelButton.layer setCornerRadius:8.0f];
+//    [cancelButton.layer setMasksToBounds:YES];
+//    [cancelButton addTarget:self action:@selector(numberPadButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+//    cancelButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+//    cancelButton.tag = ButtonIndexCancel;
+//    cancelButton.frame = CGRectMake(10,10,80,40);
+//    [self.numberPadView addSubview:cancelButton];
+//
+//    int i=1;
+//    for(int r = 0; r < 4; r++) {
+//        for(int c = 0; c < 3; c++) {
+//                UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//                [button setBackgroundColor:[UIColor darkGrayColor]];
+//                [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//                [button.layer setBorderColor:[[UIColor whiteColor] CGColor]];
+//                [button.layer setBorderWidth:1.0];
+//                [button.layer setCornerRadius:8.0f];
+//                [button.layer setMasksToBounds:YES];
+//                [button addTarget:self action:@selector(numberPadButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//                button.tag = i;
+//                CGRect buttonRect = CGRectMake(startX+((c * 70)+2), startY + (r * 50)+2, 65, 46);
+//                button.frame = buttonRect;
+//                if (i==10)
+//                {
+//                    [button setTitle:@"Done" forState:UIControlStateNormal];
+//                    button.titleLabel.font = [UIFont boldSystemFontOfSize:24];
+//                    button.tag = ButtonIndexDone;
+//
+//                }
+//                else if (i==11)
+//                {
+//                    [button setTitle:@"0" forState:UIControlStateNormal];
+//                     button.titleLabel.font = [UIFont boldSystemFontOfSize:28];
+//                    button.tag = 0;
+//
+//                }
+//                else if (i==12)
+//                {
+//                    [button setTitle:@"<" forState:UIControlStateNormal];
+//                     button.titleLabel.font = [UIFont boldSystemFontOfSize:28];
+//                    button.tag = ButtonIndexBackspace;
+//
+//                }
+//                else
+//                {
+//                    [button setTitle:[NSString stringWithFormat:@"%i",i] forState:UIControlStateNormal];
+//                     button.titleLabel.font = [UIFont boldSystemFontOfSize:28];
+//                }
+//
+//                [self.numberPadView addSubview:button];
+//                i++;
+//        }
+//
+//    }
+//
+//    [self addBorderAround:self.numberPadView cornerType:CornerTypeSquare withColor:[UIColor darkGrayColor]];
+//
+//    CGRect hideRect = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 0);
+//    CGRect showRect = CGRectMake(0, self.view.bounds.size.height-self.numberPadHeight, self.view.bounds.size.width, self.numberPadHeight);
+//
+//    self.numberPadView.frame = hideRect;
+//    [self.view addSubview:self.numberPadView];
+//        [self shrinkTable:self.numberPadHeight];
+//        [UIView animateWithDuration:0.3
+//            animations:^
+//            {
+//                self.numberPadView.frame = showRect;
+//
+//            }
+//            completion:^(BOOL finished)
+//            {
+//
+//             }];
+
+}
+- (void)pickerViewButtonClicked:(UIButton*)button
+{
+
+}
+
+- (void)pickerViewDidChange:(NSString*)entry tag:(NSInteger)tag
+{
+
+}
+
+
+-(void)addNumberPadForString:(NSString*)currentValue withTitle:(NSString*)title andUnits:(NSString*)units tag:(NSInteger)tag;
+{
+    self.numberPadHeight = 310;
+    self.numberPadCurrentValue = [NSMutableString stringWithString:currentValue];
+    self.numberPadTag = tag;
+
+    
+    self.numberPadTitleLabel = [[UILabel alloc] init];
+    self.numberPadUnitsLabel = [[UILabel alloc] init];
+    self.numberPadEntryLabel = [[UILabel alloc] init];
+
+    
+    self.numberPadTitleLabel.text = title;
+    self.numberPadUnitsLabel.text = units;
+    self.numberPadEntryLabel.text = self.numberPadCurrentValue;
+ 
+    self.numberPadTitleLabel.textAlignment = NSTextAlignmentCenter;
+    self.numberPadUnitsLabel.textAlignment = NSTextAlignmentCenter;
+    self.numberPadEntryLabel.textAlignment = NSTextAlignmentRight;
+    
     float startY = 100;
     float startX = (self.view.bounds.size.width-210)/2;
-    
-    self.keyboardTitleLabel = [[UILabel alloc] init];
-    self.keyboardUnitsLabel = [[UILabel alloc] init];
-    self.keyboardEntryLabel = [[UILabel alloc] init];
-    
-    self.keyboardTitleLabel.text = title;
-    self.keyboardUnitsLabel.text = units;
-    self.keyboardEntryLabel.text = self.keyboardEntry;
- 
-    self.keyboardTitleLabel.textAlignment = NSTextAlignmentCenter;
-    self.keyboardUnitsLabel.textAlignment = NSTextAlignmentCenter;
-    self.keyboardEntryLabel.textAlignment = NSTextAlignmentRight;
-    
-    self.keyboardTitleLabel.frame = CGRectMake(startX, 0, 210, 40);
-    self.keyboardUnitsLabel.frame = CGRectMake(startX, 40, 210, 20);
-    self.keyboardEntryLabel.frame = CGRectMake(startX, 60, 210, 40);
+    self.numberPadTitleLabel.frame = CGRectMake(startX, 0, 210, 40);
+    self.numberPadUnitsLabel.frame = CGRectMake(startX, 40, 210, 20);
+    self.numberPadEntryLabel.frame = CGRectMake(startX, 60, 210, 40);
+    [self addBorderAround:self.numberPadEntryLabel cornerType:CornerTypeSquare withColor:[UIColor darkGrayColor]];
 
-    self.keyboardTitleLabel.font = [UIFont systemFontOfSize:24];
-    self.keyboardUnitsLabel.font = [UIFont systemFontOfSize:18];
-    self.keyboardEntryLabel.font = [UIFont systemFontOfSize:40];
+    self.numberPadTitleLabel.font = [UIFont systemFontOfSize:24];
+    self.numberPadUnitsLabel.font = [UIFont systemFontOfSize:18];
+    self.numberPadEntryLabel.font = [UIFont systemFontOfSize:40];
 
-    self.keyboardView = [[UIView alloc] init];
-    self.keyboardView.backgroundColor = [UIColor lightGrayColor];
-    self.keyboardView.clipsToBounds = YES;
+    self.numberPadView = [[UIView alloc] init];
+    self.numberPadView.backgroundColor = [UIColor whiteColor];
+    self.numberPadView.clipsToBounds = YES;
 
-    self.keyboardTitleLabel.backgroundColor = [UIColor lightGrayColor];
-    self.keyboardUnitsLabel.backgroundColor = [UIColor lightGrayColor];
-    self.keyboardEntryLabel.backgroundColor = [UIColor whiteColor];
+    self.numberPadTitleLabel.backgroundColor = [UIColor lightGrayColor];
+    self.numberPadUnitsLabel.backgroundColor = [UIColor lightGrayColor];
+    self.numberPadEntryLabel.backgroundColor = [UIColor whiteColor];
 
-    self.keyboardTitleLabel.textColor = [UIColor blackColor];
-    self.keyboardUnitsLabel.textColor = [UIColor blackColor];
-    self.keyboardEntryLabel.textColor = [UIColor blackColor];
+    self.numberPadTitleLabel.textColor = [UIColor darkGrayColor];
+    self.numberPadUnitsLabel.textColor = [UIColor darkGrayColor];
+    self.numberPadEntryLabel.textColor = [UIColor darkGrayColor];
     
-    [self.keyboardView addSubview:self.keyboardTitleLabel];
-    [self.keyboardView addSubview:self.keyboardUnitsLabel];
-    [self.keyboardView addSubview:self.keyboardEntryLabel];
+    [self.numberPadView addSubview:self.numberPadTitleLabel];
+    [self.numberPadView addSubview:self.numberPadUnitsLabel];
+    [self.numberPadView addSubview:self.numberPadEntryLabel];
 
     UIButton* cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [cancelButton setBackgroundColor:[UIColor darkGrayColor]];
@@ -374,12 +442,12 @@
     [cancelButton.layer setBorderWidth:1.0];
     [cancelButton.layer setCornerRadius:8.0f];
     [cancelButton.layer setMasksToBounds:YES];
-    [cancelButton addTarget:self action:@selector(keyboardButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [cancelButton addTarget:self action:@selector(numberPadButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
     cancelButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-    cancelButton.tag = 13;
+    cancelButton.tag = ButtonIndexCancel;
     cancelButton.frame = CGRectMake(10,10,80,40);
-    [self.keyboardView addSubview:cancelButton];
+    [self.numberPadView addSubview:cancelButton];
     
     int i=1;
     for(int r = 0; r < 4; r++) {
@@ -391,7 +459,7 @@
                 [button.layer setBorderWidth:1.0];
                 [button.layer setCornerRadius:8.0f];
                 [button.layer setMasksToBounds:YES];
-                [button addTarget:self action:@selector(keyboardButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+                [button addTarget:self action:@selector(numberPadButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
                 button.tag = i;
                 CGRect buttonRect = CGRectMake(startX+((c * 70)+2), startY + (r * 50)+2, 65, 46);
                 button.frame = buttonRect;
@@ -399,7 +467,7 @@
                 {
                     [button setTitle:@"Done" forState:UIControlStateNormal];
                     button.titleLabel.font = [UIFont boldSystemFontOfSize:24];
-                    button.tag = 10;
+                    button.tag = ButtonIndexDone;
                 
                 }
                 else if (i==11)
@@ -413,7 +481,7 @@
                 {
                     [button setTitle:@"<" forState:UIControlStateNormal];
                      button.titleLabel.font = [UIFont boldSystemFontOfSize:28];
-                    button.tag = 11;
+                    button.tag = ButtonIndexBackspace;
                 
                 }
                 else
@@ -422,32 +490,24 @@
                      button.titleLabel.font = [UIFont boldSystemFontOfSize:28];
                 }
             
-                [self.keyboardView addSubview:button];
+                [self.numberPadView addSubview:button];
                 i++;
         }
         
     }
 
-    [self addBorderAround:self.keyboardView cornerType:CornerTypeSquare withColor:[UIColor blackColor]];
-
+    [self addBorderAround:self.numberPadView cornerType:CornerTypeSquare withColor:[UIColor darkGrayColor]];
+  
     CGRect hideRect = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 0);
-    CGRect showRect;
-    if (self.adBannerViewIsVisible)
-    {
-        showRect = CGRectMake(0, self.view.bounds.size.height-(320 + self.adBannerView.bounds.size.height), self.view.bounds.size.width, 310);
-    }
-    else
-    {
-        showRect = CGRectMake(0, self.view.bounds.size.height-320, self.view.bounds.size.width, 310);
-
-    }
-    self.keyboardView.frame = hideRect;
-    [self.view addSubview:self.keyboardView];
-        [self shrinkTable:200];
+    CGRect showRect = CGRectMake(0, self.view.bounds.size.height-self.numberPadHeight, self.view.bounds.size.width, self.numberPadHeight);
+    
+    self.numberPadView.frame = hideRect;
+    [self.view addSubview:self.numberPadView];
+        [self shrinkTable:self.numberPadHeight];
         [UIView animateWithDuration:0.3
             animations:^
             {
-                self.keyboardView.frame = showRect;
+                self.numberPadView.frame = showRect;
             
             }
             completion:^(BOOL finished)
@@ -457,65 +517,67 @@
 
 }
 
-
-- (void) keyboardButtonClicked:(UIButton*)button
+- (void)numberPadButtonClicked:(UIButton*)button
 {
-                if (button.tag==10)
-                {
-                    [self keyboardEntryUpdated:self.keyboardEntry tag:self.keyboardTag];
-                    [self removeNumberPad];
-                
-                }
-                else if (button.tag==11)
-                {
-                    if (self.keyboardEntry.length>0)
-                    {
-                        self.keyboardEntry = [NSMutableString stringWithString:[self.keyboardEntry substringToIndex:self.keyboardEntry.length-1]];
-                        self.keyboardEntryLabel.text = self.keyboardEntry;
-                    }
-                }
-                else if (button.tag==13)
-                {
-                    [self keyboardEntryUpdated:self.keyboardEntry tag:13];
-                    [self removeNumberPad];
-                }
-                else
-                {
-                    if ([self.keyboardEntry isEqualToString:@"0"])
-                    {
-                        self.keyboardEntry = [NSMutableString stringWithFormat:@"%li",(long)button.tag];
-                        self.keyboardEntryLabel.text = self.keyboardEntry;
-                    }
-                    else
-                    {
-                        [self.keyboardEntry appendString:[NSString stringWithFormat:@"%li",(long)button.tag]];
-                        self.keyboardEntryLabel.text = self.keyboardEntry;
-                    }
-                    
-                }
-
+    if (button.tag==ButtonIndexCancel)
+    {
+        [self numberPadEntryUpdated:@"" forTag:-1];
+        [self removeNumberPad];
+    }
+    else if (button.tag==ButtonIndexBackspace)
+    {
+        if (self.numberPadCurrentValue.length>1)
+        {
+            self.numberPadCurrentValue = [NSMutableString stringWithString:[self.numberPadCurrentValue substringToIndex:self.numberPadCurrentValue.length-1]];
+            self.numberPadEntryLabel.text = self.numberPadCurrentValue;
+        }
+        else if (self.numberPadCurrentValue.length==1)
+        {
+            self.numberPadCurrentValue = [NSMutableString stringWithString:@"0"];
+            self.numberPadEntryLabel.text = self.numberPadCurrentValue;
+        }
+    }
+    else if (button.tag==ButtonIndexDone)
+    {
+        [self numberPadEntryUpdated:self.numberPadCurrentValue forTag:self.numberPadTag];
+        [self removeNumberPad];
+    }
+    else
+    {
+        if ([self.numberPadCurrentValue isEqualToString:@"0"])
+        {
+            self.numberPadCurrentValue = [NSMutableString stringWithFormat:@"%li",(long)button.tag];
+            self.numberPadEntryLabel.text = self.numberPadCurrentValue;
+        }
+        else
+        {
+            [self.numberPadCurrentValue appendString:[NSString stringWithFormat:@"%li",(long)button.tag]];
+            self.numberPadEntryLabel.text = self.numberPadCurrentValue;
+        }
+        
+    }
 
 }
 
-- (void)keyboardEntryUpdated:(NSString*)entry forTag:(NSInteger)tag {}
-
-
+- (void)numberPadEntryUpdated:(NSString*)entry forTag:(NSInteger)tag {}
+// this is to let viewcontroller to get entered value and tag of number pad
 
 -(void)removeNumberPad
 {
-    [self enlargeTable:200];
 
-    CGRect hideRect = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 200);
+    [self enlargeTable:self.numberPadHeight];
+
+    CGRect hideRect = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width,0);
 
         [UIView animateWithDuration:0.3
             animations:^
             {
-                self.keyboardView.frame = hideRect;
+                self.numberPadView.frame = hideRect;
             
             }
             completion:^(BOOL finished)
             {
-                [self.keyboardView removeFromSuperview];
+                [self.numberPadView removeFromSuperview];
              }];
 
 }
@@ -527,9 +589,9 @@
 {
     if (self.thisTableView)
     {
-        if (!self.stepsKeypadShowing)
+        if (!self.keypadShowing)
         {
-            self.stepsKeypadShowing = YES;
+            self.keypadShowing = YES;
             [UIView animateWithDuration:0.3
                              animations:^{
                                  CGRect new1 = self.thisTableView.frame;
@@ -547,9 +609,9 @@
 {
     if (self.thisTableView)
     {
-        if (self.stepsKeypadShowing)
+        if (self.keypadShowing)
         {
-            self.stepsKeypadShowing = NO;
+            self.keypadShowing = NO;
             [UIView animateWithDuration:0.3
                              animations:^{
                                  CGRect new1 = self.thisTableView.frame;
@@ -621,7 +683,7 @@
     {
         UIView* thisObject = (UIView*)object;
         [thisObject.layer setBorderColor:[color CGColor]];
-        [thisObject.layer setBorderWidth:5.0];
+        [thisObject.layer setBorderWidth:1.0];
         if (corner == CornerTypeRounded)
         {
             [thisObject.layer setCornerRadius:8.0f];

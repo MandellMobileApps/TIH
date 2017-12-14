@@ -211,6 +211,18 @@
 //    [self.calendarDaysview setNeedsDisplay];
 //    [self.calendarnavview setNeedsDisplay];
 
+    float setGoalBottom = self.setGoalLabel.frame.origin.y+self.setGoalLabel.frame.size.height;
+    float goal1Top = self.goal1Label.frame.origin.y;
+    float delta = goal1Top-setGoalBottom;
+    if (delta < 0)
+    {
+        self.setGoalLabel.hidden = YES;
+    }
+    else
+    {
+        self.setGoalLabel.hidden = NO;
+    }
+    
 }
 
 - (IBAction)prevMonth:(id)sender { 

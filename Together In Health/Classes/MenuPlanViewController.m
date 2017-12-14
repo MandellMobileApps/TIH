@@ -16,6 +16,13 @@
 #import "MgNetworkOperation2.h"
 #import "AbstractViewController.h"
 
+enum menuPlanIndex {
+    planIndex = 0,
+    addItemIndex = 1,
+
+    
+};
+
 @implementation MenuPlanViewController
 
 -(void)viewDidLoad {
@@ -96,6 +103,71 @@
 //    self.navigationItem.leftBarButtonItem = resetButton;
     
 }
+
+-(void)updateMenuButtons
+{
+    // clear buttons
+    self.menuPlanButton.enabled = YES;
+    self.addMenuItemButton.enabled = YES;
+
+    self.menuPlanButton.backgroundColor = [UIColor whiteColor];
+    [self.menuPlanButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.addMenuItemButton.backgroundColor = [UIColor whiteColor];
+    [self.addMenuItemButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
+    // update selected button
+    switch (self.menuPlanIndex) {
+        case planIndex:
+            self.menuPlanButton.backgroundColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+            [self.menuPlanButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            self.menuPlanButton.enabled = NO;
+            break;
+        case addItemIndex:
+            self.addMenuItemButton.backgroundColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+            [self.addMenuItemButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            self.addMenuItemButton.enabled = NO;
+            break;
+    }
+}
+
+//-(IBAction)menuPlan:(*UIButton)sender
+//        {
+//            
+//            if (!self.menuPlanViewController)
+//            {
+//                self.menuPlanViewController = (MenuPlanViewController*)
+//                [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
+//                 instantiateViewControllerWithIdentifier:@"MenuPlanViewController"];
+//            }
+//
+//            self.navbarTitleLabel.text = @"Menu Plans";
+//           // self.menuPlanIndex = menuPlanIndex;
+//            [self updateMenuButtons];
+//
+//            //    [self unloadOtherViewControllersExceptIndex:StressIndex];
+//
+//
+//        }
+//-(IBAction)addMenuItem:(*UIButton)sender
+//        {
+//
+//            if (!self.addMenuItemViewController)
+//            {
+//                self.addMenuItemViewController = (AddMenuItemViewController*)
+//                [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
+//                 instantiateViewControllerWithIdentifier:@"AddMenuItemViewController"];
+//
+//            }
+//            //self.activityTrackerViewController.view.frame = [self baseRect];
+//
+//
+//            self.navbarTitleLabel.text = @"Create Menu Plan";
+//            self.menuPlanIndex = addItemIndex;
+//            [self updateMenuButtons];
+//            //     [self unloadOtherViewControllersExceptIndex:ActivityIndex];
+//
+//
+//        }
 
 -(void) checkForUpdates
 {

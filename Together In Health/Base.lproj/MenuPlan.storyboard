@@ -178,15 +178,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="YAV-ew-hhe">
-                                <rect key="frame" x="63" y="28" width="248" height="29"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Create Plan"/>
-                                    <segment title="Pre-Made Plans"/>
-                                </segments>
-                                <color key="tintColor" red="0.2666666667" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dH6-IA-yxr">
                                 <rect key="frame" x="16" y="18" width="25" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -195,11 +186,29 @@
                                     <action selector="upgrade:" destination="F4J-l1-slD" eventType="touchUpInside" id="55x-BC-zXe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gQF-5K-sw1">
+                                <rect key="frame" x="81" y="18" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="addMenuItem:" destination="F4J-l1-slD" eventType="touchUpInside" id="USy-7x-lqh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ch7-R7-mp3">
+                                <rect key="frame" x="214" y="18" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="menuPlan:" destination="F4J-l1-slD" eventType="touchUpInside" id="XNd-VI-y2u"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="t7m-pE-bf3"/>
                     <connections>
+                        <outlet property="addMenuItemButton" destination="gQF-5K-sw1" id="rim-ak-wfh"/>
+                        <outlet property="menuPlanButton" destination="Ch7-R7-mp3" id="bXI-ff-yR1"/>
                         <outlet property="upgradeButton" destination="dH6-IA-yxr" id="QV4-RN-003"/>
                     </connections>
                 </viewController>

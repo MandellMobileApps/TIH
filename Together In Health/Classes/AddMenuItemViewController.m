@@ -30,10 +30,10 @@
     
     self.navigationController.navigationBar.tintColor= [UIColor colorWithRed:15/255.0 green:50/255.0 blue:30/255.0 alpha:1];
     
-    self.breakfastArray = [NSMutableArray array];
-    self.lunchArray = [NSMutableArray arrayWithObjects: @"test1", nil];
-    self.dinnerArray = [NSMutableArray arrayWithObjects: @"test1", nil];
-    self.snacksArray = [NSMutableArray arrayWithObjects: @"test1", nil];
+//    self.breakfastArray = [NSMutableArray array];
+//    self.lunchArray = [NSMutableArray arrayWithObjects: @"test1", nil];
+//    self.dinnerArray = [NSMutableArray arrayWithObjects: @"test1", nil];
+//    self.snacksArray = [NSMutableArray arrayWithObjects: @"test1", nil];
 
     
     // Uncomment the following line to preserve selection between presentations.
@@ -56,7 +56,7 @@
 {
     
     // Return the number of sections.
-    return 4;
+    return 7;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -76,24 +76,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    switch (section) {
-        case 0:
-            return self.breakfastArray.count;
-            break;
-        case 1:
-            return 1;
-            break;
-        case 2:
-            return 1;
-            break;
-        case 3:
-            return 1;
-            break;
-        default:
-            break;
-            
-    }
-    return 0;
+//    switch (section) {
+//        case 0:
+//            return 1;
+//            break;
+//        case 1:
+//            return 1;
+//            break;
+//        case 2:
+//            return 1;
+//            break;
+//        case 3:
+            return 7;
+//            break;
+//        default:
+//            break;
+//
+//    }
+//    return 0;
 }
 
 

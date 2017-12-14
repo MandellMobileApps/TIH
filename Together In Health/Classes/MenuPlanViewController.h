@@ -44,6 +44,13 @@
 @property (nonatomic) NSInteger currentVersion;
 @property (nonatomic) NSInteger newVersion;
 
+@property (nonatomic, strong) IBOutlet UIButton *menuPlanButton;
+@property (nonatomic, strong) IBOutlet UIButton *addMenuItemButton;
+@property (nonatomic) NSUInteger menuPlanIndex;
+
+-(IBAction)menuPlan:(id)sender;
+-(IBAction)addMenuItem:(id)sender;
+
 -(IBAction)recipes:(id)sender;
 
 

@@ -24,14 +24,14 @@
 {
 
     DatePickerView* thisView = [[DatePickerView alloc]init];
-    thisView.hideRect = CGRectMake((bounds.size.width - 320)/2, bounds.size.height, 320, 250);
-    thisView.showRect = CGRectMake((bounds.size.width - 320)/2, bounds.size.height-250, 320, 250);
+    thisView.hideRect = CGRectMake((bounds.size.width - 320)/2, bounds.size.height, 320, 230);
+    thisView.showRect = CGRectMake((bounds.size.width - 320)/2, bounds.size.height-250, 320, 230);
     [thisView setFrame:thisView.hideRect];
     thisView.backgroundColor = [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1];
-    
+
     thisView.dateDidChange = NO;
     
-    CGRect datePickerFrame = CGRectMake(20, 70, 280, 160);
+    CGRect datePickerFrame = CGRectMake(20, 40, 280, 160);
     thisView.datePicker = [[UIDatePicker alloc]initWithFrame:datePickerFrame];
     thisView.datePicker.datePickerMode = UIDatePickerModeDate;
     [thisView.datePicker addTarget:thisView action:@selector(datePickerDidChange) forControlEvents:UIControlEventValueChanged];
@@ -39,20 +39,25 @@
     thisView.datePicker.date = thisDate;
     [thisView addSubview:thisView.datePicker];
 
+    CGRect cancelButtonRect = CGRectMake(0,0, 80, 40);
+    thisView.cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    thisView.cancelButton.frame = cancelButtonRect;
+    [thisView.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [thisView.cancelButton addTarget:thisView action:@selector(cancelButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [thisView addSubview:thisView.cancelButton];
     
-    CGRect doneButtonRect = CGRectMake(20,20, 80, 40);
+    CGRect doneButtonRect = CGRectMake(thisView.frame.size.width-80,0, 80, 40);
     thisView.doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
     thisView.doneButton.frame = doneButtonRect;
     [thisView.doneButton setTitle:@"Done" forState:UIControlStateNormal];
     [thisView.doneButton addTarget:thisView action:@selector(doneButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [thisView addSubview:thisView.doneButton];
-
-    CGRect todayButtonRect = CGRectMake(thisView.frame.size.width-100,20, 80, 40);
+    
+    CGRect todayButtonRect = CGRectMake((thisView.frame.size.width-80)/2,0, 80, 40);
     thisView.todayButton = [UIButton buttonWithType:UIButtonTypeSystem];
     thisView.todayButton.frame = todayButtonRect;
     [thisView.todayButton setTitle:@"Today" forState:UIControlStateNormal];
     [thisView.todayButton addTarget:thisView action:@selector(gotoToday) forControlEvents:UIControlEventTouchUpInside];
-
     [thisView addSubview:thisView.todayButton];
     
     
@@ -92,6 +97,7 @@
 -(void)gotoToday
 {
     self.datePicker.date = [NSDate date];
+    [self datePickerDidChange];
 }
 
 -(void) datePickerDidChange
@@ -110,6 +116,10 @@
             }
         }
     }
+    [self hideDatePicker];
+}
+-(void) cancelButtonTapped
+{
     [self hideDatePicker];
 }
 @end

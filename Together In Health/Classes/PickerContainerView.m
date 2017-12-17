@@ -41,22 +41,40 @@
     [thisView addSubview:thisView.pickerView];
 
     
-    CGRect doneButtonRect = CGRectMake(20,20, 80, 40);
+//    CGRect doneButtonRect = CGRectMake(20,20, 80, 40);
+//    thisView.doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
+//    thisView.doneButton.frame = doneButtonRect;
+//    [thisView.doneButton setTitle:@"Done" forState:UIControlStateNormal];
+//    [thisView.doneButton addTarget:thisView action:@selector(doneButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+//    [thisView addSubview:thisView.doneButton];
+//
+//    CGRect todayButtonRect = CGRectMake(thisView.frame.size.width-100,20, 80, 40);
+//    thisView.todayButton = [UIButton buttonWithType:UIButtonTypeSystem];
+//    thisView.todayButton.frame = todayButtonRect;
+//    [thisView.todayButton setTitle:@"Today" forState:UIControlStateNormal];
+//    [thisView.todayButton addTarget:thisView action:@selector(gotoToday) forControlEvents:UIControlEventTouchUpInside];
+//    [thisView addSubview:thisView.todayButton];
+    
+    CGRect cancelButtonRect = CGRectMake(0,0, 80, 40);
+    thisView.cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    thisView.cancelButton.frame = cancelButtonRect;
+    [thisView.cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [thisView.cancelButton addTarget:thisView action:@selector(cancelButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [thisView addSubview:thisView.cancelButton];
+    
+    CGRect doneButtonRect = CGRectMake(thisView.frame.size.width-80,0, 80, 40);
     thisView.doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
     thisView.doneButton.frame = doneButtonRect;
     [thisView.doneButton setTitle:@"Done" forState:UIControlStateNormal];
     [thisView.doneButton addTarget:thisView action:@selector(doneButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [thisView addSubview:thisView.doneButton];
-
-    CGRect todayButtonRect = CGRectMake(thisView.frame.size.width-100,20, 80, 40);
+    
+    CGRect todayButtonRect = CGRectMake((thisView.frame.size.width-80)/2,0, 80, 40);
     thisView.todayButton = [UIButton buttonWithType:UIButtonTypeSystem];
     thisView.todayButton.frame = todayButtonRect;
     [thisView.todayButton setTitle:@"Today" forState:UIControlStateNormal];
     [thisView.todayButton addTarget:thisView action:@selector(gotoToday) forControlEvents:UIControlEventTouchUpInside];
-
     [thisView addSubview:thisView.todayButton];
-    
-    
     
     return thisView;
 }
@@ -118,6 +136,11 @@
             }
         }
     }
+    [self hidePicker];
+}
+
+-(void) cancelButtonTapped
+{
     [self hidePicker];
 }
 

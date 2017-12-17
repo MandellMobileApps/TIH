@@ -16,6 +16,7 @@
     id<PickerContainerViewDelegate> pickerContainerViewDelegate;
 }
 @property(atomic, strong)id pickerContainerViewDelegate;
+@property (nonatomic, strong)  UIButton *cancelButton;
 @property (nonatomic, strong)  UIButton *doneButton;
 @property (nonatomic, strong)  UIButton *todayButton;
 @property (nonatomic) NSInteger month;

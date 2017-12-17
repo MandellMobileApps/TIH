@@ -246,61 +246,49 @@
     {
         self.keypadShowing = YES;
         
-//    PickerContainerView* thisView = [[PickerContainerView alloc]init];
-//    thisView.hideRect = CGRectMake((bounds.size.width - 320)/2, bounds.size.height, 320, 250);
-//    thisView.showRect = CGRectMake((bounds.size.width - 320)/2, bounds.size.height-250, 320, 250);
-//    [thisView setFrame:thisView.hideRect];
-//    thisView.backgroundColor = [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1];
-//
-//    thisView.pickerDidChangeBool = NO;
-//
-//    CGRect pickerFrame = CGRectMake(20, 70, 280, 160);
-//
-//    thisView.pickerView = [[UIPickerView alloc]initWithFrame:pickerFrame];
-//    thisView.pickerView.delegate = thisView;
-//    thisView.month = month-1;
-//    thisView.year = year;
-//    [thisView addSubview:thisView.pickerView];
-//
-//
-//
-//
-//    CGRect todayButtonRect = CGRectMake(thisView.frame.size.width-100,20, 80, 40);
-//    thisView.todayButton = [UIButton buttonWithType:UIButtonTypeSystem];
-//    thisView.todayButton.frame = todayButtonRect;
-//    [thisView.todayButton setTitle:@"Today" forState:UIControlStateNormal];
-//    [thisView.todayButton addTarget:thisView action:@selector(gotoToday) forControlEvents:UIControlEventTouchUpInside];
-//
-//    [thisView addSubview:thisView.todayButton];
-//
-//
-        
-        
-        self.pickerHeight = 320;
+        self.pickerHeight = 200;
+        self.pickerWidth = 320;
+        self.pickerTag = tag;
         self.pickerViewContainer = [[UIView alloc]init];
-        self.pickerHideRect = CGRectMake((self.view.bounds.size.width - 320)/2, self.view.bounds.size.height, 320, 250);
-        self.pickerShowRect = CGRectMake((self.view.bounds.size.width - 320)/2, self.view.bounds.size.height-250, 320, 250);
-//
-//        self.pickerHideRect = CGRectMake(0,self.view.bounds.size.height,self.view.bounds.size.width,0);
-//        self.pickerShowRect = CGRectMake(0,self.view.bounds.size.height-self.pickerHeight,self.view.bounds.size.width,self.pickerHeight);
+        self.pickerHideRect = CGRectMake((self.view.bounds.size.width - self.pickerWidth)/2, self.view.bounds.size.height, self.pickerWidth, 0);
+        self.pickerShowRect = CGRectMake((self.view.bounds.size.width - self.pickerWidth)/2, self.view.bounds.size.height-self.pickerHeight, self.pickerWidth, self.pickerHeight);
+        self.pickerViewContainer.clipsToBounds = YES;
         self.pickerViewContainer.frame = self.pickerHideRect;
-        
+        self.pickerViewContainer.backgroundColor = [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1];
+        [self addBorderAround:self.pickerViewContainer cornerType:CornerTypeRounded withColor:[UIColor darkGrayColor]];
+
+        CGRect cancelButtonRect = CGRectMake(0,0, 80, 40);
+        UIButton* cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        cancelButton.frame = cancelButtonRect;
+        cancelButton.tag = ButtonIndexCancel;
+        [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+        [cancelButton addTarget:self action:@selector(pickerViewButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+
+        CGRect doneButtonRect = CGRectMake(self.pickerShowRect.size.width-80,0, 80, 40);
+        UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        doneButton.frame = doneButtonRect;
+        doneButton.tag = ButtonIndexDone;
+        [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+        [doneButton addTarget:self action:@selector(pickerViewButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+
         self.pickerView = [[UIPickerView alloc]init];
-        CGRect pickerFrame = CGRectMake(20, 70, 280, 160);
-        self.pickerView.frame = pickerFrame;//CGRectMake((self.view.bounds.size.width-320)/2, 40, 320, 280);
+        CGRect pickerFrame = CGRectMake(10, 50, self.pickerWidth-20, self.pickerHeight-60);
+        self.pickerView.frame = pickerFrame;
         [self.pickerView setDataSource: self];
         [self.pickerView setDelegate: self];
         self.pickerView.showsSelectionIndicator = YES;
-        [self.pickerViewContainer addSubview:self.pickerView];
         
         self.pickerTitleLabel = [[UILabel alloc] init];
         self.pickerTitleLabel.text = title;
-        self.pickerTitleLabel.frame = CGRectMake(10,50, self.view.bounds.size.width-20, 40);
+        self.pickerTitleLabel.frame = CGRectMake(10,30, self.pickerShowRect.size.width-20, 40);
         [self.pickerTitleLabel setTextAlignment:NSTextAlignmentCenter];
-        [self.pickerTitleLabel setFont:[UIFont systemFontOfSize:30.0]];
-        [self.pickerViewContainer addSubview:self.pickerTitleLabel];
-        self.pickerTag = tag;
+        [self.pickerTitleLabel setFont:[UIFont systemFontOfSize:24.0]];
+        [self.pickerTitleLabel setTextColor:[UIColor darkGrayColor]];
 
+        [self.pickerViewContainer addSubview:self.pickerView];
+        [self.pickerViewContainer addSubview:self.pickerTitleLabel];
+        [self.pickerViewContainer addSubview:cancelButton];
+        [self.pickerViewContainer addSubview:doneButton];
         self.pickerComponentsArrays = arrays;
       
         if (defaults)
@@ -314,44 +302,8 @@
             }
         }
         
-       
-//        UIButton* cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        [cancelButton setBackgroundColor:[UIColor darkGrayColor]];
-//        [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//        [cancelButton.layer setBorderColor:[[UIColor whiteColor] CGColor]];
-//        [cancelButton.layer setBorderWidth:1.0];
-//        [cancelButton.layer setCornerRadius:8.0f];
-//        [cancelButton.layer setMasksToBounds:YES];
-//        [cancelButton addTarget:self action:@selector(pickerViewButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-//        [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
-//        cancelButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-//        cancelButton.tag = ButtonIndexCancel;
-//        cancelButton.frame = CGRectMake(10,10,80,40);
-//        [self.pickerViewContainer addSubview:cancelButton];
 
-    CGRect doneButtonRect = CGRectMake(20,20, 80, 40);
-    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    doneButton.frame = doneButtonRect;
-    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton addTarget:self action:@selector(pickerViewButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.pickerViewContainer addSubview:doneButton];
-    
-//        UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        [doneButton setBackgroundColor:[UIColor darkGrayColor]];
-//        [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//        [doneButton.layer setBorderColor:[[UIColor whiteColor] CGColor]];
-//        [doneButton.layer setBorderWidth:1.0];
-//        [doneButton.layer setCornerRadius:8.0f];
-//        [doneButton.layer setMasksToBounds:YES];
-//        [doneButton addTarget:self action:@selector(pickerViewButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-//        [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-//        doneButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-//        doneButton.tag = ButtonIndexDone;
-//        doneButton.frame = CGRectMake(self.pickerViewContainer.frame.size.width-90,10,80,40);
-//        [self.pickerViewContainer addSubview:doneButton];
-        
         [self addBorderAround:self.pickerViewContainer cornerType:CornerTypeSquare withColor:[UIColor darkGrayColor]];
-
         [self.view addSubview:self.pickerViewContainer];
             [self shrinkTable:self.pickerHeight];
             [UIView animateWithDuration:0.3
@@ -447,14 +399,22 @@
     if (!self.keypadShowing)
     {
         self.keypadShowing = YES;
-        self.numberPadHeight = 310;
+        self.numberPadWidth = 230;
+        self.numberPadHeight = 340;
         self.numberPadCurrentValue = [NSMutableString stringWithString:currentValue];
         self.numberPadTag = tag;
 
+        CGRect cancelButtonRect = CGRectMake(0,0, 80, 40);
+        UIButton* cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        cancelButton.frame = cancelButtonRect;
+        cancelButton.tag = ButtonIndexCancel;
+        [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+        [cancelButton addTarget:self action:@selector(numberPadButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         
         self.numberPadTitleLabel = [[UILabel alloc] init];
         self.numberPadUnitsLabel = [[UILabel alloc] init];
         self.numberPadEntryLabel = [[UILabel alloc] init];
+        UIView* entryBackground = [[UIView alloc] init];
 
         self.numberPadTitleLabel.text = title;
         self.numberPadUnitsLabel.text = units;
@@ -464,54 +424,46 @@
         self.numberPadUnitsLabel.textAlignment = NSTextAlignmentCenter;
         self.numberPadEntryLabel.textAlignment = NSTextAlignmentRight;
         
-        float startY = 100;
+        float startY = 130;
         float startX = 10;
-        self.numberPadTitleLabel.frame = CGRectMake(startX, 0, 210, 40);
-        self.numberPadUnitsLabel.frame = CGRectMake(startX, 40, 210, 20);
-        self.numberPadEntryLabel.frame = CGRectMake(startX, 60, 210, 40);
-        [self addBorderAround:self.numberPadEntryLabel cornerType:CornerTypeSquare withColor:[UIColor darkGrayColor]];
+        self.numberPadTitleLabel.frame = CGRectMake(startX, 30, self.numberPadWidth-(startX*2), 40);
+        self.numberPadUnitsLabel.frame = CGRectMake(startX, 70, self.numberPadWidth-(startX*2), 20);
+        entryBackground.frame = CGRectMake(startX+10, 95, self.numberPadWidth-((startX+10)*2), 30);
+        self.numberPadEntryLabel.frame = CGRectMake(startX+20, 97, self.numberPadWidth-((startX+20)*2), 26);
+        [self addBorderAround:entryBackground cornerType:CornerTypeSquare withColor:[UIColor darkGrayColor]];
 
         self.numberPadTitleLabel.font = [UIFont systemFontOfSize:24];
         self.numberPadUnitsLabel.font = [UIFont systemFontOfSize:18];
-        self.numberPadEntryLabel.font = [UIFont systemFontOfSize:40];
+        self.numberPadEntryLabel.font = [UIFont systemFontOfSize:30];
 
         self.numberPadView = [[UIView alloc] init];
-        self.numberPadView.backgroundColor = [UIColor whiteColor];
+        self.numberPadView.backgroundColor = [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1];
         self.numberPadView.clipsToBounds = YES;
+        [self addBorderAround:self.numberPadView cornerType:CornerTypeRounded withColor:[UIColor darkGrayColor]];
 
-        self.numberPadTitleLabel.backgroundColor = [UIColor lightGrayColor];
-        self.numberPadUnitsLabel.backgroundColor = [UIColor lightGrayColor];
+        self.numberPadTitleLabel.backgroundColor = [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1];
+        self.numberPadUnitsLabel.backgroundColor = [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1];
+        entryBackground.backgroundColor = [UIColor whiteColor];
         self.numberPadEntryLabel.backgroundColor = [UIColor whiteColor];
-
+        
         self.numberPadTitleLabel.textColor = [UIColor darkGrayColor];
         self.numberPadUnitsLabel.textColor = [UIColor darkGrayColor];
         self.numberPadEntryLabel.textColor = [UIColor darkGrayColor];
         
         [self.numberPadView addSubview:self.numberPadTitleLabel];
         [self.numberPadView addSubview:self.numberPadUnitsLabel];
+        [self.numberPadView addSubview:entryBackground];
         [self.numberPadView addSubview:self.numberPadEntryLabel];
-
-        UIButton* cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [cancelButton setBackgroundColor:[UIColor darkGrayColor]];
-        [cancelButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [cancelButton.layer setBorderColor:[[UIColor whiteColor] CGColor]];
-        [cancelButton.layer setBorderWidth:1.0];
-        [cancelButton.layer setCornerRadius:8.0f];
-        [cancelButton.layer setMasksToBounds:YES];
-        [cancelButton addTarget:self action:@selector(numberPadButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
-        cancelButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        cancelButton.tag = ButtonIndexCancel;
-        cancelButton.frame = CGRectMake(10,10,80,40);
         [self.numberPadView addSubview:cancelButton];
+   
         
         int i=1;
         for(int r = 0; r < 4; r++) {
             for(int c = 0; c < 3; c++) {
                     UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-                    [button setBackgroundColor:[UIColor darkGrayColor]];
-                    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-                    [button.layer setBorderColor:[[UIColor whiteColor] CGColor]];
+                    [button setBackgroundColor: [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1]];
+                    [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+                    [button.layer setBorderColor:[[UIColor darkGrayColor] CGColor]];
                     [button.layer setBorderWidth:1.0];
                     [button.layer setCornerRadius:8.0f];
                     [button.layer setMasksToBounds:YES];
@@ -521,9 +473,9 @@
                     button.frame = buttonRect;
                     if (i==10)
                     {
-                        [button setTitle:@"Done" forState:UIControlStateNormal];
+                        [button setTitle:@"<" forState:UIControlStateNormal];
                         button.titleLabel.font = [UIFont boldSystemFontOfSize:24];
-                        button.tag = ButtonIndexDone;
+                        button.tag = ButtonIndexBackspace;
                     
                     }
                     else if (i==11)
@@ -535,9 +487,9 @@
                     }
                     else if (i==12)
                     {
-                        [button setTitle:@"<" forState:UIControlStateNormal];
-                         button.titleLabel.font = [UIFont boldSystemFontOfSize:28];
-                        button.tag = ButtonIndexBackspace;
+                        [button setTitle:@"Enter" forState:UIControlStateNormal];
+                         button.titleLabel.font = [UIFont boldSystemFontOfSize:24];
+                        button.tag = ButtonIndexDone;
                     
                     }
                     else
@@ -554,8 +506,8 @@
 
         [self addBorderAround:self.numberPadView cornerType:CornerTypeSquare withColor:[UIColor darkGrayColor]];
       
-        CGRect hideRect = CGRectMake((self.view.bounds.size.width-230)/2, self.view.bounds.size.height, 230, 0);
-        CGRect showRect = CGRectMake((self.view.bounds.size.width-230)/2, self.view.bounds.size.height-self.numberPadHeight, 230, self.numberPadHeight);
+        CGRect hideRect = CGRectMake((self.view.bounds.size.width-self.numberPadWidth)/2, self.view.bounds.size.height, self.numberPadWidth, 0);
+        CGRect showRect = CGRectMake((self.view.bounds.size.width-self.numberPadWidth)/2, self.view.bounds.size.height-self.numberPadHeight, self.numberPadWidth, self.numberPadHeight);
         
         self.numberPadView.frame = hideRect;
         [self.view addSubview:self.numberPadView];
@@ -623,7 +575,7 @@
 
     [self enlargeTable:self.numberPadHeight];
 
-    CGRect hideRect = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width,0);
+        CGRect hideRect = CGRectMake((self.view.bounds.size.width-self.numberPadWidth)/2, self.view.bounds.size.height, self.numberPadWidth, 0);
 
         [UIView animateWithDuration:0.3
             animations:^

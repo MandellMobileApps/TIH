@@ -16,6 +16,7 @@
     id<DatePickerViewDelegate> datePickerViewDelegate;
 }
 @property(atomic, strong)id datePickerViewDelegate;
+@property (nonatomic, strong)  UIButton *cancelButton;
 @property (nonatomic, strong)  UIButton *doneButton;
 @property (nonatomic, strong)  UIButton *todayButton;
 @property (nonatomic, strong)  NSDate *date;

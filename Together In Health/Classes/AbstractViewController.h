@@ -26,6 +26,7 @@
 @class ProgressViewController;
 @class AppDelegate;
 
+
 enum CornerType {
 	CornerTypeRounded = 0,
 	CornerTypeSquare = 1,
@@ -81,6 +82,7 @@ enum ButtonIndex {
 @property(nonatomic,strong) UILabel* numberPadUnitsLabel;
 @property(nonatomic,strong) UILabel* numberPadEntryLabel;
 @property(nonatomic) float numberPadHeight;
+@property(nonatomic) float numberPadWidth;
 
 @property (nonatomic, strong) IBOutlet UIView *pickerViewContainer;
 @property (nonatomic, strong) IBOutlet UIPickerView* pickerView;
@@ -88,6 +90,7 @@ enum ButtonIndex {
 @property(nonatomic,strong) NSArray* pickerComponentsArrays;
 @property (nonatomic)  NSInteger  pickerTag;
 @property(nonatomic) float pickerHeight;
+@property(nonatomic) float pickerWidth;
 @property (nonatomic) CGRect pickerHideRect;
 @property (nonatomic) CGRect pickerShowRect;
 

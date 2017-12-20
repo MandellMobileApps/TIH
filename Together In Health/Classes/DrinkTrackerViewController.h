@@ -33,6 +33,7 @@
 @property (nonatomic, strong) NSString* drinkString;
 
 @property (nonatomic) NSInteger drinkTotalWater;
+@property (nonatomic) NSInteger drinkTotalMilk;
 @property (nonatomic) NSInteger drinkTotalSugar;
 @property (nonatomic) NSInteger drinkTotalCaffeine;
 @property (nonatomic) NSInteger drinkTotalAlcohol;

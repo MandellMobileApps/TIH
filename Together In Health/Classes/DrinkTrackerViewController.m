@@ -58,6 +58,7 @@
 -(void)calculateTotals
 {
     self.drinkTotalWater = 0;
+    self.drinkTotalMilk = 0;
     self.drinkTotalSugar = 0;
     self.drinkTotalCaffeine = 0;
     self.drinkTotalAlcohol = 0;
@@ -67,6 +68,9 @@
         switch (drink.drinkType) {
           case DrinkTypeWater:
             self.drinkTotalWater = self.drinkTotalWater + [drink.amount integerValue];
+            break;
+          case DrinkTypeMilk:
+            self.drinkTotalMilk = self.drinkTotalMilk + [drink.amount integerValue];
             break;
           case DrinkTypeSugar:
             self.drinkTotalSugar = self.drinkTotalSugar + [drink.amount integerValue];
@@ -133,7 +137,7 @@
     }
 
     else {
-        return 4;
+        return 5;
     }
     return 0;
 }
@@ -207,10 +211,15 @@
         }
         
         else if (indexPath.row == 1) {
+            MyCell.textLabel.text = @"Total milk intake";
+            MyCell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",self.drinkTotalMilk];
+        }
+        
+        else if (indexPath.row == 2) {
             MyCell.textLabel.text = @"Total sugary drink intake";
             MyCell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",self.drinkTotalSugar];
         }
-        else if (indexPath.row == 2) {
+        else if (indexPath.row == 3) {
             MyCell.textLabel.text = @"Total caffeine drink intake";
             MyCell.detailTextLabel.text = [NSString stringWithFormat:@"%lu",self.drinkTotalCaffeine];
         }

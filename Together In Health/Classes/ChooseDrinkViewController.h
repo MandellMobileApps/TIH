@@ -29,11 +29,13 @@
 @property (nonatomic, strong) NSMutableArray *sugaryDrinkArray;
 @property (nonatomic, strong) NSMutableArray *caffeineDrinkArray;
 @property (nonatomic, strong) NSMutableArray *alcoholDrinkArray;
+@property (nonatomic, strong) NSMutableArray *milkDrinkArray;
 @property (nonatomic, strong) NSMutableArray *otherDrinkArray;
 @property (nonatomic, strong) NSMutableArray *healthyDrinkFilteredArray;
 @property (nonatomic, strong) NSMutableArray *sugaryDrinkFilteredArray;
 @property (nonatomic, strong) NSMutableArray *caffeineDrinkFilteredArray;
 @property (nonatomic, strong) NSMutableArray *alcoholDrinkFilteredArray;
+@property (nonatomic, strong) NSMutableArray *milkDrinkFilteredArray;
 @property (nonatomic, strong) NSMutableArray *otherDrinkFilteredArray;
 
 @property (nonatomic, strong) NSIndexPath *currentIndexPath;
@@ -43,6 +45,7 @@
 @property (nonatomic, strong) NSDate *sugaryDrinks;
 @property (nonatomic, strong) NSDate *caffeineDrinks;
 @property (nonatomic, strong) NSDate *alcoholDrinks;
+@property (nonatomic, strong) NSDate *milkDrinks;
 @property (nonatomic, strong) NSMutableDictionary* thisDrinkDict;
 
 @property (nonatomic, strong) NSArray *dataArray;

@@ -79,6 +79,23 @@
             [self.appDelegate.day.drinksArray addObject:thisDrink];
         }
     }
+    
+    for (NSMutableDictionary* drinkDict in self.milkDrinkArray)
+    {
+        if ([[drinkDict objectForKey:@"Amount"] integerValue] > 0)
+        {
+            Drink* thisDrink = [[Drink alloc]init];
+            thisDrink.drinkName = [drinkDict objectForKey:@"Name"];
+            thisDrink.drinkTextField = [[UITextField alloc] init];
+            thisDrink.drinkTextField.text = [drinkDict objectForKey:@"Name"];
+            thisDrink.amount = [drinkDict objectForKey:@"Amount"];
+            thisDrink.unit = @"Cup";
+            thisDrink.isChosen = YES;
+            thisDrink.indexString= @"index string";
+            thisDrink.drinkType = DrinkTypeMilk;
+            [self.appDelegate.day.drinksArray addObject:thisDrink];
+        }
+    }
 
      for (NSMutableDictionary* drinkDict in self.sugaryDrinkArray)
     {
@@ -300,8 +317,10 @@
     if (section == 0)
         [headerLabel setText:@"   Water and water equivalents"];
     else if( section == 1)
+        [headerLabel setText:@"   Milk beverages"];
+    else if( section == 2)
         [headerLabel setText:@"   Sugary beverages"];
-    else if (section == 2)
+    else if (section == 3)
         [headerLabel setText:@"   Caffeine beverages"];
     else
         [headerLabel setText:@"   Alcoholic beverages"];
@@ -407,22 +426,29 @@
             break;}
             
         case 1:{
+            self.thisDrinkDict = [self.milkDrinkFilteredArray objectAtIndex:indexPath.row];
+            self.drinkPickerLabel.text = [self.thisDrinkDict objectForKey:@"Name"];
+            self.selectedDrinkType = DrinkTypeMilk;
+            break;}
+            
+        case 2:{
             self.thisDrinkDict = [self.sugaryDrinkFilteredArray objectAtIndex:indexPath.row];
             self.drinkPickerLabel.text = [self.thisDrinkDict objectForKey:@"Name"];
             self.selectedDrinkType = DrinkTypeSugar;
             break;}
             
-        case 2:{
+        case 3:{
             self.thisDrinkDict = [self.caffeineDrinkFilteredArray objectAtIndex:indexPath.row];
             self.drinkPickerLabel.text = [self.thisDrinkDict objectForKey:@"Name"];
             self.selectedDrinkType = DrinkTypeCaffeine;
             break;}
             
-        case 3:{
+        case 4:{
             self.thisDrinkDict = [self.alcoholDrinkFilteredArray objectAtIndex:indexPath.row];
             self.drinkPickerLabel.text = [self.thisDrinkDict objectForKey:@"Name"];
             self.selectedDrinkType = DrinkTypeAlcohol;
             break;}
+
             
         default:
             break;
@@ -604,6 +630,27 @@
                               [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                @"Sparkling/Mineral water",@"Name",
                                @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Unsweetened coconut water",@"Name",
+                               @"0",@"Amount",nil],
+                              nil];
+    
+    self.milkDrinkArray = [NSMutableArray arrayWithObjects:
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Milk",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Soy milk",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Almond milk",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Rice milk",@"Name",
+                               @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                               @"Cashew milk",@"Name",
+                               @"0",@"Amount",nil],
                               nil];
     
     self.sugaryDrinkArray = [NSMutableArray arrayWithObjects:
@@ -613,6 +660,30 @@
                               [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                @"Diet Soda",@"Name",
                                @"0",@"Amount",nil],
+                             [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                              @"Frappuccino",@"Name",
+                              @"0",@"Amount",nil],
+                             [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                              @"Flavored latte",@"Name",
+                              @"0",@"Amount",nil],
+                             [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                              @"Flavored soy milk",@"Name",
+                              @"0",@"Amount",nil],
+                             [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                              @"Flavored almond milk",@"Name",
+                              @"0",@"Amount",nil],
+                             [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                              @"Flavored rice milk",@"Name",
+                              @"0",@"Amount",nil],
+                             [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                              @"Flavored cashew milk",@"Name",
+                              @"0",@"Amount",nil],
+                             [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                              @"Flavored milk",@"Name",
+                              @"0",@"Amount",nil],
+                             [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                              @"Sweetened coconut water",@"Name",
+                              @"0",@"Amount",nil],
                               [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                @"Sweet tea",@"Name",
                                @"0",@"Amount",nil],
@@ -622,6 +693,12 @@
                               [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                @"100% juice",@"Name",
                                @"0",@"Amount",nil],
+                             [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                              @"Gatorade",@"Name",
+                              @"0",@"Amount",nil],
+                             [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                              @"Powerade",@"Name",
+                              @"0",@"Amount",nil],
                               nil];
     
     self.caffeineDrinkArray = [NSMutableArray arrayWithObjects:
@@ -635,28 +712,28 @@
                                @"Redbull",@"Name",
                                @"0",@"Amount",nil],
                               [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Decaff black tea",@"Name",
+                               @"Rockstar",@"Name",
                                @"0",@"Amount",nil],
                               [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Sparkling water",@"Name",
+                               @"Green tea",@"Name",
                                @"0",@"Amount",nil],
+                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                @"Black tea",@"Name",
+                                @"0",@"Amount",nil],
                               nil];
     
     self.alcoholDrinkArray = [NSMutableArray arrayWithObjects:
                               [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Water",@"Name",
+                               @"Wine",@"Name",
                                @"0",@"Amount",nil],
                               [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Decaff herbal tea",@"Name",
+                               @"Beer",
                                @"0",@"Amount",nil],
                               [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Decaff green tea",@"Name",
+                               @"Cocktail",@"Name",
                                @"0",@"Amount",nil],
                               [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Decaff black tea",@"Name",
-                               @"0",@"Amount",nil],
-                              [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Sparkling water",@"Name",
+                               @"Hard liquor",
                                @"0",@"Amount",nil],
                               nil];
     
@@ -665,6 +742,7 @@
     self.sugaryDrinkFilteredArray = [NSMutableArray arrayWithArray:self.sugaryDrinkArray];
     self.caffeineDrinkFilteredArray = [NSMutableArray arrayWithArray:self.caffeineDrinkArray];
     self.alcoholDrinkFilteredArray = [NSMutableArray arrayWithArray:self.alcoholDrinkArray];
+    self.milkDrinkFilteredArray = [NSMutableArray arrayWithArray:self.alcoholDrinkArray];
     self.otherDrinkFilteredArray = [NSMutableArray arrayWithArray:self.otherDrinkArray];
     [self.thisTableView reloadData];
 }

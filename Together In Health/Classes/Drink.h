@@ -11,9 +11,10 @@
 
 enum DrinkType {
     DrinkTypeWater = 0,
-    DrinkTypeSugar = 1,
-    DrinkTypeCaffeine = 2,
-    DrinkTypeAlcohol = 3,
+    DrinkTypeMilk = 1,
+    DrinkTypeSugar = 2,
+    DrinkTypeCaffeine = 3,
+    DrinkTypeAlcohol = 4,
     
     
 };

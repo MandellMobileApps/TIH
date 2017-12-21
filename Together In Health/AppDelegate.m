@@ -97,7 +97,7 @@
     self.zohoAuthToken = @"1b761d65e759974cb77c0bf236ec1473";
     
     //  temp
-    self.subscriptionLevel = 1;
+    self.subscriptionLevel = 0;
 }
 
 -(void)savePersistent
@@ -339,8 +339,6 @@
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
     
-
-    //return [[NSUserDefaults standardUserDefaults]boolForKey:@"isAgree"];;
     return YES;
     
 }

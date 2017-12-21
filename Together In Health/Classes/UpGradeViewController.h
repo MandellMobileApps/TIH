@@ -10,6 +10,7 @@
 #import "AbstractViewController.h"
 
 @interface UpGradeViewController : AbstractViewController <UITextFieldDelegate>
+@property(nonatomic, strong) IBOutlet UIView* emailContainerView;
 @property(nonatomic, strong) IBOutlet UITextField* emailTextField;
 @property(nonatomic, strong) IBOutlet UIButton* doneButton;
 @property(nonatomic, strong) IBOutlet UIButton* sub1Button;

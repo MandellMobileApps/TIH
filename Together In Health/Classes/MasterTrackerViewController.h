@@ -12,7 +12,6 @@
 #import "ActivityTrackerViewController.h"
 #import "DrinkTrackerViewController.h"
 #import "StressTrackerViewController.h"
-#import "UpGradeViewController.h"
 
 @interface MasterTrackerViewController : AbstractViewController
 
@@ -24,13 +23,15 @@
 @property (nonatomic, strong)DrinkTrackerViewController* drinkTrackerViewController;
 @property (nonatomic, strong)StressTrackerViewController* stressTrackerViewController;
 
-@property (nonatomic, strong)UpGradeViewController* upGradeViewController;
 
 @property (nonatomic, strong) IBOutlet UIButton* foodButton;
-@property (nonatomic, strong) IBOutlet UIButton* sleepButton;
-@property (nonatomic, strong) IBOutlet UIButton* stressButton;
 @property (nonatomic, strong) IBOutlet UIButton* activityButton;
+@property (nonatomic, strong) IBOutlet UIButton* stressButton;
+@property (nonatomic, strong) IBOutlet UIImageView* stressLockImage;
+@property (nonatomic, strong) IBOutlet UIButton* sleepButton;
+@property (nonatomic, strong) IBOutlet UIImageView* sleepLockImage;
 @property (nonatomic, strong) IBOutlet UIButton* drinkButton;
+@property (nonatomic, strong) IBOutlet UIImageView* drinkLockImage;
 
 @property (nonatomic) NSUInteger trackerIndex;
 @property (nonatomic, strong) IBOutlet UIView *datePickerViewContainer;

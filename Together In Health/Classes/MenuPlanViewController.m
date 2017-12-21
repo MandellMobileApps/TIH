@@ -12,9 +12,9 @@
 #import "MenuPlan.h"
 #import "AddMenuItemViewController.h"
 #import "AppDelegate.h"
-#import "UpGradeViewController.h"
 #import "MgNetworkOperation2.h"
 #import "AbstractViewController.h"
+#import "UpGradeViewController.h"
 
 enum menuPlanIndex {
     planIndex = 0,
@@ -449,10 +449,7 @@ return 0;
 
 -(IBAction)upgrade:(id)sender
 {
-self.upGradeViewController = (UpGradeViewController*)
-[[UIStoryboard storyboardWithName:@"Main" bundle:nil]
- instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
-self.upGradeViewController.view.frame = [self baseRect];
+ [self loadUpgradeViewController];
 }
 
 

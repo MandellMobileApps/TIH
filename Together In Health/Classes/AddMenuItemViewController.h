@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AbstractViewController.h"
 
-@interface AddMenuItemViewController : UIViewController
+@interface AddMenuItemViewController : AbstractViewController
 
 @property (nonatomic, strong) NSMutableArray *breakfastArray;
 @property (nonatomic, strong) NSMutableArray *lunchArray;

@@ -28,12 +28,12 @@
     self.title = @"Add Menu Item";
     //    self.navigationController.navigationBar.backgroundColor= [UIColor blackColor];
     
-    self.navigationController.navigationBar.tintColor= [UIColor colorWithRed:15/255.0 green:50/255.0 blue:30/255.0 alpha:1];
+   self.navigationController.navigationBar.tintColor= [UIColor colorWithRed:15/255.0 green:50/255.0 blue:30/255.0 alpha:1];
     
-//    self.breakfastArray = [NSMutableArray array];
-//    self.lunchArray = [NSMutableArray arrayWithObjects: @"test1", nil];
-//    self.dinnerArray = [NSMutableArray arrayWithObjects: @"test1", nil];
-//    self.snacksArray = [NSMutableArray arrayWithObjects: @"test1", nil];
+    self.breakfastArray = [NSMutableArray array];
+    self.lunchArray = [NSMutableArray arrayWithObjects: @"test1", nil];
+    self.dinnerArray = [NSMutableArray arrayWithObjects: @"test1", nil];
+    self.snacksArray = [NSMutableArray arrayWithObjects: @"test1", nil];
 
     
     // Uncomment the following line to preserve selection between presentations.
@@ -50,6 +50,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)loadDatesForTheWeek
+{
+    
+
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -76,24 +81,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    switch (section) {
-//        case 0:
-//            return 1;
-//            break;
-//        case 1:
-//            return 1;
-//            break;
-//        case 2:
-//            return 1;
-//            break;
-//        case 3:
-            return 7;
-//            break;
-//        default:
-//            break;
-//
-//    }
-//    return 0;
+    switch (section) {
+        case 0:
+            return self.breakfastArray.count;
+            break;
+        case 1:
+            return self.lunchArray.count;
+            break;
+        case 2:
+            return self.dinnerArray.count;
+            break;
+        case 3:
+            return self.snacksArray.count;
+            break;
+        default:
+            break;
+
+    }
+    return 0;
 }
 
 
@@ -132,22 +137,22 @@
     AddMenuItemCell *MyCell = (AddMenuItemCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     
-    switch (indexPath.section) {
-        case 0:
-            MyCell.menuItemLabel.text = [self.breakfastArray objectAtIndex:indexPath.row];
-            break;
-        case 1:
-            MyCell.menuItemLabel.text = [self.lunchArray objectAtIndex:indexPath.row];
-            break;
-        case 2:
-            MyCell.menuItemLabel.text = [self.dinnerArray objectAtIndex:indexPath.row];
-            break;
-        case 3:
-            MyCell.menuItemLabel.text = [self.snacksArray objectAtIndex:indexPath.row];
-            break;
-        default:
-            break;
-    }
+//    switch (indexPath.section) {
+//        case 0:
+//            MyCell.menuItemLabel.text = [self.breakfastArray objectAtIndex:indexPath.row];
+//            break;
+//        case 1:
+//            MyCell.menuItemLabel.text = [self.lunchArray objectAtIndex:indexPath.row];
+//            break;
+//        case 2:
+//            MyCell.menuItemLabel.text = [self.dinnerArray objectAtIndex:indexPath.row];
+//            break;
+//        case 3:
+//            MyCell.menuItemLabel.text = [self.snacksArray objectAtIndex:indexPath.row];
+//            break;
+//        default:
+//            break;
+//    }
 
     
     return MyCell;

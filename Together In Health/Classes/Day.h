@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MenuPlan.h"
 
 @interface Day : NSObject <NSCoding>
 
@@ -20,6 +21,10 @@
 @property (nonatomic, strong) NSMutableArray* drinksArray;
 @property (nonatomic, strong) NSString* waterCupsString;
 
+@property (nonatomic, strong) MenuPlan* menuPlanBreakfast;
+@property (nonatomic, strong) MenuPlan* menuPlanLunch;
+@property (nonatomic, strong) MenuPlan* menuPlanDinner;
+@property (nonatomic, strong) MenuPlan* menuPlanSnack;
 
 @property (nonatomic, strong) NSString* steps;
 @property (nonatomic, strong) NSString* distance;

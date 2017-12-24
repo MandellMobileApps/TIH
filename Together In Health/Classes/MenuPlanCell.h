@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class Menu;
 @interface MenuPlanCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UITextField *breakfast;
-@property (nonatomic, strong) IBOutlet UITextField *lunch;
-@property (nonatomic, strong) IBOutlet UITextField *dinner;
-@property (nonatomic, strong) IBOutlet UITextField *snacks;
+@property (nonatomic, strong) IBOutlet UILabel *menuNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *menuItemsLabel;
+@property (nonatomic, strong)  NSMutableArray *menuItems;
 
--(void)resetCell;
-
+-(void)refreshCell;
+-(NSString*)menuItemsStringFrom:(NSMutableArray*)items;
 @end

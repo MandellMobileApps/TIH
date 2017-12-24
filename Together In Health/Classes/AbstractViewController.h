@@ -22,10 +22,10 @@
 #import "Goal.h"
 
 
-@class UpGradeViewController;
+
 @class ProgressViewController;
 @class AppDelegate;
-
+@class UpGradeViewController;
 
 enum CornerType {
 	CornerTypeRounded = 0,
@@ -118,6 +118,8 @@ enum ButtonIndex {
 
 -(void)resetDay;
 -(void)displayAlert:(NSString*)message;
+
+@property (nonatomic, strong)UpGradeViewController* upGradeViewController;
 -(void)loadUpgradeViewController;
 
 @end

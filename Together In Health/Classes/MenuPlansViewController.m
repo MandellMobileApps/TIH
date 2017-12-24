@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Cami Mandell. All rights reserved.
 //
 
+#import "MenuPlansViewController.h"
 #import "MenuPlanViewController.h"
 #import "MenuPlanCell.h"
 #import "RecipeViewController.h"
@@ -15,41 +16,20 @@
 #import "MgNetworkOperation2.h"
 #import "AbstractViewController.h"
 #import "UpGradeViewController.h"
-#import "Menu.h"
 
 enum menuPlanIndex {
     planIndex = 0,
     addItemIndex = 1,
-
-    
 };
 
-@implementation MenuPlanViewController
+@implementation MenuPlansViewController
 
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Menu Plan";
+    self.title = @"Menu Plans";
     
-    self.menuDayArray = [NSArray arrayWithObjects:
-                         @"Sunday",
-                         @"Monday",
-                         @"Tuesday",
-                         @"Wednesday",
-                         @"Thursday",
-                         @"Friday",
-                         @"Saturday",
-                         nil];
     
-    [self.appDelegate loadMenuPlans];
-    if (self.appDelegate.menuPlansArray.count>0)
-    {
-        self.menuPlan = [self.appDelegate.menuPlansArray objectAtIndex:0];
-    }
-    else
-    {
-        NSLog(@"menu plans not loading");
-    }
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
     
@@ -275,7 +255,7 @@ enum menuPlanIndex {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    int h = 50;
+    int h = 150;
     
     return h;
 }
@@ -293,34 +273,34 @@ enum menuPlanIndex {
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-//    switch (section) {
-//        case 0:
-//            return 1;
-//            break;
-//        case 1:
-//            return 1;
-//            break;
-//        case 2:
-//            return 1;
-//            break;
-//        case 3:
-//            return 1;
-//            break;
-//        case 4:
-//            return 1;
-//            break;
-//        case 5:
-//            return 1;
-//            break;
-//        case 6:
-//            return 1;
-//            break;
-//        default:
-//            break;
-//
-//    }
+    switch (section) {
+        case 0:
+            return 1;
+            break;
+        case 1:
+            return 1;
+            break;
+        case 2:
+            return 1;
+            break;
+        case 3:
+            return 1;
+            break;
+        case 4:
+            return 1;
+            break;
+        case 5:
+            return 1;
+            break;
+        case 6:
+            return 1;
+            break;
+        default:
+            break;
+            
+    }
  
-return 4;
+return 0;
 
 }
 
@@ -378,94 +358,14 @@ return 4;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"MyCell";
-    MenuPlanCell *myCell = (MenuPlanCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    MenuPlanCell *MyCell = (MenuPlanCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Menu* selectedMenu = [self menuForSection:indexPath.section];
-    myCell.menuItems = [self menuItemsForMenu:selectedMenu atRow:indexPath.row];
-    myCell.menuNameLabel.text = [self mealNameForMenu:selectedMenu atRow:indexPath.row];
-    [myCell refreshCell];
+    //self.menuPlan.breakfast = MyCell.breakfast.text;
+
     
-    return myCell;
+    return MyCell;
 }
 
--(Menu*)menuForSection:(NSInteger)section
-{
-    Menu* selectedMenu;
-    switch (section) {
-        case 0:
-            selectedMenu = self.menuPlan.day1Menu;
-            break;
-        case 1:
-            selectedMenu = self.menuPlan.day2Menu;
-            break;
-        case 2:
-            selectedMenu = self.menuPlan.day3Menu;
-            break;
-        case 3:
-            selectedMenu = self.menuPlan.day4Menu;
-            break;
-        case 4:
-            selectedMenu = self.menuPlan.day5Menu;
-            break;
-        case 5:
-            selectedMenu = self.menuPlan.day6Menu;
-            break;
-        case 6:
-            selectedMenu = self.menuPlan.day7Menu;
-            break;
-        default:
-            break;
-
-    }
-    return selectedMenu;
-
-}
-
--(NSMutableArray*)menuItemsForMenu:(Menu*)menu atRow:(NSInteger)row
-{
-    switch (row) {
-        case 0:
-            return menu.breakfastMenuItems;
-            break;
-        case 1:
-             return menu.lunchMenuItems;
-            break;
-        case 2:
-             return menu.dinnerMenuItems;
-            break;
-        case 3:
-             return menu.snackMenuItems;
-            break;
-        default:
-            break;
-
-    }
-    return [NSMutableArray array];
-
-}
-
--(NSString*)mealNameForMenu:(Menu*)menu atRow:(NSInteger)row
-{
-    switch (row) {
-        case 0:
-            return @"Breakfast";
-            break;
-        case 1:
-             return @"Lunch";
-            break;
-        case 2:
-             return @"Dinner";
-            break;
-        case 3:
-            return @"Snacks";
-            break;
-        default:
-            break;
-
-    }
-    return [NSString string];
-
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -491,7 +391,7 @@ return 4;
     if (buttonIndex == 0) {
     }
     else if (buttonIndex == 1) {
-        //[self.menuPlanCell resetCell];
+       // [self.menuPlanCell refres];
     }
 }
 

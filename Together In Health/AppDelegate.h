@@ -43,6 +43,7 @@ enum SubscriptionLevel {
 @property (nonatomic, strong) GoalGamePlanViewController* goalGamePlanViewController;
 @property (nonatomic, strong) GoalSetViewController *goalSetViewController;
 
+@property (nonatomic, strong) NSMutableArray *menuPlansArray;
 @property (nonatomic, strong) NSMutableArray    *goalsArray;
 @property (nonatomic, strong) NSString* zohoAuthToken;
 @property (nonatomic, strong) NSString* contactEmail;
@@ -63,5 +64,8 @@ enum SubscriptionLevel {
 -(void)saveGoals;
 -(void)upsertContactForEmail:(NSString*)email atSubcriptionLevel:(NSInteger)subscriptionLevel inController:(UpGradeViewController*)controller;
 -(void)checkSubscriptionLevel;
+-(void) loadMenuPlans;
+-(void)saveMenuPlans;
++(NSInteger)uniqueId;
 @end
 

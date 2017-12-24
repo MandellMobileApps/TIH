@@ -38,33 +38,39 @@ enum trackerIndex {
     [self.appDelegate savePersistent];
     NSLog(@"days count %lu",self.appDelegate.days.count);
 }
--(IBAction)tempToTestZoho:(id)sender
-{
-    [self loadUpgradeViewController];
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
-//    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
-//    self.navigationController.navigationBar.titleTextAttributes = size;
-//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+
     self.navbarView.backgroundColor =  [UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1];
     self.navbarTitleLabel.font = [UIFont fontWithName:@"Arial" size:24.0];
     self.navbarTitleLabel.textColor = [UIColor whiteColor];
     self.trackerIndex =  [[NSUserDefaults standardUserDefaults] integerForKey:@"trackerIndex"];
    
+   // update button imageview frames, easier in code
+   
+   float imageDim = 20;
+   self.sleepLockImage.frame = CGRectMake(self.sleepButton.frame.origin.x, 0, imageDim,imageDim);
+   [self.sleepLockImage setContentMode:UIViewContentModeScaleAspectFit];
+
+   self.stressLockImage.frame = CGRectMake(self.stressButton.frame.origin.x, 0, imageDim, imageDim);
+   [self.stressLockImage setContentMode:UIViewContentModeScaleAspectFit];
+   
+   self.drinkLockImage.frame = CGRectMake(self.drinkButton.frame.origin.x, 0, imageDim, imageDim);
+   [self.drinkLockImage setContentMode:UIViewContentModeScaleAspectFit];
+
     [self food:nil];
     [self updateMenuButtons];
     
     self.isAgree = [[NSUserDefaults standardUserDefaults]boolForKey:@"isAgree"];
-
+    
+    self.isAgree = YES; //temp
+    
     if (self.isAgree == NO)
     {
         OpeningViewViewController *openingViewViewController = (OpeningViewViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"OpeningViewViewController"];
         openingViewViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-        
         [self presentViewController:openingViewViewController animated:YES completion:^{
 
         }];
@@ -112,6 +118,22 @@ enum trackerIndex {
     [self.stressButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.drinkButton.backgroundColor = [UIColor whiteColor];
     [self.drinkButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
+   self.stressLockImage.hidden = YES;
+   self.sleepLockImage.hidden = YES;
+   self.drinkLockImage.hidden = YES;
+   
+    switch (self.appDelegate.subscriptionLevel)
+    {
+        case SubscriptionFree:
+        {
+           self.stressLockImage.hidden = NO;
+           self.sleepLockImage.hidden = NO;
+           self.drinkLockImage.hidden = NO;
+            
+        }
+        break;
+    }
 // update selected button
     switch (self.trackerIndex) {
   case FoodIndex:
@@ -161,8 +183,6 @@ enum trackerIndex {
 {
 
     if (!self.foodTrackerViewController)
-        
-
     {
         self.foodTrackerViewController = (FoodTrackerViewController*)
         [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
@@ -186,89 +206,122 @@ enum trackerIndex {
 -(IBAction)sleep:(UIButton*)sender
 {
 
-    if (!self.sleepTrackerViewController)
-        
-        switch (self.appDelegate.subscriptionLevel) {
+        switch (self.appDelegate.subscriptionLevel)
+        {
 
 
             case SubscriptionFree:
             {
-        self.upGradeViewController = (UpGradeViewController*)
-        [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-         instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
+                if (!self.sleepTrackerViewController)
+                {
+                    [self loadUpgradeViewController];
+                }
+                else
+                {
+                
+                }
             }
                 break;
 
             case SubscriptionPaid1:
-
-                self.sleepTrackerViewController = (SleepTrackerViewController*)
-                [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
-                 instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
-
-
-                self.sleepTrackerViewController.view.frame = [self baseRect];
-
-                self.sleepTrackerViewController.masterTrackerViewController = self;
-
+            {
+                if (!self.sleepTrackerViewController)
+                {
+                    self.sleepTrackerViewController = (SleepTrackerViewController*)
+                    [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
+                     instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
+                    self.sleepTrackerViewController.view.frame = [self baseRect];
+                    self.sleepTrackerViewController.masterTrackerViewController = self;
+                }
                 [self addChildViewController:self.sleepTrackerViewController];
                 [self.view addSubview:self.sleepTrackerViewController.view];
                 [self.sleepTrackerViewController didMoveToParentViewController:self];
                 self.navbarTitleLabel.text = @"Sleep Tracker";
                 self.trackerIndex = SleepIndex;
                 [self updateMenuButtons];
+            }
+
                 break;
             case SubscriptionPaid2:
-
-                self.sleepTrackerViewController = (SleepTrackerViewController*)
-                [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
-                 instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
-
-
-                self.sleepTrackerViewController.view.frame = [self baseRect];
-
-                self.sleepTrackerViewController.masterTrackerViewController = self;
-
+            {
+                if (!self.sleepTrackerViewController)
+                {
+                    self.sleepTrackerViewController = (SleepTrackerViewController*)
+                    [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
+                     instantiateViewControllerWithIdentifier:@"SleepTrackerViewController"];
+                    self.sleepTrackerViewController.view.frame = [self baseRect];
+                    self.sleepTrackerViewController.masterTrackerViewController = self;
+                }
                 [self addChildViewController:self.sleepTrackerViewController];
                 [self.view addSubview:self.sleepTrackerViewController.view];
                 [self.sleepTrackerViewController didMoveToParentViewController:self];
                 self.navbarTitleLabel.text = @"Sleep Tracker";
                 self.trackerIndex = SleepIndex;
                 [self updateMenuButtons];
+            }
                 break;
             default:
                 break;
         }
-
-    
-      //  [self unloadOtherViewControllersExceptIndex:SleepIndex];
    
-        
 }
 
 
 -(IBAction)stress:(UIButton*)sender
 {
 
-    if (!self.stressTrackerViewController)
-    {
-        self.stressTrackerViewController = (StressTrackerViewController*)
-        [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
-        instantiateViewControllerWithIdentifier:@"StressTrackerViewController"];
-    }
+        switch (self.appDelegate.subscriptionLevel)
+        {
 
-        self.stressTrackerViewController.view.frame = [self baseRect];
 
-        self.stressTrackerViewController.masterTrackerViewController = self;
+            case SubscriptionFree:
+            {
+                 [self loadUpgradeViewController];
+            }
+                break;
 
-        [self addChildViewController:self.stressTrackerViewController];
-        [self.view addSubview:self.stressTrackerViewController.view];
-        [self.stressTrackerViewController didMoveToParentViewController:self];
-        self.navbarTitleLabel.text = @"Stress Tracker";
-        self.trackerIndex = StressIndex;
-        [self updateMenuButtons];
+            case SubscriptionPaid1:
+            {
+                if (!self.stressTrackerViewController)
+                {
+                    self.stressTrackerViewController = (StressTrackerViewController*)
+                    [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
+                    instantiateViewControllerWithIdentifier:@"StressTrackerViewController"];
+                    self.stressTrackerViewController.view.frame = [self baseRect];
+                    self.stressTrackerViewController.masterTrackerViewController = self;
+                }
+                [self addChildViewController:self.stressTrackerViewController];
+                [self.view addSubview:self.stressTrackerViewController.view];
+                [self.stressTrackerViewController didMoveToParentViewController:self];
+                self.navbarTitleLabel.text = @"Stress Tracker";
+                self.trackerIndex = StressIndex;
+                [self updateMenuButtons];
         
-    //    [self unloadOtherViewControllersExceptIndex:StressIndex];
-    
+            }
+
+                break;
+            case SubscriptionPaid2:
+            {
+                if (!self.stressTrackerViewController)
+                {
+                    self.stressTrackerViewController = (StressTrackerViewController*)
+                    [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
+                    instantiateViewControllerWithIdentifier:@"StressTrackerViewController"];
+                    self.stressTrackerViewController.view.frame = [self baseRect];
+                    self.stressTrackerViewController.masterTrackerViewController = self;
+                }
+                [self addChildViewController:self.stressTrackerViewController];
+                [self.view addSubview:self.stressTrackerViewController.view];
+                [self.stressTrackerViewController didMoveToParentViewController:self];
+                self.navbarTitleLabel.text = @"Stress Tracker";
+                self.trackerIndex = StressIndex;
+                [self updateMenuButtons];
+        
+            }
+                break;
+            default:
+                break;
+        }
         
 }
 -(IBAction)activity:(UIButton*)sender
@@ -281,44 +334,73 @@ enum trackerIndex {
         instantiateViewControllerWithIdentifier:@"ActivityTrackerViewController"];
     
     }
-        self.activityTrackerViewController.view.frame = [self baseRect];
+    self.activityTrackerViewController.view.frame = [self baseRect];
+    self.activityTrackerViewController.masterTrackerViewController = self;
+    [self addChildViewController:self.activityTrackerViewController];
+    [self.view addSubview:self.activityTrackerViewController.view];
+    [self.activityTrackerViewController didMoveToParentViewController:self];
+    self.navbarTitleLabel.text = @"Activity Tracker";
+     self.trackerIndex = ActivityIndex;
+    [self updateMenuButtons];
 
-        self.activityTrackerViewController.masterTrackerViewController = self;
-
-        [self addChildViewController:self.activityTrackerViewController];
-        [self.view addSubview:self.activityTrackerViewController.view];
-        [self.activityTrackerViewController didMoveToParentViewController:self];
-        self.navbarTitleLabel.text = @"Activity Tracker";
-         self.trackerIndex = ActivityIndex;
-        [self updateMenuButtons];
-   //     [self unloadOtherViewControllersExceptIndex:ActivityIndex];
-
-        
 }
 
 -(IBAction)drink:(UIButton*)sender
 {
-
-    if (!self.drinkTrackerViewController)
+    switch (self.appDelegate.subscriptionLevel)
     {
-        self.drinkTrackerViewController = (DrinkTrackerViewController*)
-        [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
-        instantiateViewControllerWithIdentifier:@"DrinkTrackerViewController"];
+
+
+        case SubscriptionFree:
+        {
+             [self loadUpgradeViewController];;
+
+        }
+            break;
+
+        case SubscriptionPaid1:
+        {
+            if (!self.drinkTrackerViewController)
+            {
+                self.drinkTrackerViewController = (DrinkTrackerViewController*)
+                [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
+                instantiateViewControllerWithIdentifier:@"DrinkTrackerViewController"];
+            }
+
+                self.drinkTrackerViewController.view.frame = [self baseRect];
+
+                self.drinkTrackerViewController.masterTrackerViewController = self;
+
+                [self addChildViewController:self.drinkTrackerViewController];
+                [self.view addSubview:self.drinkTrackerViewController.view];
+                [self.drinkTrackerViewController didMoveToParentViewController:self];
+                self.navbarTitleLabel.text = @"Drink Tracker";
+                 self.trackerIndex = DrinkIndex;
+                [self updateMenuButtons];
+            }
+             break;
+         case SubscriptionPaid2:
+        {
+            if (!self.drinkTrackerViewController)
+            {
+                self.drinkTrackerViewController = (DrinkTrackerViewController*)
+                [[UIStoryboard storyboardWithName:@"Trackers" bundle:nil]
+                instantiateViewControllerWithIdentifier:@"DrinkTrackerViewController"];
+            }
+
+                self.drinkTrackerViewController.view.frame = [self baseRect];
+
+                self.drinkTrackerViewController.masterTrackerViewController = self;
+
+                [self addChildViewController:self.drinkTrackerViewController];
+                [self.view addSubview:self.drinkTrackerViewController.view];
+                [self.drinkTrackerViewController didMoveToParentViewController:self];
+                self.navbarTitleLabel.text = @"Drink Tracker";
+                 self.trackerIndex = DrinkIndex;
+                [self updateMenuButtons];
+            }
+             break;
     }
-
-        self.drinkTrackerViewController.view.frame = [self baseRect];
-
-        self.drinkTrackerViewController.masterTrackerViewController = self;
-
-        [self addChildViewController:self.drinkTrackerViewController];
-        [self.view addSubview:self.drinkTrackerViewController.view];
-        [self.drinkTrackerViewController didMoveToParentViewController:self];
-        self.navbarTitleLabel.text = @"Drink Tracker";
-         self.trackerIndex = DrinkIndex;
-        [self updateMenuButtons];
-      //  [self unloadOtherViewControllersExceptIndex:DrinkIndex];
-    
-        
 }
 
 //-(void)loadViewController:(UIViewController*)ViewController

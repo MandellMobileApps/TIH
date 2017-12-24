@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="Hfv-Bn-tBo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="Hfv-Bn-tBo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -634,7 +634,7 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you do stress-coping activity today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iKE-rg-Kcv">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you do any stress-coping activities today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iKE-rg-Kcv">
                                                 <rect key="frame" x="0.0" y="404" width="320" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.1051810629" green="0.33685427299999998" blue="0.19922382599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -654,7 +654,7 @@
                                                     <action selector="concentration:" destination="aKs-yD-3Hv" eventType="valueChanged" id="X0y-ba-zq4"/>
                                                 </connections>
                                             </segmentedControl>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you have trouble concentrating?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O1c-VJ-xUL">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you have trouble concentrating today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O1c-VJ-xUL">
                                                 <rect key="frame" x="0.0" y="307" width="320" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.1051810629" green="0.33685427299999998" blue="0.19922382599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1158,6 +1158,18 @@
                                         <rect key="frame" x="0.0" y="40" width="320" height="2"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lock.png" id="ILq-vm-KD0">
+                                        <rect key="frame" x="40" y="-43" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lock.png" id="0U0-jE-8ET">
+                                        <rect key="frame" x="40" y="-43" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lock.png" id="bmN-dF-fzI">
+                                        <rect key="frame" x="40" y="-43" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94891980229999995" green="0.94891980229999995" blue="0.94891980229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -1244,11 +1256,14 @@
                         <outlet property="activityButton" destination="OV6-kG-GEv" id="Vlo-g7-AXi"/>
                         <outlet property="dayLabel" destination="4eT-fm-9M5" id="0eK-P8-4id"/>
                         <outlet property="drinkButton" destination="oRo-Vy-lYY" id="Ywl-YF-2gx"/>
+                        <outlet property="drinkLockImage" destination="bmN-dF-fzI" id="evW-57-fen"/>
                         <outlet property="foodButton" destination="jaS-xj-i81" id="LYw-dM-w0i"/>
                         <outlet property="navbarTitleLabel" destination="XG9-eS-mPB" id="NBf-yI-09l"/>
                         <outlet property="navbarView" destination="3ea-zd-WCx" id="gfN-46-RNN"/>
                         <outlet property="sleepButton" destination="cl7-dr-r6c" id="SDm-rG-cTc"/>
+                        <outlet property="sleepLockImage" destination="ILq-vm-KD0" id="T7w-Gb-Y8u"/>
                         <outlet property="stressButton" destination="t7v-0P-3VX" id="ttW-7b-nYx"/>
+                        <outlet property="stressLockImage" destination="0U0-jE-8ET" id="DNb-Ku-DZa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ioc-RE-LDx" sceneMemberID="firstResponder"/>
@@ -1486,6 +1501,7 @@
         <image name="Answer line.png" width="300" height="4"/>
         <image name="Blankstar.png" width="76" height="76"/>
         <image name="ChosenPlate.png" width="453" height="453"/>
+        <image name="Lock.png" width="122" height="187"/>
         <image name="Resetimage3.png" width="139" height="139"/>
         <image name="TrackersTabImage.png" width="31" height="37"/>
         <image name="arrowleft.png" width="88" height="60"/>

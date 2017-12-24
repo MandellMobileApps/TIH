@@ -36,6 +36,11 @@
     thisDay.steps = @"0";
     thisDay.waterCupsString = @"0";
     
+    thisDay.menuPlanBreakfast = [[MenuPlan alloc]init];
+    thisDay.menuPlanLunch = [[MenuPlan alloc]init];
+    thisDay.menuPlanDinner = [[MenuPlan alloc]init];
+    thisDay.menuPlanSnack = [[MenuPlan alloc]init];
+    
     thisDay.goal1 = NO;
     thisDay.goal2 = NO;
     thisDay.goal3 = NO;
@@ -71,6 +76,11 @@
         
         self.mealLocation = [decoder decodeIntForKey:@"mealLocation"];
         self.steps = [decoder decodeObjectForKey:@"steps"];
+        
+        self.menuPlanBreakfast = [decoder decodeObjectForKey:@"menuPlanBreakfast"];
+        self.menuPlanLunch = [decoder decodeObjectForKey:@"menuPlanLunch"];
+        self.menuPlanDinner = [decoder decodeObjectForKey:@"menuPlanDinner"];
+        self.menuPlanSnack = [decoder decodeObjectForKey:@"menuPlanSnack"];
 
         self.goal1 = [decoder decodeBoolForKey:@"goal1"];
         self.goal2 = [decoder decodeBoolForKey:@"goal2"];
@@ -111,6 +121,11 @@
     [encoder encodeBool:self.goal1 forKey:@"goal1"];
     [encoder encodeBool:self.goal2 forKey:@"goal2"];
     [encoder encodeBool:self.goal3 forKey:@"goal3"];
+    
+    [encoder encodeObject:self.menuPlanBreakfast forKey:@"menuPlanBreakfast"];
+    [encoder encodeObject:self.menuPlanLunch forKey:@"menuPlanLunch"];
+    [encoder encodeObject:self.menuPlanDinner forKey:@"menuPlanDinner"];
+    [encoder encodeObject:self.menuPlanSnack forKey:@"menuPlanSnack"];
     
 //    [encoder encodeObject:self.healthyDrinkArray forKey:@"healthDrinkArray"];
 //    [encoder encodeObject:self.sugaryDrinkArray forKey:@"sugaryDrinkArray"];

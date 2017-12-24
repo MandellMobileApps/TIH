@@ -19,7 +19,9 @@
     [super viewDidLoad];
     [self updateUI];
     [self enableControls];
-    
+    self.emailContainerView.hidden = YES;
+    CGRect scrollViewFrame = CGRectMake(0,64,self.view.bounds.size.width,self.view.bounds.size.height-64);
+    self.thisScrollView.frame = scrollViewFrame;
     self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 2000);
 
     // Do any additional setup after loading the view.
@@ -53,7 +55,9 @@
 
 -(IBAction)doneButtonTapped:(UIButton*)sender
 {
-        [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 -(IBAction)buttonTapped:(UIButton*)sender

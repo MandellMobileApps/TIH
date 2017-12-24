@@ -24,9 +24,7 @@
     NSString *webString = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     NSURL *baseURL = [NSURL fileURLWithPath:path];
     [self.thisWebView loadHTMLString:webString baseURL:baseURL];
-    
-//    self.thisWebView.hidden = YES;
-//    self.doneButton.hidden = YES;
+
     self.webViewContainer.hidden = YES;
     
     self.continueButton.enabled = NO;
@@ -49,18 +47,49 @@
 //    [self.navigationController pushViewController:foodTrackerViewController animated:NO];
 }
 
--(IBAction)termsConditions:(id)sender {
+-(IBAction)termsConditions:(id)sender
+{
+    [self animateTermsIn];
+}
     
-//    self.thisWebView.hidden = NO;
-//    self.doneButton.hidden = NO;
-    self.webViewContainer.hidden = NO;
+-(void)animateTermsIn
+{
+        CGRect hideRect = self.view.bounds;
+        hideRect.origin.y = self.view.bounds.size.height;
+        self.webViewContainer.frame = hideRect;
+        self.webViewContainer.hidden = NO;
+        [UIView animateWithDuration:0.3
+            animations:^{
+                self.webViewContainer.frame = self.view.bounds;
+            }
+            completion:^(BOOL finished){
+
+            }];
+}
+
+-(void)animateTermsOut
+{
+
+    CGRect hideRect = self.view.bounds;
+    hideRect.origin.y = self.view.bounds.size.height;
+    [UIView animateWithDuration:0.3
+        animations:^{
+            self.webViewContainer.frame = hideRect;
+            
+        }
+        completion:^(BOOL finished){
+            self.webViewContainer.hidden = YES;
+        }];
+
+}
+    
     
 //    DisclaimerViewController* disclaimerViewController = (DisclaimerViewController*)
 //    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
 //     instantiateViewControllerWithIdentifier:@"DisclaimerViewController"];
 //    [self.navigationController pushViewController:disclaimerViewController animated:NO];
     
-}
+
 
 
 
@@ -85,9 +114,7 @@
 
 -(IBAction)done:(id)sender {
     
-//    self.thisWebView.hidden = YES;
-//    self.doneButton.hidden = YES;
-    self.webViewContainer.hidden = YES;
+    [self animateTermsOut];
     
 }
 

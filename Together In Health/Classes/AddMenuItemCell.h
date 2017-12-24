@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MenuPlan;
 @interface AddMenuItemCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel *menuItemLabel;
-
+@property (nonatomic, strong) IBOutlet UILabel *mealNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *mealTextLabel;
+@property (nonatomic, strong) MenuPlan *menuPlan;
+@property (nonatomic) NSInteger row;
+-(void)refreshUI;
 @end

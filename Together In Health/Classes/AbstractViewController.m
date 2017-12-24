@@ -778,6 +778,8 @@
 
 }
 
+
+
 -(void)displayAlert:(NSString*)message {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -787,11 +789,12 @@
 }
 
 -(void)loadUpgradeViewController {
-    UpGradeViewController* upGradeViewController = (UpGradeViewController*)
+    self.upGradeViewController = (UpGradeViewController*)
     [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
      instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
+    [self presentViewController:self.upGradeViewController animated:YES completion:^{
 
-    [self.navigationController pushViewController:upGradeViewController animated:YES];
+        }];
 }
 
 -(NSArray*)objectsForFilename:(NSString*)filename

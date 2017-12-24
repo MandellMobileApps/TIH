@@ -8,14 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MenuItem : NSObject
+@interface MenuItem : NSObject <NSCoding>
 
-@property (nonatomic, strong) NSString *itemLabel;
-@property (nonatomic, strong) NSString *itemImage;
+// used to be assigned to a particuar menu
+@property (nonatomic) NSInteger menuItemId;
+@property (nonatomic, strong) NSString *menuItemName;
+@property (nonatomic, strong) NSString *menuItemImage;
+
+// not sure what these are used for
 @property (nonatomic, strong) NSString *itemSection;
-@property (nonatomic) int itemSubscription;
+@property (nonatomic) NSInteger itemSubscription;
 
 
-+ (id)itemLabel:(NSString*)itemLabel itemImage:(NSString*)itemImage itemSection:(NSString*)itemSection subscriptionLevel:(NSString*)itemSubscriptionType;
+//+ (id)itemLabel:(NSString*)itemLabel itemImage:(NSString*)itemImage itemSection:(NSString*)itemSection subscriptionLevel:(NSInteger*)itemSubscription;
 
 @end

@@ -548,11 +548,11 @@ switch (indexPath.section) {
         }
         
         else if (indexPath.row == 1) {
-            GenericWebViewController* genericWebViewController = (GenericWebViewController*)
+            GenericWebViewController2* genericWebViewController2 = (GenericWebViewController2*)
             [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-             instantiateViewControllerWithIdentifier:@"GenericWebViewController"];
-            genericWebViewController.webViewType2 = indexPath.row;
-            [self.navigationController pushViewController:genericWebViewController animated:YES];
+             instantiateViewControllerWithIdentifier:@"GenericWebViewController2"];
+            genericWebViewController2.webViewType2 = indexPath.row;
+            [self.navigationController pushViewController:genericWebViewController2 animated:YES];
         }
         
         else if (indexPath.row == 2) {

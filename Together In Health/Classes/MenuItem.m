@@ -10,15 +10,31 @@
 
 @implementation MenuItem
 
-+ (id)itemLabel:(NSString*)itemLabel itemImage:(NSString*)itemImage itemSection:(NSString*)itemSection itemSubscription:(NSString*)itemSubscription
-{
-    MenuItem *menuItemDisplay = [[self alloc] init];
-    menuItemDisplay.itemLabel = itemLabel;
-    menuItemDisplay.itemImage = itemImage;
-    menuItemDisplay.itemSection = itemSection;
-    menuItemDisplay.itemSubscription = itemSubscription;
 
-    return menuItemDisplay;
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        self.menuItemName = [decoder decodeObjectForKey:@"menuItemName"];
+        self.menuItemImage = [decoder decodeObjectForKey:@"menuItemImage"];
+        self.itemSection = [decoder decodeObjectForKey:@"itemSection"];
+        self.itemSubscription = [decoder decodeIntegerForKey:@"itemSubscription"];
+        self.menuItemId = [decoder decodeIntegerForKey:@"menuItemId"];
+
+
+    }
+    return self;
+    
 }
+
+- (void) encodeWithCoder:(NSCoder *)encoder {
+
+    [encoder encodeObject: self.menuItemName forKey:@"menuItemName"];
+     [encoder encodeObject: self.menuItemImage forKey:@"menuItemImage"];
+     [encoder encodeObject: self.itemSection forKey:@"itemSection"];
+     [encoder encodeInteger: self.itemSubscription forKey:@"itemSubscription"];
+    [encoder encodeInteger: self.menuItemId forKey:@"menuItemId"];
+
+}
+
 
 @end

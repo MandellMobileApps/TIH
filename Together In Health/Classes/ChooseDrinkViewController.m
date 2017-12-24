@@ -727,13 +727,13 @@
                                @"Wine",@"Name",
                                @"0",@"Amount",nil],
                               [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Beer",
+                               @"Beer",@"Name",
                                @"0",@"Amount",nil],
                               [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                @"Cocktail",@"Name",
                                @"0",@"Amount",nil],
                               [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               @"Hard liquor",
+                               @"Hard liquor",@"Name",
                                @"0",@"Amount",nil],
                               nil];
     

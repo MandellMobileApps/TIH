@@ -15,17 +15,13 @@
 @class MenuPlanViewController;
 @class AppDelegate;
 
-@interface MenuPlanViewController : AbstractViewController
-
-@property (nonatomic, strong) MenuPlanCell *menuPlanCell;
-@property (nonatomic, strong) AddMenuItemViewController *addMenuItemViewController;
-@property (nonatomic, strong) MenuPlan *menuPlan;
-@property (nonatomic, strong) MenuPlanViewController *menuPlanViewController;
+@interface MenuPlansViewController : AbstractViewController
 
 
-@property (nonatomic, strong) NSArray *menuDayArray;
 
-@property (nonatomic, strong) IBOutlet UITableView *thisTableView;
+
+
+
 @property (nonatomic,strong) UISegmentedControl *menutypeSegment;
 @property (nonatomic) int menuTypeRating;
 @property (nonatomic, strong) IBOutlet UIButton *upgradeButton;

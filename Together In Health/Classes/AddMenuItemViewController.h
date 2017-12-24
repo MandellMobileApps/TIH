@@ -15,5 +15,8 @@
 @property (nonatomic, strong) NSMutableArray *lunchArray;
 @property (nonatomic, strong) NSMutableArray *dinnerArray;
 @property (nonatomic, strong) NSMutableArray *snacksArray;
+@property (nonatomic, strong) NSMutableArray *sectionHeadersArray;
+
+@property (nonatomic, strong) NSDate *selectedDate;
 
 @end

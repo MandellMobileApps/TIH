@@ -14,6 +14,7 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import "UpGradeViewController.h"
+#import "MenuPlan.h"
 
 
 @interface AppDelegate ()
@@ -97,7 +98,7 @@
     self.zohoAuthToken = @"1b761d65e759974cb77c0bf236ec1473";
     
     //  temp
-    self.subscriptionLevel = 0;
+    self.subscriptionLevel = 1;
 }
 
 -(void)savePersistent
@@ -112,6 +113,61 @@
     [self saveFavoriteActivities];
 }
 
+
+-(void) loadGoals
+{
+    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
+    self.goalsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path]];
+    if (self.goalsArray.count < 3)
+    {
+        self.goalsArray = [NSMutableArray arrayWithObjects:
+                           [Goal thisGoal],
+                           [Goal thisGoal],
+                           [Goal thisGoal],
+                           nil];
+        NSInteger g = 1;
+        for (Goal* item in self.goalsArray)
+        {
+            item.goalName = [NSString stringWithFormat:@"Goal %lu",g];
+            item.goalColor = [self defaultGoalColors:g];
+            g++;
+        }
+        [self saveGoals];
+        
+    }
+
+}
+
+-(void)saveGoals
+{
+    
+    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
+    BOOL success = [NSKeyedArchiver archiveRootObject:self.goalsArray toFile:path];
+    if (!success) {
+        NSLog(@"GoalsArray.archive Did Not Save");
+    }
+}
+
+-(void) loadMenuPlans // only 1 menu plan for now
+{
+    NSString* path = [self dataFilePathofDocuments:@"MenuPlans.archive"];
+    self.menuPlansArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path]];
+    if (self.menuPlansArray.count < 1)
+    {
+        self.menuPlansArray = [NSMutableArray arrayWithObject:[MenuPlan createEmptyMenuPlan]];
+    }
+
+}
+
+-(void)saveMenuPlans
+{
+    
+    NSString* path = [self dataFilePathofDocuments:@"MenuPlans.archive"];
+    BOOL success = [NSKeyedArchiver archiveRootObject:self.menuPlansArray toFile:path];
+    if (!success) {
+        NSLog(@"menuPlansArray Did Not Save");
+    }
+}
 -(void)loadFavoriteActivities
 {
 
@@ -365,16 +421,16 @@
     
     [Fabric with:@[[Crashlytics class]]];
 
-        self.tabBarController = (UITabBarController *)self.window.rootViewController;
-        self.tabBarController.delegate = self;
-    
-        [self loadPersistent];
-        self.day = [self dayForDate:[NSDate date]];
-    
-        self.allActivities = [self initialCreationOfActivities];
-        [self loadFavoriteActivities];
-        self.allPlates = [self initialCreationOfPlates];
-        self.allMoods = [self initialCreationOfMoods];
+    self.tabBarController = (UITabBarController *)self.window.rootViewController;
+    self.tabBarController.delegate = self;
+
+    [self loadPersistent];
+    self.day = [self dayForDate:[NSDate date]];
+
+    self.allActivities = [self initialCreationOfActivities];
+    [self loadFavoriteActivities];
+    self.allPlates = [self initialCreationOfPlates];
+    self.allMoods = [self initialCreationOfMoods];
 
     
     self.mgOperationsQueue = [[NSOperationQueue alloc] init];
@@ -1355,29 +1411,6 @@
 
 
 
--(void) loadGoals
-{
-    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
-    self.goalsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path]];
-    if (self.goalsArray.count < 3)
-    {
-        self.goalsArray = [NSMutableArray arrayWithObjects:
-                           [Goal thisGoal],
-                           [Goal thisGoal],
-                           [Goal thisGoal],
-                           nil];
-        NSInteger g = 1;
-        for (Goal* item in self.goalsArray)
-        {
-            item.goalName = [NSString stringWithFormat:@"Goal %lu",g];
-            item.goalColor = [self defaultGoalColors:g];
-            g++;
-        }
-        [self saveGoals];
-        
-    }
-
-}
 
 -(UIColor*)defaultGoalColors:(NSInteger)g
 {
@@ -1397,16 +1430,20 @@
     return [UIColor whiteColor];
 }
 
--(void)saveGoals
-{
-    
-    NSString* path = [self dataFilePathofDocuments:@"GoalsArray.archive"];
-    BOOL success = [NSKeyedArchiver archiveRootObject:self.goalsArray toFile:path];
-    if (!success) {
-        NSLog(@"GoalsArray.archive Did Not Save");
-    }
-}
 
++(NSInteger)uniqueId
+{
+    double timeInterval = [[NSDate date] timeIntervalSinceReferenceDate]*100;
+    NSInteger theInteger = 0;
+//    if (timeInterval > NSIntegerMax) {
+//        // ...
+//    } else if (timeInterval < NSIntegerMin) {
+//        // ...
+//    } else {
+//        theInteger = timeInterval;
+//    }
+    return theInteger;
+}
 
 
 @end

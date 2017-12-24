@@ -50,13 +50,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)loadDatesForTheWeek
+{
+    
+
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
     // Return the number of sections.
-    return 4;
+    return 7;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -132,22 +137,22 @@
     AddMenuItemCell *MyCell = (AddMenuItemCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     
-    switch (indexPath.section) {
-        case 0:
-            MyCell.menuItemLabel.text = [self.breakfastArray objectAtIndex:indexPath.row];
-            break;
-        case 1:
-            MyCell.menuItemLabel.text = [self.lunchArray objectAtIndex:indexPath.row];
-            break;
-        case 2:
-            MyCell.menuItemLabel.text = [self.dinnerArray objectAtIndex:indexPath.row];
-            break;
-        case 3:
-            MyCell.menuItemLabel.text = [self.snacksArray objectAtIndex:indexPath.row];
-            break;
-        default:
-            break;
-    }
+//    switch (indexPath.section) {
+//        case 0:
+//            MyCell.menuItemLabel.text = [self.breakfastArray objectAtIndex:indexPath.row];
+//            break;
+//        case 1:
+//            MyCell.menuItemLabel.text = [self.lunchArray objectAtIndex:indexPath.row];
+//            break;
+//        case 2:
+//            MyCell.menuItemLabel.text = [self.dinnerArray objectAtIndex:indexPath.row];
+//            break;
+//        case 3:
+//            MyCell.menuItemLabel.text = [self.snacksArray objectAtIndex:indexPath.row];
+//            break;
+//        default:
+//            break;
+//    }
 
     
     return MyCell;

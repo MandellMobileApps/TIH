@@ -103,7 +103,6 @@
 		6A5541671F5C842700447A4E /* ColorsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5541661F5C842700447A4E /* ColorsClass.m */; };
 		6A5C946F1FEE9FC40055E416 /* MenuPlansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5C946E1FEE9FC30055E416 /* MenuPlansViewController.m */; };
 		6A5C94721FEEAFAB0055E416 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5C94711FEEAFAB0055E416 /* Menu.m */; };
-		6A5C94751FEFCDF10055E416 /* MenuMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5C94731FEFCDF10055E416 /* MenuMeal.m */; };
 		6A60E3DC1F911DAC00A48D03 /* Trackers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A60E3DA1F911DAC00A48D03 /* Trackers.storyboard */; };
 		6A799F7C1F859E9F008E6EA3 /* MasterTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A799F7B1F859E9F008E6EA3 /* MasterTrackerViewController.m */; };
 		6A83C61A1F9CFCEF0030A202 /* Goals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A83C6191F9CFCEF0030A202 /* Goals.storyboard */; };
@@ -404,8 +403,6 @@
 		6A5C946E1FEE9FC30055E416 /* MenuPlansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuPlansViewController.m; sourceTree = "<group>"; };
 		6A5C94701FEEAFAB0055E416 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		6A5C94711FEEAFAB0055E416 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
-		6A5C94731FEFCDF10055E416 /* MenuMeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuMeal.m; sourceTree = "<group>"; };
-		6A5C94741FEFCDF10055E416 /* MenuMeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuMeal.h; sourceTree = "<group>"; };
 		6A60E3DB1F911DAC00A48D03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trackers.storyboard; sourceTree = "<group>"; };
 		6A799F7A1F859E9F008E6EA3 /* MasterTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterTrackerViewController.h; sourceTree = "<group>"; };
 		6A799F7B1F859E9F008E6EA3 /* MasterTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterTrackerViewController.m; sourceTree = "<group>"; };
@@ -896,8 +893,6 @@
 				6A91E39D1BE2679300A72CCA /* MenuPlan.h */,
 				6A5C94701FEEAFAB0055E416 /* Menu.h */,
 				6A5C94711FEEAFAB0055E416 /* Menu.m */,
-				6A5C94741FEFCDF10055E416 /* MenuMeal.h */,
-				6A5C94731FEFCDF10055E416 /* MenuMeal.m */,
 				6A91E39E1BE2679300A72CCA /* MenuPlan.m */,
 				6A91E39F1BE2679300A72CCA /* MenuPlanCell.h */,
 				6A91E3A01BE2679300A72CCA /* MenuPlanCell.m */,
@@ -1452,7 +1447,6 @@
 				6A91E4341BE2679300A72CCA /* AddFoodCell.m in Sources */,
 				365847601F704F3F006DF9E4 /* ExercisePlanSetupViewController.m in Sources */,
 				6A91E44F1BE2679300A72CCA /* GoalCheckViewController.m in Sources */,
-				6A5C94751FEFCDF10055E416 /* MenuMeal.m in Sources */,
 				6A91E4CE1BE2D26600A72CCA /* StressTrackerViewController.m in Sources */,
 				6AD7A80D1C3051C0004BD58F /* Mood.m in Sources */,
 				6A91E4701BE2679300A72CCA /* SleepTrackerViewController.m in Sources */,

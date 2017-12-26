@@ -726,7 +726,11 @@ switch (indexPath.section) {
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
-    self.fullOpeningViewController.navigationController.navigationBar.tintColor= [UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1];
+    self.fullOpeningViewController.navigationController.navigationBar.tintColor= [UIColor colorWithRed:255/255.0 green:243/255.0 blue:177/255.0 alpha:1];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    self.fullOpeningViewController.navigationController.navigationBar.tintColor= [UIColor colorWithRed:255/255.0 green:243/255.0 blue:177/255.0 alpha:1];
 }
 
 

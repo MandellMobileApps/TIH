@@ -16,6 +16,8 @@
     [super viewDidLoad];
 
     //self.navigationItem.backBarButtonItem.text = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:255/255.0 green:243/255.0 blue:177/255.0 alpha:1];
 
 
 switch (self.webViewType) {

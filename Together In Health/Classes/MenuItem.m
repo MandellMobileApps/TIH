@@ -19,6 +19,8 @@
         self.itemSection = [decoder decodeObjectForKey:@"itemSection"];
         self.itemSubscription = [decoder decodeIntegerForKey:@"itemSubscription"];
         self.menuItemId = [decoder decodeIntegerForKey:@"menuItemId"];
+        self.recipeId = [decoder decodeIntegerForKey:@"recipeId"];
+        self.mealType = [decoder decodeIntegerForKey:@"mealType"];
 
 
     }
@@ -33,6 +35,8 @@
      [encoder encodeObject: self.itemSection forKey:@"itemSection"];
      [encoder encodeInteger: self.itemSubscription forKey:@"itemSubscription"];
     [encoder encodeInteger: self.menuItemId forKey:@"menuItemId"];
+     [encoder encodeInteger: self.recipeId forKey:@"recipeId"];
+     [encoder encodeInteger: self.mealType forKey:@"mealType"];
 
 }
 

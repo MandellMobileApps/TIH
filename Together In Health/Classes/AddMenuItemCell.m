@@ -7,31 +7,19 @@
 //
 
 #import "AddMenuItemCell.h"
-#import "MenuPlan.h"
+#import "MenuItem.h"
+#import "CheckBoxView.h"
 
 @implementation AddMenuItemCell
 -(void)refreshUI
 {
-//    switch (self.row) {
-//  case 0:
-//       self.mealNameLabel.text = @"Breakfast";
-//       self.mealTextLabel.text = [NSString stringWithFormat:@"          %@",self.menuPlan.breakfast];
-//    break;
-//  case 1:
-//       self.mealNameLabel.text = @"Lunch";
-//       self.mealTextLabel.text = [NSString stringWithFormat:@"          %@",self.menuPlan.lunch];
-//    break;
-//  case 2:
-//       self.mealNameLabel.text = @"Dinner";
-//       self.mealTextLabel.text = [NSString stringWithFormat:@"          %@",self.menuPlan.dinner];
-//    break;
-//  case 3:
-//       self.mealNameLabel.text = @"Snacks";
-//       self.mealTextLabel.text = [NSString stringWithFormat:@"          %@",self.menuPlan.snacks];
-//    break;
-//  default:
-//    break;
-//}
 
+  //   self.mealNameLabel.text = @"Snacks";
+     self.itemNameLabel.text = [NSString stringWithFormat:@"          %@",self.menuItem.menuItemName];
+
+}
+-(void) checkBoxStatusChanged:(CheckBoxView *)thisCheckbox
+{
+    self.menuItem.currentlySelected = thisCheckbox.checked;
 }
 @end

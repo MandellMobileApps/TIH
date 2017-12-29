@@ -10,12 +10,14 @@
 #import "MenuPlanCell.h"
 #import "RecipeViewController.h"
 #import "MenuPlan.h"
+#import "MenuMeal.h"
 #import "AddMenuItemViewController.h"
 #import "AppDelegate.h"
 #import "MgNetworkOperation2.h"
 #import "AbstractViewController.h"
 #import "UpGradeViewController.h"
-#import "Menu.h"
+#import "MenuDay.h"
+#import "MenuDayViewController.h"
 
 enum menuPlanIndex {
     planIndex = 0,
@@ -29,9 +31,9 @@ enum menuPlanIndex {
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Menu Plan";
     
-    self.menuDayArray = [NSArray arrayWithObjects:
+    
+    self.weekdays = [NSArray arrayWithObjects:
                          @"Sunday",
                          @"Monday",
                          @"Tuesday",
@@ -50,31 +52,28 @@ enum menuPlanIndex {
     {
         NSLog(@"menu plans not loading");
     }
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
-    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
+    [self.navigationController setNavigationBarHidden:YES];
+    self.navbarView.backgroundColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+    self.navbarTitleLabel.backgroundColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+    self.navbarTitleLabel.textColor = [UIColor whiteColor];
+    self.navbarTitleLabel.text = @"Menu Plan";
+//    self.navbarTitleLabel.font = [UIFont fontWithName:@"Arial" size:44.0];
     
-    self.navigationController.navigationBar.titleTextAttributes = size;
+//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+//    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
+//    self.navigationController.navigationBar.titleTextAttributes = size;
+//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+//
+//
+//    CGRect frameimg2 = CGRectMake(0, 0, 50, 20);
+//    UIButton *resetButton = [[UIButton alloc] initWithFrame:frameimg2];
+//    [resetButton addTarget:self action:@selector(reset:)
+//         forControlEvents:UIControlEventTouchUpInside];
+//    [resetButton setTitle:@"Reset" forState:UIControlStateNormal];
+//    UIBarButtonItem *barBtn2 =[[UIBarButtonItem alloc] initWithCustomView:resetButton];
+//    [self.navigationItem setLeftBarButtonItem:barBtn2];
+
     
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    
-        CGRect frameimg = CGRectMake(0, 0, 65, 20);
-        UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
-        [someButton addTarget:self action:@selector(recipes:)
-             forControlEvents:UIControlEventTouchUpInside];
-    [someButton setTitle:@"Recipes" forState:UIControlStateNormal];
-        UIBarButtonItem *barBtn =[[UIBarButtonItem alloc] initWithCustomView:someButton];
-    
-        [self.navigationItem setRightBarButtonItem:barBtn];
-    
-    
-    CGRect frameimg2 = CGRectMake(0, 0, 50, 20);
-    UIButton *resetButton = [[UIButton alloc] initWithFrame:frameimg2];
-    [resetButton addTarget:self action:@selector(reset:)
-         forControlEvents:UIControlEventTouchUpInside];
-    [resetButton setTitle:@"Reset" forState:UIControlStateNormal];
-    UIBarButtonItem *barBtn2 =[[UIBarButtonItem alloc] initWithCustomView:resetButton];
-    
-    [self.navigationItem setLeftBarButtonItem:barBtn2];
     
     [self checkForUpdates];
     
@@ -268,14 +267,13 @@ enum menuPlanIndex {
                                         
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
-    // Return the number of sections.
-    return 7;
+
+    return self.menuPlan.menuDays.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    int h = 50;
+    CGFloat h = 50;
     
     return h;
 }
@@ -292,35 +290,7 @@ enum menuPlanIndex {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-//    switch (section) {
-//        case 0:
-//            return 1;
-//            break;
-//        case 1:
-//            return 1;
-//            break;
-//        case 2:
-//            return 1;
-//            break;
-//        case 3:
-//            return 1;
-//            break;
-//        case 4:
-//            return 1;
-//            break;
-//        case 5:
-//            return 1;
-//            break;
-//        case 6:
-//            return 1;
-//            break;
-//        default:
-//            break;
-//
-//    }
- 
-return 4;
+    return 4;
 
 }
 
@@ -331,43 +301,22 @@ return 4;
 {
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.bounds.size.width, 22)];
-
-        [headerView setBackgroundColor:[UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1]];
+    [headerView setBackgroundColor:[UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1]];
     
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, tableView.bounds.size.width, 22)];
-
-    [headerLabel setTextColor:[UIColor colorWithRed:59/255.0 green:59/255.0 blue:59/255.0 alpha:1]];
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.bounds.size.width-10, 22)];
+    [headerLabel setBackgroundColor:[UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1]];
     headerLabel.font = [UIFont boldSystemFontOfSize:18];
+    [headerLabel setText:[self.weekdays objectAtIndex:section]];
+    [headerLabel setTextColor:[UIColor whiteColor]];
+    [headerView addSubview:headerLabel];
     
 //    UIButton *addButton=[UIButton buttonWithType:UIButtonTypeContactAdd];
 //    [addButton addTarget:self action:@selector(recipes:) forControlEvents:UIControlEventTouchUpInside];
 //    addButton.frame=CGRectMake(280, 2.5, 28, 28);
-//    [addButton setImage:[UIImage imageNamed:@"addButtonImage.png"] forState:UIControlStateNormal];
-//
-//    
+////    [addButton setImage:[UIImage imageNamed:@"addButtonImage.png"] forState:UIControlStateNormal];
 //    addButton.backgroundColor = [UIColor whiteColor];
-//    addButton.layer.cornerRadius = 15;
-    [headerLabel setTextColor:[UIColor whiteColor]];
-
-    
-    if (section == 0)
-        [headerLabel setText:@"   Monday"];
-    else if (section == 1)
-        [headerLabel setText:@"   Tuesday"];
-    else if (section == 2)
-        [headerLabel setText:@"   Wednesday"];
-    else if (section == 3)
-        [headerLabel setText:@"   Thursday"];
-    else if (section == 4)
-        [headerLabel setText:@"   Friday"];
-    else if (section == 5)
-        [headerLabel setText:@"   Saturday"];
-    else if (section == 6)
-        [headerLabel setText:@"   Sunday"];
-
-    
-    [headerView addSubview:headerLabel];
-    //[headerView addSubview:addButton];
+//    addButton.layer.cornerRadius = 14;
+//    [headerView addSubview:addButton];
     
     return headerView;
     
@@ -380,97 +329,54 @@ return 4;
     static NSString *CellIdentifier = @"MyCell";
     MenuPlanCell *myCell = (MenuPlanCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Menu* selectedMenu = [self menuForSection:indexPath.section];
-    myCell.menuItems = [self menuItemsForMenu:selectedMenu atRow:indexPath.row];
-    myCell.menuNameLabel.text = [self mealNameForMenu:selectedMenu atRow:indexPath.row];
+    MenuDay* thisMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
+    myCell.selectedMenuDay = thisMenuDay;
+    myCell.row = indexPath.row;
     [myCell refreshCell];
     
     return myCell;
 }
 
--(Menu*)menuForSection:(NSInteger)section
-{
-    Menu* selectedMenu;
-    switch (section) {
-        case 0:
-            selectedMenu = self.menuPlan.day1Menu;
-            break;
-        case 1:
-            selectedMenu = self.menuPlan.day2Menu;
-            break;
-        case 2:
-            selectedMenu = self.menuPlan.day3Menu;
-            break;
-        case 3:
-            selectedMenu = self.menuPlan.day4Menu;
-            break;
-        case 4:
-            selectedMenu = self.menuPlan.day5Menu;
-            break;
-        case 5:
-            selectedMenu = self.menuPlan.day6Menu;
-            break;
-        case 6:
-            selectedMenu = self.menuPlan.day7Menu;
-            break;
-        default:
-            break;
 
-    }
-    return selectedMenu;
 
-}
-
--(NSMutableArray*)menuItemsForMenu:(Menu*)menu atRow:(NSInteger)row
-{
-    switch (row) {
-        case 0:
-            return menu.breakfastMenuItems;
-            break;
-        case 1:
-             return menu.lunchMenuItems;
-            break;
-        case 2:
-             return menu.dinnerMenuItems;
-            break;
-        case 3:
-             return menu.snackMenuItems;
-            break;
-        default:
-            break;
-
-    }
-    return [NSMutableArray array];
-
-}
-
--(NSString*)mealNameForMenu:(Menu*)menu atRow:(NSInteger)row
-{
-    switch (row) {
-        case 0:
-            return @"Breakfast";
-            break;
-        case 1:
-             return @"Lunch";
-            break;
-        case 2:
-             return @"Dinner";
-            break;
-        case 3:
-            return @"Snacks";
-            break;
-        default:
-            break;
-
-    }
-    return [NSString string];
-
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    self.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
+    
+        MenuDayViewController* menuDayViewController = (MenuDayViewController*)
+    [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
+     instantiateViewControllerWithIdentifier:@"MenuDayViewController"];
+     menuDayViewController.selectedMenuDayName = [self.weekdays objectAtIndex:indexPath.section];
+     menuDayViewController.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
+    [self.navigationController pushViewController:menuDayViewController animated:YES];
+    
+   
 
+}
+#pragma mark - Navigation
+
+-(void)loadMenuDayViewController
+{
+    
+
+}
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+//    if ([segue.identifier isEqualToString:@"MenuDaySegue"])
+//    {
+//        MenuDayViewController* menuDayViewController = [segue destinationViewController];
+//        menuDayViewController.selectedMenuDay = self.selectedMenuDay;
+//        menuDayViewController.selectedMenuDayName = self.selectedMenuDayName;
+//    }
+//
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    
+    
 }
 
 -(IBAction)recipes:(id)sender {

@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "AbstractViewController.h"
 
+@class MenuItem;
+
 @interface AddMenuItemViewController : AbstractViewController
 
-@property (nonatomic, strong) NSMutableArray *breakfastArray;
-@property (nonatomic, strong) NSMutableArray *lunchArray;
-@property (nonatomic, strong) NSMutableArray *dinnerArray;
-@property (nonatomic, strong) NSMutableArray *snacksArray;
-@property (nonatomic, strong) NSMutableArray *sectionHeadersArray;
 
-@property (nonatomic, strong) NSDate *selectedDate;
+
+@property (nonatomic, strong) MenuItem *selectedMenuItem;
+
+
 
 @end

@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class Menu;
+@class MenuDay;
+
 @interface MenuPlanCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel *menuNameLabel;
+@property (nonatomic, strong) MenuDay* selectedMenuDay;
+@property (nonatomic, strong) IBOutlet UILabel *menuTypeLabel;
 @property (nonatomic, strong) IBOutlet UILabel *menuItemsLabel;
-@property (nonatomic, strong)  NSMutableArray *menuItems;
+@property (nonatomic) NSInteger row;
 
 -(void)refreshCell;
--(NSString*)menuItemsStringFrom:(NSMutableArray*)items;
+-(NSString*)menuItemsStringForArray:(NSMutableArray*)meals;
 @end

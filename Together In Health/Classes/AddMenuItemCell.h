@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-@class MenuPlan;
+@class MenuItem;
+@class CheckBoxView;
 @interface AddMenuItemCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel *mealNameLabel;
-@property (nonatomic, strong) IBOutlet UILabel *mealTextLabel;
-@property (nonatomic, strong) MenuPlan *menuPlan;
-@property (nonatomic) NSInteger row;
+@property (nonatomic, strong) IBOutlet UILabel *itemNameLabel;
+@property (nonatomic, strong) IBOutlet UILabel *itemTextLabel;
+@property (nonatomic, strong) MenuItem *menuItem;
+@property (nonatomic, strong) IBOutlet CheckBoxView *checkbox;
 -(void)refreshUI;
 @end

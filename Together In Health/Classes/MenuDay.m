@@ -6,18 +6,19 @@
 //  Copyright © 2017 MandellMobileApps. All rights reserved.
 //
 
-#import "Menu.h"
+#import "MenuDay.h"
 
-@implementation Menu
+@implementation MenuDay
 
-+ (Menu*)createEmptyMenu
++ (MenuDay*)addNewMenuDay
 {
-        Menu* emptyMenu = [[Menu alloc]init];
-        emptyMenu.breakfastMenuItems = [NSMutableArray array];
-        emptyMenu.lunchMenuItems = [NSMutableArray array];
-        emptyMenu.dinnerMenuItems = [NSMutableArray array];
-        emptyMenu.snackMenuItems = [NSMutableArray array];
-        return emptyMenu;
+        MenuDay* new = [[MenuDay alloc]init];
+        new.breakfastMenuItems = [NSMutableArray array];
+        new.lunchMenuItems = [NSMutableArray array];
+        new.dinnerMenuItems = [NSMutableArray array];
+        new.snackMenuItems = [NSMutableArray array];
+
+        return new;
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {

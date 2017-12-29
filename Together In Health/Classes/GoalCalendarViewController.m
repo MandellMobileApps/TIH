@@ -49,7 +49,7 @@
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
     self.navigationController.navigationBar.titleTextAttributes = size;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    self.title = @"Goals Calendar";
+    self.title = @"Goals";
     [self.appDelegate loadGoals];
 
     UIColor *defaultBackgroundColor = [ColorsClass lightgray];

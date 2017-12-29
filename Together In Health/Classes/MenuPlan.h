@@ -10,20 +10,20 @@
 
 
 @class MenuPlan;
-@class Menu;
+
 
 @interface MenuPlan : NSObject <NSCoding>
 
 // array of menu objects
-//@property (nonatomic, strong) NSMutableArray* menus;
-@property (nonatomic, strong) Menu *day1Menu;
-@property (nonatomic, strong) Menu *day2Menu;
-@property (nonatomic, strong) Menu *day3Menu;
-@property (nonatomic, strong) Menu *day4Menu;
-@property (nonatomic, strong) Menu *day5Menu;
-@property (nonatomic, strong) Menu *day6Menu;
-@property (nonatomic, strong) Menu *day7Menu;
+@property (nonatomic, strong) NSMutableArray * menuDays;
+//@property (nonatomic, strong) MenuDay *day1Menu;
+//@property (nonatomic, strong) MenuDay *day2Menu;
+//@property (nonatomic, strong) MenuDay *day3Menu;
+//@property (nonatomic, strong) MenuDay *day4Menu;
+//@property (nonatomic, strong) MenuDay *day5Menu;
+//@property (nonatomic, strong) MenuDay *day6Menu;
+//@property (nonatomic, strong) MenuDay *day7Menu;
 
-+ (MenuPlan*)createEmptyMenuPlan;
-//-(NSMutableArray*)createEmptyMenusForMealPlan;
++ (MenuPlan*)addNewMenuPlan;
+
 @end

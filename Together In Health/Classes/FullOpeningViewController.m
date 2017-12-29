@@ -37,14 +37,12 @@
     [super viewDidLoad];
     
     
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:255/255.0 green:243/255.0 blue:177/255.0 alpha:1];
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
     self.navigationController.navigationBar.titleTextAttributes = size;
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor]};
     self.title = @"More";
     
-    
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
 
     self.menuFreeArray0 = [NSArray arrayWithObjects:@"Upgrade Now!", nil];
     
@@ -147,6 +145,18 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+}
+
+-(void)viewDidAppear {
+    
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:255/255.0 green:243/255.0 blue:177/255.0 alpha:1];
+    
+}
+
+-(void)viewWillAppear {
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:255/255.0 green:243/255.0 blue:177/255.0 alpha:1];
     
 }
 //
@@ -272,7 +282,7 @@
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,tableView.bounds.size.width, 22)];
     //[headerView setBackgroundColor:[UIColor lightGrayColor]];
-    [headerView setBackgroundColor:[UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]];
+    [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:243/255.0 blue:177/255.0 alpha:1]];
 
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, tableView.bounds.size.width, 22)];
 //    [headerLabel setBackgroundColor:[UIColor lightGrayColor]];
@@ -548,11 +558,11 @@ switch (indexPath.section) {
         }
         
         else if (indexPath.row == 1) {
-            GenericWebViewController* genericWebViewController = (GenericWebViewController*)
+            GenericWebViewController2* genericWebViewController2 = (GenericWebViewController2*)
             [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-             instantiateViewControllerWithIdentifier:@"GenericWebViewController"];
-            genericWebViewController.webViewType2 = indexPath.row;
-            [self.navigationController pushViewController:genericWebViewController animated:YES];
+             instantiateViewControllerWithIdentifier:@"GenericWebViewController2"];
+            genericWebViewController2.webViewType2 = indexPath.row;
+            [self.navigationController pushViewController:genericWebViewController2 animated:YES];
         }
         
         else if (indexPath.row == 2) {

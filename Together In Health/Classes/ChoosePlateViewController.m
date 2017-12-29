@@ -422,9 +422,36 @@
     }
     else
     {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must select a Mood and a Plate\nbefore you save." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        alertView.tag = 2;
-        [alertView show];
+        
+        switch (self.appDelegate.subscriptionLevel) {
+                
+            case SubscriptionFree:{
+                
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must select a Plate\nbefore you save." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                alertView.tag = 2;
+                [alertView show];
+            }
+                
+                break;
+            case SubscriptionPaid1: {
+                
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must select a Mood and a Plate\nbefore you save." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                alertView.tag = 2;
+                [alertView show];
+            }
+                break;
+                
+            case SubscriptionPaid2: {
+                
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must select a Mood and a Plate\nbefore you save." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                alertView.tag = 2;
+                [alertView show];
+            }
+                break;
+            default:
+                break;
+        }
+
     
     
     }

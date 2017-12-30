@@ -85,8 +85,8 @@
 
     }
     
-
     self.subscriptionLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"subscriptionLevel"];
+    self.dailyActivityGoal = [[NSUserDefaults standardUserDefaults] integerForKey:@"dailyActivityGoal"];
     
     self.contactEmail = [[NSUserDefaults standardUserDefaults] objectForKey:@"contactEmail"];
     if (!self.contactEmail)
@@ -109,7 +109,8 @@
     if (!success) {
         NSLog(@"DaysPersistent.archive did not save");
     }
-   
+   [[NSUserDefaults standardUserDefaults] setInteger:self.dailyActivityGoal forKey:@"dailyActivityGoal"];
+
     [self saveFavoriteActivities];
 }
 
@@ -820,7 +821,7 @@
                                                 if ([completedOperation.json isKindOfClass:[NSArray class]])
                                                 {
                                                     self.updatedRecords = completedOperation.json;
-                                                  //  NSLog(@"self.updatedRecords %@",self.updatedRecords);
+                                                    NSLog(@"self.updatedRecords %@",self.updatedRecords);
                                                     if (self.updatedRecords.count>0)
                                                     {
                                                         [self deleteExistingTable];
@@ -832,13 +833,13 @@
                                                 }
                                                 else
                                                 {
-                                                  //  NSLog(@"getData JSON is not array");
+                                                    NSLog(@"getData JSON is not array");
                                                     self.updatedRecords = [NSMutableArray array];
                                                 }
                                             }
                                             else
                                             {
-                                               // NSLog(@"getData %@",completedOperation.operationErrorMessage);
+                                                NSLog(@"getData %@",completedOperation.operationErrorMessage);
                                                 self.updatedRecords = [NSMutableArray array];
                                             }
                                             

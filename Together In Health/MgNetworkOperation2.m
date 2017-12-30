@@ -272,7 +272,7 @@
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	[self checkCancel];
 	self.rawResponse = [[NSString alloc] initWithBytes: [self.webData mutableBytes] length:[self.webData length] encoding:NSUTF8StringEncoding];
-    //NSLog(@"%@: rawString: %@\n\n\n",[NSDate date],self.rawResponse);
+    NSLog(@"%@: rawString: %@\n\n\n",[NSDate date],self.rawResponse);
 
     [self checkCancel];
 	if ([self.webData length] == 0) {

@@ -9,17 +9,17 @@
 #import <Foundation/Foundation.h>
 
 
-@class Menu;
+@class MenuDay;
 
-@interface Menu : NSObject <NSCoding>
+@interface MenuDay : NSObject <NSCoding>
 
 
-// array of menuItems
+// array of menuMeals
 @property (nonatomic, strong) NSMutableArray *breakfastMenuItems;
 @property (nonatomic, strong) NSMutableArray *lunchMenuItems;
 @property (nonatomic, strong) NSMutableArray *dinnerMenuItems;
 @property (nonatomic, strong) NSMutableArray *snackMenuItems;
 
-+ (Menu*)createEmptyMenu;
++ (MenuDay*)addNewMenuDay;
 
 @end

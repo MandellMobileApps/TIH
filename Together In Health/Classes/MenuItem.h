@@ -8,17 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
+enum MealType {
+    MealTypeBreakfast = 0,
+    MealTypeLunch = 1,
+    MealTypeDinner = 2,
+    MealTypeSnack = 3,
+
+};
+
 @interface MenuItem : NSObject <NSCoding>
 
-// used to be assigned to a particuar menu
+
 @property (nonatomic) NSInteger menuItemId;
+@property (nonatomic) NSInteger recipeId;  // if one is associated with it.
 @property (nonatomic, strong) NSString *menuItemName;
 @property (nonatomic, strong) NSString *menuItemImage;
-
-// not sure what these are used for
 @property (nonatomic, strong) NSString *itemSection;
 @property (nonatomic) NSInteger itemSubscription;
-
+@property (nonatomic) BOOL currentlySelected;
+@property (nonatomic) NSInteger mealType;
 
 //+ (id)itemLabel:(NSString*)itemLabel itemImage:(NSString*)itemImage itemSection:(NSString*)itemSection subscriptionLevel:(NSInteger*)itemSubscription;
 

@@ -44,11 +44,18 @@ enum SubscriptionLevel {
 @property (nonatomic, strong) GoalSetViewController *goalSetViewController;
 
 @property (nonatomic, strong) NSMutableArray *menuPlansArray;
-@property (nonatomic, strong) NSMutableArray    *goalsArray;
+// menuItems
+@property (nonatomic, strong) NSMutableArray *breakfastItemsArray;
+@property (nonatomic, strong) NSMutableArray *lunchItemsArray;
+@property (nonatomic, strong) NSMutableArray *dinnerItemsArray;
+@property (nonatomic, strong) NSMutableArray *snackItemsArray;
+@property (nonatomic, strong) NSMutableArray *menuItemsArray;  // not currently used
+
+@property (nonatomic, strong) NSMutableArray *goalsArray;
 @property (nonatomic, strong) NSString* zohoAuthToken;
 @property (nonatomic, strong) NSString* contactEmail;
 @property (nonatomic) NSInteger subscriptionLevel;
-
+@property (nonatomic) NSInteger dailyActivityGoal;
 
 
 //@property (nonatomic, strong) NSMutableArray *dayPackage;

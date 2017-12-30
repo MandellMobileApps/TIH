@@ -122,4 +122,6 @@ enum ButtonIndex {
 @property (nonatomic, strong)UpGradeViewController* upGradeViewController;
 -(void)loadUpgradeViewController;
 
+-(void)verifyCancel;
+
 @end

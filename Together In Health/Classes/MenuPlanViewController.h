@@ -12,20 +12,19 @@
 @class MenuPlanCell;
 @class AddMenuItemViewController;
 @class MenuPlan;
+@class MenuMeal;
 @class MenuPlanViewController;
 @class AppDelegate;
+@class MenuDay;
 
 @interface MenuPlanViewController : AbstractViewController
 
-@property (nonatomic, strong) MenuPlanCell *menuPlanCell;
 @property (nonatomic, strong) AddMenuItemViewController *addMenuItemViewController;
 @property (nonatomic, strong) MenuPlan *menuPlan;
-@property (nonatomic, strong) MenuPlanViewController *menuPlanViewController;
+@property (nonatomic, strong) MenuDay *selectedMenuDay;
+@property (nonatomic, strong) NSString *selectedMenuDayName;
+@property (nonatomic, strong) NSArray *weekdays;
 
-
-@property (nonatomic, strong) NSArray *menuDayArray;
-
-@property (nonatomic, strong) IBOutlet UITableView *thisTableView;
 @property (nonatomic,strong) UISegmentedControl *menutypeSegment;
 @property (nonatomic) int menuTypeRating;
 @property (nonatomic, strong) IBOutlet UIButton *upgradeButton;

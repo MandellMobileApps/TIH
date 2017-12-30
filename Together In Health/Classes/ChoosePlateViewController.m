@@ -122,7 +122,7 @@
     
             
     case SubscriptionFree:
-            return 1;
+            return 2;
       case SubscriptionPaid1:
             return 2;
         break;
@@ -250,12 +250,12 @@
     switch (self.appDelegate.subscriptionLevel) {
     
       case SubscriptionFree:
-            if (indexPath.section ==0)
-            {
+//            if (indexPath.section ==)
+//            {
             MyCell = [self plateCellForIndexPath:indexPath];
             MyCell.plateImage.frame = CGRectMake(0, 0, 90, 90);
             MyCell.plateImageSelected.frame = CGRectMake(0, 0, 90, 90);
-            }
+//            }
 
         break;
         
@@ -356,20 +356,21 @@
     
     switch (self.appDelegate.subscriptionLevel) {
     
-      case SubscriptionFree:
+      case SubscriptionFree:{
       
-        if (indexPath.section == 0)
-        {
+//        if (indexPath.section == 0)
+//        {
             Plate* thisPlate = [self.appDelegate.allPlates objectAtIndex:indexPath.row];
             self.food.plate = thisPlate;
-        }
-        break;
+//        }
+        break;}
         
       case SubscriptionPaid1:
       
         if (indexPath.section == 0)
         {
-            [self goToUpGrade];
+            Mood* thisMood = [self.appDelegate.allMoods objectAtIndex:indexPath.row];
+            self.food.mood = thisMood;
         }
         else if (indexPath.section == 1)
         {
@@ -400,14 +401,69 @@
 
 -(void)goToUpGrade
 {
-
+    [self loadUpgradeViewController];
 }
 
 -(IBAction)saveData:(id)sender {
-    
-    if ((self.food.mood.moodId > -1)&&(self.food.plate.plateId > -1))
-    {
-        
+  
+    switch (self.appDelegate.subscriptionLevel) {
+            
+        case SubscriptionFree:{
+            
+            if (self.food.plate.plateId > -1)
+            {
+                [self saveFood];
+
+            }
+            else
+            {
+                
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must select a Plate\nbefore you save." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                alertView.tag = 2;
+                [alertView show];
+            }
+                 break;}
+        case SubscriptionPaid1: {
+             if ((self.food.mood.moodId > -1)&&(self.food.plate.plateId > -1))
+            {
+                [self saveFood];
+
+            }
+            else
+            {
+            
+                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must select a Mood and a Plate\nbefore you save." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                alertView.tag = 2;
+                [alertView show];
+            }
+                break;}
+            
+        case SubscriptionPaid2:{
+            
+            if ((self.food.mood.moodId > -1)&&(self.food.plate.plateId > -1))
+            {
+                
+                [self saveFood];
+            }
+            else
+            {
+            
+                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must select a Mood and a Plate\nbefore you save." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                alertView.tag = 2;
+                [alertView show];
+
+ 
+            }
+
+            break;}
+        default:
+            break;
+        }
+
+}
+
+-(void) saveFood
+{
         if (self.isNew)
         {
             [self.appDelegate.day.foodArray addObject:self.food];
@@ -418,43 +474,7 @@
         
         }
 
-            [self.navigationController popViewControllerAnimated:YES];
-    }
-    else
-    {
-        
-        switch (self.appDelegate.subscriptionLevel) {
-                
-            case SubscriptionFree:{
-                
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must select a Plate\nbefore you save." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                alertView.tag = 2;
-                [alertView show];
-            }
-                
-                break;
-            case SubscriptionPaid1: {
-                
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must select a Mood and a Plate\nbefore you save." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                alertView.tag = 2;
-                [alertView show];
-            }
-                break;
-                
-            case SubscriptionPaid2: {
-                
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must select a Mood and a Plate\nbefore you save." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                alertView.tag = 2;
-                [alertView show];
-            }
-                break;
-            default:
-                break;
-        }
-
-    
-    
-    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(IBAction)cancelData:(id)sender {

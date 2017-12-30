@@ -111,6 +111,11 @@
          [self activityUpdated:self.editActivity];
          [self.thisTableView reloadData];
      }
+     else if (tag == 3)
+     {
+         self.appDelegate.dailyActivityGoal = [entry integerValue];
+         [self.thisTableView reloadData];
+     }
      else
      {
         [self.thisTableView reloadData];
@@ -135,7 +140,7 @@
 {
     
     // Return the number of sections.
-    return 3;
+    return 4;
     
     //return for distance traveled
     //return 4;
@@ -180,11 +185,11 @@
         return 1;
     }
     
-//    else if (section == 3)
-//        
-//    {
-//        return 1;
-//    }
+    else if (section == 3)
+        
+    {
+        return 1;
+    }
     return 0;
 
 }
@@ -203,13 +208,21 @@
     [headerLabel setTextColor:[UIColor whiteColor]];
     
     if (section == 0)
+    {
         [headerLabel setText:@"   Activities"];
+    }
     else if (section == 1)
+    {
         [headerLabel setText:@"   Total activity time for the day"];
-    
-    else
+    }
+    else if (section == 2)
+    {
         [headerLabel setText:@"   Track your steps for the day"];
-    
+        }
+    else if (section == 3)
+    {
+        [headerLabel setText:@"   Daily Activity Goal"];
+    }
 //    else
 //        [headerLabel setText:@"   Distance traveled"];
     
@@ -237,9 +250,9 @@
         [headerView addSubview:headerLabel];
     }
     
-//    else if (section == 3) {
-//        [headerView addSubview:headerLabel];
-//    }
+    else if (section == 3) {
+        [headerView addSubview:headerLabel];
+    }
     
     return headerView;
     
@@ -319,7 +332,17 @@
 //        [self addBorderAround:MyCell.timeLabel cornerType:CornerTypeSquare withColor:[UIColor blackColor]];
 //        
 //    }
+    else if (indexPath.section == 3) {
+        MyCell.activityLabel.text = @"Minutes";
+        MyCell.timeLabel.textAlignment = NSTextAlignmentCenter;
+        
+        MyCell.timeLabel.text = [NSString stringWithFormat:@"%lu",self.appDelegate.dailyActivityGoal];
 
+        MyCell.selectionStyle = UITableViewCellSelectionStyleGray;
+        MyCell.accessoryType = UITableViewCellAccessoryNone;
+        [self addBorderAround:MyCell.timeLabel cornerType:CornerTypeSquare withColor:[UIColor blackColor]];
+
+    }
     return MyCell;
 }
 
@@ -360,7 +383,13 @@
         [self addNumberPadForString:@"0" withTitle:[TIHDate dateStringFromDate:self.appDelegate.day.date withFormat:DateFormatMediumDateNoTime] andUnits:@"Enter Steps" tag:1];
 
     }
+    else if (indexPath.section == 3)
+    {
+        
+        self.baseContentView.userInteractionEnabled = NO;
+        [self addNumberPadForString:self.lastSelectedCell.timeLabel.text withTitle:@"Daily Activity Goal" andUnits:@"Enter Minutes" tag:3];
 
+    }
     
 }
 

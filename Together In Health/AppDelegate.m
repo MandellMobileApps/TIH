@@ -85,8 +85,8 @@
 
     }
     
-
     self.subscriptionLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"subscriptionLevel"];
+    self.dailyActivityGoal = [[NSUserDefaults standardUserDefaults] integerForKey:@"dailyActivityGoal"];
     
     self.contactEmail = [[NSUserDefaults standardUserDefaults] objectForKey:@"contactEmail"];
     if (!self.contactEmail)
@@ -109,7 +109,8 @@
     if (!success) {
         NSLog(@"DaysPersistent.archive did not save");
     }
-   
+   [[NSUserDefaults standardUserDefaults] setInteger:self.dailyActivityGoal forKey:@"dailyActivityGoal"];
+
     [self saveFavoriteActivities];
 }
 
@@ -150,13 +151,44 @@
 
 -(void) loadMenuPlans // only 1 menu plan for now
 {
+
     NSString* path = [self dataFilePathofDocuments:@"MenuPlans.archive"];
     self.menuPlansArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path]];
     if (self.menuPlansArray.count < 1)
     {
-        self.menuPlansArray = [NSMutableArray arrayWithObject:[MenuPlan createEmptyMenuPlan]];
+        self.menuPlansArray = [NSMutableArray arrayWithObject:[MenuPlan addNewMenuPlan]];
     }
-
+    
+    NSString* path2 = [self dataFilePathofDocuments:@"breakfastItemsArray.archive"];
+    self.breakfastItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path2]];
+    if (self.breakfastItemsArray.count < 1)
+    {
+        self.breakfastItemsArray = [NSMutableArray array];
+    }
+    NSString* path3 = [self dataFilePathofDocuments:@"lunchItemsArray.archive"];
+    self.lunchItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path3]];
+    if (self.lunchItemsArray.count < 1)
+    {
+        self.lunchItemsArray = [NSMutableArray array];
+    }
+    NSString* path4 = [self dataFilePathofDocuments:@"dinnerItemsArray.archive"];
+    self.dinnerItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path4]];
+    if (self.dinnerItemsArray.count < 1)
+    {
+        self.dinnerItemsArray = [NSMutableArray array];
+    }
+    NSString* path5 = [self dataFilePathofDocuments:@"snackItemsArray.archive"];
+    self.snackItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path5]];
+    if (self.snackItemsArray.count < 1)
+    {
+        self.snackItemsArray = [NSMutableArray array];
+    }
+    NSString* path6 = [self dataFilePathofDocuments:@"menuItemsArray.archive"];
+    self.menuItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path6]];
+    if (self.menuItemsArray.count < 1)
+    {
+        self.menuItemsArray = [NSMutableArray array];
+    }
 }
 
 -(void)saveMenuPlans
@@ -166,6 +198,32 @@
     BOOL success = [NSKeyedArchiver archiveRootObject:self.menuPlansArray toFile:path];
     if (!success) {
         NSLog(@"menuPlansArray Did Not Save");
+    }
+    
+    NSString* path2 = [self dataFilePathofDocuments:@"breakfastItemsArray.archive"];
+    BOOL success2 = [NSKeyedArchiver archiveRootObject:self.breakfastItemsArray toFile:path2];
+    if (!success2) {
+        NSLog(@"breakfastItemsArray Did Not Save");
+    }
+    NSString* path3 = [self dataFilePathofDocuments:@"lunchItemsArray.archive"];
+    BOOL success3 = [NSKeyedArchiver archiveRootObject:self.lunchItemsArray toFile:path3];
+    if (!success3) {
+        NSLog(@"lunchItemsArray Did Not Save");
+    }
+    NSString* path4 = [self dataFilePathofDocuments:@"dinnerItemsArray.archive"];
+    BOOL success4 = [NSKeyedArchiver archiveRootObject:self.dinnerItemsArray toFile:path4];
+    if (!success4) {
+        NSLog(@"dinnerItemsArray Did Not Save");
+    }
+    NSString* path5 = [self dataFilePathofDocuments:@"snackItemsArray.archive"];
+    BOOL success5 = [NSKeyedArchiver archiveRootObject:self.snackItemsArray toFile:path5];
+    if (!success5) {
+        NSLog(@"snackItemsArray Did Not Save");
+    }
+    NSString* path6 = [self dataFilePathofDocuments:@"menuItemsArray.archive"];
+    BOOL success6 = [NSKeyedArchiver archiveRootObject:self.menuItemsArray toFile:path6];
+    if (!success6) {
+        NSLog(@"menuItemsArray Did Not Save");
     }
 }
 -(void)loadFavoriteActivities
@@ -763,7 +821,7 @@
                                                 if ([completedOperation.json isKindOfClass:[NSArray class]])
                                                 {
                                                     self.updatedRecords = completedOperation.json;
-                                                  //  NSLog(@"self.updatedRecords %@",self.updatedRecords);
+                                                    NSLog(@"self.updatedRecords %@",self.updatedRecords);
                                                     if (self.updatedRecords.count>0)
                                                     {
                                                         [self deleteExistingTable];
@@ -775,13 +833,13 @@
                                                 }
                                                 else
                                                 {
-                                                  //  NSLog(@"getData JSON is not array");
+                                                    NSLog(@"getData JSON is not array");
                                                     self.updatedRecords = [NSMutableArray array];
                                                 }
                                             }
                                             else
                                             {
-                                               // NSLog(@"getData %@",completedOperation.operationErrorMessage);
+                                                NSLog(@"getData %@",completedOperation.operationErrorMessage);
                                                 self.updatedRecords = [NSMutableArray array];
                                             }
                                             

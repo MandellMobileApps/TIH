@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 @class MenuItem;
 @class CheckBoxView;
+
 @interface AddMenuItemCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel *itemNameLabel;
-@property (nonatomic, strong) IBOutlet UILabel *itemTextLabel;
 @property (nonatomic, strong) MenuItem *menuItem;
-@property (nonatomic, strong) IBOutlet CheckBoxView *checkbox;
+@property (nonatomic, strong) CheckBoxView *menuItemCheckBox;
+@property (nonatomic, strong) UILabel *menuItemLabel;
 -(void)refreshUI;
 @end

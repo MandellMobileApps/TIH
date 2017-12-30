@@ -14,12 +14,29 @@
 -(void)refreshUI
 {
 
-  //   self.mealNameLabel.text = @"Snacks";
-     self.itemNameLabel.text = [NSString stringWithFormat:@"          %@",self.menuItem.menuItemName];
+     self.menuItemLabel.text = [NSString stringWithFormat:@"%@",self.menuItem.menuItemName];
 
+    if (self.menuItem.currentlySelected)
+    {
+        [self.menuItemCheckBox setChecked:YES];
+    }
+    else
+    {
+        [self.menuItemCheckBox setChecked:NO];
+    }
 }
+
 -(void) checkBoxStatusChanged:(CheckBoxView *)thisCheckbox
 {
-    self.menuItem.currentlySelected = thisCheckbox.checked;
+    if (thisCheckbox.checked)
+    {
+        self.menuItem.currentlySelected = YES;
+    }
+    else
+    {
+       self.menuItem.currentlySelected = NO;
+    }
+
 }
+
 @end

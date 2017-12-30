@@ -10,6 +10,7 @@
 #import "MenuMeal.h"
 #import "MenuItem.h"
 #import "MenuDay.h"
+#import "AddMenuItemViewController.h"
 
 @interface MenuDayViewController ()
 
@@ -60,6 +61,12 @@
 -(void)addItem:(UIButton*)button
 {
     self.changeMade = YES;
+       AddMenuItemViewController* addMenuItemViewController = (AddMenuItemViewController*)
+        [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
+         instantiateViewControllerWithIdentifier:@"AddMenuItemViewController"];
+         addMenuItemViewController.selectedMenuDay = self.selectedMenuDay;
+        [self.navigationController pushViewController:addMenuItemViewController animated:YES];
+    
 
 }
 

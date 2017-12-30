@@ -182,7 +182,12 @@
     {
         self.snackItemsArray = [NSMutableArray array];
     }
-
+    NSString* path6 = [self dataFilePathofDocuments:@"menuItemsArray.archive"];
+    self.menuItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path6]];
+    if (self.menuItemsArray.count < 1)
+    {
+        self.menuItemsArray = [NSMutableArray array];
+    }
 }
 
 -(void)saveMenuPlans
@@ -213,6 +218,11 @@
     BOOL success5 = [NSKeyedArchiver archiveRootObject:self.snackItemsArray toFile:path5];
     if (!success5) {
         NSLog(@"snackItemsArray Did Not Save");
+    }
+    NSString* path6 = [self dataFilePathofDocuments:@"menuItemsArray.archive"];
+    BOOL success6 = [NSKeyedArchiver archiveRootObject:self.menuItemsArray toFile:path6];
+    if (!success6) {
+        NSLog(@"menuItemsArray Did Not Save");
     }
 }
 -(void)loadFavoriteActivities

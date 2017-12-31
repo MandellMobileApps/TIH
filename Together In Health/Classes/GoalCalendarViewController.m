@@ -307,10 +307,39 @@
 }
 
 -(IBAction)setGoal:(id)sender {
-    GoalSetViewController* goalSetViewController = (GoalSetViewController*)
-    [[UIStoryboard storyboardWithName:@"Goals" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"GoalSetViewController"];
-    [self.navigationController pushViewController:goalSetViewController animated:YES];
+    
+    switch (self.appDelegate.subscriptionLevel)
+    {
+
+
+        case SubscriptionFree:
+        {
+                [self loadUpgradeViewController];
+
+        }
+            break;
+
+        case SubscriptionPaid1:
+        {
+            GoalSetViewController* goalSetViewController = (GoalSetViewController*)
+            [[UIStoryboard storyboardWithName:@"Goals" bundle:nil]
+             instantiateViewControllerWithIdentifier:@"GoalSetViewController"];
+            [self.navigationController pushViewController:goalSetViewController animated:YES];
+        }
+
+            break;
+        case SubscriptionPaid2:
+        {
+            GoalSetViewController* goalSetViewController = (GoalSetViewController*)
+            [[UIStoryboard storyboardWithName:@"Goals" bundle:nil]
+             instantiateViewControllerWithIdentifier:@"GoalSetViewController"];
+            [self.navigationController pushViewController:goalSetViewController animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
+
     
 }
 
@@ -426,23 +455,65 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    GoalSetViewController* goalSetViewController = [segue destinationViewController];
-    if ([segue.identifier isEqualToString:@"1"])
+    
+    switch (self.appDelegate.subscriptionLevel)
     {
-        goalSetViewController.goalIndex = Goal1Index;
-        goalSetViewController.goal = [[self.appDelegate.goalsArray objectAtIndex:0] copyGoal];
+            
+            
+        case SubscriptionFree:
+        {
+            [self loadUpgradeViewController];
+            
+        }
+            break;
+            
+        case SubscriptionPaid1:
+        {
+            GoalSetViewController* goalSetViewController = [segue destinationViewController];
+            if ([segue.identifier isEqualToString:@"1"])
+            {
+                goalSetViewController.goalIndex = Goal1Index;
+                goalSetViewController.goal = [[self.appDelegate.goalsArray objectAtIndex:0] copyGoal];
+                
+            }
+            else if ([segue.identifier isEqualToString:@"2"])
+            {
+                goalSetViewController.goalIndex = Goal2Index;
+                goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:1];
+            }
+            else if ([segue.identifier isEqualToString:@"3"])
+            {
+                goalSetViewController.goalIndex = Goal3Index;
+                goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:2];
+            }
+        }
+            
+            break;
+        case SubscriptionPaid2:
+        {
+            GoalSetViewController* goalSetViewController = [segue destinationViewController];
+            if ([segue.identifier isEqualToString:@"1"])
+            {
+                goalSetViewController.goalIndex = Goal1Index;
+                goalSetViewController.goal = [[self.appDelegate.goalsArray objectAtIndex:0] copyGoal];
+                
+            }
+            else if ([segue.identifier isEqualToString:@"2"])
+            {
+                goalSetViewController.goalIndex = Goal2Index;
+                goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:1];
+            }
+            else if ([segue.identifier isEqualToString:@"3"])
+            {
+                goalSetViewController.goalIndex = Goal3Index;
+                goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:2];
+            }
+        }
+            break;
+        default:
+            break;
+    }
 
-    }
-    else if ([segue.identifier isEqualToString:@"2"])
-    {
-        goalSetViewController.goalIndex = Goal2Index;
-        goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:1];
-    }
-    else if ([segue.identifier isEqualToString:@"3"])
-    {
-        goalSetViewController.goalIndex = Goal3Index;
-        goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:2];
-    }
 
 }
 

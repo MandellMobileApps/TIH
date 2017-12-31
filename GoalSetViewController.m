@@ -146,34 +146,86 @@
 
 -(IBAction)navbuttonTapped:(UIButton*)sender
 {
-    if (sender.tag == 0)
-    {
-        if (self.changeMade)
-        {
-           [self verifyCancel:0];
+    
+//    switch (self.appDelegate.subscriptionLevel)
+//    {
+//
+//        case SubscriptionFree:
+//        {
+//            [self loadUpgradeViewController];
+//
+//        }
+//            break;
+//
+//        case SubscriptionPaid1:
+//        {
+            if (sender.tag == 0)
+            {
+                if (self.changeMade)
+                {
+                    [self verifyCancel:0];
+                    
+                }
+                else
+                {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+            }
+            else if (sender.tag == 1)
+            {
+                [self resignFirstResponders];
+                //         [self.goal logPropertiesWithTitle:@"This Goal"];
+                [self.appDelegate.goalsArray replaceObjectAtIndex:self.goalIndex withObject:self.goal];
+                for (Goal* item in self.appDelegate.goalsArray)
+                {
+                    [item logPropertiesWithTitle:@"Before Save Goals"];
+                }
+                [self.appDelegate saveGoals];
+                for (Goal* item in self.appDelegate.goalsArray)
+                {
+                    [item logPropertiesWithTitle:@"After Save Goals"];
+                }
+                [self.navigationController popViewControllerAnimated:YES];
+            
+            }
+//        }
+//            break;
+//        case SubscriptionPaid2:
+//        {
+//            if (sender.tag == 0)
+//            {
+//                if (self.changeMade)
+//                {
+//                    [self verifyCancel:0];
+//
+//                }
+//                else
+//                {
+//                    [self.navigationController popViewControllerAnimated:YES];
+//                }
+//            }
+//            else if (sender.tag == 1)
+//            {
+//                [self resignFirstResponders];
+//                //         [self.goal logPropertiesWithTitle:@"This Goal"];
+//                [self.appDelegate.goalsArray replaceObjectAtIndex:self.goalIndex withObject:self.goal];
+//                for (Goal* item in self.appDelegate.goalsArray)
+//                {
+//                    [item logPropertiesWithTitle:@"Before Save Goals"];
+//                }
+//                [self.appDelegate saveGoals];
+//                for (Goal* item in self.appDelegate.goalsArray)
+//                {
+//                    [item logPropertiesWithTitle:@"After Save Goals"];
+//                }
+//                [self.navigationController popViewControllerAnimated:YES];
+//            }
+//            break;
+//        default:
+//            break;
+//    }
+    
 
-        }
-        else
-        {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-    }
-    else if (sender.tag == 1)
-    {
-        [self resignFirstResponders];
-//         [self.goal logPropertiesWithTitle:@"This Goal"];
-        [self.appDelegate.goalsArray replaceObjectAtIndex:self.goalIndex withObject:self.goal];
-        for (Goal* item in self.appDelegate.goalsArray)
-        {
-            [item logPropertiesWithTitle:@"Before Save Goals"];
-        }
-        [self.appDelegate saveGoals];
-        for (Goal* item in self.appDelegate.goalsArray)
-        {
-            [item logPropertiesWithTitle:@"After Save Goals"];
-        }
-        [self.navigationController popViewControllerAnimated:YES];
-    }
     
 }
 

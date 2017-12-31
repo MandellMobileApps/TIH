@@ -342,17 +342,46 @@ enum menuPlanIndex {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    self.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
+switch (self.appDelegate.subscriptionLevel)
+    {
     
+case SubscriptionFree:
+    {
+        [self loadUpgradeViewController];
+        
+    }
+    break;
+    
+case SubscriptionPaid1:
+    {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        self.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
+        
         MenuDayViewController* menuDayViewController = (MenuDayViewController*)
-    [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"MenuDayViewController"];
-     menuDayViewController.selectedMenuDayName = [self.weekdays objectAtIndex:indexPath.section];
-     menuDayViewController.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
-    [self.navigationController pushViewController:menuDayViewController animated:YES];
+        [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
+         instantiateViewControllerWithIdentifier:@"MenuDayViewController"];
+        menuDayViewController.selectedMenuDayName = [self.weekdays objectAtIndex:indexPath.section];
+        menuDayViewController.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
+        [self.navigationController pushViewController:menuDayViewController animated:YES];
+    }
     
-   
+    break;
+case SubscriptionPaid2:
+    {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        self.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
+        
+        MenuDayViewController* menuDayViewController = (MenuDayViewController*)
+        [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
+         instantiateViewControllerWithIdentifier:@"MenuDayViewController"];
+        menuDayViewController.selectedMenuDayName = [self.weekdays objectAtIndex:indexPath.section];
+        menuDayViewController.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
+        [self.navigationController pushViewController:menuDayViewController animated:YES];
+    }
+    break;
+default:
+    break;
+}
 
 }
 #pragma mark - Navigation

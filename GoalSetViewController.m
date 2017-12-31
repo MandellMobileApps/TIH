@@ -37,8 +37,24 @@
     self.thisScrollView.contentSize = CGSizeMake( self.view.bounds.size.width, 710);
 
     [self loadGoalIntoUI];
-
-}
+    
+    switch (self.appDelegate.subscriptionLevel)
+    {
+            
+        case SubscriptionFree:
+            self.saveButton.hidden = YES;
+            break;
+            
+        case SubscriptionPaid1:
+       self.saveButton.hidden = NO;
+            break;
+        case SubscriptionPaid2:
+      self.saveButton.hidden = NO;
+            break;
+        default:
+            break;
+        }
+    }
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -146,34 +162,36 @@
 
 -(IBAction)navbuttonTapped:(UIButton*)sender
 {
-    if (sender.tag == 0)
-    {
-        if (self.changeMade)
-        {
-           [self verifyCancel:0];
-
-        }
-        else
-        {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-    }
-    else if (sender.tag == 1)
-    {
-        [self resignFirstResponders];
-//         [self.goal logPropertiesWithTitle:@"This Goal"];
-        [self.appDelegate.goalsArray replaceObjectAtIndex:self.goalIndex withObject:self.goal];
-        for (Goal* item in self.appDelegate.goalsArray)
-        {
-            [item logPropertiesWithTitle:@"Before Save Goals"];
-        }
-        [self.appDelegate saveGoals];
-        for (Goal* item in self.appDelegate.goalsArray)
-        {
-            [item logPropertiesWithTitle:@"After Save Goals"];
-        }
-        [self.navigationController popViewControllerAnimated:YES];
-    }
+    
+            if (sender.tag == 0)
+            {
+                if (self.changeMade)
+                {
+                    [self verifyCancel:0];
+                    
+                }
+                else
+                {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+            }
+            else if (sender.tag == 1)
+            {
+                [self resignFirstResponders];
+                //         [self.goal logPropertiesWithTitle:@"This Goal"];
+                [self.appDelegate.goalsArray replaceObjectAtIndex:self.goalIndex withObject:self.goal];
+                for (Goal* item in self.appDelegate.goalsArray)
+                {
+                    [item logPropertiesWithTitle:@"Before Save Goals"];
+                }
+                [self.appDelegate saveGoals];
+                for (Goal* item in self.appDelegate.goalsArray)
+                {
+                    [item logPropertiesWithTitle:@"After Save Goals"];
+                }
+                [self.navigationController popViewControllerAnimated:YES];
+            
+            }
     
 }
 
@@ -410,18 +428,47 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
-    if ([segue.identifier isEqualToString:@"GoalGamePlan"])
-    {
-            GoalGamePlanViewController* goalGamePlanViewController = [segue destinationViewController];
-        goalGamePlanViewController.goal = self.goal;
-    }
-    else if ([segue.identifier isEqualToString:@"GoalCheck"])
-    {
-        GoalCheckViewController* goalCheckViewController = [segue destinationViewController];
-        goalCheckViewController.goal = self.goal;
-    }
-
+        switch (self.appDelegate.subscriptionLevel)
+        {
     
+            case SubscriptionFree:
+            {
+                [self loadUpgradeViewController];
+    
+            }
+                break;
+    
+            case SubscriptionPaid1:
+            {
+                if ([segue.identifier isEqualToString:@"GoalGamePlan"])
+                {
+                    GoalGamePlanViewController* goalGamePlanViewController = [segue destinationViewController];
+                    goalGamePlanViewController.goal = self.goal;
+                }
+                else if ([segue.identifier isEqualToString:@"GoalCheck"])
+                {
+                    GoalCheckViewController* goalCheckViewController = [segue destinationViewController];
+                    goalCheckViewController.goal = self.goal;
+                }
+            }
+                break;
+            case SubscriptionPaid2:
+            {
+                if ([segue.identifier isEqualToString:@"GoalGamePlan"])
+                {
+                    GoalGamePlanViewController* goalGamePlanViewController = [segue destinationViewController];
+                    goalGamePlanViewController.goal = self.goal;
+                }
+                else if ([segue.identifier isEqualToString:@"GoalCheck"])
+                {
+                    GoalCheckViewController* goalCheckViewController = [segue destinationViewController];
+                    goalCheckViewController.goal = self.goal;
+                }
+                break;
+            default:
+                break;
+        }
+        }
 }
 
 

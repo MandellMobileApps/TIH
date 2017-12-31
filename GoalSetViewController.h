@@ -36,6 +36,7 @@ enum goalIndex {
 @property (nonatomic, strong) IBOutlet UIButton *step4;
 @property (nonatomic, strong) IBOutlet UIButton *step5;
 @property (nonatomic, strong) IBOutlet UIButton *clearAllButton;
+@property (nonatomic, strong) IBOutlet UIButton *saveButton;
 
 @property (nonatomic, strong) Goal *goal;
 @property (nonatomic, strong) IBOutlet UIScrollView *thisScrollView;

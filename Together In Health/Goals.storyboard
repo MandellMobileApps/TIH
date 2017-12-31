@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="OIG-fB-XYy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="OIG-fB-XYy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -894,6 +894,7 @@
                         <outlet property="colorView" destination="zEK-NV-bvP" id="THf-6u-lhS"/>
                         <outlet property="daysTextField" destination="m18-Zd-vfd" id="hGQ-1U-2b7"/>
                         <outlet property="goalTextField" destination="YYL-5X-VD1" id="aTT-fR-A1l"/>
+                        <outlet property="saveButton" destination="5Jl-X8-Ujn" id="kFG-fy-71D"/>
                         <outlet property="step1" destination="Lub-uA-lfK" id="P6D-pL-vew"/>
                         <outlet property="step1TextField" destination="XXR-6l-1O1" id="Eab-mP-5Xp"/>
                         <outlet property="step2" destination="AYR-wk-xie" id="Zk4-9g-ASR"/>

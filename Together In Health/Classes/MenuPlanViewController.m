@@ -310,13 +310,13 @@ enum menuPlanIndex {
     [headerLabel setTextColor:[UIColor whiteColor]];
     [headerView addSubview:headerLabel];
     
-//    UIButton *addButton=[UIButton buttonWithType:UIButtonTypeContactAdd];
-//    [addButton addTarget:self action:@selector(recipes:) forControlEvents:UIControlEventTouchUpInside];
-//    addButton.frame=CGRectMake(280, 2.5, 28, 28);
-////    [addButton setImage:[UIImage imageNamed:@"addButtonImage.png"] forState:UIControlStateNormal];
-//    addButton.backgroundColor = [UIColor whiteColor];
-//    addButton.layer.cornerRadius = 14;
-//    [headerView addSubview:addButton];
+    UIButton *addButton=[UIButton buttonWithType:UIButtonTypeContactAdd];
+    addButton.tag = section;
+    [addButton addTarget:self action:@selector(sectionViewTapped:) forControlEvents:UIControlEventTouchUpInside];
+    addButton.frame=CGRectMake(self.view.bounds.size.width-50, 2.5, 28, 28);
+    addButton.backgroundColor = [UIColor whiteColor];
+    addButton.layer.cornerRadius = 14;
+    [headerView addSubview:addButton];
     
     return headerView;
     
@@ -328,7 +328,7 @@ enum menuPlanIndex {
 {
     static NSString *CellIdentifier = @"MyCell";
     MenuPlanCell *myCell = (MenuPlanCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    myCell.accessoryType = UITableViewCellAccessoryNone;
     MenuDay* thisMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
     myCell.selectedMenuDay = thisMenuDay;
     myCell.row = indexPath.row;
@@ -345,21 +345,26 @@ enum menuPlanIndex {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     self.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
     
-        MenuDayViewController* menuDayViewController = (MenuDayViewController*)
-    [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"MenuDayViewController"];
-     menuDayViewController.selectedMenuDayName = [self.weekdays objectAtIndex:indexPath.section];
-     menuDayViewController.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
-    [self.navigationController pushViewController:menuDayViewController animated:YES];
+    [self loadMenuDayViewControllerForSection:indexPath.section];
     
    
 
 }
 #pragma mark - Navigation
 
--(void)loadMenuDayViewController
+-(void)sectionViewTapped:(UIButton*)button
 {
-    
+    [self loadMenuDayViewControllerForSection:button.tag];
+}
+
+-(void)loadMenuDayViewControllerForSection:(NSInteger)section
+{
+        MenuDayViewController* menuDayViewController = (MenuDayViewController*)
+    [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
+     instantiateViewControllerWithIdentifier:@"MenuDayViewController"];
+     menuDayViewController.selectedMenuDayName = [self.weekdays objectAtIndex:section];
+     menuDayViewController.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:section];
+    [self.navigationController pushViewController:menuDayViewController animated:YES];
 
 }
 // In a storyboard-based application, you will often want to do a little preparation before navigation

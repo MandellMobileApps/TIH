@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="OIG-fB-XYy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="OIG-fB-XYy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -14,10 +14,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Goal Calender-->
+        <!--Goal Calendar View Controller-->
         <scene sceneID="np8-JC-204">
             <objects>
-                <viewController storyboardIdentifier="GoalCalendarViewController" title="Goal Calender" id="u2D-NB-cw8" customClass="GoalCalendarViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoalCalendarViewController" id="u2D-NB-cw8" customClass="GoalCalendarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0E2-ja-6H8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,6 +108,20 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" misplaced="YES" id="jlK-CC-rcl">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EJ4-8J-pV3">
+                                        <rect key="frame" x="-4" y="0.0" width="380" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23125320669999999" green="0.43337267639999999" blue="0.81126862759999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" id="HV2-ZR-xsa">
                                 <rect key="frame" x="0.0" y="500" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -151,28 +165,28 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8FN-KB-Sji">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8FN-KB-Sji">
                                 <rect key="frame" x="0.0" y="500" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Gaol 1"/>
                                 <connections>
-                                    <segue destination="HEL-Mg-UXr" kind="push" identifier="1" id="t9B-nX-9K1"/>
+                                    <action selector="goalButtonTapped:" destination="u2D-NB-cw8" eventType="touchUpInside" id="L0J-ma-6r9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hsb-Nu-D9s">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hsb-Nu-D9s">
                                 <rect key="frame" x="0.0" y="550" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Goal 2"/>
                                 <connections>
-                                    <segue destination="HEL-Mg-UXr" kind="push" identifier="2" id="u9d-ZO-MxY"/>
+                                    <action selector="goalButtonTapped:" destination="u2D-NB-cw8" eventType="touchUpInside" id="hE9-QP-BrC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d7p-Mm-Dfn">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d7p-Mm-Dfn">
                                 <rect key="frame" x="0.0" y="600" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Goal 3"/>
                                 <connections>
-                                    <segue destination="HEL-Mg-UXr" kind="push" identifier="3" id="KOu-qa-s3k"/>
+                                    <action selector="goalButtonTapped:" destination="u2D-NB-cw8" eventType="touchUpInside" id="TcO-m4-oeS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PvS-0m-XN4">
@@ -250,8 +264,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="bkZ-dc-wd7"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="baseContentView" destination="0E2-ja-6H8" id="gyb-lG-Wwb"/>
                         <outlet property="calendarDaysview" destination="BGe-wg-VQH" id="lOE-dU-JaB"/>
                         <outlet property="calendarnavview" destination="yR6-2X-scR" id="465-Eb-VhY"/>
                         <outlet property="calendarview" destination="gfm-N6-JrW" id="kvu-9R-kWm"/>
@@ -274,6 +289,8 @@
                         <outlet property="goal3ColorView" destination="E1g-6f-I0t" id="0sL-GO-SPM"/>
                         <outlet property="goal3Label" destination="0Vi-Zg-KHv" id="Mfb-Jn-5PO"/>
                         <outlet property="monthNameLabel" destination="Ebj-z0-cJ5" id="HO7-lu-gC8"/>
+                        <outlet property="navbarTitleLabel" destination="EJ4-8J-pV3" id="NSy-YA-Z3z"/>
+                        <outlet property="navbarView" destination="jlK-CC-rcl" id="4zk-N7-uXH"/>
                         <outlet property="setGoalLabel" destination="mVx-jL-jrL" id="ff1-tS-dBJ"/>
                     </connections>
                 </viewController>
@@ -284,10 +301,10 @@
         <!--Goals-->
         <scene sceneID="60y-1y-Sgi">
             <objects>
-                <navigationController title="Goals" id="OIG-fB-XYy" sceneMemberID="viewController">
+                <navigationController title="Goals" navigationBarHidden="YES" id="OIG-fB-XYy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Goals" selectedImage="GoalTabImage.png" id="H0Z-32-D7s"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3fM-n8-nYB">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -894,6 +911,8 @@
                         <outlet property="colorView" destination="zEK-NV-bvP" id="THf-6u-lhS"/>
                         <outlet property="daysTextField" destination="m18-Zd-vfd" id="hGQ-1U-2b7"/>
                         <outlet property="goalTextField" destination="YYL-5X-VD1" id="aTT-fR-A1l"/>
+                        <outlet property="navbarTitleLabel" destination="zTN-vB-hrP" id="SAu-XZ-FU8"/>
+                        <outlet property="navbarView" destination="t2v-dY-myq" id="tGL-IE-WqT"/>
                         <outlet property="saveButton" destination="5Jl-X8-Ujn" id="kFG-fy-71D"/>
                         <outlet property="step1" destination="Lub-uA-lfK" id="P6D-pL-vew"/>
                         <outlet property="step1TextField" destination="XXR-6l-1O1" id="Eab-mP-5Xp"/>
@@ -907,7 +926,6 @@
                         <outlet property="step5TextField" destination="Jvg-MU-4YK" id="Qvo-BV-0jl"/>
                         <outlet property="thisScrollView" destination="11n-wQ-oXH" id="CkY-Be-fsh"/>
                         <outlet property="timesTextField" destination="ZhE-ba-E2j" id="9hG-Gs-O1B"/>
-                        <outlet property="titleLabel" destination="zTN-vB-hrP" id="NuT-Av-Mmj"/>
                         <outlet property="whereTextField" destination="Xeo-vo-nld" id="Wi8-oF-9QL"/>
                     </connections>
                 </viewController>
@@ -1057,7 +1075,4 @@
         <image name="GoalTabImage.png" width="276" height="276"/>
         <image name="checkbox-empty.V2.png" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="t9B-nX-9K1"/>
-    </inferredMetricsTieBreakers>
 </document>

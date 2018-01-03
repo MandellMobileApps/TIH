@@ -7,6 +7,7 @@
 //
 
 #import "MenuItem.h"
+#import "AppDelegate.h"
 
 @implementation MenuItem
 
@@ -20,7 +21,6 @@
         self.itemSubscription = [decoder decodeIntegerForKey:@"itemSubscription"];
         self.menuItemId = [decoder decodeIntegerForKey:@"menuItemId"];
         self.recipeId = [decoder decodeIntegerForKey:@"recipeId"];
-        self.mealType = [decoder decodeIntegerForKey:@"mealType"];
 
 
     }
@@ -34,11 +34,16 @@
      [encoder encodeObject: self.menuItemImage forKey:@"menuItemImage"];
      [encoder encodeObject: self.itemSection forKey:@"itemSection"];
      [encoder encodeInteger: self.itemSubscription forKey:@"itemSubscription"];
-    [encoder encodeInteger: self.menuItemId forKey:@"menuItemId"];
-     [encoder encodeInteger: self.recipeId forKey:@"recipeId"];
-     [encoder encodeInteger: self.mealType forKey:@"mealType"];
+     [encoder encodeInteger: self.menuItemId forKey:@"menuItemId"];
+    [encoder encodeInteger: self.recipeId forKey:@"recipeId"];
 
 }
 
-
++(MenuItem*)newMenuItemWithName:(NSString*)name
+{
+    MenuItem* new = [[MenuItem alloc]init];
+    new.menuItemName = name;
+    new.menuItemId = [AppDelegate uniqueId];
+    return new;
+}
 @end

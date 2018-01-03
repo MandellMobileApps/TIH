@@ -23,13 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
-//    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
-//    self.navigationController.navigationBar.titleTextAttributes = size;
-//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-//
-
-    
+    self.navbarView.backgroundColor =  [UIColor blueColor];
+    self.navbarTitleLabel.font = [UIFont fontWithName:@"Arial" size:24.0];
+    self.navbarTitleLabel.textColor = [UIColor whiteColor];
     
     self.changeMade = NO;
     self.appDelegate.goalSetViewController = self;
@@ -38,23 +34,23 @@
 
     [self loadGoalIntoUI];
     
-    switch (self.appDelegate.subscriptionLevel)
-    {
-            
-        case SubscriptionFree:
-            self.saveButton.hidden = YES;
-            break;
-            
-        case SubscriptionPaid1:
-       self.saveButton.hidden = NO;
-            break;
-        case SubscriptionPaid2:
-      self.saveButton.hidden = NO;
-            break;
-        default:
-            break;
-        }
-    }
+//    switch (self.appDelegate.subscriptionLevel)
+//    {
+//
+//        case SubscriptionFree:
+//            self.saveButton.hidden = YES;
+//            break;
+//
+//        case SubscriptionPaid1:
+//       self.saveButton.hidden = NO;
+//            break;
+//        case SubscriptionPaid2:
+//      self.saveButton.hidden = NO;
+//            break;
+//        default:
+//            break;
+//        }
+}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -180,15 +176,15 @@
                 [self resignFirstResponders];
                 //         [self.goal logPropertiesWithTitle:@"This Goal"];
                 [self.appDelegate.goalsArray replaceObjectAtIndex:self.goalIndex withObject:self.goal];
-                for (Goal* item in self.appDelegate.goalsArray)
-                {
-                    [item logPropertiesWithTitle:@"Before Save Goals"];
-                }
+//                for (Goal* item in self.appDelegate.goalsArray)
+//                {
+//                    [item logPropertiesWithTitle:@"Before Save Goals"];
+//                }
                 [self.appDelegate saveGoals];
-                for (Goal* item in self.appDelegate.goalsArray)
-                {
-                    [item logPropertiesWithTitle:@"After Save Goals"];
-                }
+//                for (Goal* item in self.appDelegate.goalsArray)
+//                {
+//                    [item logPropertiesWithTitle:@"After Save Goals"];
+//                }
                 [self.navigationController popViewControllerAnimated:YES];
             
             }
@@ -197,9 +193,9 @@
 
 -(void)loadGoalIntoUI
 {
-     [self.goal logPropertiesWithTitle:@"loadGoalIntoUI"];
+    // [self.goal logPropertiesWithTitle:@"loadGoalIntoUI"];
     
-    self.titleLabel.text = self.goal.goalName;
+    self.navbarTitleLabel.text = self.goal.goalName;
     self.goalTextField.text = self.goal.goalName;
     self.daysTextField.text = self.goal.days;
     self.timesTextField.text = self.goal.times;

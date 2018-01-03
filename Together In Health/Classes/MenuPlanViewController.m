@@ -52,7 +52,8 @@ enum menuPlanIndex {
     {
         NSLog(@"menu plans not loading");
     }
-    [self.navigationController setNavigationBarHidden:YES];
+
+
     self.navbarView.backgroundColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
     self.navbarTitleLabel.backgroundColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
     self.navbarTitleLabel.textColor = [UIColor whiteColor];
@@ -310,13 +311,17 @@ enum menuPlanIndex {
     [headerLabel setTextColor:[UIColor whiteColor]];
     [headerView addSubview:headerLabel];
     
-    UIButton *addButton=[UIButton buttonWithType:UIButtonTypeContactAdd];
+    UIButton *addButton=[UIButton buttonWithType:UIButtonTypeCustom];
     addButton.tag = section;
     [addButton addTarget:self action:@selector(sectionViewTapped:) forControlEvents:UIControlEventTouchUpInside];
-    addButton.frame=CGRectMake(self.view.bounds.size.width-50, 2.5, 28, 28);
+    addButton.frame=CGRectMake(self.view.bounds.size.width-60, 2.5, 28, 28);
+    [addButton setTitle:@"+" forState:UIControlStateNormal];
+    [addButton setTitleColor:[UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1] forState:UIControlStateNormal];
+    addButton.tag = section;
     addButton.backgroundColor = [UIColor whiteColor];
-    addButton.layer.cornerRadius = 14;
+    addButton.layer.cornerRadius = 15;
     [headerView addSubview:addButton];
+    
     
     return headerView;
     
@@ -340,30 +345,23 @@ enum menuPlanIndex {
 
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-switch (self.appDelegate.subscriptionLevel)
-    {
-    
-    [self loadMenuDayViewControllerForSection:indexPath.section];
-    
-    break;
-case SubscriptionPaid2:
-    {
-        [tableView deselectRowAtIndexPath:indexPath animated:NO];
-        self.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
-        
-        MenuDayViewController* menuDayViewController = (MenuDayViewController*)
-        [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
-         instantiateViewControllerWithIdentifier:@"MenuDayViewController"];
-        menuDayViewController.selectedMenuDayName = [self.weekdays objectAtIndex:indexPath.section];
-        menuDayViewController.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
-        [self.navigationController pushViewController:menuDayViewController animated:YES];
-    }
-    break;
-default:
-    break;
-}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        switch (self.appDelegate.subscriptionLevel)
+        {
+        case SubscriptionPaid1:
+            [self loadMenuDayViewControllerForSection:indexPath.section];
+            
+            break;
+        case SubscriptionPaid2:
+            {
+                [self loadMenuDayViewControllerForSection:indexPath.section];
+            }
+            break;
+        default:
+            break;
+        }
 
 }
 #pragma mark - Navigation

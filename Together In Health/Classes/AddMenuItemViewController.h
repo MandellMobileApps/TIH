@@ -22,11 +22,14 @@
 @property (nonatomic)  CGRect searchBarShowRect;
 @property (nonatomic, retain) IBOutlet UILabel* searchLabel;
 
-@property (nonatomic, strong) NSMutableArray *filteredBreakfastItemsArray;
-@property (nonatomic, strong) NSMutableArray *filteredLunchItemsArray;
-@property (nonatomic, strong) NSMutableArray *filteredDinnerItemsArray;
-@property (nonatomic, strong) NSMutableArray *filteredSnackItemsArray;
+@property (nonatomic, strong) NSMutableArray *filteredItemsArray;
 @property (nonatomic, strong) NSMutableArray *selectedItemsArray;
+@property (nonatomic, strong) NSString *filterString;
 
 @property (nonatomic, strong) IBOutlet UITableView *thisTableView;
+
+-(void)addMenuItemToSelectedArray:(MenuItem*)thisItem;
+-(void)removeMenuItemFromSelectedArray:(MenuItem*)thisItem;
+-(void)addMenuItemToAllArray:(MenuItem*)thisItem;
+-(void)removeMenuItemFromAllArray:(MenuItem*)thisItem;
 @end

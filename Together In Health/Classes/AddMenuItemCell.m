@@ -9,34 +9,17 @@
 #import "AddMenuItemCell.h"
 #import "MenuItem.h"
 #import "CheckBoxView.h"
+#import "AddMenuItemViewController.h"
 
 @implementation AddMenuItemCell
 -(void)refreshUI
 {
-
      self.menuItemLabel.text = [NSString stringWithFormat:@"%@",self.menuItem.menuItemName];
 
-    if (self.menuItem.currentlySelected)
-    {
-        [self.menuItemCheckBox setChecked:YES];
-    }
-    else
-    {
-        [self.menuItemCheckBox setChecked:NO];
-    }
-}
-
--(void) checkBoxStatusChanged:(CheckBoxView *)thisCheckbox
-{
-    if (thisCheckbox.checked)
-    {
-        self.menuItem.currentlySelected = YES;
-    }
-    else
-    {
-       self.menuItem.currentlySelected = NO;
-    }
 
 }
+
+
+
 
 @end

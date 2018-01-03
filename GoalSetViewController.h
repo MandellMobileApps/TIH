@@ -50,7 +50,6 @@ enum goalIndex {
 @property (nonatomic, strong) IBOutlet UITextField *step3TextField;
 @property (nonatomic, strong) IBOutlet UITextField *step4TextField;
 @property (nonatomic, strong) IBOutlet UITextField *step5TextField;
-@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UIView *colorView;
 @property (nonatomic, strong) IBOutlet UILabel *colorLabel;
 @property (nonatomic, strong) IBOutlet UIView *colorSelectionView;

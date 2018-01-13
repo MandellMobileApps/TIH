@@ -357,10 +357,10 @@
             return self.healthyDrinkFilteredArray.count;
             break;
         case 1:
-            return self.sugaryDrinkFilteredArray.count;
+            return self.milkDrinkFilteredArray.count;
             break;
         case 2:
-            return self.milkDrinkFilteredArray.count;
+            return self.sugaryDrinkFilteredArray.count;
             break;
         case 3:
             return self.caffeineDrinkFilteredArray.count;

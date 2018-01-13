@@ -37,11 +37,12 @@
     [super viewDidLoad];
     
     
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:255/255.0 green:243/255.0 blue:177/255.0 alpha:1];
-    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
-    self.navigationController.navigationBar.titleTextAttributes = size;
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor]};
-    self.title = @"More";
+
+    [self.navigationController.navigationBar setHidden:YES];
+    self.navbarView.backgroundColor =  [UIColor colorWithRed:255/255.0 green:243/255.0 blue:177/255.0 alpha:1];
+    self.navbarTitleLabel.font = [UIFont fontWithName:@"Arial" size:24.0];
+    self.navbarTitleLabel.textColor = [UIColor blackColor];
+    self.navbarTitleLabel.text = @"More";
     
 
     self.menuFreeArray0 = [NSArray arrayWithObjects:@"Upgrade Now!", nil];

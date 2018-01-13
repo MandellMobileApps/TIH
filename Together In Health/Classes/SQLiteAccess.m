@@ -87,6 +87,7 @@ static int multipleRowCallback(void *queryValuesVP, int columnCount, char **valu
 + (NSArray *)selectManyRowsWithSQL:(NSString *)sql {
     NSMutableArray *queryValues = [NSMutableArray array];
     [self executeSQL:sql withCallback:multipleRowCallback context:queryValues];
+//    NSLog(@"queryValues %@",queryValues);
     return [NSArray arrayWithArray:queryValues];
 }
 

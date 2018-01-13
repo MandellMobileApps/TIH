@@ -225,15 +225,16 @@
     }
 //    else
 //        [headerLabel setText:@"   Distance traveled"];
-    
+
     UIButton *addButton=[UIButton buttonWithType:UIButtonTypeCustom];
     [addButton addTarget:self action:@selector(addActivity:) forControlEvents:UIControlEventTouchUpInside];
-    addButton.frame=CGRectMake(280, 2.5, 28, 28);
+    addButton.frame=CGRectMake(self.view.bounds.size.width-60, 2.5, 28, 28);
     [addButton setTitle:@"+" forState:UIControlStateNormal];
     [addButton setTitleColor:[UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1] forState:UIControlStateNormal];
     addButton.tag = section;
     addButton.backgroundColor = [UIColor whiteColor];
     addButton.layer.cornerRadius = 15;
+    
     
     if (section == 0) {
         

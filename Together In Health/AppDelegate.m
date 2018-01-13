@@ -159,30 +159,30 @@
         self.menuPlansArray = [NSMutableArray arrayWithObject:[MenuPlan addNewMenuPlan]];
     }
     
-    NSString* path2 = [self dataFilePathofDocuments:@"breakfastItemsArray.archive"];
-    self.breakfastItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path2]];
-    if (self.breakfastItemsArray.count < 1)
-    {
-        self.breakfastItemsArray = [NSMutableArray array];
-    }
-    NSString* path3 = [self dataFilePathofDocuments:@"lunchItemsArray.archive"];
-    self.lunchItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path3]];
-    if (self.lunchItemsArray.count < 1)
-    {
-        self.lunchItemsArray = [NSMutableArray array];
-    }
-    NSString* path4 = [self dataFilePathofDocuments:@"dinnerItemsArray.archive"];
-    self.dinnerItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path4]];
-    if (self.dinnerItemsArray.count < 1)
-    {
-        self.dinnerItemsArray = [NSMutableArray array];
-    }
-    NSString* path5 = [self dataFilePathofDocuments:@"snackItemsArray.archive"];
-    self.snackItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path5]];
-    if (self.snackItemsArray.count < 1)
-    {
-        self.snackItemsArray = [NSMutableArray array];
-    }
+//    NSString* path2 = [self dataFilePathofDocuments:@"breakfastItemsArray.archive"];
+//    self.breakfastItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path2]];
+//    if (self.breakfastItemsArray.count < 1)
+//    {
+//        self.breakfastItemsArray = [NSMutableArray array];
+//    }
+//    NSString* path3 = [self dataFilePathofDocuments:@"lunchItemsArray.archive"];
+//    self.lunchItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path3]];
+//    if (self.lunchItemsArray.count < 1)
+//    {
+//        self.lunchItemsArray = [NSMutableArray array];
+//    }
+//    NSString* path4 = [self dataFilePathofDocuments:@"dinnerItemsArray.archive"];
+//    self.dinnerItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path4]];
+//    if (self.dinnerItemsArray.count < 1)
+//    {
+//        self.dinnerItemsArray = [NSMutableArray array];
+//    }
+//    NSString* path5 = [self dataFilePathofDocuments:@"snackItemsArray.archive"];
+//    self.snackItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path5]];
+//    if (self.snackItemsArray.count < 1)
+//    {
+//        self.snackItemsArray = [NSMutableArray array];
+//    }
     NSString* path6 = [self dataFilePathofDocuments:@"menuItemsArray.archive"];
     self.menuItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path6]];
     if (self.menuItemsArray.count < 1)
@@ -200,26 +200,26 @@
         NSLog(@"menuPlansArray Did Not Save");
     }
     
-    NSString* path2 = [self dataFilePathofDocuments:@"breakfastItemsArray.archive"];
-    BOOL success2 = [NSKeyedArchiver archiveRootObject:self.breakfastItemsArray toFile:path2];
-    if (!success2) {
-        NSLog(@"breakfastItemsArray Did Not Save");
-    }
-    NSString* path3 = [self dataFilePathofDocuments:@"lunchItemsArray.archive"];
-    BOOL success3 = [NSKeyedArchiver archiveRootObject:self.lunchItemsArray toFile:path3];
-    if (!success3) {
-        NSLog(@"lunchItemsArray Did Not Save");
-    }
-    NSString* path4 = [self dataFilePathofDocuments:@"dinnerItemsArray.archive"];
-    BOOL success4 = [NSKeyedArchiver archiveRootObject:self.dinnerItemsArray toFile:path4];
-    if (!success4) {
-        NSLog(@"dinnerItemsArray Did Not Save");
-    }
-    NSString* path5 = [self dataFilePathofDocuments:@"snackItemsArray.archive"];
-    BOOL success5 = [NSKeyedArchiver archiveRootObject:self.snackItemsArray toFile:path5];
-    if (!success5) {
-        NSLog(@"snackItemsArray Did Not Save");
-    }
+//    NSString* path2 = [self dataFilePathofDocuments:@"breakfastItemsArray.archive"];
+//    BOOL success2 = [NSKeyedArchiver archiveRootObject:self.breakfastItemsArray toFile:path2];
+//    if (!success2) {
+//        NSLog(@"breakfastItemsArray Did Not Save");
+//    }
+//    NSString* path3 = [self dataFilePathofDocuments:@"lunchItemsArray.archive"];
+//    BOOL success3 = [NSKeyedArchiver archiveRootObject:self.lunchItemsArray toFile:path3];
+//    if (!success3) {
+//        NSLog(@"lunchItemsArray Did Not Save");
+//    }
+//    NSString* path4 = [self dataFilePathofDocuments:@"dinnerItemsArray.archive"];
+//    BOOL success4 = [NSKeyedArchiver archiveRootObject:self.dinnerItemsArray toFile:path4];
+//    if (!success4) {
+//        NSLog(@"dinnerItemsArray Did Not Save");
+//    }
+//    NSString* path5 = [self dataFilePathofDocuments:@"snackItemsArray.archive"];
+//    BOOL success5 = [NSKeyedArchiver archiveRootObject:self.snackItemsArray toFile:path5];
+//    if (!success5) {
+//        NSLog(@"snackItemsArray Did Not Save");
+//    }
     NSString* path6 = [self dataFilePathofDocuments:@"menuItemsArray.archive"];
     BOOL success6 = [NSKeyedArchiver archiveRootObject:self.menuItemsArray toFile:path6];
     if (!success6) {
@@ -1491,15 +1491,15 @@
 
 +(NSInteger)uniqueId
 {
-    double timeInterval = [[NSDate date] timeIntervalSinceReferenceDate]*100;
+    double timeInterval = [[NSDate date] timeIntervalSinceReferenceDate];
     NSInteger theInteger = 0;
-//    if (timeInterval > NSIntegerMax) {
-//        // ...
-//    } else if (timeInterval < NSIntegerMin) {
-//        // ...
-//    } else {
-//        theInteger = timeInterval;
-//    }
+    if (timeInterval > NSIntegerMax) {
+        NSLog (@"(timeInterval > NSIntegerMax)");
+    } else if (timeInterval < NSIntegerMin) {
+        NSLog (@"(timeInterval < NSIntegerMin)");
+    } else {
+        theInteger = timeInterval;
+    }
     return theInteger;
 }
 

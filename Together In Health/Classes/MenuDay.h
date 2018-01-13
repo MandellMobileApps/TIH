@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSMutableArray *lunchMenuItems;
 @property (nonatomic, strong) NSMutableArray *dinnerMenuItems;
 @property (nonatomic, strong) NSMutableArray *snackMenuItems;
-
+@property (nonatomic) NSInteger selectedMealType;
 + (MenuDay*)addNewMenuDay;
 
 @end

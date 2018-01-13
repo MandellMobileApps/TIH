@@ -329,7 +329,7 @@
     
     UIButton *addButton=[UIButton buttonWithType:UIButtonTypeCustom];
     [addButton addTarget:self action:@selector(addFood:) forControlEvents:UIControlEventTouchUpInside];
-    addButton.frame=CGRectMake(280, 2.5, 28, 28);
+    addButton.frame=CGRectMake(self.view.bounds.size.width-60, 2.5, 28, 28);
     [addButton setTitle:@"+" forState:UIControlStateNormal];
     [addButton setTitleColor:[UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1] forState:UIControlStateNormal];
     addButton.tag = section;
@@ -338,7 +338,7 @@
     
     UIButton *addWaterButton=[UIButton buttonWithType:UIButtonTypeCustom];
     [addWaterButton addTarget:self action:@selector(increaseWater) forControlEvents:UIControlEventTouchUpInside];
-    addWaterButton.frame=CGRectMake(280, 2.5, 28, 28);
+    addWaterButton.frame=CGRectMake(self.view.bounds.size.width-60, 2.5, 28, 28);
     [addWaterButton setTitle:@"+" forState:UIControlStateNormal];
     [addWaterButton setTitleColor:[UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1] forState:UIControlStateNormal];
     addWaterButton.backgroundColor = [UIColor whiteColor];
@@ -347,9 +347,7 @@
     
     UIButton *removeWaterButton=[UIButton buttonWithType:UIButtonTypeCustom];
     [removeWaterButton addTarget:self action:@selector(decreaseWater) forControlEvents:UIControlEventTouchUpInside];
-//    UIImage *removeWaterButtonImage = [UIImage imageNamed:@"removeWaterButtonImage"];
-//    [removeWaterButton setImage:removeWaterButtonImage forState:UIControlStateNormal];
-    removeWaterButton.frame=CGRectMake(220, 2.5, 28, 28);
+    removeWaterButton.frame=CGRectMake(self.view.bounds.size.width-120, 2.5, 28, 28);
     [removeWaterButton setTitle:@"-" forState:UIControlStateNormal];
     [removeWaterButton setTitleColor:[UIColor colorWithRed:27/255.0 green:86/255.0 blue:51/255.0 alpha:1] forState:UIControlStateNormal];
     removeWaterButton.backgroundColor = [UIColor whiteColor];

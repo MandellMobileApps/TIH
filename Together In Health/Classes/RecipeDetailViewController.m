@@ -24,20 +24,38 @@
 
 - (void)viewDidLoad
 {
-#ifdef TIHMasterPaid
-#else
+    self.navigationItem.backBarButtonItem = nil;
 
+    // set custom navbar
+
+    self.navbarView.backgroundColor =[UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+    self.navbarTitleLabel.backgroundColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+    self.navbarTitleLabel.textColor = [UIColor whiteColor];
+    
+    //  only show on paid  TODO
     self.notesButton.hidden = YES;
     self.favoritesButton.hidden = YES;
 
-#endif
     [super viewDidLoad];
     [self configureView];
     // Do any additional setup after loading the view.
     
 }
 //
+-(IBAction)navbarButtonTapped:(UIButton*)sender
+{
+    switch (sender.tag) {
+  case 1:
 
+    [self.navigationController popViewControllerAnimated:YES];
+    break;
+  case 2:
+
+    break;
+  default:
+    break;
+    }
+}
 -(void)updateFavorite {
 
         //self.thisWebView.frame = CGRectMake(0, 102, 704, 602);
@@ -148,7 +166,7 @@
     if (filename.length>0)
     {
         NSString *path = [self pathForFilename:filename];
-        self.title = [self.object objectForKey:@"Recipe"];
+        self.navbarTitleLabel.text = [self.object objectForKey:@"Recipe"];
         NSString *webString = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         NSURL *baseURL = [NSURL fileURLWithPath:path];
         [self.thisWebView loadHTMLString:webString baseURL:baseURL];
@@ -157,7 +175,7 @@
     }
     else
     {
-        self.title = @"No Detail";
+        self.navbarTitleLabel.text = @"No Detail";
         NSString *path = [self pathForFilename:@"NoDetail.html"];
         NSString *webString = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         NSURL *baseURL = [NSURL fileURLWithPath:path];

@@ -45,11 +45,11 @@ enum SubscriptionLevel {
 
 @property (nonatomic, strong) NSMutableArray *menuPlansArray;
 // menuItems
-@property (nonatomic, strong) NSMutableArray *breakfastItemsArray;
-@property (nonatomic, strong) NSMutableArray *lunchItemsArray;
-@property (nonatomic, strong) NSMutableArray *dinnerItemsArray;
-@property (nonatomic, strong) NSMutableArray *snackItemsArray;
-@property (nonatomic, strong) NSMutableArray *menuItemsArray;  // not currently used
+//@property (nonatomic, strong) NSMutableArray *breakfastItemsArray;
+//@property (nonatomic, strong) NSMutableArray *lunchItemsArray;
+//@property (nonatomic, strong) NSMutableArray *dinnerItemsArray;
+//@property (nonatomic, strong) NSMutableArray *snackItemsArray;
+@property (nonatomic, strong) NSMutableArray *menuItemsArray;
 
 @property (nonatomic, strong) NSMutableArray *goalsArray;
 @property (nonatomic, strong) NSString* zohoAuthToken;

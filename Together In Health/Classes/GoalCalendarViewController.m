@@ -44,12 +44,13 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:27/255.0 green:86/255.0 blue:200/255.0 alpha:1];
-    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
-    self.navigationController.navigationBar.titleTextAttributes = size;
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    self.title = @"Goals";
+    self.navbarView.backgroundColor =  [UIColor blueColor];
+    self.navbarTitleLabel.font = [UIFont fontWithName:@"Arial" size:24.0];
+    self.navbarTitleLabel.textColor = [UIColor whiteColor];
+    self.navbarTitleLabel.text = @"Goals";
+    
     [self.appDelegate loadGoals];
 
     UIColor *defaultBackgroundColor = [ColorsClass lightgray];
@@ -100,7 +101,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-     [self.navigationController setNavigationBarHidden:NO];
     
     if (self.calendarcurrent)
     {
@@ -453,8 +453,12 @@
 }
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+
+- (IBAction)goalButtonTapped:(UIButton*)button {
+    
+
+    
     
     switch (self.appDelegate.subscriptionLevel)
     {
@@ -469,45 +473,51 @@
             
         case SubscriptionPaid1:
         {
-            GoalSetViewController* goalSetViewController = [segue destinationViewController];
-            if ([segue.identifier isEqualToString:@"1"])
+            GoalSetViewController* goalSetViewController = (GoalSetViewController*)
+            [[UIStoryboard storyboardWithName:@"Goals" bundle:nil]
+            instantiateViewControllerWithIdentifier:@"GoalSetViewController"];
+            if (button.tag == 1)
             {
                 goalSetViewController.goalIndex = Goal1Index;
                 goalSetViewController.goal = [[self.appDelegate.goalsArray objectAtIndex:0] copyGoal];
                 
             }
-            else if ([segue.identifier isEqualToString:@"2"])
+            else if (button.tag == 2)
             {
                 goalSetViewController.goalIndex = Goal2Index;
-                goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:1];
+                goalSetViewController.goal = [[self.appDelegate.goalsArray objectAtIndex:1] copyGoal];
             }
-            else if ([segue.identifier isEqualToString:@"3"])
+            else if (button.tag == 3)
             {
                 goalSetViewController.goalIndex = Goal3Index;
-                goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:2];
+                goalSetViewController.goal = [[self.appDelegate.goalsArray objectAtIndex:2] copyGoal];
             }
+            [self.navigationController pushViewController:goalSetViewController animated:YES];
         }
             
             break;
         case SubscriptionPaid2:
         {
-            GoalSetViewController* goalSetViewController = [segue destinationViewController];
-            if ([segue.identifier isEqualToString:@"1"])
+            GoalSetViewController* goalSetViewController = (GoalSetViewController*)
+            [[UIStoryboard storyboardWithName:@"Goals" bundle:nil]
+            instantiateViewControllerWithIdentifier:@"GoalSetViewController"];
+            if (button.tag == 1)
             {
                 goalSetViewController.goalIndex = Goal1Index;
                 goalSetViewController.goal = [[self.appDelegate.goalsArray objectAtIndex:0] copyGoal];
                 
             }
-            else if ([segue.identifier isEqualToString:@"2"])
+            else if (button.tag == 2)
             {
                 goalSetViewController.goalIndex = Goal2Index;
-                goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:1];
+                goalSetViewController.goal = [[self.appDelegate.goalsArray objectAtIndex:1] copyGoal];
             }
-            else if ([segue.identifier isEqualToString:@"3"])
+            else if (button.tag == 3)
             {
                 goalSetViewController.goalIndex = Goal3Index;
-                goalSetViewController.goal = [self.appDelegate.goalsArray objectAtIndex:2];
+                goalSetViewController.goal = [[self.appDelegate.goalsArray objectAtIndex:2] copyGoal];
             }
+            [self.navigationController pushViewController:goalSetViewController animated:YES];
         }
             break;
         default:
@@ -516,8 +526,6 @@
 
 
 }
-
-
 
 
 -(void)updateGoalButtons

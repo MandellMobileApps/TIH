@@ -16,5 +16,6 @@
 @property (nonatomic, strong) MenuItem *selectedMenuItem;
 @property (nonatomic, strong) MenuDay *selectedMenuDay;
 @property (nonatomic, strong) NSString *selectedMenuDayName;
-
+@property (nonatomic, strong) IBOutlet UITableView *thisTableView;
+-(void)updateMenuItemInAllArray:(MenuItem*)thisItem;
 @end

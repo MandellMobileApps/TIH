@@ -30,6 +30,11 @@
 @property(nonatomic,strong) NSArray* objects3;
 @property(nonatomic,strong) NSArray* objects4;
 
+@property(nonatomic,strong) NSArray* objects0Filtered;
+@property(nonatomic,strong) NSArray* objects1Filtered;
+@property(nonatomic,strong) NSArray* objects2Filtered;
+@property(nonatomic,strong) NSArray* objects3Filtered;
+@property(nonatomic,strong) NSArray* objects4Filtered;
 
 
 
@@ -45,7 +50,14 @@
 
 //-(void)showSearchScope;
 @property (nonatomic, strong) IBOutlet UISearchBar* searchBar;
+@property (nonatomic)  CGRect searchBarHideRect;
+@property (nonatomic)  CGRect searchBarShowRect;
+@property (nonatomic, retain) IBOutlet UILabel* searchLabel;
+@property (nonatomic, strong) NSString *filterString;
+
+
 @property (nonatomic, strong) IBOutlet UILabel *filteredLabel;
+
 @property (nonatomic, strong) IBOutlet UILabel* tableStatusMessage;
 
 @property (nonatomic, strong) NSString* currentSelection;

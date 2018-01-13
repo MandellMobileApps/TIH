@@ -237,6 +237,7 @@
 
     NSPredicate *compoundPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
     self.healthyDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.healthyDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
+    self.milkDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.milkDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
     self.sugaryDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.sugaryDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
     self.caffeineDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.caffeineDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
     self.alcoholDrinkFilteredArray = [NSMutableArray arrayWithArray:[self.alcoholDrinkArray filteredArrayUsingPredicate:compoundPredicate]];
@@ -345,7 +346,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 4;
+    return 5;
 }
 
 
@@ -359,9 +360,12 @@
             return self.sugaryDrinkFilteredArray.count;
             break;
         case 2:
-            return self.caffeineDrinkFilteredArray.count;
+            return self.milkDrinkFilteredArray.count;
             break;
         case 3:
+            return self.caffeineDrinkFilteredArray.count;
+            break;
+        case 4:
             return self.alcoholDrinkFilteredArray.count;
             break;
         default:
@@ -383,12 +387,15 @@
             thisDrink = [self.healthyDrinkFilteredArray objectAtIndex:indexPath.row];
             break;}
         case 1:{
-            thisDrink = [self.sugaryDrinkFilteredArray objectAtIndex:indexPath.row];
+            thisDrink = [self.milkDrinkFilteredArray objectAtIndex:indexPath.row];
             break;}
         case 2:{
-            thisDrink = [self.caffeineDrinkFilteredArray objectAtIndex:indexPath.row];
+            thisDrink = [self.sugaryDrinkFilteredArray objectAtIndex:indexPath.row];
             break;}
         case 3:{
+            thisDrink = [self.caffeineDrinkFilteredArray objectAtIndex:indexPath.row];
+            break;}
+        case 4:{
             thisDrink = [self.alcoholDrinkFilteredArray objectAtIndex:indexPath.row];
             break;}
 
@@ -739,10 +746,10 @@
     
 
     self.healthyDrinkFilteredArray = [NSMutableArray arrayWithArray:self.healthyDrinkArray];
+    self.milkDrinkFilteredArray = [NSMutableArray arrayWithArray:self.milkDrinkArray];
     self.sugaryDrinkFilteredArray = [NSMutableArray arrayWithArray:self.sugaryDrinkArray];
     self.caffeineDrinkFilteredArray = [NSMutableArray arrayWithArray:self.caffeineDrinkArray];
     self.alcoholDrinkFilteredArray = [NSMutableArray arrayWithArray:self.alcoholDrinkArray];
-    self.milkDrinkFilteredArray = [NSMutableArray arrayWithArray:self.alcoholDrinkArray];
     self.otherDrinkFilteredArray = [NSMutableArray arrayWithArray:self.otherDrinkArray];
     [self.thisTableView reloadData];
 }

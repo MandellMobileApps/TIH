@@ -215,9 +215,9 @@ enum menuPlanIndex {
     //self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     
-    NSString* objects0Sql = @"SELECT * FROM TIHDatabase WHERE SectionNumber = \"0\" ORDER BY RowOrder";
-    self.object = [SQLiteAccess selectManyRowsWithSQL:objects0Sql];
-    
+//    NSString* objects0Sql = @"SELECT * FROM TIHDatabase WHERE SectionNumber = \"0\" ORDER BY RowOrder";
+//    self.object = [SQLiteAccess selectManyRowsWithSQL:objects0Sql];
+//    
 //    NSString* objects1Sql = @"SELECT * FROM ProSports WHERE Type = \"Main\" AND  SectionNumber = \"1\" ORDER BY RowOrder";
 //    self.objects1 = [SQLiteAccess selectManyRowsWithSQL:objects1Sql];
 //

@@ -28,8 +28,10 @@
 
 @property (nonatomic, strong) IBOutlet UITableView *thisTableView;
 
+
 -(void)addMenuItemToSelectedArray:(MenuItem*)thisItem;
 -(void)removeMenuItemFromSelectedArray:(MenuItem*)thisItem;
+-(void)updateMenuItemInAllArray:(MenuItem*)thisItem;
 -(void)addMenuItemToAllArray:(MenuItem*)thisItem;
 -(void)removeMenuItemFromAllArray:(MenuItem*)thisItem;
 @end

@@ -233,13 +233,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Together In Health/Classes/AddMenuItemViewController.m"
-            timestampString = "536693936.019848"
+            filePath = "Together In Health/Classes/MenuDayViewController.m"
+            timestampString = "537552070.066466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "-updateMenuItemInAllArray:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MenuDayViewController updateMenuItemInAllArray:]"
+                  moduleName = "Together In Health"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonmandell/Documents/TIH2/Together%20In%20Health/Classes/MenuDayViewController.m"
+                  timestampString = "537550824.711809"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "46">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__50-[MenuDayViewController updateMenuItemInAllArray:]_block_invoke"
+                  moduleName = "Together In Health"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jonmandell/Documents/TIH2/Together%20In%20Health/Classes/MenuDayViewController.m"
+                  timestampString = "537550824.713805"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Together In Health/Classes/MenuDayViewController.m"
+            timestampString = "537552070.06717"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "-editItem:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -250,45 +298,93 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Together In Health/Classes/NewMenuItemViewController.m"
-            timestampString = "536693936.020162"
+            timestampString = "537552070.067605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "-thisMenuItem:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Together In Health/Classes/NewMenuItemViewController.m"
+            timestampString = "537552070.067944"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-thisMenuItem:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Together In Health/Classes/NewMenuItemViewController.m"
+            timestampString = "537552070.068189"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "-navbarButtonTapped:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[NewMenuItemViewController navbarButtonTapped:]"
-                  moduleName = "Together In Health"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jonmandell/Documents/TIH2/Together%20In%20Health/Classes/NewMenuItemViewController.m"
-                  timestampString = "536693858.501206"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "249">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__48-[NewMenuItemViewController navbarButtonTapped:]_block_invoke"
-                  moduleName = "Together In Health"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jonmandell/Documents/TIH2/Together%20In%20Health/Classes/NewMenuItemViewController.m"
-                  timestampString = "536693858.503481"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Together In Health/Classes/NewMenuItemViewController.m"
+            timestampString = "537552070.068458"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "-navbarButtonTapped:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Together In Health/Classes/NewMenuItemViewController.m"
+            timestampString = "537552070.068702"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "-navbarButtonTapped:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Together In Health/Classes/AddMenuItemViewController.m"
+            timestampString = "537552070.068942"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "-addMenuItemToAllArray:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

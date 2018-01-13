@@ -25,63 +25,56 @@
     [super viewDidLoad];
     
  //   self.menuPlanView.hidden = YES;
+
+    self.navigationItem.backBarButtonItem = nil;
+
+    // set custom navbar
+    self.navbarTitleLabel.text = @"Recipes";
+    self.navbarView.backgroundColor =[UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+    self.navbarTitleLabel.backgroundColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+    self.navbarTitleLabel.textColor = [UIColor whiteColor];
     
-    self.title = @"Recipes";
+    // set frames and search button
+     self.searchBarShowRect = CGRectMake(0,64, self.view.bounds.size.width, 44);
+     self.searchBarHideRect = CGRectMake(0,64, self.view.bounds.size.width, 0);
+    self.searchBar.frame = self.searchBarHideRect;
+    [self.searchLabel setText:[[NSString alloc] initWithUTF8String:"\xF0\x9F\x94\x8D"]];
+    [self.searchLabel sizeToFit];
     
-//    UIImage* image = [UIImage imageNamed:@"TIHsettings.png"];
-//    UIImage* image2 = [UIImage imageNamed:@"Star.png"];
-//    
-//    CGRect frameimg = CGRectMake(0, 0, 20, 20);
-//    UIButton *someButton = [[UIButton alloc] initWithFrame:frameimg];
-//    
-//    
-//    
-//    [someButton setBackgroundImage:image forState:UIControlStateNormal];
-//    [someButton setBackgroundImage:image2 forState:UIControlStateSelected];
-//    [someButton addTarget:self action:@selector(generateRandom)
-//         forControlEvents:UIControlEventTouchUpInside];
-//    
-//    UIBarButtonItem *barBtn =[[UIBarButtonItem alloc] initWithCustomView:someButton];
-//    
-//    [self.navigationItem setRightBarButtonItem:barBtn];
-    
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
-    
-    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Arial" size:44.0],NSFontAttributeName, nil];
-    
-    self.navigationController.navigationBar.titleTextAttributes = size;
-    
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    
-    //  [self.activityIndicator stopAnimating];
-    
-    // initialize API operation queue
+    self.navbarView.frame = CGRectMake(0,20, self.view.bounds.size.width, 44);
+    self.baseContentView.frame = CGRectMake(0,64, self.view.bounds.size.width, self.view.bounds.size.height-64);
+
+    self.filterString = @"";
+
+
     
     [self.activityIndicator stopAnimating];
     
-
+    // initialize API operation queue
     //    [self performSelector:@selector(runDatabaseQuery) withObject:nil afterDelay:0.0];
-
-    
    // self.filteredContentList = [[NSMutableArray alloc] init];
 
-    //NSLog (@"random array %@",self.randomArray);
     [self runDatabaseQuery];
     
 }
 
-
-
--(void)updateViewController
+-(IBAction)navbarButtonTapped:(UIButton*)sender
 {
-    
-    NSString* sql = [NSString stringWithFormat:@"SELECT * FROM Recipes WHERE Favorite = \"Yes\""];
-    self.myRecipes = [NSMutableArray arrayWithArray:[SQLiteAccess selectManyRowsWithSQL:sql]];
-    
-    [self.thisTableView reloadData];
-    
-    
+    switch (sender.tag) {
+  case 1:
+    //[add recipe here]  TODO;
+    [self.navigationController popViewControllerAnimated:YES];
+    break;
+  case 2:
+    [self showSearchBar];
+    [self.searchBar becomeFirstResponder];
+    break;
+  default:
+    break;
+    }
 }
+
+
 
 
 -(void)createRandomArray {
@@ -104,18 +97,22 @@
     
 //Free version
     
-    NSString* objects0Sql = @"SELECT * FROM Recipes WHERE SectionNumber = \"0\" AND Free = \"1\"";
+    NSString* objects0Sql = [NSString stringWithFormat:@"SELECT * FROM Recipes WHERE SectionNumber = \"0\" AND Free = \"1\" AND Recipe LIKE \"%%%@%%\"",self.filterString];
     self.objects0 = [SQLiteAccess selectManyRowsWithSQL:objects0Sql];
+    NSLog(@"objects0Sql %@",objects0Sql);
+    NSLog(@"self.objects0 %@",self.objects0);
     
-    NSString* objects1Sql = @"SELECT * FROM Recipes WHERE SectionNumber = \"1\" AND Free = \"1\"";
+    NSString* objects1Sql = [NSString stringWithFormat:@"SELECT * FROM Recipes WHERE SectionNumber = \"1\" AND Free = \"1\" AND Recipe LIKE \"%%%@%%\"",self.filterString];
     self.objects1 = [SQLiteAccess selectManyRowsWithSQL:objects1Sql];
     
-    NSString* objects2Sql = @"SELECT * FROM Recipes WHERE SectionNumber = \"2\" AND Free = \"1\"";
+    NSString* objects2Sql = [NSString stringWithFormat:@"SELECT * FROM Recipes WHERE SectionNumber = \"2\" AND Free = \"1\" AND Recipe LIKE \"%%%@%%\"",self.filterString];
     self.objects2 = [SQLiteAccess selectManyRowsWithSQL:objects2Sql];
     
-    NSString* objects3Sql = @"SELECT * FROM Recipes WHERE SectionNumber = \"3\" AND Free = \"1\"";
+    NSString* objects3Sql = [NSString stringWithFormat:@"SELECT * FROM Recipes WHERE SectionNumber = \"3\" AND Free = \"1\" AND Recipe LIKE \"%%%@%%\"",self.filterString];
     self.objects3 = [SQLiteAccess selectManyRowsWithSQL:objects3Sql];
 
+    NSString* sql = [NSString stringWithFormat:@"SELECT * FROM Recipes WHERE Favorite = \"Yes\" AND Recipe LIKE \"%%%@%%\"",self.filterString];
+    self.myRecipes = [NSMutableArray arrayWithArray:[SQLiteAccess selectManyRowsWithSQL:sql]];
     
     //NSLog (@"master objects0 %@",self.objects0);
     //    NSLog (@"master objects1 %@",self.objects1);
@@ -358,281 +355,67 @@ switch (indexPath.section) {
 
 
 
-#pragma mark - Search Bar test
-
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
-{
-    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
-    self.filteredContentList = [self.objects0 filteredArrayUsingPredicate:resultPredicate];
-   // self.filteredContentList = [self.objects1 filteredArrayUsingPredicate:resultPredicate];
-}
-
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [self filterContentForSearchText:searchString
-                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
-                                      objectAtIndex:[self.searchDisplayController.searchBar
-                                                     selectedScopeButtonIndex]]];
-    
-    return YES;
-}
-
-
-
-
 #pragma mark - Search Bar
 
-//- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+
+-(void)showSearchBar
+{
+   
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         self.searchBar.frame = self.searchBarShowRect;
+                         self.baseContentView.frame = CGRectMake(0,108, self.view.bounds.size.width, self.view.bounds.size.height-108);
+                     }
+                     completion:^(BOOL finished){
+
+                     }];
+}
+-(void)hideSearchBar
+{
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         self.searchBar.frame = self.searchBarHideRect;
+                        self.baseContentView.frame = CGRectMake(0,64, self.view.bounds.size.width, self.view.bounds.size.height-64);
+                     }
+                     completion:^(BOOL finished){
+                         
+                     }];
+    
+}
+
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    self.filterString = searchText;
+    [self runDatabaseQuery];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    self.filterString = @"";
+    [self hideSearchBar];
+    [self.searchBar resignFirstResponder];
+    [self runDatabaseQuery];
+}
+
+#pragma mark  Filtering
+//-(void)filterArrayWith:(NSString*)filter
 //{
-//    [self showSearchScope];
-//    [self.searchBar setShowsScopeBar:YES];
-//    [self.searchBar setShowsCancelButton:YES animated:YES];
-//    CGRect newRect = self.searchBar.frame;
-//    // newRect.size = [self.searchBar sizeThatFits:self.searchBarContainer.frame.size];
-//    self.searchBar.frame = newRect;
-//    
-//}
-//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-//{
-//    //    self.agentsVCPersistent.agentSearchTerm = searchBar.text;
-//    [self sortAgents];
-//}
-//
-//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-//{
-//    self.searchBar.text = @"";
-//    [self.searchBar resignFirstResponder];
-//    //    self.agentsVCPersistent.agentSearchTerm = @"";
-//    
-//}
-//
-//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-//{
-//    [self.searchBar resignFirstResponder];
-//}
-//
-//- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
-//{
-//    [self.searchBar resignFirstResponder];
-//    [self.searchBar setShowsScopeBar:NO];
-//    [searchBar setShowsCancelButton:NO animated:YES];
-//    [self hideSearchScope];
-//    CGRect newRect = self.searchBar.frame;
-//    // newRect.size = [self.searchBar sizeThatFits:self.searchBarContainer.frame.size];
-//    self.searchBar.frame = newRect;
-//    
-//    //    self.agentsVCPersistent.agentSearchTerm = searchBar.text;
-//    [self sortAgents];
-//}
-//
-//- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
-//{
-//    //    self.agentsVCPersistent.agentSearchScope= selectedScope;
-//    [self sortAgents];
-//    
-//}
-//
-//-(void) showSearchScope {
-//    
-//    NSLog(@"alarmSearchView %@",NSStringFromCGRect(self.alarmSearchView.frame));
-//    
-//   	float y = self.alarmSearchView.frame.origin.y;
-//   	float w = self.alarmSearchView.bounds.size.width;
-//    float x = self.alarmSearchView.frame.origin.x;
-//    [UIView animateWithDuration:0.2
-//                     animations:^{
-//                         self.alarmSearchView.frame = CGRectMake(x,y-44, w, 88);
-//                         
-//                     }
-//                     completion:^(BOOL finished) {
-//                     }
-//     ];
-//    
-//}
-//
-//-(void) hideSearchScope {
-////    NSLog(@"hideSearchScope alarmSearchView %@",NSStringFromCGRect(self.alarmSearchView.frame));
-////   	float y = self.alarmSearchView.frame.origin.y;
-////    float w = self.alarmSearchView.bounds.size.width;
-////   	float x = self.alarmSearchView.frame.origin.x;
-////    [UIView animateWithDuration:0.2
-////                     animations:^{
-////                         self.alarmSearchView.frame = CGRectMake(x,y+44, w, 44);
-////                     }
-////     ];
-//    
-//}
-//
-//
-//-(void) sortAgents {
-//    
-////    [self updateSelectedButton];
-////        if (self.agentsVCPersistent.agentSearchTerm.length>0)
-////        {
-////            self.filteredLabel.text = [NSString stringWithFormat:@"Filtered by \"%@\"",self.agentsVCPersistent.agentSearchTerm];
-////        }
-////        else
-////        {
-////    self.filteredLabel.text = @"";
-////        }
-////    
-////        self.filteredAgents = [FilterEngine filterArray:self.agents options:self.filterOptions
-////                                             searchTerm:self.agentsVCPersistent.agentSearchTerm
-////                                            searchScope:self.agentsVCPersistent.agentSearchScope
-////                                              sortIndex:self.agentsVCPersistent.agentSortIndex
-////                                          sortAscending:self.agentsVCPersistent.agentSortAscending];
-//
-//    if (self.filteredAgents.count == 0)
+//    // Update the filtered array based on the search text and scope.
+//    // Remove all objects from the filtered search array
+//    if (filter.length>0)
 //    {
-//        //        if ([self iPad])
-//        //        {
-//        //            self.tableStatusMessage.text = @"     No Agents found for selected Group";
-//        //            self.tableStatusMessage.hidden = NO;
-//        //        }
-//        //        else
-//        //        {
-//        self.tableStatusMessage.text = @"     No Agents found";
-//        self.tableStatusMessage.hidden = NO;
-//        //}
+//        [self.filteredItemsArray removeAllObjects];
+//        // Filter the array using NSPredicate
+//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"menuItemName contains[c] %@",filter];
+//        self.filteredItemsArray = [NSMutableArray arrayWithArray:[self.appDelegate.menuItemsArray filteredArrayUsingPredicate:predicate]];
 //    }
 //    else
 //    {
-//        self.tableStatusMessage.text = @"";
-//        self.tableStatusMessage.hidden = YES;
+//        self.filteredItemsArray = [NSMutableArray arrayWithArray:self.appDelegate.menuItemsArray];
 //    }
-////        if (self.forceAnimatedRefresh)
-////        {
-////            self.forceAnimatedRefresh = NO;
-////            [self addNewTableData];
-////    
-////        }
-////        else
-//    
 //    [self.thisTableView reloadData];
-//    [self.view setNeedsDisplay];
-//    
-//   // [self scrollToSelectedAgent];
-//    
-//    
-//}
-//
-//+(NSMutableArray*)filterArray:(NSMutableArray*)objectsArray options:(NSArray*)filterOptionsArray
-//                   searchTerm:(NSString*)searchTerm searchScope:(int)searchScope sortIndex:(int)sortIndex sortAscending:(BOOL)ascending
-//{
-//    
-//    
-//    NSMutableArray* filteredObjects;
-//    
-//    if (searchTerm.length > 0) {
-//        
-//        NSMutableArray *predicates = [NSMutableArray array];
-//        for (NSDictionary* item in filterOptionsArray)
-//        {
-//            if ([[item objectForKey:@"SearchName"] length] > 0)
-//            {
-//                switch (searchScope) {
-//                    case BeginsWith:{
-//                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K BEGINSWITH[cd] %@",[item objectForKey:@"SearchName"],searchTerm];
-//                        [predicates addObject:predicate];
-//                        break;}
-//                    case EndsWith:{
-//                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K ENDSWITH[cd] %@",[item objectForKey:@"SearchName"],searchTerm];
-//                        [predicates addObject:predicate];
-//                        break;}
-//                    case Contains:{
-//                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@",[item objectForKey:@"SearchName"],searchTerm];
-//                        [predicates addObject:predicate];
-//                        break;}
-//                    default:
-//                        break;
-//                }
-//            }
-//            
-//        }
-//        /// this is to make sure there is at least one searchName listed.  If not don't filter arrayky
-//        if (predicates.count>0)
-//        {
-//            NSPredicate *compoundPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
-//            filteredObjects =  [NSMutableArray arrayWithArray:[objectsArray filteredArrayUsingPredicate:compoundPredicate]];
-//        }
-//        else
-//        {
-//            filteredObjects = [NSMutableArray arrayWithArray:objectsArray];
-//        }
-//        
-//    } else {
-//        filteredObjects = [NSMutableArray arrayWithArray:objectsArray];
-//    }
-//    
-//    
-//    NSString* sortProperty = [[filterOptionsArray objectAtIndex:sortIndex] objectForKey:@"SortName"];
-//    if (sortProperty.length>0)
-//    {
-//        NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:sortProperty ascending:ascending];
-//        NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-//        [filteredObjects sortUsingDescriptors:sortDescriptors];
-//    }
-//    
-//    
-//    return filteredObjects;
-//    
-//}
-//
-//+(NSMutableArray*)filterArray:(NSMutableArray*)objectsArray searchTerm:(NSString*)searchTerm
-//             searchProperties:(NSMutableArray*)searchProperties searchScope:(int)searchScope sortProperty:(NSString*)sortProperty sortAscending:(BOOL)ascending
-//{
-//    
-//    NSMutableArray* filteredObjects;
-//    
-//    if (searchTerm.length > 0) {
-//        
-//        NSMutableArray *predicates = [NSMutableArray array];
-//        for (NSString* item in searchProperties)
-//        {
-//            switch (searchScope) {
-//                case BeginsWith:{
-//                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K BEGINSWITH[cd] %@",item,searchTerm];
-//                    [predicates addObject:predicate];
-//                    break;}
-//                case EndsWith:{
-//                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K ENDSWITH[cd] %@",item,searchTerm];
-//                    [predicates addObject:predicate];
-//                    break;}
-//                case Contains:{
-//                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@",item,searchTerm];
-//                    [predicates addObject:predicate];
-//                    break;}
-//                default:
-//                    break;
-//            }
-//        }
-//        /// this is to make sure there is at least one searchName listed.  If not don't filter arrayky
-//        if (predicates.count>0)
-//        {
-//            NSPredicate *compoundPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
-//            filteredObjects =  [NSMutableArray arrayWithArray:[objectsArray filteredArrayUsingPredicate:compoundPredicate]];
-//        }
-//        else
-//        {
-//            filteredObjects = [NSMutableArray arrayWithArray:objectsArray];
-//        }
-//        
-//    }
-//    else
-//    {
-//        filteredObjects = [NSMutableArray arrayWithArray:objectsArray];
-//    }
-//    
-//    
-//    if (sortProperty.length>0)
-//    {
-//        NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:sortProperty ascending:ascending];
-//        NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-//        [filteredObjects sortUsingDescriptors:sortDescriptors];
-//    }
-//    
-//    return filteredObjects;
-//    
 //}
 
 #pragma Random Recipe

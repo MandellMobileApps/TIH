@@ -11,6 +11,8 @@
 #import "MenuItem.h"
 #import "MenuDay.h"
 #import "AddMenuItemViewController.h"
+#import "NewMenuItemViewController.h"
+#import "AppDelegate.h"
 
 @interface MenuDayViewController ()
 
@@ -39,6 +41,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.thisTableView reloadData];
 
     
 }
@@ -95,6 +98,69 @@
 
 }
 
+-(void)editItem:(NSIndexPath*)indexPath
+{
+    self.changeMade = YES;
+
+
+    
+    MenuItem* thisMenuItem;
+    if (indexPath.section == 0)
+    {
+        thisMenuItem = [self.selectedMenuDay.breakfastMenuItems objectAtIndex:indexPath.row];
+
+    }
+    else if (indexPath.section == 1)
+    {
+        thisMenuItem = [self.selectedMenuDay.breakfastMenuItems objectAtIndex:indexPath.row];
+
+    }
+    else if (indexPath.section == 2)
+    {
+        thisMenuItem = [self.selectedMenuDay.breakfastMenuItems objectAtIndex:indexPath.row];
+
+    }
+    else if (indexPath.section == 3)
+    {
+        thisMenuItem = [self.selectedMenuDay.breakfastMenuItems objectAtIndex:indexPath.row];
+
+    }
+
+    if (thisMenuItem.recipeId>0)
+    {
+    
+    }
+    else
+    {
+        NewMenuItemViewController* newMenuItemViewController = (NewMenuItemViewController*)
+        [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
+         instantiateViewControllerWithIdentifier:@"NewMenuItemViewController"];
+            newMenuItemViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+            newMenuItemViewController.menuDayViewController = self;
+        
+        [self presentViewController:newMenuItemViewController animated:YES completion:^{
+                [newMenuItemViewController thisMenuItem:thisMenuItem];
+            }];
+    }
+}
+
+
+-(void)removeSelectedItem:(UIButton*)button
+{
+
+
+}
+
+-(void)updateMenuItemInAllArray:(MenuItem*)thisItem
+{
+    [self.appDelegate.menuItemsArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(MenuItem *menuItem, NSUInteger index, BOOL *stop) {
+    if (menuItem.menuItemId == thisItem.menuItemId) {
+        [self.appDelegate.menuItemsArray replaceObjectAtIndex:index withObject:thisItem];
+        [self.thisTableView reloadData];
+    }
+    }];
+    [self.appDelegate saveMenuPlans];
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -216,6 +282,8 @@
       default:
         break;
         }
+
+    
     myCell.textLabel.text = thisMenuItem.menuItemName;
     myCell.imageView.image = [UIImage imageNamed:thisMenuItem.menuItemImage];
     return myCell;
@@ -228,13 +296,38 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-
-    // go to recipe if id
+    [self editItem:indexPath];
+    
+   
 }
 
 
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        switch (indexPath.section) {
+          case 0:
+            [self.selectedMenuDay.breakfastMenuItems removeObjectAtIndex:indexPath.row];
+            break;
+          case 1:
+            [self.selectedMenuDay.lunchMenuItems removeObjectAtIndex:indexPath.row];
+            break;
+          case 2:
+            [self.selectedMenuDay.dinnerMenuItems removeObjectAtIndex:indexPath.row];
+            break;
+          case 3:
+            [self.selectedMenuDay.snackMenuItems removeObjectAtIndex:indexPath.row];
+            break;
+          default:
+            break;
+            }
+        [tableView reloadData]; // tell table to refresh now
+    }
+}
 
 -(void)verifyCancel {
     

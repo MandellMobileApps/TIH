@@ -1491,15 +1491,15 @@
 
 +(NSInteger)uniqueId
 {
-    double timeInterval = [[NSDate date] timeIntervalSinceReferenceDate]*100;
+    double timeInterval = [[NSDate date] timeIntervalSinceReferenceDate];
     NSInteger theInteger = 0;
-//    if (timeInterval > NSIntegerMax) {
-//        // ...
-//    } else if (timeInterval < NSIntegerMin) {
-//        // ...
-//    } else {
-//        theInteger = timeInterval;
-//    }
+    if (timeInterval > NSIntegerMax) {
+        NSLog (@"(timeInterval > NSIntegerMax)");
+    } else if (timeInterval < NSIntegerMin) {
+        NSLog (@"(timeInterval < NSIntegerMin)");
+    } else {
+        theInteger = timeInterval;
+    }
     return theInteger;
 }
 

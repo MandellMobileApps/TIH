@@ -16,6 +16,7 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
         self.menuItemName = [decoder decodeObjectForKey:@"menuItemName"];
+        self.menuItemDescription = [decoder decodeObjectForKey:@"menuItemDescription"];
         self.menuItemImage = [decoder decodeObjectForKey:@"menuItemImage"];
         self.itemSection = [decoder decodeObjectForKey:@"itemSection"];
         self.itemSubscription = [decoder decodeIntegerForKey:@"itemSubscription"];
@@ -31,6 +32,7 @@
 - (void) encodeWithCoder:(NSCoder *)encoder {
 
     [encoder encodeObject: self.menuItemName forKey:@"menuItemName"];
+    [encoder encodeObject: self.menuItemDescription forKey:@"menuItemDescription"];
      [encoder encodeObject: self.menuItemImage forKey:@"menuItemImage"];
      [encoder encodeObject: self.itemSection forKey:@"itemSection"];
      [encoder encodeInteger: self.itemSubscription forKey:@"itemSubscription"];

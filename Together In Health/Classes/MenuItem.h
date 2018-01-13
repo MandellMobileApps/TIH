@@ -15,6 +15,7 @@
 @property (nonatomic) NSInteger menuItemId;
 @property (nonatomic) NSInteger recipeId;  // if one is associated with it.
 @property (nonatomic, strong) NSString *menuItemName;
+@property (nonatomic, strong) NSString *menuItemDescription;
 @property (nonatomic, strong) NSString *menuItemImage;
 
 @property (nonatomic, strong) NSString *itemSection;

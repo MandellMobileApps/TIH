@@ -48,15 +48,11 @@
     NSString* returnString = [NSString string];
     if (meals.count>0)
     {
-        NSMutableArray* items = [meals objectAtIndex:0];
-        if (items.count > 0)
+        for (MenuItem* meal in meals)
         {
-            for (MenuItem* item in items)
-            {
-                [string appendFormat:@" %@,",item.menuItemName];
-            }
-            returnString = [string substringToIndex:string.length-2];
+            [string appendFormat:@" %@,",meal.menuItemName];
         }
+        returnString = [string substringToIndex:string.length-1];
     }
     return returnString;
 }

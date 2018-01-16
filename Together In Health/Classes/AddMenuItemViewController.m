@@ -48,10 +48,16 @@
     self.baseContentView.frame = CGRectMake(0,64, self.view.bounds.size.width, self.view.bounds.size.height-64);
 
     self.filterString = @"";
+
+    
+    
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self updateTable];
-    
-    
-    
 }
 
 #pragma mark - Button Controls
@@ -87,7 +93,7 @@
     break;
     }
 }
--(IBAction)newMenuItem:(UIButton*)button {
+-(void)newMenuItem:(UIButton*)button {
     NewMenuItemViewController* newMenuItemViewController = (NewMenuItemViewController*)
     [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
      instantiateViewControllerWithIdentifier:@"NewMenuItemViewController"];
@@ -97,7 +103,7 @@
             [newMenuItemViewController thisMenuItem:nil];
         }];
 }
--(IBAction)recipes:(UIButton*)button {
+-(void)recipes:(UIButton*)button {
     RecipeViewController* recipeViewController = (RecipeViewController*)
     [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
     instantiateViewControllerWithIdentifier:@"RecipeViewController"];
@@ -135,7 +141,7 @@
 {
     [self.selectedItemsArray addObject:thisItem];
     [self updateTable];
-     [self.appDelegate saveMenuPlans];
+     [self.appDelegate saveMenuItems];
 }
 
 
@@ -148,7 +154,7 @@
         [self updateTable];
     }
     }];
-     [self.appDelegate saveMenuPlans];
+     [self.appDelegate saveMenuItems];
 }
 
 -(void)updateMenuItemInAllArray:(MenuItem*)thisItem
@@ -159,13 +165,13 @@
         [self updateTable];
     }
     }];
-     [self.appDelegate saveMenuPlans];
+     [self.appDelegate saveMenuItems];
 }
 -(void)addMenuItemToAllArray:(MenuItem*)thisItem
 {
     [self.appDelegate.menuItemsArray addObject:thisItem];
     [self updateTable];
-    [self.appDelegate saveMenuPlans];
+    [self.appDelegate saveMenuItems];
 }
 
 
@@ -177,7 +183,7 @@
         [self updateTable];
     }
     }];
-    [self.appDelegate saveMenuPlans];
+    [self.appDelegate saveMenuItems];
 }
 
 #pragma mark - Table view data source
@@ -243,7 +249,7 @@
     
     if (section == 0)
     {
-        [headerLabel setText:@"Selected Menu Items"];
+        [headerLabel setText:[NSString stringWithFormat:@"Selected Menu Items for %@",self.selectedMenuDayName]];
         [headerView addSubview:headerLabel];
     }
     else if (section == 1)

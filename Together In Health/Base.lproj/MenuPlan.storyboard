@@ -179,6 +179,7 @@
                     <connections>
                         <outlet property="navbarTitleLabel" destination="zpH-8G-SHw" id="Xbt-IY-Pqz"/>
                         <outlet property="navbarView" destination="nyd-jU-Xrg" id="CQq-eL-WWn"/>
+                        <outlet property="thisTableView" destination="M6b-Ot-A6A" id="uSS-Yz-Ie1"/>
                         <outlet property="upgradeButton" destination="dH6-IA-yxr" id="QV4-RN-003"/>
                     </connections>
                 </viewController>

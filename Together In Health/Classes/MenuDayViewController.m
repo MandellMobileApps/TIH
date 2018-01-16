@@ -50,17 +50,29 @@
 
 -(IBAction)cancelButtonTapped
 {
-   if (self.changeMade)
-   {
+    if (self.changeMade)
+    {
         [self verifyCancel];
-   }
-   else
-   {
+    }
+    else
+    {
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
 -(IBAction)saveButtonTapped
 {
+
+    [self.appDelegate.menuPlan.menuDays replaceObjectAtIndex:self.selectedDay withObject:self.selectedMenuDay];
+//    for (MenuDay* day in self.appDelegate.menuPlan.menuDays)
+//    {
+//        NSLog(@"\n\n");
+//        NSLog(@"breakfastMenuItems %lu",day.breakfastMenuItems.count);
+//        NSLog(@"lunchMenuItems %lu",day.lunchMenuItems.count);
+//        NSLog(@"dinnerMenuItems %lu",day.dinnerMenuItems.count);
+//        NSLog(@"snackMenuItems %lu",day.snackMenuItems.count);
+//    }
+    [self.appDelegate saveMenuPlan];
+     [self.navigationController popViewControllerAnimated:YES];
 
 }
 
@@ -74,6 +86,7 @@
          instantiateViewControllerWithIdentifier:@"AddMenuItemViewController"];
          self.selectedMenuDay.selectedMealType = button.tag;
          addMenuItemViewController.selectedMenuDay = self.selectedMenuDay;
+         addMenuItemViewController.selectedMenuDayName = self.selectedMenuDayName;
     
     if (button.tag == 0)
     {
@@ -160,7 +173,8 @@
         [self.thisTableView reloadData];
     }
     }];
-    [self.appDelegate saveMenuPlans];
+
+    [self.appDelegate saveMenuItems];
 }
 #pragma mark - Navigation
 
@@ -286,7 +300,10 @@
 
     
     myCell.textLabel.text = thisMenuItem.menuItemName;
-    myCell.imageView.image = [UIImage imageNamed:thisMenuItem.menuItemImage];
+    if (thisMenuItem.menuItemImage.length>0)
+    {
+        myCell.imageView.image = [UIImage imageNamed:thisMenuItem.menuItemImage];
+    }
     return myCell;
 }
 

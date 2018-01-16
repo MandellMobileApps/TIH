@@ -24,7 +24,6 @@
 
 @property (nonatomic, strong) ADBannerView*  adBannerView;
 @property (nonatomic) BOOL adBannerViewIsVisible;
-@property (nonatomic, strong) UITableView*  thisTableView;
 
 @end
 

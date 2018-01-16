@@ -8,6 +8,7 @@
 
 #import "RecipeTableViewCell.h"
 #import "RecipeViewController.h"
+#import "AppDelegate.h"
 
 @implementation RecipeTableViewCell
 
@@ -19,21 +20,21 @@
 
 -(IBAction)addMenuItem:(id)sender {
     
-    if (self.addItemIsOn) {
-        [self.menuPlanButton setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
-        self.addItemIsOn = NO;
-         self.recipeViewController.menuPlanView.hidden = NO;
-        self.favoritesImage.hidden = NO;
-    }
-    
-    
-    
-    else {
-        [self.menuPlanButton setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
-        self.addItemIsOn = YES;
-        self.recipeViewController.menuPlanView.hidden = YES;
-    }
-    
+//    if (self.addItemIsOn) {
+//        [self.menuPlanButton setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
+//        self.addItemIsOn = NO;
+//         self.recipeViewController.menuPlanView.hidden = NO;
+//        self.favoritesImage.hidden = NO;
+//    }
+//
+//
+//
+//    else {
+//        [self.menuPlanButton setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState:UIControlStateNormal];
+//        self.addItemIsOn = YES;
+//        self.recipeViewController.menuPlanView.hidden = YES;
+//    }
+    [self.recipeViewController recipeItemAdded:self.object];
    
 }
 

@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+enum MenuDayMeal
+{
+    MenuDayMealBreakfast = 0,
+    MenuDayMealLunch = 1,
+    MenuDayMealDinner = 2,
+    MenuDayMealSnacks = 3,
+};
 
 @class MenuDay;
 

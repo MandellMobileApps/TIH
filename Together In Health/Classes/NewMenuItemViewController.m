@@ -84,7 +84,7 @@
              [self.menuDayViewController updateMenuItemInAllArray:self.menuItem];
         }
     }
-    
+    [self.appDelegate saveMenuItems];
 
     [self dismissViewControllerAnimated:YES completion:^{}];
     break;}

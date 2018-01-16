@@ -479,21 +479,25 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FRT-5U-imp">
-                                                            <rect key="frame" x="36" y="0.0" width="251" height="43"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FRT-5U-imp">
+                                                            <rect key="frame" x="45" y="0.0" width="289" height="43"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                                             <color key="textColor" red="0.22985092469999999" green="0.22985092469999999" blue="0.22985092469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star.png" id="xg3-Gf-Y8q">
-                                                            <rect key="frame" x="5" y="9" width="25" height="25"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="b4i-Pp-81Q">
+                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
+                                                            <state key="normal" title="Add"/>
+                                                            <connections>
+                                                                <action selector="addMenuItem:" destination="8P2-dl-k04" eventType="touchUpInside" id="ic7-9c-8sx"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="favoritesImage" destination="xg3-Gf-Y8q" id="4Go-HE-iJ9"/>
+                                                    <outlet property="menuPlanButton" destination="b4i-Pp-81Q" id="kVV-AC-IUh"/>
                                                     <outlet property="recipeLabel" destination="FRT-5U-imp" id="Ej4-fv-r74"/>
                                                 </connections>
                                             </tableViewCell>
@@ -530,7 +534,7 @@
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="35V-B7-WgS">
                                         <rect key="frame" x="10" y="8" width="54" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Add">
+                                        <state key="normal" title="Back">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -591,7 +595,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1790" y="2265"/>
+            <point key="canvasLocation" x="1789.5" y="2264.5"/>
         </scene>
         <!--Seasonal Veg Info View Controller-->
         <scene sceneID="57g-MC-HH3">

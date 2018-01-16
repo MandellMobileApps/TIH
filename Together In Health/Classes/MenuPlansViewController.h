@@ -19,31 +19,32 @@
 
 
 
+// This ViewController is not currently used.  We decided to only have one menu plan for now
 
 
 
-@property (nonatomic,strong) UISegmentedControl *menutypeSegment;
-@property (nonatomic) int menuTypeRating;
-@property (nonatomic, strong) IBOutlet UIButton *upgradeButton;
-@property(nonatomic,strong) NSDictionary* object;
-@property (nonatomic) BOOL updateEnabled;
-@property (strong, nonatomic) NSArray *updatedVersions;
-@property (strong, nonatomic) NSMutableArray *filesToUpdate;
-@property (nonatomic) NSInteger currentVersion;
-@property (nonatomic) NSInteger newVersion;
-
-@property (nonatomic, strong) IBOutlet UIButton *menuPlanButton;
-@property (nonatomic, strong) IBOutlet UIButton *addMenuItemButton;
-@property (nonatomic) NSUInteger menuPlanIndex;
-
--(IBAction)menuPlan:(id)sender;
--(IBAction)addMenuItem:(id)sender;
-
--(IBAction)recipes:(id)sender;
-
-
--(IBAction)textFieldReturn:(id)sender;
--(IBAction)reset:(id)sender;
+//@property (nonatomic,strong) UISegmentedControl *menutypeSegment;
+//@property (nonatomic) int menuTypeRating;
+//@property (nonatomic, strong) IBOutlet UIButton *upgradeButton;
+//@property(nonatomic,strong) NSDictionary* object;
+//@property (nonatomic) BOOL updateEnabled;
+//@property (strong, nonatomic) NSArray *updatedVersions;
+//@property (strong, nonatomic) NSMutableArray *filesToUpdate;
+//@property (nonatomic) NSInteger currentVersion;
+//@property (nonatomic) NSInteger newVersion;
+//
+//@property (nonatomic, strong) IBOutlet UIButton *menuPlanButton;
+//@property (nonatomic, strong) IBOutlet UIButton *addMenuItemButton;
+//@property (nonatomic) NSUInteger menuPlanIndex;
+//
+//-(IBAction)menuPlan:(id)sender;
+//-(IBAction)addMenuItem:(id)sender;
+//
+//-(IBAction)recipes:(id)sender;
+//
+//
+//-(IBAction)textFieldReturn:(id)sender;
+//-(IBAction)reset:(id)sender;
 
 
 

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
+
 @class MenuPlan;
 
 
@@ -16,13 +17,7 @@
 
 // array of menu objects
 @property (nonatomic, strong) NSMutableArray * menuDays;
-//@property (nonatomic, strong) MenuDay *day1Menu;
-//@property (nonatomic, strong) MenuDay *day2Menu;
-//@property (nonatomic, strong) MenuDay *day3Menu;
-//@property (nonatomic, strong) MenuDay *day4Menu;
-//@property (nonatomic, strong) MenuDay *day5Menu;
-//@property (nonatomic, strong) MenuDay *day6Menu;
-//@property (nonatomic, strong) MenuDay *day7Menu;
+
 
 + (MenuPlan*)addNewMenuPlan;
 

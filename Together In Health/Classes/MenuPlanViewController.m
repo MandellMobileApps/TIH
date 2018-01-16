@@ -43,15 +43,9 @@ enum menuPlanIndex {
                          @"Saturday",
                          nil];
     
-    [self.appDelegate loadMenuPlans];
-    if (self.appDelegate.menuPlansArray.count>0)
-    {
-        self.menuPlan = [self.appDelegate.menuPlansArray objectAtIndex:0];
-    }
-    else
-    {
-        NSLog(@"menu plans not loading");
-    }
+    [self.appDelegate loadMenuPlan];
+    [self.appDelegate loadMenuItems];
+
 
 
     self.navbarView.backgroundColor = [UIColor colorWithRed:68/255.0 green:0/255.0 blue:0/255.0 alpha:1];
@@ -114,6 +108,11 @@ enum menuPlanIndex {
     
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.thisTableView reloadData];
+}
 -(void)updateMenuButtons
 {
     // clear buttons
@@ -269,7 +268,7 @@ enum menuPlanIndex {
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 
-    return self.menuPlan.menuDays.count;
+    return self.appDelegate.menuPlan.menuDays.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -334,7 +333,7 @@ enum menuPlanIndex {
     static NSString *CellIdentifier = @"MyCell";
     MenuPlanCell *myCell = (MenuPlanCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     myCell.accessoryType = UITableViewCellAccessoryNone;
-    MenuDay* thisMenuDay = [self.menuPlan.menuDays objectAtIndex:indexPath.section];
+    MenuDay* thisMenuDay = [self.appDelegate.menuPlan.menuDays objectAtIndex:indexPath.section];
     myCell.selectedMenuDay = thisMenuDay;
     myCell.row = indexPath.row;
     [myCell refreshCell];
@@ -351,8 +350,9 @@ enum menuPlanIndex {
         switch (self.appDelegate.subscriptionLevel)
         {
         case SubscriptionPaid1:
-            [self loadMenuDayViewControllerForSection:indexPath.section];
-            
+            {
+                [self loadMenuDayViewControllerForSection:indexPath.section];
+            }
             break;
         case SubscriptionPaid2:
             {
@@ -377,7 +377,10 @@ enum menuPlanIndex {
     [[UIStoryboard storyboardWithName:@"MenuPlan" bundle:nil]
      instantiateViewControllerWithIdentifier:@"MenuDayViewController"];
      menuDayViewController.selectedMenuDayName = [self.weekdays objectAtIndex:section];
-     menuDayViewController.selectedMenuDay = [self.menuPlan.menuDays objectAtIndex:section];
+     MenuDay* thisMenuDay =[self.appDelegate.menuPlan.menuDays objectAtIndex:section];
+     thisMenuDay.selectedMealType = section;
+     menuDayViewController.selectedMenuDay = thisMenuDay;
+     menuDayViewController.selectedDay = section;
     [self.navigationController pushViewController:menuDayViewController animated:YES];
 
 }

@@ -14,11 +14,12 @@
 @class RecipeDetailViewController;
 @class FullOpeningViewController;
 
+
 @interface RecipeViewController : AbstractViewController
 
 @property (nonatomic, strong) RecipeDetailViewController* recipeDetailViewController;
-@property (nonatomic, strong) MenuPlan* menuPlan;
-@property (nonatomic, strong) FullOpeningViewController* fullOpeningViewController;
+@property (nonatomic, weak) FullOpeningViewController* fullOpeningViewController;
+
 
 @property (nonatomic) BOOL myButtonOn;
 
@@ -96,5 +97,6 @@
 @property (nonatomic) BOOL dinnerIsOn;
 @property (nonatomic) BOOL snackIsOn;
 
+-(void)recipeItemAdded:(NSDictionary*)object;
 
 @end

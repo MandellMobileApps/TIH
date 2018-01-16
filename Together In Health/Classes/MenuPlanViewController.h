@@ -20,10 +20,10 @@
 @interface MenuPlanViewController : AbstractViewController
 
 @property (nonatomic, strong) AddMenuItemViewController *addMenuItemViewController;
-@property (nonatomic, strong) MenuPlan *menuPlan;
 @property (nonatomic, strong) MenuDay *selectedMenuDay;
 @property (nonatomic, strong) NSString *selectedMenuDayName;
 @property (nonatomic, strong) NSArray *weekdays;
+
 
 @property (nonatomic,strong) UISegmentedControl *menutypeSegment;
 @property (nonatomic) int menuTypeRating;

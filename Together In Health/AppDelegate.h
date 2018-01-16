@@ -29,6 +29,7 @@ enum SubscriptionLevel {
 @class UpGradeViewController;
 @class GoalSetViewController;
 @class GoalGamePlanViewController;
+@class MenuPlan;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
@@ -43,7 +44,7 @@ enum SubscriptionLevel {
 @property (nonatomic, strong) GoalGamePlanViewController* goalGamePlanViewController;
 @property (nonatomic, strong) GoalSetViewController *goalSetViewController;
 
-@property (nonatomic, strong) NSMutableArray *menuPlansArray;
+@property (nonatomic, strong) MenuPlan *menuPlan;
 // menuItems
 //@property (nonatomic, strong) NSMutableArray *breakfastItemsArray;
 //@property (nonatomic, strong) NSMutableArray *lunchItemsArray;
@@ -71,8 +72,10 @@ enum SubscriptionLevel {
 -(void)saveGoals;
 -(void)upsertContactForEmail:(NSString*)email atSubcriptionLevel:(NSInteger)subscriptionLevel inController:(UpGradeViewController*)controller;
 -(void)checkSubscriptionLevel;
--(void) loadMenuPlans;
--(void)saveMenuPlans;
+-(void)loadMenuPlan;
+-(void)loadMenuItems;
+-(void)saveMenuPlan;
+-(void)saveMenuItems;
 +(NSInteger)uniqueId;
 @end
 

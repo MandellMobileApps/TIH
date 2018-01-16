@@ -26,8 +26,8 @@
 @property (nonatomic, strong) NSMutableArray *selectedItemsArray;
 @property (nonatomic, strong) NSString *filterString;
 
-@property (nonatomic, strong) IBOutlet UITableView *thisTableView;
 
+@property (nonatomic, strong) NSString *selectedMenuDayName;
 
 -(void)addMenuItemToSelectedArray:(MenuItem*)thisItem;
 -(void)removeMenuItemFromSelectedArray:(MenuItem*)thisItem;

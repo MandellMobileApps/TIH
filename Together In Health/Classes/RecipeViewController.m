@@ -11,8 +11,9 @@
 #import "RecipeTableViewCell.h"
 #import "SQLiteAccess.h"
 #import "AppDelegate.h"
-#import "MenuPlan.h"
 #import "FullOpeningViewController.h"
+#import "MenuItem.h"
+
 
 @interface RecipeViewController ()
 
@@ -62,7 +63,6 @@
 {
     switch (sender.tag) {
   case 1:
-    //[add recipe here]  TODO;
     [self.navigationController popViewControllerAnimated:YES];
     break;
   case 2:
@@ -74,7 +74,15 @@
     }
 }
 
+-(void)recipeItemAdded:(NSDictionary*)object
+{
 
+    MenuItem* thisMenuItem = [MenuItem newMenuItemWithName:[object valueForKey:@"Recipe"]];
+    thisMenuItem.recipeId = [[object valueForKey:@"RecordId"] integerValue];
+    [self.appDelegate.menuItemsArray addObject:thisMenuItem];
+   [self.navigationController popViewControllerAnimated:YES];
+
+}
 
 
 -(void)createRandomArray {
@@ -247,6 +255,7 @@
     
     static NSString *CellIdentifier = @"MyCell";
     RecipeTableViewCell *myCell = (RecipeTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
 //    
 //    if (tableView == self.searchDisplayController.searchResultsTableView) {
 //        myCell.recipeLabel.text = [self.filteredContentList objectAtIndex:indexPath.row];
@@ -267,7 +276,7 @@
 //    {
 //        myCell.favoritesImage.hidden = NO;
 //    }
-   
+   myCell.recipeViewController = self;
     return myCell;
 }
 

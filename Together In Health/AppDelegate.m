@@ -97,7 +97,7 @@
     // how to obviscate?
     self.zohoAuthToken = @"1b761d65e759974cb77c0bf236ec1473";
     
-    //  temp
+    //  temp TODO
     self.subscriptionLevel = 1;
 }
 
@@ -149,16 +149,20 @@
     }
 }
 
--(void) loadMenuPlans // only 1 menu plan for now
+-(void) loadMenuPlan // only 1 menu plan for now
 {
 
     NSString* path = [self dataFilePathofDocuments:@"MenuPlans.archive"];
-    self.menuPlansArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path]];
-    if (self.menuPlansArray.count < 1)
+    self.menuPlan = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if (!self.menuPlan)
     {
-        self.menuPlansArray = [NSMutableArray arrayWithObject:[MenuPlan addNewMenuPlan]];
+        self.menuPlan = [MenuPlan addNewMenuPlan];
+        NSLog(@"new menuPlan");
     }
-    
+    else
+    {
+        NSLog(@"loaded menuPlan");
+    }
 //    NSString* path2 = [self dataFilePathofDocuments:@"breakfastItemsArray.archive"];
 //    self.breakfastItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path2]];
 //    if (self.breakfastItemsArray.count < 1)
@@ -183,6 +187,10 @@
 //    {
 //        self.snackItemsArray = [NSMutableArray array];
 //    }
+}
+
+-(void)loadMenuItems
+{
     NSString* path6 = [self dataFilePathofDocuments:@"menuItemsArray.archive"];
     self.menuItemsArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithFile:path6]];
     if (self.menuItemsArray.count < 1)
@@ -191,15 +199,15 @@
     }
 }
 
--(void)saveMenuPlans
+-(void)saveMenuPlan
 {
     
     NSString* path = [self dataFilePathofDocuments:@"MenuPlans.archive"];
-    BOOL success = [NSKeyedArchiver archiveRootObject:self.menuPlansArray toFile:path];
+    BOOL success = [NSKeyedArchiver archiveRootObject:self.menuPlan toFile:path];
     if (!success) {
-        NSLog(@"menuPlansArray Did Not Save");
+        NSLog(@"menuPlan Did Not Save");
     }
-    
+ }
 //    NSString* path2 = [self dataFilePathofDocuments:@"breakfastItemsArray.archive"];
 //    BOOL success2 = [NSKeyedArchiver archiveRootObject:self.breakfastItemsArray toFile:path2];
 //    if (!success2) {
@@ -220,6 +228,8 @@
 //    if (!success5) {
 //        NSLog(@"snackItemsArray Did Not Save");
 //    }
+-(void)saveMenuItems
+{
     NSString* path6 = [self dataFilePathofDocuments:@"menuItemsArray.archive"];
     BOOL success6 = [NSKeyedArchiver archiveRootObject:self.menuItemsArray toFile:path6];
     if (!success6) {

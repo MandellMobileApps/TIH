@@ -14,6 +14,7 @@
 #import "AddMenuItemViewController.h"
 #import "NewMenuItemViewController.h"
 #import "AppDelegate.h"
+#import "RecipeDetailViewController.h"
 
 @interface MenuDayViewController ()
 
@@ -126,23 +127,31 @@
     }
     else if (indexPath.section == 1)
     {
-        thisMenuItem = [self.selectedMenuDay.breakfastMenuItems objectAtIndex:indexPath.row];
+        thisMenuItem = [self.selectedMenuDay.lunchMenuItems objectAtIndex:indexPath.row];
 
     }
     else if (indexPath.section == 2)
     {
-        thisMenuItem = [self.selectedMenuDay.breakfastMenuItems objectAtIndex:indexPath.row];
+        thisMenuItem = [self.selectedMenuDay.dinnerMenuItems objectAtIndex:indexPath.row];
 
     }
     else if (indexPath.section == 3)
     {
-        thisMenuItem = [self.selectedMenuDay.breakfastMenuItems objectAtIndex:indexPath.row];
+        thisMenuItem = [self.selectedMenuDay.snackMenuItems objectAtIndex:indexPath.row];
 
     }
 
     if (thisMenuItem.recipeId>0)
     {
-    
+        NSString* recipeDetailSql = [NSString stringWithFormat:@"SELECT * FROM Recipes WHERE RecordId = %lu",thisMenuItem.recipeId];
+        NSArray* returnedRecipes = [SQLiteAccess selectManyRowsWithSQL:recipeDetailSql]; // should only be one
+        if (returnedRecipes.count>0)
+        {
+            NSDictionary* thisRecipeDetail = [returnedRecipes objectAtIndex:0];
+            RecipeDetailViewController* recipeDetailViewController = (RecipeDetailViewController*)[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RecipeDetailViewController"];
+            recipeDetailViewController.object = thisRecipeDetail;
+            [self.navigationController pushViewController:recipeDetailViewController animated:YES];
+        }
     }
     else
     {

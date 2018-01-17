@@ -69,24 +69,32 @@
     switch (sender.tag) {
   case 1:{
     [self updateMenuItem];
-    if (self.newMenuItem)
-    {
-        [self.addMenuItemViewController addMenuItemToAllArray:self.menuItem];
+    if (self.menuItem.menuItemName.length>0)
+        {
+        if (self.newMenuItem)
+        {
+            [self.addMenuItemViewController addMenuItemToAllArray:self.menuItem];
+        }
+        else
+        {
+            if (self.addMenuItemViewController)
+            {
+                [self.addMenuItemViewController updateMenuItemInAllArray:self.menuItem];
+            }
+            else if (self.menuDayViewController)
+            {
+                 [self.menuDayViewController updateMenuItemInAllArray:self.menuItem];
+            }
+        }
+        [self.appDelegate saveMenuItems];
+
+        [self dismissViewControllerAnimated:YES completion:^{}];
     }
     else
     {
-        if (self.addMenuItemViewController)
-        {
-            [self.addMenuItemViewController updateMenuItemInAllArray:self.menuItem];
-        }
-        else if (self.menuDayViewController)
-        {
-             [self.menuDayViewController updateMenuItemInAllArray:self.menuItem];
-        }
+        [self displayAlert:@"You must enter name"];
+    
     }
-    [self.appDelegate saveMenuItems];
-
-    [self dismissViewControllerAnimated:YES completion:^{}];
     break;}
   case 2:
     if (self.changeMade)

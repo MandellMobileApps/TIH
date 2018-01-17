@@ -249,7 +249,7 @@
     
     if (section == 0)
     {
-        [headerLabel setText:[NSString stringWithFormat:@"Selected Menu Items for %@",self.selectedMenuDayName]];
+        [headerLabel setText:[NSString stringWithFormat:@"Selected for %@ %@",self.selectedMenuDayName,[Food nameForMealType:self.selectedMenuDay.selectedMealType]]];
         [headerView addSubview:headerLabel];
     }
     else if (section == 1)

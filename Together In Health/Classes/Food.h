@@ -35,6 +35,6 @@ enum mealType {
 
 
 
-
++(NSString*)nameForMealType:(NSInteger)type;
 
 @end

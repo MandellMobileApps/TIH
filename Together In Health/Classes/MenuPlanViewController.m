@@ -273,7 +273,7 @@ enum menuPlanIndex {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    CGFloat h = 50;
+    CGFloat h = 66;
     
     return h;
 }

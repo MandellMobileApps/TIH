@@ -42,6 +42,31 @@
 
 }
 
++(NSString*)nameForMealType:(NSInteger)type
+{
+switch (type) {
+  case mealTypeBreakfast:
+    return @"Breakfast";
+    break;
+  case mealTypeLunch:
+    return @"Lunch";
+    break;
+  case mealTypeDinner:
+    return @"Dinner";
+    break;
+  case mealTypeSnack:
+    return @"Snack";
+    break;
+  case mealTypeWater:
+    return @"Water";
+    break;
 
+  default:
+    break;
+
+}
+    
+    return nil;
+}
 
 @end

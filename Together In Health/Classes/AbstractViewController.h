@@ -45,6 +45,8 @@ enum ButtonIndex {
 
 @property(nonatomic,strong) IBOutlet UILabel* navbarTitleLabel;
 @property(nonatomic,strong) IBOutlet UIView* navbarView;
+@property(nonatomic,strong) IBOutlet UIButton* leftNavbarButton;
+@property(nonatomic,strong) IBOutlet UIButton* RightNavbarButton;
 @property (strong, nonatomic) IBOutlet UITableView *thisTableView;
 
 @property(nonatomic) BOOL changeMade;

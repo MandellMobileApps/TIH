@@ -11,8 +11,8 @@
 
 @interface GenericWebViewController : AbstractViewController
 
-@property (nonatomic) int webViewType;
-@property (nonatomic) int webViewType2;
+@property (nonatomic) NSInteger webViewType;
+@property (nonatomic) NSInteger webViewType2;
 @property (nonatomic, strong) IBOutlet UIWebView *thisWebView;
 @property (nonatomic, strong) IBOutlet UIImageView *thisImage;
 

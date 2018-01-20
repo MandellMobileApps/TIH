@@ -73,7 +73,7 @@
     self.dataArray = [NSArray arrayWithObjects:
                       [NSMutableDictionary dictionaryWithObjectsAndKeys:self.appDelegate.day.sleepTime, @"time", @"Went to bed", @"label", nil],
                       [NSMutableDictionary dictionaryWithObjectsAndKeys:self.appDelegate.day.wakeTime, @"time", @"Woke Up", @"label", nil], nil];
-    //[self updateArrays];
+    NSLog (@"dataArray %@",self.dataArray);
     [self.thisTableView reloadData];
     
 }
@@ -102,7 +102,7 @@
     self.dataArray = [NSArray arrayWithObjects:
                       [NSMutableDictionary dictionaryWithObjectsAndKeys:self.appDelegate.day.sleepTime, @"time", @"Went to bed", @"label", nil],
                       [NSMutableDictionary dictionaryWithObjectsAndKeys:self.appDelegate.day.wakeTime, @"time", @"Woke Up", @"label", nil], nil];
-    
+    NSLog (@"dataArray2 %@",self.dataArray);
    // self.day.date = sender.date;
     
     [self.thisTableView reloadData];
@@ -208,10 +208,10 @@
     NSMutableDictionary *temp = [self.dataArray objectAtIndex:indexPath.row];
     
     MyCell.textLabel.text = [temp objectForKey:@"label"];
-
+NSLog (@"temp %@",[temp objectForKey:@"time"]);
         
     MyCell.detailTextLabel.text = [self.dateFormatter stringFromDate:[temp objectForKey:@"time"]];
-
+NSLog (@"text %@",MyCell.detailTextLabel.text);
     
     return MyCell;
 
@@ -221,7 +221,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSMutableDictionary *temp = [self.dataArray objectAtIndex:indexPath.row];
-    self.pickerView.date = [temp objectForKey:@"time"];
+    self.datePickerView.date = [temp objectForKey:@"time"];
     [self showDatePickerForIndex:indexPath.row];
     self.pickerViewContainer.hidden = NO;
 }

@@ -235,6 +235,8 @@
     addButton.backgroundColor = [UIColor whiteColor];
     addButton.layer.cornerRadius = 15;
     
+
+    
     
     if (section == 0) {
         
@@ -253,6 +255,12 @@
     
     else if (section == 3) {
         [headerView addSubview:headerLabel];
+        if ([self goalAchieved])
+        {
+            UIImageView* goalImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Star.png"]];
+            goalImageView.frame=CGRectMake(self.view.bounds.size.width-190, 0, 33, 33);
+            [headerView addSubview:goalImageView];
+        }
     }
     
     return headerView;
@@ -359,6 +367,20 @@
     }
      NSString* string = [NSString stringWithFormat:@"%ld",(long)total];
     return string;
+}
+-(BOOL)goalAchieved
+{
+    NSInteger total = 0;
+    for (Activity* item in self.appDelegate.day.activityArray)
+    {
+        total = total + [item.time integerValue];
+    
+    }
+    if (total>=self.appDelegate.dailyActivityGoal)
+    {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

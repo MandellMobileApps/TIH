@@ -46,16 +46,14 @@
 -(IBAction)rateSleep:(id)sender;
 -(IBAction)rested:(id)sender;
 
-@property (nonatomic, strong) IBOutlet UIDatePicker *pickerView;
-@property (nonatomic, strong) IBOutlet UIView *pickerViewContainer;
-@property (nonatomic, strong) IBOutlet UITableView* thisTableView;
+
 @property (nonatomic, strong) NSDate *beginSleephours;
 @property (nonatomic, strong) NSDate *endSleephours;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSArray *detaildataArray;
 @property (nonatomic, strong) NSArray *opendetaildataArray;
 @property (nonatomic, retain) NSDateFormatter *dateFormatter;
-@property (nonatomic) int currentSelection;
+@property (nonatomic) NSInteger currentSelection;
 
 - (IBAction)dateAction:(id)sender;
 -(IBAction)datePickerDoneButtonTapped:(id)sender;

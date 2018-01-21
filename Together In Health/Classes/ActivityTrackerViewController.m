@@ -382,7 +382,10 @@
     }
     if (total>=self.appDelegate.dailyActivityGoal)
     {
-        return YES;
+        if (self.appDelegate.dailyActivityGoal > 0)
+        {
+            return YES;
+        }
     }
     return NO;
 }

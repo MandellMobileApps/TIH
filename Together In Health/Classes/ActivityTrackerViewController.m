@@ -140,7 +140,11 @@
 {
     
     // Return the number of sections.
-    return 4;
+    if (self.appDelegate.subscriptionLevel >0)
+    {
+        return 4;
+    }
+    return 3;
     
     //return for distance traveled
     //return 4;
@@ -378,7 +382,10 @@
     }
     if (total>=self.appDelegate.dailyActivityGoal)
     {
-        return YES;
+        if (self.appDelegate.dailyActivityGoal > 0)
+        {
+            return YES;
+        }
     }
     return NO;
 }

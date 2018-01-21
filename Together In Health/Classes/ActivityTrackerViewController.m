@@ -426,6 +426,7 @@
 -(void)activityUpdated:(Activity*)activity
 {
     [self.appDelegate.day.activityArray replaceObjectAtIndex:activity.activityArrayIndex withObject:activity];
+    [self.appDelegate savePersistent];
     [self updateArrays];
     [self resetDay];
     

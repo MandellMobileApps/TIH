@@ -34,13 +34,13 @@ enum menuPlanIndex {
     
     
     self.weekdays = [NSArray arrayWithObjects:
-                         @"Sunday",
                          @"Monday",
                          @"Tuesday",
                          @"Wednesday",
                          @"Thursday",
                          @"Friday",
                          @"Saturday",
+                         @"Sunday",
                          nil];
     
     [self.appDelegate loadMenuPlan];

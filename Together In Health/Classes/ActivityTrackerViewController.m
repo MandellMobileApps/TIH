@@ -258,7 +258,7 @@
         if ([self goalAchieved])
         {
             UIImageView* goalImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Star.png"]];
-            goalImageView.frame=CGRectMake(self.view.bounds.size.width-190, 0, 33, 33);
+            goalImageView.frame=CGRectMake(self.view.bounds.size.width-70, 3, 27, 27);
             [headerView addSubview:goalImageView];
         }
     }

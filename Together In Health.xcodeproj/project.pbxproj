@@ -13,6 +13,9 @@
 		360DB1881C12809F00FBE90F /* TrackWaterPickerView.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1861C12809F00FBE90F /* TrackWaterPickerView.png */; };
 		360DB18A1C14DDAC00FBE90F /* QuestionMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1891C14DDAC00FBE90F /* QuestionMark.png */; };
 		360F9E6E1FC0CCAB00190565 /* GoalTabImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 360F9E6D1FC0CCAA00190565 /* GoalTabImage.png */; };
+		361AC1D820161EDD0064EFD6 /* UpgradeDrinks.png in Resources */ = {isa = PBXBuildFile; fileRef = 361AC1D520161EDC0064EFD6 /* UpgradeDrinks.png */; };
+		361AC1DB20161F9C0064EFD6 /* UpGradeMenuPlan2.png in Resources */ = {isa = PBXBuildFile; fileRef = 361AC1D920161F9A0064EFD6 /* UpGradeMenuPlan2.png */; };
+		361AC1DC20161F9C0064EFD6 /* UpgradeActivity2.png in Resources */ = {isa = PBXBuildFile; fileRef = 361AC1DA20161F9B0064EFD6 /* UpgradeActivity2.png */; };
 		361BC4511F9173830011A20E /* GoalGamePlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4501F9173830011A20E /* GoalGamePlanViewController.m */; };
 		361BC45C1F92E6F80011A20E /* Panang Curry.html in Resources */ = {isa = PBXBuildFile; fileRef = 361BC45B1F92E6F80011A20E /* Panang Curry.html */; };
 		361BC4611F9D2AB40011A20E /* DessertPlate.png in Resources */ = {isa = PBXBuildFile; fileRef = 361BC4601F9D2AB30011A20E /* DessertPlate.png */; };
@@ -289,6 +292,9 @@
 		360DB1861C12809F00FBE90F /* TrackWaterPickerView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrackWaterPickerView.png; sourceTree = "<group>"; };
 		360DB1891C14DDAC00FBE90F /* QuestionMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = QuestionMark.png; path = "../../Together In Health.xcodeproj/QuestionMark.png"; sourceTree = "<group>"; };
 		360F9E6D1FC0CCAA00190565 /* GoalTabImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoalTabImage.png; sourceTree = "<group>"; };
+		361AC1D520161EDC0064EFD6 /* UpgradeDrinks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeDrinks.png; sourceTree = "<group>"; };
+		361AC1D920161F9A0064EFD6 /* UpGradeMenuPlan2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpGradeMenuPlan2.png; sourceTree = "<group>"; };
+		361AC1DA20161F9B0064EFD6 /* UpgradeActivity2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeActivity2.png; sourceTree = "<group>"; };
 		361BC44F1F9173830011A20E /* GoalGamePlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalGamePlanViewController.h; sourceTree = "<group>"; };
 		361BC4501F9173830011A20E /* GoalGamePlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalGamePlanViewController.m; sourceTree = "<group>"; };
 		361BC45B1F92E6F80011A20E /* Panang Curry.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Panang Curry.html"; sourceTree = "<group>"; };
@@ -1044,6 +1050,9 @@
 		6A91E3FF1BE2679300A72CCA /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				361AC1DA20161F9B0064EFD6 /* UpgradeActivity2.png */,
+				361AC1D920161F9A0064EFD6 /* UpGradeMenuPlan2.png */,
+				361AC1D520161EDC0064EFD6 /* UpgradeDrinks.png */,
 				3650D26A1FD84A0300F6AFAD /* SweetsFriedUpGrade.png */,
 				3650D2681FD5E75700F6AFAD /* GoalsCalendarUpgrade.png */,
 				3650D25F1FD5E22700F6AFAD /* DrinksUpgrade.png */,
@@ -1228,6 +1237,7 @@
 				6A91E4C31BE2679300A72CCA /* Resetimage2.png in Resources */,
 				36FE38F81C0A0874002E341E /* Balanced Plate19.png in Resources */,
 				6A91E4BA1BE2679300A72CCA /* ChosenPlate.png in Resources */,
+				361AC1DC20161F9C0064EFD6 /* UpgradeActivity2.png in Resources */,
 				36FE39021C0A0874002E341E /* Balanced Plate29.png in Resources */,
 				3650D26D1FEAC4ED00F6AFAD /* GoalCalendarDirections.png in Resources */,
 				3650D25C1FD58B0D00F6AFAD /* MoodImagesUpgradePage.png in Resources */,
@@ -1248,6 +1258,7 @@
 				6A91E4C41BE2679300A72CCA /* Resetimage3.png in Resources */,
 				36FE38FE1C0A0874002E341E /* Balanced Plate25.png in Resources */,
 				6A91E3361BE2625500A72CCA /* LaunchScreen.storyboard in Resources */,
+				361AC1DB20161F9C0064EFD6 /* UpGradeMenuPlan2.png in Resources */,
 				6A91E4AD1BE2679300A72CCA /* Balanced Plate3.png in Resources */,
 				6A91E4A51BE2679300A72CCA /* Balanced Plate11.png in Resources */,
 				36FE393D1C0BB46F002E341E /* TrackActivity.png in Resources */,
@@ -1303,6 +1314,7 @@
 				6A91E4BF1BE2679300A72CCA /* forwardButton3.png in Resources */,
 				6A91E4A01BE2679300A72CCA /* arrowright.png in Resources */,
 				6A91E4AB1BE2679300A72CCA /* Balanced Plate17.png in Resources */,
+				361AC1D820161EDD0064EFD6 /* UpgradeDrinks.png in Resources */,
 				6A91E4881BE2679300A72CCA /* FAQs.html in Resources */,
 				6A91E4BC1BE2679300A72CCA /* FoodLabel2.png in Resources */,
 				6A91E47E1BE2679300A72CCA /* BlogPostW2.html in Resources */,

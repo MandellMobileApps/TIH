@@ -22,7 +22,7 @@
     self.emailContainerView.hidden = YES;
     CGRect scrollViewFrame = CGRectMake(0,64,self.view.bounds.size.width,self.view.bounds.size.height-64);
     self.thisScrollView.frame = scrollViewFrame;
-    self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 2000);
+    self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 2350);
 
     // Do any additional setup after loading the view.
 }

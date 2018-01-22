@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:UpgradeActivity.png">
+   </FileRef>
+   <FileRef
+      location = "group:UpgradeDrink.png">
+   </FileRef>
+   <FileRef
+      location = "group:UpgradeMenuPlan.png">
+   </FileRef>
+   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

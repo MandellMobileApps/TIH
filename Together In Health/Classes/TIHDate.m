@@ -115,25 +115,25 @@
     NSString* thisDayOfWeekString;
       switch (dayOfWeek) {
       case 0:
-        thisDayOfWeekString = @"Sunday";
-        break;
-      case 1:
         thisDayOfWeekString = @"Monday";
         break;
-      case 2:
+      case 1:
         thisDayOfWeekString = @"Tuesday";
         break;
-      case 3:
+      case 2:
         thisDayOfWeekString = @"Wednesday";
         break;
-      case 4:
+      case 3:
         thisDayOfWeekString = @"Thursday";
         break;
-      case 5:
+      case 4:
         thisDayOfWeekString = @"Friday";
         break;
-      case 6:
+      case 5:
         thisDayOfWeekString = @"Saturday";
+        break;
+      case 6:
+        thisDayOfWeekString = @"Sunday";
         break;
       default:
         break;

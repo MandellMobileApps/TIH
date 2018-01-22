@@ -377,6 +377,9 @@
 
 -(void) showDayView
 {
+    if (self.appDelegate.subscriptionLevel>0)
+    {
+    
     self.coverButton.enabled = YES;
     float w = 300;
     float h = 250;
@@ -412,7 +415,12 @@
         completion:^(BOOL finished){
 
         }];
-
+    }
+    else
+    {
+        [self loadUpgradeViewController];
+    
+    }
 }
 
 -(void)hideDayView

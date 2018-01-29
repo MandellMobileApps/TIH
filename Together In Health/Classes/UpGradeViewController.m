@@ -63,6 +63,7 @@
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(IBAction)submitButtonTapped:(UIButton*)sender
@@ -75,10 +76,10 @@
         
         switch (sender.tag) {
             case 0:
-                [self.appDelegate upsertContactForEmail:self.emailTextField.text atSubcriptionLevel:1 inController:self];
+                [self.appDelegate upsertContactForEmail:self.emailTextField.text atSubcriptionLevel:1 forPaymentTerm:@"" inController:self];
                 break;
             case 1:
-                [self.appDelegate upsertContactForEmail:self.emailTextField.text atSubcriptionLevel:2 inController:self];
+                [self.appDelegate upsertContactForEmail:self.emailTextField.text atSubcriptionLevel:2 forPaymentTerm:@"" inController:self];
                 break;
             default:
                 break;

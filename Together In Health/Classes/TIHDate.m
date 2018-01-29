@@ -540,7 +540,14 @@
     return date;
 }
 
-
++(BOOL)dateMoreThanAWeekOld:(NSDate*)date
+{
+    NSDate* date1 = [date dateByAddingTimeInterval:60*60*24*7];
+    if ([date1 compare:[NSDate date]] == NSOrderedDescending) {
+        return NO;
+    }
+    return YES;
+}
 //-(NSDate *) toLocalTime
 //{
 //    NSTimeZone *tz = [NSTimeZone localTimeZone];

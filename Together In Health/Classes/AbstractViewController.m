@@ -57,6 +57,19 @@
 
 -(void)updateData{}
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (self.appDelegate.subscriptionLevel == 0)
+    {
+        self.upgradeNowButton.hidden = NO;
+    }
+    else
+    {
+        self.upgradeNowButton.hidden = YES;
+    }
+
+}
 -(void)viewDidAppear:(BOOL)animated
 {
     
@@ -331,6 +344,9 @@
     }
     
 }
+
+
+
 
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
@@ -796,6 +812,17 @@
         }];
 }
 
+-(void)loadUpgradeViewControllerWithEmail
+{
+    self.upGradeViewController = (UpGradeViewController*)
+    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+     instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
+     [self.upGradeViewController showEmailViewNow];
+    [self presentViewController:self.upGradeViewController animated:YES completion:^{
+
+        }];
+
+}
 -(NSArray*)objectsForFilename:(NSString*)filename
 {
     NSString* path1 = [self dataFilePathofDocuments:[NSString stringWithFormat:@"%@.plist",filename]];
@@ -818,8 +845,6 @@
     return nil;
     
 }
-
-
 
 
 

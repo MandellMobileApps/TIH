@@ -80,28 +80,7 @@ enum menuPlanIndex {
     
     [self performSelector:@selector(delayedLoad) withObject:nil afterDelay:0.5];
     
-//        switch (self.appDelegate.subscriptionLevel) {
-//    
-//            case SubscriptionFree:
-//
-//                self.upgradeButton.hidden = NO;
-//                self.upgradeButton.enabled = YES;
-//
-//                break;
-//            case SubscriptionPaid1:
-//
-//               self.upgradeButton.hidden = NO;
-//                self.upgradeButton.enabled = NO;
-//                break;
-//
-//            case SubscriptionPaid2:
-//
-//                self.upgradeButton.hidden = NO;
-//                self.upgradeButton.enabled = NO;
-//                break;
-//            default:
-//                break;
-//        }
+
 //    UIBarButtonItem* resetButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(reset:)];
 //    
 //    self.navigationItem.leftBarButtonItem = resetButton;
@@ -111,7 +90,32 @@ enum menuPlanIndex {
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self checkSubscriptionLevel];
     [self.thisTableView reloadData];
+}
+
+-(void)checkSubscriptionLevel
+{
+        switch (self.appDelegate.subscriptionLevel) {
+    
+            case SubscriptionFree:
+
+                self.coverButton.hidden = NO;
+                break;
+            case SubscriptionPaid1:
+
+               self.coverButton.hidden = YES;
+
+                break;
+
+            case SubscriptionPaid2:
+                self.coverButton.hidden = YES;
+
+                break;
+            default:
+                break;
+        }
+
 }
 -(void)updateMenuButtons
 {
@@ -137,6 +141,12 @@ enum menuPlanIndex {
             self.addMenuItemButton.enabled = NO;
             break;
     }
+}
+
+-(IBAction)coverButtonTapped:(id)sender
+{
+    [self loadUpgradeViewController];
+
 }
 
 //-(IBAction)menuPlan:(*UIButton)sender

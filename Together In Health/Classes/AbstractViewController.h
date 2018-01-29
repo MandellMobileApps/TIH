@@ -71,11 +71,14 @@ enum ButtonIndex {
 -(void) updateForOrientationChange;
 -(BOOL)string:(NSString*)string containsString:(NSString*)other;
 
+
+
 @property (nonatomic) BOOL transitioning;
 @property (nonatomic) BOOL keypadShowing;
 
 @property (nonatomic, strong) DatePickerView *datePickerView;
 @property (nonatomic, strong) PickerContainerView *pickerContainerView;
+
 @property(nonatomic,strong) IBOutlet UILabel* drinkPickerLabel;
 
 @property(nonatomic,strong) UIView* numberPadView;
@@ -123,7 +126,9 @@ enum ButtonIndex {
 -(void)displayAlert:(NSString*)message;
 
 @property (nonatomic, strong)UpGradeViewController* upGradeViewController;
--(void)loadUpgradeViewController;
+-(IBAction)loadUpgradeViewController;
+-(IBAction)loadUpgradeViewControllerWithEmail;
+@property(nonatomic, strong) IBOutlet UIButton* upgradeNowButton;
 
 -(void)verifyCancel;
 

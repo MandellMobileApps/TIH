@@ -19,11 +19,13 @@
     [super viewDidLoad];
     [self updateUI];
     [self enableControls];
-    self.emailContainerView.hidden = YES;
+
     CGRect scrollViewFrame = CGRectMake(0,64,self.view.bounds.size.width,self.view.bounds.size.height-64);
     self.thisScrollView.frame = scrollViewFrame;
     self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 2350);
-
+    self.keypadShowing = NO;
+    self.emailShowing = NO;
+    self.emailContainerView.hidden = YES;
     // Do any additional setup after loading the view.
 }
 
@@ -37,6 +39,7 @@
     self.doneButton.enabled = YES;
     self.sub1Button.enabled = YES;
     self.sub2Button.enabled = YES;
+    self.upgradeNowButton.enabled = YES;
     self.emailTextField.enabled = YES;
     [self.activityView stopAnimating];
 }
@@ -45,12 +48,14 @@
     self.doneButton.enabled = NO;
     self.sub1Button.enabled = NO;
     self.sub2Button.enabled = NO;
+    self.upgradeNowButton.enabled = NO;
     self.emailTextField.enabled = NO;
     [self.activityView startAnimating];
 }
 -(void)updateUI
 {
-    // update if existing email and subscription
+    NSString* email = [[NSUserDefaults standardUserDefaults] objectForKey:@"contactEmail"];
+    self.emailTextField.text = email;
 }
 
 -(IBAction)doneButtonTapped:(UIButton*)sender
@@ -60,11 +65,14 @@
     }];
 }
 
--(IBAction)buttonTapped:(UIButton*)sender
+-(IBAction)submitButtonTapped:(UIButton*)sender
 {
     if ([self validEmail:self.emailTextField.text])
     {
         [self disableControls];
+        self.timeoutTimer = [NSTimer timerWithTimeInterval:30 target:self selector:@selector(submitTimedOut) userInfo:nil repeats:NO];
+        [[NSRunLoop mainRunLoop] addTimer:self.timeoutTimer forMode:NSDefaultRunLoopMode];
+        
         switch (sender.tag) {
             case 0:
                 [self.appDelegate upsertContactForEmail:self.emailTextField.text atSubcriptionLevel:1 inController:self];
@@ -83,6 +91,14 @@
     }
     
 }
+
+-(void)submitTimedOut
+{
+    [self displayAlert:@"Upgrade Timed Out\nPlease Verify Intenet Connection\nOr Contact Support"];
+    [self enableControls];
+
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -103,15 +119,65 @@
 
 -(void)subscriptionCompleteWithSuccess:(BOOL)success
 {
+    [self.timeoutTimer invalidate];
     if (success)
     {
-        [self.navigationController popViewControllerAnimated:YES];
+        [self displayAlert:@"Upgrade Succesful!"];
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
     }
     else
     {
+        [self displayAlert:@"Upgrade Not Successful\nPlease Contace Support"];
         [self enableControls];
     }
 }
+
+#pragma mark -  Show Email View methods
+                                                       // array of rows in order of components
+-(IBAction)showEmailView
+{
+    if (!self.emailShowing)
+    {
+        self.emailShowing = YES;
+        
+        CGRect hideRect = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 0);
+        CGRect showRect= CGRectMake(0, 64, self.view.bounds.size.width, 182);
+        self.emailContainerView.clipsToBounds = YES;
+        self.emailContainerView.frame = hideRect;
+        self.emailContainerView.backgroundColor = [UIColor lightGrayColor];
+        self.emailContainerView.hidden = NO;
+
+            [UIView animateWithDuration:0.3
+                animations:^
+                {
+                    self.emailContainerView.frame = showRect;
+
+                }
+                completion:^(BOOL finished)
+                {
+
+                 }];
+    }
+}
+
+-(IBAction)showEmailViewNow
+{
+    if (!self.emailShowing)
+    {
+        self.emailShowing = YES;
+        
+        CGRect showRect= CGRectMake(0, 64, self.view.bounds.size.width, 182);
+        self.emailContainerView.clipsToBounds = YES;
+        self.emailContainerView.frame = showRect;
+        self.emailContainerView.backgroundColor = [UIColor lightGrayColor];
+        self.emailContainerView.hidden = NO;
+
+    }
+}
+
+
 
 /*
 #pragma mark - Navigation

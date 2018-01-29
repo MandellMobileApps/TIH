@@ -39,6 +39,8 @@
 @property (nonatomic, strong) IBOutlet UIButton *addMenuItemButton;
 @property (nonatomic) NSUInteger menuPlanIndex;
 
+@property (nonatomic, strong) IBOutlet UIButton *coverButton;
+
 -(IBAction)menuPlan:(id)sender;
 -(IBAction)addMenuItem:(id)sender;
 

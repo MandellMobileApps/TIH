@@ -61,7 +61,7 @@ enum trackerIndex {
    [self.drinkLockImage setContentMode:UIViewContentModeScaleAspectFit];
 
     [self food:nil];
-    [self updateMenuButtons];
+
     
     self.isAgree = [[NSUserDefaults standardUserDefaults]boolForKey:@"isAgree"];
     
@@ -82,7 +82,7 @@ enum trackerIndex {
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-
+    [self updateMenuButtons];
 
 }
 

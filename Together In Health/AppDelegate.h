@@ -56,6 +56,7 @@ enum SubscriptionLevel {
 @property (nonatomic, strong) NSString* zohoAuthToken;
 @property (nonatomic, strong) NSString* contactEmail;
 @property (nonatomic) NSInteger subscriptionLevel;
+@property (nonatomic, strong) NSDate* subscriptionDate;
 @property (nonatomic) NSInteger dailyActivityGoal;
 
 

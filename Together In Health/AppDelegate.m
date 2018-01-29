@@ -87,7 +87,12 @@
     
     self.subscriptionLevel = [[NSUserDefaults standardUserDefaults] integerForKey:@"subscriptionLevel"];
     self.dailyActivityGoal = [[NSUserDefaults standardUserDefaults] integerForKey:@"dailyActivityGoal"];
-    
+    self.subscriptionDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"subscriptionDate"];
+    if (!self.subscriptionDate)
+    {
+        self.subscriptionDate = [NSDate date];
+        [[NSUserDefaults standardUserDefaults] setObject:self.subscriptionDate forKey:@"subscriptionDate"];
+    }
     self.contactEmail = [[NSUserDefaults standardUserDefaults] objectForKey:@"contactEmail"];
     if (!self.contactEmail)
     {
@@ -98,7 +103,7 @@
     self.zohoAuthToken = @"1b761d65e759974cb77c0bf236ec1473";
     
     //  temp TODO
-//    self.subscriptionLevel = 1;
+ //   self.subscriptionLevel = 0;
 }
 
 -(void)savePersistent
@@ -477,9 +482,8 @@
     [self checkForBlogDatabaseInDocuments];
     [self checkBlogVersion];
     
-
+    [self checkSubscriptionLevel];
 }
-
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -503,7 +507,7 @@
     
     self.mgOperationsQueue = [[NSOperationQueue alloc] init];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
-        [self checkForUpdates];
+    
     
     return YES;
 }
@@ -531,7 +535,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [self checkForUpdates];
+   
 
 }
 
@@ -651,6 +655,8 @@
     [[NSUserDefaults standardUserDefaults] setObject:self.contactEmail forKey:@"contactEmail"];
     self.subscriptionLevel = subscriptionLevel;
     [[NSUserDefaults standardUserDefaults] setInteger:self.subscriptionLevel forKey:@"subscriptionLevel"];
+    self.subscriptionDate = [NSDate date];
+    [[NSUserDefaults standardUserDefaults] setObject:self.subscriptionDate forKey:@"subscriptionDate"];
     
     NSString *xmlString = [NSString stringWithFormat:
        @"<Contacts>"
@@ -690,41 +696,74 @@
 
 -(void)checkSubscriptionLevel
 {
-    NSString* method = @"https://crm.zoho.com/crm/private/json/Contacts/getSearchRecordsByPDC";
-    NSDictionary* paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                @"1",
-                                @"newFormat",
-                                self.zohoAuthToken,
-                                @"authtoken",
-                                @"crmapi",
-                                @"scope",
-                                @"email",
-                                @"searchColumn",
-                                self.contactEmail,
-                                @"searchValue",
-                                nil];
+    if (self.contactEmail.length>0)
+    {
+        if ([TIHDate dateMoreThanAWeekOld:self.subscriptionDate])
+        {
+        
+        
+            NSString* method = @"https://crm.zoho.com/crm/private/json/Contacts/getSearchRecordsByPDC";
+            NSDictionary* paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        @"1",
+                                        @"newFormat",
+                                        self.zohoAuthToken,
+                                        @"authtoken",
+                                        @"crmapi",
+                                        @"scope",
+                                        @"email",
+                                        @"searchColumn",
+                                        self.contactEmail,
+                                        @"searchValue",
+                                        nil];
 
-    NSString* urlString = [NSMutableString stringWithFormat:@"%@?%@",method,[self keyValuesForDictionary:paramsDict]];
-    NSString* urlStringEscaped =[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL* url = [NSURL URLWithString:urlStringEscaped];
-    MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url isJson:YES responseBlock:^(MgNetworkOperation2* completedOperation)
-          {
-            if (completedOperation.operationErrorMessage.length>0)
-            {
-                [self displayAlert:completedOperation.operationErrorMessage];
-            }
-            else
-            {
-               NSLog(@"rawResponse %@\n\n",completedOperation.rawResponse);
-//                self.subscriptionLevel = subscriptionLevel;
-//                [[NSUserDefaults standardUserDefaults] setInteger:self.subscriptionLevel forKey:@"subscriptionLevel"];
-            }
-              
-    }];
+            NSString* urlString = [NSMutableString stringWithFormat:@"%@?%@",method,[self keyValuesForDictionary:paramsDict]];
+            NSString* urlStringEscaped =[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSURL* url = [NSURL URLWithString:urlStringEscaped];
+            MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url isJson:YES responseBlock:^(MgNetworkOperation2* completedOperation)
+                  {
+                    if (completedOperation.operationErrorMessage.length>0)
+                    {
+                        [self displayAlert:completedOperation.operationErrorMessage];
+                    }
+                    else
+                    {
+                       NSLog(@"rawResponse %@\n\n",completedOperation.rawResponse);
+                       if (completedOperation.json)
+                       {
+                            NSDictionary* response = [completedOperation.json objectForKey:@"response"];
+                            if (response)
+                            {
+                                NSDictionary* result = [response objectForKey:@"result"];
+                                if (result)
+                                {
+                                    NSDictionary* Contacts = [result objectForKey:@"Contacts"];
+                                    if (Contacts)
+                                    {
+                                        NSDictionary* row = [Contacts objectForKey:@"row"];
+                                        if (row)
+                                        {
+                                            NSArray* FL = [row objectForKey:@"FL"];
+                                            for (NSDictionary* item in FL)
+                                            {
+                                                if ([[item objectForKey:@"val"] isEqualToString:@"SubscriptionLevel"])
+                                                {
+                                                    self.subscriptionLevel = [[item objectForKey:@"content"] integerValue];
+                                                    [[NSUserDefaults standardUserDefaults] setInteger:self.subscriptionLevel forKey:@"subscriptionLevel"];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                       }
+                    }
+                      
+            }];
 
-    [self.mgOperationsQueue addOperation:mgOperation];
-    
-    
+            [self.mgOperationsQueue addOperation:mgOperation];
+        
+        }
+    }
 }
 
 

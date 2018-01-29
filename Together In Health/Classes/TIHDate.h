@@ -96,4 +96,5 @@ enum DateFormat {
 +(NSDate*) dateFromComponentsMonth:(NSInteger)month day:(NSInteger)day year:(NSUInteger)year;
 +(NSString*)dayOfWeekString:(NSInteger)dayOfWeek;
 +(NSString*) dayOfWeekStringFromDate:(NSDate*)date;
++(BOOL)dateMoreThanAWeekOld:(NSDate*)date;
 @end

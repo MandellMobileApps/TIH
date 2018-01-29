@@ -56,6 +56,7 @@ enum SubscriptionLevel {
 @property (nonatomic, strong) NSString* zohoAuthToken;
 @property (nonatomic, strong) NSString* contactEmail;
 @property (nonatomic) NSInteger subscriptionLevel;
+@property (nonatomic, strong) NSString* paymentTerm;
 @property (nonatomic, strong) NSDate* subscriptionDate;
 @property (nonatomic) NSInteger dailyActivityGoal;
 
@@ -71,7 +72,7 @@ enum SubscriptionLevel {
 -(void) loadGoals;
 -(UIColor*)defaultGoalColors:(NSInteger)g;
 -(void)saveGoals;
--(void)upsertContactForEmail:(NSString*)email atSubcriptionLevel:(NSInteger)subscriptionLevel inController:(UpGradeViewController*)controller;
+-(void)upsertContactForEmail:(NSString*)email atSubcriptionLevel:(NSInteger)subscriptionLevel forPaymentTerm:(NSString*)term inController:(UpGradeViewController*)controller;
 -(void)checkSubscriptionLevel;
 -(void)loadMenuPlan;
 -(void)loadMenuItems;

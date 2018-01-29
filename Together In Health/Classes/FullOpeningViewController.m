@@ -20,6 +20,7 @@
 #import "GenericWebViewController2.h"
 #import "MenuItem.h"
 #import "UnderstandBalanceViewController.h"
+#import "UpGradeViewController.h"
 
 @implementation FullOpeningViewController
 
@@ -69,6 +70,7 @@
                            @"Share with a friend",
                            @"Rate this App",
                            @"Terms and Conditions",
+                           @"Subscription",
                            nil];
     
     
@@ -613,7 +615,14 @@ switch (indexPath.section) {
             [self.navigationController pushViewController:genericWebViewController2 animated:YES];
             
         }
-
+        else if (indexPath.row == 8) {
+            
+            UpGradeViewController* upGradeViewController = (UpGradeViewController*)
+            [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+             instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
+            [self.navigationController pushViewController:upGradeViewController animated:YES];
+            
+        }
         break;
         default:
         break;

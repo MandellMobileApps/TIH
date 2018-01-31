@@ -22,7 +22,7 @@
 
     CGRect scrollViewFrame = CGRectMake(0,64,self.view.bounds.size.width,self.view.bounds.size.height-64);
     self.thisScrollView.frame = scrollViewFrame;
-    self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 2380);
+    self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 2390);
     self.keypadShowing = NO;
     self.emailShowing = NO;
     self.emailContainerView.hidden = YES;

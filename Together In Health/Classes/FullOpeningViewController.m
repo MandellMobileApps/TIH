@@ -21,6 +21,7 @@
 #import "MenuItem.h"
 #import "UnderstandBalanceViewController.h"
 #import "UpGradeViewController.h"
+#import "SubscriptionViewController.h"
 
 @implementation FullOpeningViewController
 
@@ -617,10 +618,10 @@ switch (indexPath.section) {
         }
         else if (indexPath.row == 8) {
             
-            UpGradeViewController* upGradeViewController = (UpGradeViewController*)
-            [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-             instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
-            [self.navigationController pushViewController:upGradeViewController animated:YES];
+            SubscriptionViewController* subscriptionViewController = (SubscriptionViewController*)
+            [[UIStoryboard storyboardWithName:@"More" bundle:nil]
+             instantiateViewControllerWithIdentifier:@"SubscriptionViewController"];
+            [self.navigationController pushViewController:subscriptionViewController animated:YES];
             
         }
         break;

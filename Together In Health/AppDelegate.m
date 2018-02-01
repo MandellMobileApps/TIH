@@ -666,7 +666,7 @@ self.subscriptionLevel = 0;
        "<FL val=\"Last Name\">%@</FL>"
        "<FL val=\"Email\">%@</FL>"
        "<FL val=\"SubscriptionLevel\">%lu</FL>"
-       "<FL val=\"PaymentTerm\">%lu</FL>"
+       "<FL val=\"PaymentTerm\">%@</FL>"
        "</row>"
        "</Contacts>",
        email,email,subscriptionLevel,term];

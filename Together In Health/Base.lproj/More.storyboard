@@ -122,11 +122,11 @@
             <objects>
                 <viewController storyboardIdentifier="SubscriptionViewController" id="sYR-JS-RhT" customClass="SubscriptionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m3s-h6-Vt3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="2200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" id="epr-Fi-inW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="2500"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="4033"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="Mjq-TD-dH6">
@@ -349,6 +349,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <size key="freeformSize" width="375" height="2200"/>
                     <connections>
                         <outlet property="emailContainerView" destination="a9A-V3-iuO" id="RI2-Y2-Q3M"/>
                         <outlet property="thisScrollView" destination="8UV-GB-LCk" id="qDW-d8-VhD"/>

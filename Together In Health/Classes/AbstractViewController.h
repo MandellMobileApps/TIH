@@ -127,7 +127,6 @@ enum ButtonIndex {
 
 @property (nonatomic, strong)UpGradeViewController* upGradeViewController;
 -(IBAction)loadUpgradeViewController;
--(IBAction)loadUpgradeViewControllerWithEmail;
 @property(nonatomic, strong) IBOutlet UIButton* upgradeNowButton;
 
 -(void)verifyCancel;

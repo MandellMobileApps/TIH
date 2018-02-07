@@ -812,17 +812,7 @@
         }];
 }
 
--(void)loadUpgradeViewControllerWithEmail
-{
-    self.upGradeViewController = (UpGradeViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"UpGradeViewController"];
-     [self.upGradeViewController showEmailViewNow];
-    [self presentViewController:self.upGradeViewController animated:YES completion:^{
 
-        }];
-
-}
 -(NSArray*)objectsForFilename:(NSString*)filename
 {
     NSString* path1 = [self dataFilePathofDocuments:[NSString stringWithFormat:@"%@.plist",filename]];

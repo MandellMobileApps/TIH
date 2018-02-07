@@ -649,14 +649,14 @@ self.subscriptionLevel = 0;
 #pragma mark  Zoho Methods
 
 
--(void)upsertContactForEmail:(NSString*)email atSubcriptionLevel:(NSInteger)subscriptionLevel forPaymentTerm:(NSString*)term inController:(UpGradeViewController*)controller
+-(void)upsertContactForEmail:(NSString*)email atSubcriptionLevel:(NSInteger)subscriptionLevel forPaymentTerm:(NSInteger)term inController:(id)controller
 {
     self.contactEmail = email;
     [[NSUserDefaults standardUserDefaults] setObject:self.contactEmail forKey:@"contactEmail"];
     self.subscriptionLevel = subscriptionLevel;
     [[NSUserDefaults standardUserDefaults] setInteger:self.subscriptionLevel forKey:@"subscriptionLevel"];
     self.paymentTerm = term;
-    [[NSUserDefaults standardUserDefaults] setObject:self.paymentTerm forKey:@"paymentTerm"];
+    [[NSUserDefaults standardUserDefaults] setInteger:self.paymentTerm forKey:@"paymentTerm"];
     self.subscriptionDate = [NSDate date];
     [[NSUserDefaults standardUserDefaults] setObject:self.subscriptionDate forKey:@"subscriptionDate"];
     
@@ -666,7 +666,7 @@ self.subscriptionLevel = 0;
        "<FL val=\"Last Name\">%@</FL>"
        "<FL val=\"Email\">%@</FL>"
        "<FL val=\"SubscriptionLevel\">%lu</FL>"
-       "<FL val=\"PaymentTerm\">%@</FL>"
+       "<FL val=\"PaymentTerm\">%lu</FL>"
        "</row>"
        "</Contacts>",
        email,email,subscriptionLevel,term];

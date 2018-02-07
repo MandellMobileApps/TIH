@@ -19,6 +19,7 @@
     [super viewDidLoad];
     [self updateUI];
     [self enableControls];
+    
 
     CGRect scrollViewFrame = CGRectMake(0,64,self.view.bounds.size.width,self.view.bounds.size.height-64);
     self.thisScrollView.frame = scrollViewFrame;
@@ -27,6 +28,8 @@
     self.emailShowing = NO;
     self.emailContainerView.hidden = YES;
     // Do any additional setup after loading the view.
+    
+    [self updateUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +59,7 @@
 {
     NSString* email = [[NSUserDefaults standardUserDefaults] objectForKey:@"contactEmail"];
     self.emailTextField.text = email;
+    
 }
 
 -(IBAction)doneButtonTapped:(UIButton*)sender
@@ -76,10 +80,10 @@
         
         switch (sender.tag) {
             case 0:
-                [self.appDelegate upsertContactForEmail:self.emailTextField.text atSubcriptionLevel:1 forPaymentTerm:@"" inController:self];
+                [self.appDelegate upsertContactForEmail:self.emailTextField.text atSubcriptionLevel:1 forPaymentTerm:self.selectedPaymentTerm inController:self];
                 break;
             case 1:
-                [self.appDelegate upsertContactForEmail:self.emailTextField.text atSubcriptionLevel:2 forPaymentTerm:@"" inController:self];
+                [self.appDelegate upsertContactForEmail:self.emailTextField.text atSubcriptionLevel:2 forPaymentTerm:self.selectedPaymentTerm inController:self];
                 break;
             default:
                 break;
@@ -91,6 +95,11 @@
         
     }
     
+}
+-(IBAction)segmentControlIndexChanged:(UISegmentedControl*)segmentControl
+{
+    self.selectedPaymentTerm = segmentControl.selectedSegmentIndex;
+
 }
 
 -(void)submitTimedOut
@@ -163,20 +172,20 @@
     }
 }
 
--(IBAction)showEmailViewNow
-{
-    if (!self.emailShowing)
-    {
-        self.emailShowing = YES;
-        
-        CGRect showRect= CGRectMake(0, 64, self.view.bounds.size.width, 182);
-        self.emailContainerView.clipsToBounds = YES;
-        self.emailContainerView.frame = showRect;
-        self.emailContainerView.backgroundColor = [UIColor lightGrayColor];
-        self.emailContainerView.hidden = NO;
-
-    }
-}
+//-(IBAction)showEmailViewNow
+//{
+//    if (!self.emailShowing)
+//    {
+//        self.emailShowing = YES;
+//
+//        CGRect showRect= CGRectMake(0, 64, self.view.bounds.size.width, 182);
+//        self.emailContainerView.clipsToBounds = YES;
+//        self.emailContainerView.frame = showRect;
+//        self.emailContainerView.backgroundColor = [UIColor lightGrayColor];
+//        self.emailContainerView.hidden = NO;
+//
+//    }
+//}
 
 
 

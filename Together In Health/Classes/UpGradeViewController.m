@@ -132,7 +132,7 @@
     [self.timeoutTimer invalidate];
     if (success)
     {
-        [self displayAlert:@"Upgrade Succesful!"];
+        [self displayMessage:@"Upgrade Succesful!" withTitle:@"Message"];
         [self dismissViewControllerAnimated:YES completion:^{
             
         }];

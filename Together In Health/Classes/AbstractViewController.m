@@ -803,6 +803,14 @@
     
 }
 
+-(void)displayMessage:(NSString*)message withTitle:(NSString*)title {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    alert.tag = 2000;
+    [alert show];
+    
+}
+
 -(void)loadUpgradeViewController {
     self.upGradeViewController = (UpGradeViewController*)
     [[UIStoryboard storyboardWithName:@"Main" bundle:nil]

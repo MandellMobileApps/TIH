@@ -124,6 +124,7 @@ enum ButtonIndex {
 
 -(void)resetDay;
 -(void)displayAlert:(NSString*)message;
+-(void)displayMessage:(NSString*)message withTitle:(NSString*)title;
 
 @property (nonatomic, strong)UpGradeViewController* upGradeViewController;
 -(IBAction)loadUpgradeViewController;

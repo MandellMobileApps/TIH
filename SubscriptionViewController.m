@@ -195,7 +195,7 @@
         [self hideEmailView];
         [self enableControls];
         [self updateUI];
-        [self displayAlert:@"Success!\nYour Subscription Level has been changed."];
+        [self displayMessage:@"Success!\nYour Subscription Level has been changed." withTitle:@"Message"];
     }
     else
     {

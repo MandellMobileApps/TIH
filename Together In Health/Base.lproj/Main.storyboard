@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="rGo-LJ-QWw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="rGo-LJ-QWw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -1253,7 +1253,7 @@
                                         <rect key="frame" x="82" y="463" width="211" height="83"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="UpgradeMenuPlan2.png" id="Un8-Qe-lzn">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="UpGradeMenuPlan2.png" id="Un8-Qe-lzn">
                                         <rect key="frame" x="98" y="2074" width="178" height="300"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -1339,7 +1339,8 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JNN-6q-UQI">
                                         <rect key="frame" x="83" y="96" width="194" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Subscribe"/>
                                         <connections>
@@ -1355,7 +1356,7 @@
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="17F-pw-f2W">
                                         <rect key="frame" x="18" y="14" width="342" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <segments>
                                             <segment title="2.99/month"/>
                                             <segment title="29.88/year"/>
@@ -2291,9 +2292,9 @@
         <image name="Star.png" width="76" height="76"/>
         <image name="Stress Upgrade.png" width="818" height="1226"/>
         <image name="SweetsFriedUpGrade.png" width="920" height="374"/>
+        <image name="UpGradeMenuPlan2.png" width="752" height="1194"/>
         <image name="UpgradeActivity2.png" width="752" height="964"/>
         <image name="UpgradeDrinks.png" width="750" height="874"/>
-        <image name="UpgradeMenuPlan2.png" width="16" height="16"/>
         <image name="WebsiteLogoPlusText.png" width="348" height="79"/>
         <image name="arrowleft.png" width="88" height="60"/>
         <image name="arrowright.png" width="88" height="60"/>

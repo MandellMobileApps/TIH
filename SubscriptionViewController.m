@@ -45,6 +45,15 @@
     
     [self updateUI];
     
+    if (self.selectedSubscriptionLevel == 0)
+    {
+        self.subTextView.text = @"Enjoy a free week of Together In Health Premium when you subscribe now! To continue using all the great features in Premium follow the instructions in the email you'll receive. Enjoy and happy tracking!";
+    }
+    else if  (self.selectedSubscriptionLevel == 1)
+    {
+        self.subTextView.text = @"This is premium";
+
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -196,6 +205,7 @@
         [self enableControls];
         [self updateUI];
         [self displayMessage:@"Success!\nYour Subscription Level has been changed." withTitle:@"Message"];
+        [self.navigationController popViewControllerAnimated:YES];
     }
     else
     {

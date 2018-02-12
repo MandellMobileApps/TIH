@@ -103,7 +103,7 @@
     self.zohoAuthToken = @"1b761d65e759974cb77c0bf236ec1473";
     
     //  temp TODO
-self.subscriptionLevel = 0;
+//self.subscriptionLevel = 0;
 }
 
 -(void)savePersistent
@@ -667,6 +667,7 @@ self.subscriptionLevel = 0;
        "<FL val=\"Email\">%@</FL>"
        "<FL val=\"SubscriptionLevel\">%lu</FL>"
        "<FL val=\"PaymentTerm\">%lu</FL>"
+       "<FL val=\"wfTrigger\">TRUE</FL>"
        "</row>"
        "</Contacts>",
        email,email,subscriptionLevel,term];

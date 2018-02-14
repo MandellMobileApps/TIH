@@ -592,7 +592,7 @@
         <scene sceneID="WAn-PQ-3Lr">
             <objects>
                 <viewController storyboardIdentifier="StressTrackerViewController" id="aKs-yD-3Hv" customClass="StressTrackerViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="O50-bX-Zia">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="O50-bX-Zia">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -775,18 +775,8 @@
                                                     <action selector="resetConcentraton:" destination="aKs-yD-3Hv" eventType="touchUpInside" id="NG0-ak-go1"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gu0-KG-wqS">
-                                                <rect key="frame" x="289" y="452" width="20" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="Resetimage3.png">
-                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="resetCoping:" destination="aKs-yD-3Hv" eventType="touchUpInside" id="Bc3-1T-W3s"/>
-                                                </connections>
-                                            </button>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="znC-Am-pyh">
-                                                <rect key="frame" x="100" y="452" width="121" height="29"/>
+                                                <rect key="frame" x="100" y="449" width="121" height="29"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <segments>
                                                     <segment title="No"/>
@@ -809,6 +799,16 @@
                                                     <action selector="concentration:" destination="aKs-yD-3Hv" eventType="valueChanged" id="X0y-ba-zq4"/>
                                                 </connections>
                                             </segmentedControl>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gu0-KG-wqS">
+                                                <rect key="frame" x="290" y="453" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="Resetimage3.png">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="resetCoping:" destination="aKs-yD-3Hv" eventType="touchUpInside" id="Bc3-1T-W3s"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94891980229999995" green="0.94891980229999995" blue="0.94891980229999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>

@@ -26,6 +26,7 @@
 @property(nonatomic, strong) IBOutlet UIButton* sub1Button;
 @property(nonatomic, strong) IBOutlet UIButton* changeButton;
 @property(nonatomic, strong) IBOutlet UIButton* doneButton;
+@property(nonatomic, strong) IBOutlet UITextView* subTextView;
 
 
 

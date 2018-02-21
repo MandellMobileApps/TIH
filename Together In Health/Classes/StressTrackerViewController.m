@@ -25,7 +25,7 @@
     self.navigationItem.backBarButtonItem = nil;
     [super viewDidLoad];
     
-    self.thisScrollView.contentSize = CGSizeMake(320, 650);
+    self.thisScrollView.contentSize = CGSizeMake(320, 640);
     
     [self resetDay];
     

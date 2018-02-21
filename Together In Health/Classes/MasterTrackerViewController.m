@@ -211,16 +211,9 @@ enum trackerIndex {
 
 
             case SubscriptionFree:
-            {
-                if (!self.sleepTrackerViewController)
                 {
                     [self loadUpgradeViewController];
                 }
-                else
-                {
-                
-                }
-            }
                 break;
 
             case SubscriptionPaid1:

@@ -667,14 +667,13 @@
        "<FL val=\"Email\">%@</FL>"
        "<FL val=\"SubscriptionLevel\">%lu</FL>"
        "<FL val=\"PaymentTerm\">%lu</FL>"
-       "<FL val=\"wfTrigger\">TRUE</FL>"
        "</row>"
        "</Contacts>",
        email,email,subscriptionLevel,term];
     
-    NSString* urlString = [NSString stringWithFormat:@"https://crm.zoho.com/crm/private/xml/Contacts/insertRecords?newFormat=1&duplicateCheck=2&authtoken=%@&scope=crmapi&xmlData=%@",self.zohoAuthToken,xmlString];
+    NSString* urlString = [NSString stringWithFormat:@"https://crm.zoho.com/crm/private/xml/Contacts/insertRecords?newFormat=1&duplicateCheck=2&authtoken=%@&scope=crmapi&wfTrigger=true&xmlData=%@",self.zohoAuthToken,xmlString];
     NSString* urlStringEscaped =[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-
+    NSLog(@"urlString %@",urlString);
     NSURL* url = [NSURL URLWithString:urlStringEscaped];
     MgNetworkOperation2 *mgOperation = [[MgNetworkOperation2 alloc] initWithUrl:url isJson:NO responseBlock:^(MgNetworkOperation2* completedOperation)
         {

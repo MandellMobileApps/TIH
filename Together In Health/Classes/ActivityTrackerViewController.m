@@ -58,6 +58,10 @@
     [self resetDay];
     
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self resetDay];
+}
 
 
 -(void)resetDay {

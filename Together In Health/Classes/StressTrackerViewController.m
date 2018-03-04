@@ -72,6 +72,10 @@
 //    self.copingSegmentControl.selectedSegmentIndex = self.appDelegate.day.copingRating;
     
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self resetDay];
+}
 
 -(void)resetDay {
 

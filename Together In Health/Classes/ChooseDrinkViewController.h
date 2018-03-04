@@ -24,7 +24,6 @@
 @property (nonatomic, strong) Drink *drink;
 @property (nonatomic, strong) DrinkTrackerViewController *drinkTrackerViewController;
 
-@property (nonatomic, strong) IBOutlet UITableView *thisTableView;
 @property (nonatomic, strong) NSMutableArray *healthyDrinkArray;
 @property (nonatomic, strong) NSMutableArray *sugaryDrinkArray;
 @property (nonatomic, strong) NSMutableArray *caffeineDrinkArray;

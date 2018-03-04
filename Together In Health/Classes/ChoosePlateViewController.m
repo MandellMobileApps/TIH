@@ -22,6 +22,7 @@
 - (void)viewDidLoad
 {
      [super viewDidLoad];
+     self.changesMade = NO;
 
 //	UIBarButtonItem *backBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelData:)];
 	self.navigationController.navigationBar.hidden = YES;
@@ -478,7 +479,7 @@
 }
 
 -(IBAction)cancelData:(id)sender {
-    if (self.isNew || self.changesMade)
+    if (self.changesMade) // is self.isNew || needed here?
     {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Are you sure you want to cancel" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
         alertView.tag = 1;

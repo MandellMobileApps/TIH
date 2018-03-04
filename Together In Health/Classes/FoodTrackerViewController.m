@@ -55,12 +55,13 @@
 
     [self.thisTableView reloadData];
     
-    CGRect hideRect = CGRectMake(0,self.view.bounds.size.height, self.view.bounds.size.width, 250);
-    self.pickerViewContainer.frame = hideRect;
+
     self.pickerViewContainer.hidden = YES;
+    self.pickerView.hidden = YES;
     
-    self.datePickerViewContainer.hidden = YES;
-    self.datePickerViewContainer.frame = hideRect;
+    self.directionsView.hidden = YES;
+
+    
 
     
     self.plateImageArray = [NSArray arrayWithObjects:
@@ -123,19 +124,9 @@
                              @"21",
                              nil];
     
-    //self.directionsView.hidden = NO;
+
     
-    self.isShow = [[NSUserDefaults standardUserDefaults]boolForKey:@"isShow"];
-    if (self.isShow == YES) {
-        self.directionsView.hidden = YES;
-        
-    }
-    
-    else {
-        
-        self.directionsView.hidden = NO;
-        [self.noShowButton setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
-    }
+
 
 
     [self resetDay];
@@ -143,12 +134,16 @@
     
 }
 
+
+
 -(void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
-    
+    [self checkDirectionsView];
 
 }
+
+
 
 -(void)viewWillAppear:(BOOL)animated {
     
@@ -186,26 +181,7 @@
 
 
 
--(IBAction)noShow:(id)sender {
-    
-    
-    if (self.isShow) {
-        self.isShow = NO;
-        [self.noShowButton setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
-        self.continueButton.enabled = NO;
-        
-        
-    }
-    else {
-        
-        self.isShow = YES;
-        [self.noShowButton setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState: UIControlStateNormal];
-        self.continueButton.enabled = YES;
-    }
-    
-    [[NSUserDefaults standardUserDefaults] setBool:self.isShow forKey:@"isShow"];
-    
-}
+
 
 -(void)resetDay {
     
@@ -587,9 +563,6 @@
 }
 
 -(IBAction)addWater:(id)sender {
-
-    self.pickerViewContainer.hidden = NO;
-    self.pickerView.hidden = NO;
     
     [self showPickerView];
 }
@@ -601,7 +574,7 @@
 
 -(IBAction)pickerDoneButtonTapped:(id)sender {
     [self hidePickerView];
-    self.pickerViewContainer.hidden = YES;
+//    self.pickerViewContainer.hidden = YES;
     [self.thisTableView reloadData];
     
 }
@@ -641,18 +614,56 @@
 //    }
 //    self.currentSelection = selection;
 //}
+//
+//-(void) showDatePicker
+//{
+//    CGRect    hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
+//    self.datePickerViewContainer.frame = hideRect;
+//    self.datePickerViewContainer.hidden = NO;
+//    [self.datePickerView setDate:self.appDelegate.day.date animated:NO];
+//    CGRect  showRect = CGRectMake(0,self.view.bounds.size.height-250, self.view.bounds.size.width, 250);
+//    [UIView animateWithDuration:0.2
+//                     animations:^{
+//                         self.datePickerViewContainer.frame = showRect;
+//                     }
+//                     completion:^(BOOL finished){
+//
+//                     }];
+//}
+//
+//-(void) hideDatePicker
+//{
+//
+//    CGRect    hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 250);
+//    [UIView animateWithDuration:0.2
+//                     animations:^{
+//                         self.datePickerViewContainer.frame = hideRect;
+//
+//                     }
+//                     completion:^(BOOL finished){
+//                         self.datePickerViewContainer.hidden = YES;
+//                     }];
+//
+//
+//
+//}
 
 -(void) showPickerView
 {
+    CGRect    hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 0);
+    self.pickerViewContainer.frame = hideRect;
+    self.pickerViewContainer.hidden = NO;
+    self.pickerView.hidden = NO;
+
     CGRect  showRect = CGRectMake(0,self.view.bounds.size.height-250, self.view.bounds.size.width, 250);
+    
     [self.pickerView selectRow:[self.appDelegate.day.waterCupsString integerValue] inComponent:0 animated:NO];
     [UIView animateWithDuration:0.2
                      animations:^{
-                         [self.view addSubview:self.pickerViewContainer];
                          self.pickerViewContainer.frame = showRect;
                      }
                      completion:^(BOOL finished){
-                         
+
                      }];
 }
 
@@ -665,32 +676,17 @@
                          self.pickerViewContainer.frame = hideRect;
                      }
                      completion:^(BOOL finished){
-                        
+                        self.pickerViewContainer.hidden = YES;
+                        self.pickerView.hidden = YES;
                      }];
     
     
 }
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
-    
-    return 2;
-    
-}
-
-- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
-    
-    if (component == 0)
-        return self.waterAmountArray.count;
-    
-    else {
-        return 1;
-    }
-}
-
-- (NSString*)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     NSString *title;
-    
+
     if (component == 0)
     {
         title = [self.waterAmountArray objectAtIndex:row];
@@ -698,9 +694,49 @@
     else {
             title = @"Cups";
     }
-    
-    return title;
+
+
+    NSAttributedString *attString =
+        [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
+
+    return attString;
 }
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
+
+    NSLog(@"numberOfComponentsInPickerView %d",2);
+    return 2;
+    
+}
+
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
+
+    if (component == 0)
+    {
+        NSLog(@"numberOfRowsInComponent 0 %lu",self.waterAmountArray.count);
+        return self.waterAmountArray.count;
+    }
+    else {
+        NSLog(@"numberOfRowsInComponent 1 %d",1);
+        return 1;
+    }
+}
+
+//- (NSString*)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+//{
+//
+//    NSString *title;
+//
+//    if (component == 0)
+//    {
+//        title = [self.waterAmountArray objectAtIndex:row];
+//    }
+//    else {
+//            title = @"Cups";
+//    }
+//
+//    return title;
+//}
 
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
@@ -714,25 +750,98 @@
 {
     if (component == 0)
     {
+         NSLog(@"widthForComponent 0 %f",(self.view.frame.size.width * 25 ) / 100);
         return (self.view.frame.size.width * 25 ) / 100  ;
     }
     else
     {
+        NSLog(@"widthForComponent 1 %f",(self.view.frame.size.width * 25 ) / 100);
         return (self.view.frame.size.width * 25 ) / 100  ;
     }
 }
 
+-(void)checkDirectionsView
+{
+    self.isShow = [[NSUserDefaults standardUserDefaults]boolForKey:@"isShow"];
+    if (self.isShow == YES) {
+        
+    }
+    else {
+        
+        [self.noShowButton setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
+        [self showDirectionsView];
+        
+    }
+
+
+}
+
+-(IBAction)noShow:(id)sender {
+    
+    
+    if (self.isShow) {
+        self.isShow = NO;
+        [self.noShowButton setImage:[UIImage imageNamed:@"checkbox-empty.V2.png"] forState: UIControlStateNormal];
+    }
+    else {
+        
+        self.isShow = YES;
+        [self.noShowButton setImage:[UIImage imageNamed:@"checkbox-filled.png"] forState: UIControlStateNormal];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setBool:self.isShow forKey:@"isShow"];
+    
+}
+
+-(void) showDirectionsView
+{
+    CGRect    hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 0);
+    self.directionsView.frame = hideRect;
+    self.directionsView.hidden = NO;
+    CGRect  showRect = CGRectMake(0,self.view.bounds.size.height-250, self.view.bounds.size.width, 250);
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         self.directionsView.frame = showRect;
+                     }
+                     completion:^(BOOL finished){
+                         
+                     }];
+}
+
+-(void) hideDirectionsView
+{
+    
+    CGRect    hideRect = CGRectMake(0,self.view.bounds.size.height, 320, 0);
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         self.directionsView.frame = hideRect;
+                     }
+                     completion:^(BOOL finished){
+                        self.directionsView.hidden = YES;
+                     }];
+    
+    
+}
+
 
 -(IBAction)doneDirectionView:(id)sender {
-    self.directionsView.hidden = YES;
+   [self hideDirectionsView];
 }
 
 
 -(IBAction)directions:(id)sender {
-    DirectionsViewController* directionsViewController = (DirectionsViewController*)
-    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
-     instantiateViewControllerWithIdentifier:@"DirectionsViewController"];
-    [self.navigationController pushViewController:directionsViewController animated:NO];
+
+            GenericWebViewController2* genericWebViewController2 = (GenericWebViewController2*)
+            [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+             instantiateViewControllerWithIdentifier:@"GenericWebViewController2"];
+            genericWebViewController2.webViewType2 = 3;
+            [self.navigationController pushViewController:genericWebViewController2 animated:YES];
+    
+//    DirectionsViewController* directionsViewController = (DirectionsViewController*)
+//    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+//     instantiateViewControllerWithIdentifier:@"DirectionsViewController"];
+//      [directionsViewController.navigationController setNavigationBarHidden:NO];
+//    [self.navigationController pushViewController:directionsViewController animated:YES];
 }
 
 

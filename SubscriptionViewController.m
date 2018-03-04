@@ -51,7 +51,7 @@
     }
     else if  (self.selectedSubscriptionLevel == 1)
     {
-        self.subTextView.text = @"This is premium";
+        self.subTextView.text = @"To cancel your Premium membership subscribe to the Free membership";
 
     }
 }

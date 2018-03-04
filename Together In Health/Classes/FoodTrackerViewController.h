@@ -79,8 +79,6 @@ enum webViewType2 {
 
 -(void)hideFreeTabs;
 
-@property (nonatomic, strong) IBOutlet UIView *pickerViewContainer;
-@property (nonatomic, strong) IBOutlet UIPickerView* pickerView;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSArray *detaildataArray;
 @property (nonatomic, strong) NSArray *opendetaildataArray;
@@ -97,7 +95,6 @@ enum webViewType2 {
 -(IBAction)changeDay:(id)sender;
 
 @property (nonatomic, strong) IBOutlet UIView *datePickerViewContainer;
-@property (nonatomic, strong) IBOutlet UIDatePicker* datePickerView;
 @property (nonatomic, strong) NSDate* datePickerDate;
 
 //@property (nonatomic, strong) Food *addPlate;

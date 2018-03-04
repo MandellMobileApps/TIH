@@ -65,7 +65,7 @@ enum trackerIndex {
     
     self.isAgree = [[NSUserDefaults standardUserDefaults]boolForKey:@"isAgree"];
     
-    self.isAgree = YES; //temp
+//    self.isAgree = YES; //temp
     
     if (self.isAgree == NO)
     {

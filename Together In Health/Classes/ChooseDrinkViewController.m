@@ -467,7 +467,39 @@
     
 }
 
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+ return self.pickerComponentsArrays.count;
+}
 
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+ NSArray* thisArray = [self.pickerComponentsArrays objectAtIndex:component];
+ return thisArray.count;
+}
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+
+ NSArray* thisArray = [self.pickerComponentsArrays objectAtIndex:component];
+ NSString *rowItem = [thisArray objectAtIndex:row];
+ UILabel *lblRow = [[UILabel alloc] init];
+ lblRow.frame = CGRectMake(0.0f, 0.0f, [pickerView bounds].size.width, 44.0f);
+ [lblRow setTextAlignment:NSTextAlignmentCenter];
+ if (component == 0)
+ {
+    [lblRow setFont:[UIFont systemFontOfSize:24.0]];
+    [lblRow setTextColor: [UIColor blackColor]];
+ }
+ else if (component == 1)
+ {
+    [lblRow setFont:[UIFont systemFontOfSize:18.0]];
+    [lblRow setTextColor: [UIColor darkGrayColor]];
+ }
+ 
+ [lblRow setText:rowItem];
+ [lblRow setBackgroundColor:[UIColor clearColor]];
+ 
+
+ return lblRow;
+}
 
 - (void)pickerViewDidSelect:(UIPickerView *)pickerView tag:(NSInteger)tag
 {

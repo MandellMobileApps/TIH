@@ -27,7 +27,7 @@ enum stressType {
 
 @property (nonatomic, strong) Stress *stress;
 @property (nonatomic, strong) Day *day;
-@property (nonatomic, strong) AppDelegate *appDelegate;
+
 
 @property (nonatomic, strong) IBOutlet UIScrollView *thisScrollView;
 

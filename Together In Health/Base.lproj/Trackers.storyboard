@@ -646,8 +646,8 @@
                                 <rect key="frame" x="0.0" y="8" width="320" height="494"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="72L-Q2-AG3">
-                                        <rect key="frame" x="0.0" y="-1" width="320" height="498"/>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" id="72L-Q2-AG3">
+                                        <rect key="frame" x="0.0" y="-1" width="320" height="640"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="hrb-nx-63D">
@@ -784,7 +784,7 @@
                                                 </segments>
                                                 <color key="tintColor" red="0.22985092469999999" green="0.22985092469999999" blue="0.22985092469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="coping:" destination="aKs-yD-3Hv" eventType="valueChanged" id="KLB-FE-eB0"/>
+                                                    <action selector="coping:" destination="aKs-yD-3Hv" eventType="valueChanged" id="hYs-sL-8gb"/>
                                                 </connections>
                                             </segmentedControl>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="IhE-xN-i0C">
@@ -796,7 +796,7 @@
                                                 </segments>
                                                 <color key="tintColor" red="0.22985092469999999" green="0.22985092469999999" blue="0.22985092469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="concentration:" destination="aKs-yD-3Hv" eventType="valueChanged" id="X0y-ba-zq4"/>
+                                                    <action selector="concentration:" destination="aKs-yD-3Hv" eventType="valueChanged" id="E6g-8M-8Qt"/>
                                                 </connections>
                                             </segmentedControl>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gu0-KG-wqS">
@@ -823,8 +823,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
-                        <outlet property="concentrationSegmentControl" destination="IhE-xN-i0C" id="pcn-We-8Yj"/>
-                        <outlet property="copingSegmentControl" destination="znC-Am-pyh" id="l6d-xc-RST"/>
+                        <outlet property="concentrationSegmentControl" destination="IhE-xN-i0C" id="SLO-kG-4Pg"/>
+                        <outlet property="copingSegmentControl" destination="znC-Am-pyh" id="FzV-qZ-BGs"/>
                         <outlet property="datePickerView" destination="Q1F-Vx-6hD" id="cfZ-QL-9qw"/>
                         <outlet property="datePickerViewContainer" destination="EUm-i8-PH7" id="BdN-kG-cf1"/>
                         <outlet property="energySegmentControl" destination="0g2-Mt-55m" id="uWZ-1G-TYK"/>

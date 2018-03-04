@@ -26,6 +26,7 @@
     [super viewDidLoad];
     
     self.thisScrollView.contentSize = CGSizeMake(320, 640);
+
     
     [self resetDay];
     

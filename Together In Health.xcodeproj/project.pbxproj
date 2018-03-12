@@ -55,6 +55,7 @@
 		369E531B1F82F6FB00F3D750 /* MoodImageStressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 369E53161F82F6FB00F3D750 /* MoodImageStressed.png */; };
 		36D9D53C1BE80481003658FE /* GenericWebViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D9D53B1BE80481003658FE /* GenericWebViewController2.m */; };
 		36D9D53E1BE8445E003658FE /* CarbsProVeg.html in Resources */ = {isa = PBXBuildFile; fileRef = 36D9D53D1BE8445E003658FE /* CarbsProVeg.html */; };
+		36E9062F2056BCC900A98BEC /* MenuPlanTabImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 36E9062E2056BCC900A98BEC /* MenuPlanTabImage.png */; };
 		36EE5D97201FE3DF0079D7F7 /* SubscriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36EE5D96201FE3DF0079D7F7 /* SubscriptionViewController.m */; };
 		36F433A31C151AE50053D4EE /* DirectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F433A21C151AE50053D4EE /* DirectionsViewController.m */; };
 		36F433A61C151B300053D4EE /* PlateBreakdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F433A51C151B300053D4EE /* PlateBreakdownViewController.m */; };
@@ -345,6 +346,7 @@
 		36D9D53A1BE80481003658FE /* GenericWebViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenericWebViewController2.h; path = ../../GenericWebViewController2.h; sourceTree = "<group>"; };
 		36D9D53B1BE80481003658FE /* GenericWebViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenericWebViewController2.m; path = ../../GenericWebViewController2.m; sourceTree = "<group>"; };
 		36D9D53D1BE8445E003658FE /* CarbsProVeg.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CarbsProVeg.html; sourceTree = "<group>"; };
+		36E9062E2056BCC900A98BEC /* MenuPlanTabImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuPlanTabImage.png; sourceTree = "<group>"; };
 		36EE5D95201FE3DF0079D7F7 /* SubscriptionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubscriptionViewController.h; sourceTree = "<group>"; };
 		36EE5D96201FE3DF0079D7F7 /* SubscriptionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubscriptionViewController.m; sourceTree = "<group>"; };
 		36F433A11C151AE50053D4EE /* DirectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionsViewController.h; sourceTree = "<group>"; };
@@ -1055,6 +1057,7 @@
 		6A91E3FF1BE2679300A72CCA /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				36E9062E2056BCC900A98BEC /* MenuPlanTabImage.png */,
 				361AC1DA20161F9B0064EFD6 /* UpgradeActivity2.png */,
 				361AC1D920161F9A0064EFD6 /* UpGradeMenuPlan2.png */,
 				361AC1D520161EDC0064EFD6 /* UpgradeDrinks.png */,
@@ -1288,6 +1291,7 @@
 				360DB1811C11EE5F00FBE90F /* ActivityList.png in Resources */,
 				6A91E4B11BE2679300A72CCA /* Balanced Plate7.png in Resources */,
 				36FE392E1C0B65C5002E341E /* TrackFoodDelete.png in Resources */,
+				36E9062F2056BCC900A98BEC /* MenuPlanTabImage.png in Resources */,
 				6A91E4C81BE2679300A72CCA /* Sweetdilemma.png in Resources */,
 				6A91E4831BE2679300A72CCA /* Carbveggies.html in Resources */,
 				3650D2631FD5E23500F6AFAD /* Stress Upgrade.png in Resources */,

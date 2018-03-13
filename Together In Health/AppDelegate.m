@@ -15,7 +15,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import "UpGradeViewController.h"
 #import "MenuPlan.h"
-
+#import <sys/utsname.h>
 
 @interface AppDelegate ()
 
@@ -485,21 +485,28 @@
     [self checkSubscriptionLevel];
 }
 
+-(NSString*) deviceName
+{
+    struct utsname systemInfo;
+    uname(&systemInfo);
 
+    return [NSString stringWithCString:systemInfo.machine
+                              encoding:NSUTF8StringEncoding];
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    //     case "iPhone10,3", "iPhone10,6":                return "iPhone X"
+    //    iPhone X: iPhone10,3 & iPhone10,6
+
+    self.iPhoneString = [self deviceName];
     
-    NSString* thisDevice = [[UIDevice currentDevice] model];
-    NSLog(@"thisDevice %@",thisDevice);
-    if ([thisDevice isEqualToString:@"iPhone10,3"] || [thisDevice isEqualToString:@"iPhone10,6"])
+    if ([self.iPhoneString isEqualToString:@"iPhone10,3"] || [self.iPhoneString isEqualToString:@"iPhone10,6"])
     {
-    self.iPhoneX = YES;
+        self.iPhoneX = YES;
     }
     else
     {
-    self.iPhoneX = NO;
+        self.iPhoneX = NO;
     }
     
     

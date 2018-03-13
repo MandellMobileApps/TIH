@@ -41,6 +41,9 @@ enum PaymentTerm {
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) Day *day;
 
+@property (nonatomic) BOOL iPhoneX;
+
+
 @property (nonatomic, strong) UITabBarController *tabBarController;
 @property (nonatomic, strong) NSMutableArray *days;
 @property (nonatomic, strong) NSMutableArray *allActivities;

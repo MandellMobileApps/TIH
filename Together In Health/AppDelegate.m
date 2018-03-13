@@ -489,7 +489,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-
+    //     case "iPhone10,3", "iPhone10,6":                return "iPhone X"
+    
+    NSString* thisDevice = [[UIDevice currentDevice] model];
+    NSLog(@"thisDevice %@",thisDevice);
+    if ([thisDevice isEqualToString:@"iPhone10,3"] || [thisDevice isEqualToString:@"iPhone10,6"])
+    {
+    self.iPhoneX = YES;
+    }
+    else
+    {
+    self.iPhoneX = NO;
+    }
+    
     
     [Fabric with:@[[Crashlytics class]]];
 

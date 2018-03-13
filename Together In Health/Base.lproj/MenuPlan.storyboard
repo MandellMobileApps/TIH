@@ -13,7 +13,7 @@
         <scene sceneID="cHm-zx-w4g">
             <objects>
                 <navigationController id="Zsd-Ed-ZgX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Menu Plan" id="xhG-U7-EhO"/>
+                    <tabBarItem key="tabBarItem" title="Menu Plan" image="MenuPlanTabImage.png" selectedImage="MenuPlanTabImage.png" id="xhG-U7-EhO"/>
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="x5q-nL-6Rg">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -419,5 +419,6 @@
     </scenes>
     <resources>
         <image name="Lock.png" width="122" height="187"/>
+        <image name="MenuPlanTabImage.png" width="255" height="303"/>
     </resources>
 </document>

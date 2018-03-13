@@ -54,6 +54,7 @@ enum ButtonIndex {
 -(void)bannerViewDidLoadAd:(ADBannerView *)banner;
 @property(nonatomic) BOOL loadAd;
 
+@property (nonatomic, strong) IBOutlet UIView *deviceFramingView;
 @property (nonatomic, strong) IBOutlet UIView *baseContentView;
 
 - (NSString *)dataFilePathofDocuments:(NSString *)nameoffile;

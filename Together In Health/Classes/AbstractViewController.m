@@ -53,6 +53,19 @@
     
     self.loadAd = YES;
 
+//  ********************************************************************************************************
+//  DeviceFramingView to adjust for 30pt iPhoneX statusbar
+//  ********************************************************************************************************
+
+    if (self.appDelegate.iPhoneX)
+    {
+        self.deviceFramingView.frame = CGRectMake(0,44, self.view.bounds.size.width, self.view.bounds.size.height-44);
+    }
+    else
+    {
+        self.deviceFramingView.frame = CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.height-20);
+    }
+
 }
 
 -(void)updateData{}

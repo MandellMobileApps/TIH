@@ -89,8 +89,8 @@ enum trackerIndex {
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    NSString* thisDevice = [[UIDevice currentDevice] model];
-    [self displayMessage:thisDevice withTitle:@"Device Name"];
+
+    [self displayMessage:self.appDelegate.iPhoneString withTitle:@"Device Name"];
     
     
 }

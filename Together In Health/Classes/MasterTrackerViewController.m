@@ -86,6 +86,15 @@ enum trackerIndex {
 
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSString* thisDevice = [[UIDevice currentDevice] model];
+    [self displayMessage:thisDevice withTitle:@"Device Name"];
+    
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

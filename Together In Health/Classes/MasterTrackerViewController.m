@@ -90,7 +90,6 @@ enum trackerIndex {
 {
     [super viewDidAppear:animated];
 
-    [self displayMessage:self.appDelegate.iPhoneString withTitle:@"Device Name"];
     
     
 }

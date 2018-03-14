@@ -496,8 +496,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    //    iPhone X: iPhone10,3 & iPhone10,6
-
     self.iPhoneString = [self deviceName];
     
     if ([self.iPhoneString isEqualToString:@"iPhone10,3"] || [self.iPhoneString isEqualToString:@"iPhone10,6"])
@@ -509,6 +507,8 @@
         self.iPhoneX = NO;
     }
     
+    // temp
+    self.iPhoneX = YES;
     
     [Fabric with:@[[Crashlytics class]]];
 

@@ -310,7 +310,7 @@
         <scene sceneID="60y-1y-Sgi">
             <objects>
                 <navigationController title="Goals" navigationBarHidden="YES" id="OIG-fB-XYy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Goals" selectedImage="GoalTabImage.png" id="H0Z-32-D7s"/>
+                    <tabBarItem key="tabBarItem" title="Goals" image="GoalTabImage.png" selectedImage="GoalTabImage.png" id="H0Z-32-D7s"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3fM-n8-nYB">
                         <autoresizingMask key="autoresizingMask"/>

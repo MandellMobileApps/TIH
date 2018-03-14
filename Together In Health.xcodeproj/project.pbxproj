@@ -12,7 +12,6 @@
 		360DB1871C12809F00FBE90F /* TrackWaterAddRow.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1851C12809F00FBE90F /* TrackWaterAddRow.png */; };
 		360DB1881C12809F00FBE90F /* TrackWaterPickerView.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1861C12809F00FBE90F /* TrackWaterPickerView.png */; };
 		360DB18A1C14DDAC00FBE90F /* QuestionMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 360DB1891C14DDAC00FBE90F /* QuestionMark.png */; };
-		360F9E6E1FC0CCAB00190565 /* GoalTabImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 360F9E6D1FC0CCAA00190565 /* GoalTabImage.png */; };
 		361AC1D820161EDD0064EFD6 /* UpgradeDrinks.png in Resources */ = {isa = PBXBuildFile; fileRef = 361AC1D520161EDC0064EFD6 /* UpgradeDrinks.png */; };
 		361AC1DC20161F9C0064EFD6 /* UpgradeActivity2.png in Resources */ = {isa = PBXBuildFile; fileRef = 361AC1DA20161F9B0064EFD6 /* UpgradeActivity2.png */; };
 		361BC4511F9173830011A20E /* GoalGamePlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BC4501F9173830011A20E /* GoalGamePlanViewController.m */; };
@@ -281,7 +280,8 @@
 		6A91E4CB1BE2679300A72CCA /* TIHDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6A91E42F1BE2679300A72CCA /* TIHDatabase.sqlite */; };
 		6A91E4CE1BE2D26600A72CCA /* StressTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A91E4CD1BE2D26600A72CCA /* StressTrackerViewController.m */; };
 		6AA5DB8B1FFD41B2007C2EA5 /* NewMenuItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA5DB8A1FFD41B2007C2EA5 /* NewMenuItemViewController.m */; };
-		6AD79B3C2059A4D8006F31F5 /* MenuPlanTabImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD79B3B2059A4D7006F31F5 /* MenuPlanTabImage.png */; };
+		6AD79B3E2059A65C006F31F5 /* GoalTabImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD79B3D2059A65C006F31F5 /* GoalTabImage.png */; };
+		6AD79B402059A692006F31F5 /* MenuPlanTabImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD79B3F2059A692006F31F5 /* MenuPlanTabImage.png */; };
 		6AD7A80A1C3050E0004BD58F /* Plate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7A8091C3050E0004BD58F /* Plate.m */; };
 		6AD7A80D1C3051C0004BD58F /* Mood.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD7A80C1C3051C0004BD58F /* Mood.m */; };
 /* End PBXBuildFile section */
@@ -292,7 +292,6 @@
 		360DB1851C12809F00FBE90F /* TrackWaterAddRow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrackWaterAddRow.png; sourceTree = "<group>"; };
 		360DB1861C12809F00FBE90F /* TrackWaterPickerView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrackWaterPickerView.png; sourceTree = "<group>"; };
 		360DB1891C14DDAC00FBE90F /* QuestionMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = QuestionMark.png; path = "../../Together In Health.xcodeproj/QuestionMark.png"; sourceTree = "<group>"; };
-		360F9E6D1FC0CCAA00190565 /* GoalTabImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoalTabImage.png; sourceTree = "<group>"; };
 		361AC1D520161EDC0064EFD6 /* UpgradeDrinks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeDrinks.png; sourceTree = "<group>"; };
 		361AC1DA20161F9B0064EFD6 /* UpgradeActivity2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UpgradeActivity2.png; sourceTree = "<group>"; };
 		361BC44F1F9173830011A20E /* GoalGamePlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalGamePlanViewController.h; sourceTree = "<group>"; };
@@ -670,7 +669,8 @@
 		6A91E4CD1BE2D26600A72CCA /* StressTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StressTrackerViewController.m; sourceTree = "<group>"; };
 		6AA5DB891FFD41B2007C2EA5 /* NewMenuItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMenuItemViewController.h; sourceTree = "<group>"; };
 		6AA5DB8A1FFD41B2007C2EA5 /* NewMenuItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMenuItemViewController.m; sourceTree = "<group>"; };
-		6AD79B3B2059A4D7006F31F5 /* MenuPlanTabImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuPlanTabImage.png; sourceTree = "<group>"; };
+		6AD79B3D2059A65C006F31F5 /* GoalTabImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoalTabImage.png; sourceTree = "<group>"; };
+		6AD79B3F2059A692006F31F5 /* MenuPlanTabImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuPlanTabImage.png; sourceTree = "<group>"; };
 		6AD7A8081C3050E0004BD58F /* Plate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plate.h; sourceTree = "<group>"; };
 		6AD7A8091C3050E0004BD58F /* Plate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plate.m; sourceTree = "<group>"; };
 		6AD7A80B1C3051C0004BD58F /* Mood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mood.h; sourceTree = "<group>"; };
@@ -748,7 +748,6 @@
 			isa = PBXGroup;
 			children = (
 				6A4239F41FCB6BC300567538 /* Lock.png */,
-				360F9E6D1FC0CCAA00190565 /* GoalTabImage.png */,
 				6A83C6191F9CFCEF0030A202 /* Goals.storyboard */,
 				6A91E3491BE2679200A72CCA /* Classes */,
 				6A91E3DC1BE2679300A72CCA /* html */,
@@ -1058,11 +1057,12 @@
 				361AC1DA20161F9B0064EFD6 /* UpgradeActivity2.png */,
 				361AC1D520161EDC0064EFD6 /* UpgradeDrinks.png */,
 				3650D26A1FD84A0300F6AFAD /* SweetsFriedUpGrade.png */,
-				6AD79B3B2059A4D7006F31F5 /* MenuPlanTabImage.png */,
+				6AD79B3D2059A65C006F31F5 /* GoalTabImage.png */,
 				3650D2681FD5E75700F6AFAD /* GoalsCalendarUpgrade.png */,
 				3650D25F1FD5E22700F6AFAD /* DrinksUpgrade.png */,
 				3650D2611FD5E22E00F6AFAD /* GoalRunning Upgrade.png */,
 				3650D2621FD5E23200F6AFAD /* GoalSugarUpgrade.png */,
+				6AD79B3F2059A692006F31F5 /* MenuPlanTabImage.png */,
 				3650D2601FD5E22B00F6AFAD /* SleepUpgrade.png */,
 				3650D25E1FD5E22400F6AFAD /* Stress Upgrade.png */,
 				369E53121F82F6FB00F3D750 /* MoodImageHappy.png */,
@@ -1234,7 +1234,6 @@
 				6A91E4A61BE2679300A72CCA /* Balanced Plate12.png in Resources */,
 				6A91E45F1BE2679300A72CCA /* PlateExamples.html in Resources */,
 				36FE38F71C0A0874002E341E /* Balanced Plate18.png in Resources */,
-				360F9E6E1FC0CCAB00190565 /* GoalTabImage.png in Resources */,
 				6A91E4B61BE2679300A72CCA /* Blankstar.png in Resources */,
 				36FE39011C0A0874002E341E /* Balanced Plate28.png in Resources */,
 				36FE39141C0A1291002E341E /* TrackFoodwithPlates.png in Resources */,
@@ -1277,6 +1276,7 @@
 				6A91E4811BE2679300A72CCA /* Breakfastmyth.html in Resources */,
 				365EB8291C00FBF200D757F7 /* stressreduction.jpg in Resources */,
 				6A91E3331BE2625500A72CCA /* Assets.xcassets in Resources */,
+				6AD79B3E2059A65C006F31F5 /* GoalTabImage.png in Resources */,
 				369E531B1F82F6FB00F3D750 /* MoodImageStressed.png in Resources */,
 				6A91E4B81BE2679300A72CCA /* checkbox-filled.png in Resources */,
 				6A91E4821BE2679300A72CCA /* BusinessTripTips.html in Resources */,
@@ -1305,7 +1305,7 @@
 				3650D2691FD5E75B00F6AFAD /* GoalsCalendarUpgrade.png in Resources */,
 				6A91E48C1BE2679300A72CCA /* MenuMadness.html in Resources */,
 				6A91E4BE1BE2679300A72CCA /* forwardButton2.png in Resources */,
-				6AD79B3C2059A4D8006F31F5 /* MenuPlanTabImage.png in Resources */,
+				6AD79B402059A692006F31F5 /* MenuPlanTabImage.png in Resources */,
 				6A91E4911BE2679300A72CCA /* ReadingAFoodLabel.html in Resources */,
 				369E53191F82F6FB00F3D750 /* MoodImageSad.png in Resources */,
 				6A91E4C11BE2679300A72CCA /* PolentaVegBake.png in Resources */,

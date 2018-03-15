@@ -507,8 +507,7 @@
         self.iPhoneX = NO;
     }
     
-    // temp
-    self.iPhoneX = YES;
+
     
     [Fabric with:@[[Crashlytics class]]];
 
@@ -527,6 +526,9 @@
     self.mgOperationsQueue = [[NSOperationQueue alloc] init];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
     
+     // temp
+    self.iPhoneX = YES;
+    self.subscriptionLevel = 1;
     
     return YES;
 }

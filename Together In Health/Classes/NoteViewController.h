@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AbstractViewController.h"
 
 @class RecipeDetailViewController;
 
-@interface NoteViewController : UIViewController
+@interface NoteViewController : AbstractViewController
 
 @property(nonatomic,strong) NSDictionary* object;
 @property (nonatomic, strong) RecipeDetailViewController *recipeDetailViewController;

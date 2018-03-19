@@ -36,14 +36,14 @@
     self.navbarTitleLabel.textColor = [UIColor whiteColor];
     
     // set frames and search button
-     self.searchBarShowRect = CGRectMake(0,64, self.view.bounds.size.width, 44);
-     self.searchBarHideRect = CGRectMake(0,64, self.view.bounds.size.width, 0);
+     self.searchBarShowRect = CGRectMake(0,44, self.view.bounds.size.width, 44);
+     self.searchBarHideRect = CGRectMake(0,44, self.view.bounds.size.width, 0);
     self.searchBar.frame = self.searchBarHideRect;
     [self.searchLabel setText:[[NSString alloc] initWithUTF8String:"\xF0\x9F\x94\x8D"]];
     [self.searchLabel sizeToFit];
     
-    self.navbarView.frame = CGRectMake(0,20, self.view.bounds.size.width, 44);
-    self.baseContentView.frame = CGRectMake(0,64, self.view.bounds.size.width, self.view.bounds.size.height-64);
+    self.navbarView.frame = CGRectMake(0,0, self.view.bounds.size.width, 44);
+    self.baseContentView.frame = CGRectMake(0,44, self.view.bounds.size.width, self.view.bounds.size.height-44);
 
     self.filterString = @"";
 
@@ -373,7 +373,7 @@ switch (indexPath.section) {
     [UIView animateWithDuration:0.2
                      animations:^{
                          self.searchBar.frame = self.searchBarShowRect;
-                         self.baseContentView.frame = CGRectMake(0,108, self.view.bounds.size.width, self.view.bounds.size.height-108);
+                         self.baseContentView.frame = CGRectMake(0,88, self.view.bounds.size.width, self.view.bounds.size.height-88);
                      }
                      completion:^(BOOL finished){
 
@@ -384,7 +384,7 @@ switch (indexPath.section) {
     [UIView animateWithDuration:0.2
                      animations:^{
                          self.searchBar.frame = self.searchBarHideRect;
-                        self.baseContentView.frame = CGRectMake(0,64, self.view.bounds.size.width, self.view.bounds.size.height-64);
+                        self.baseContentView.frame = CGRectMake(0,44, self.view.bounds.size.width, self.view.bounds.size.height-44);
                      }
                      completion:^(BOOL finished){
                          

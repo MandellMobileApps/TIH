@@ -506,8 +506,29 @@
     {
         self.iPhoneX = NO;
     }
-    
 
+//    The identifiers of the latest models are:
+//
+//    iPhone 5: iPhone5,1 and iPhone5,2
+//
+//    iPhone 5C: iPhone5,3 and iPhone5,4
+//
+//    iPhone 5S: iPhone6,1 and iPhone6,2
+
+    if ([self.iPhoneString isEqualToString:@"iPhone5,1"] ||
+        [self.iPhoneString isEqualToString:@"iPhone5,2"] ||
+        [self.iPhoneString isEqualToString:@"iPhone5,3"] ||
+        [self.iPhoneString isEqualToString:@"iPhone5,4"] ||
+        [self.iPhoneString isEqualToString:@"iPhone6,1"] ||
+        [self.iPhoneString isEqualToString:@"iPhone6,2"] )
+        
+    {
+        self.iPhone5 = YES;
+    }
+    else
+    {
+        self.iPhone5 = NO;
+    }
     
     [Fabric with:@[[Crashlytics class]]];
 
@@ -527,8 +548,8 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
     
      // temp
-    self.iPhoneX = YES;
-    self.subscriptionLevel = 1;
+//    self.iPhoneX = YES;
+//    self.subscriptionLevel = 1;
     
     return YES;
 }

@@ -126,6 +126,8 @@
 
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -211,10 +213,9 @@
 //    [self.calendarDaysview setNeedsDisplay];
 //    [self.calendarnavview setNeedsDisplay];
 
-    float setGoalBottom = self.setGoalLabel.frame.origin.y+self.setGoalLabel.frame.size.height;
-    float goal1Top = self.goal1Label.frame.origin.y;
-    float delta = goal1Top-setGoalBottom;
-    if (delta < 0)
+
+
+    if (self.appDelegate.iPhone5)
     {
         self.setGoalLabel.hidden = YES;
     }

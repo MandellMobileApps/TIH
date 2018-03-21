@@ -21,7 +21,7 @@
     [self enableControls];
     
 
-    CGRect scrollViewFrame = CGRectMake(0,64,self.view.bounds.size.width,self.view.bounds.size.height-64);
+    CGRect scrollViewFrame = CGRectMake(0,44,self.view.bounds.size.width,self.view.bounds.size.height-44);
     self.thisScrollView.frame = scrollViewFrame;
     self.thisScrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 2390);
     self.keypadShowing = NO;
@@ -153,7 +153,7 @@
         self.emailShowing = YES;
         
         CGRect hideRect = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 0);
-        CGRect showRect= CGRectMake(0, 64, self.view.bounds.size.width, 240);
+        CGRect showRect= CGRectMake(0, 44, self.view.bounds.size.width, 240);
         self.emailContainerView.clipsToBounds = YES;
         self.emailContainerView.frame = hideRect;
         self.emailContainerView.backgroundColor = [UIColor lightGrayColor];

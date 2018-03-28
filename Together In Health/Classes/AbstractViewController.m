@@ -51,11 +51,12 @@
     self.appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateData) name:@"updateData" object:nil];
     
-    self.loadAd = YES;
+    self.loadAd = NO;
 
 //  ********************************************************************************************************
 //  DeviceFramingView to adjust for 30pt iPhoneX statusbar
 //  ********************************************************************************************************
+    NSLog(@"0 self.appDelegate %@",self.appDelegate );
 
     if (self.appDelegate.iPhoneX)
     {
@@ -65,6 +66,8 @@
     {
         self.deviceFramingView.frame = CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.height-20);
     }
+    NSLog(@"0 deviceFramingView %@",NSStringFromCGRect(self.deviceFramingView.frame) );
+
 
 }
 
@@ -89,9 +92,9 @@
     [super viewDidAppear:animated];
     if (self.loadAd)
     {
-        self.adBannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, 320, 50)];
+        self.adBannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.deviceFramingView.bounds.size.height, 320, 50)];
         self.adBannerView.delegate = self;
-        [self.view addSubview:self.adBannerView];
+        [self.deviceFramingView addSubview:self.adBannerView];
     }
     
     
@@ -275,8 +278,8 @@
         self.pickerWidth = 320;
         self.pickerTag = tag;
         self.pickerViewContainer = [[UIView alloc]init];
-        self.pickerHideRect = CGRectMake((self.view.bounds.size.width - self.pickerWidth)/2, self.view.bounds.size.height, self.pickerWidth, 0);
-        self.pickerShowRect = CGRectMake((self.view.bounds.size.width - self.pickerWidth)/2, self.view.bounds.size.height-self.pickerHeight, self.pickerWidth, self.pickerHeight);
+        self.pickerHideRect = CGRectMake((self.deviceFramingView.bounds.size.width - self.pickerWidth)/2, self.deviceFramingView.bounds.size.height, self.pickerWidth, 0);
+        self.pickerShowRect = CGRectMake((self.deviceFramingView.bounds.size.width - self.pickerWidth)/2, self.deviceFramingView.bounds.size.height-self.pickerHeight, self.pickerWidth, self.pickerHeight);
         self.pickerViewContainer.clipsToBounds = YES;
         self.pickerViewContainer.frame = self.pickerHideRect;
         self.pickerViewContainer.backgroundColor = [UIColor colorWithRed:208/255.0 green:208/255.0 blue:208/255.0 alpha:1];
@@ -329,7 +332,7 @@
         
 
         [self addBorderAround:self.pickerViewContainer cornerType:CornerTypeSquare withColor:[UIColor darkGrayColor]];
-        [self.view addSubview:self.pickerViewContainer];
+        [self.deviceFramingView addSubview:self.pickerViewContainer];
             [self shrinkTable:self.pickerHeight];
             [UIView animateWithDuration:0.3
                 animations:^
@@ -451,6 +454,8 @@
         [self.numberPadView addSubview:entryBackground];
         [self.numberPadView addSubview:self.numberPadEntryLabel];
         [self.numberPadView addSubview:cancelButton];
+        
+        NSLog(@"deviceFramingView %@",NSStringFromCGRect(self.deviceFramingView.frame) );
    
         
         int i=1;
@@ -502,16 +507,17 @@
 
         [self addBorderAround:self.numberPadView cornerType:CornerTypeSquare withColor:[UIColor darkGrayColor]];
       
-        CGRect hideRect = CGRectMake((self.view.bounds.size.width-self.numberPadWidth)/2, self.view.bounds.size.height, self.numberPadWidth, 0);
-        CGRect showRect = CGRectMake((self.view.bounds.size.width-self.numberPadWidth)/2, self.view.bounds.size.height-self.numberPadHeight, self.numberPadWidth, self.numberPadHeight);
+        CGRect hideRect = CGRectMake((self.deviceFramingView.bounds.size.width-self.numberPadWidth)/2, self.deviceFramingView.bounds.size.height, self.numberPadWidth, 0);
+        CGRect showRect = CGRectMake((self.deviceFramingView.bounds.size.width-self.numberPadWidth)/2, self.deviceFramingView.bounds.size.height-self.numberPadHeight, self.numberPadWidth, self.numberPadHeight);
         
         self.numberPadView.frame = hideRect;
-        [self.view addSubview:self.numberPadView];
+        [self.deviceFramingView addSubview:self.numberPadView];
             [self shrinkTable:self.numberPadHeight];
             [UIView animateWithDuration:0.3
                 animations:^
                 {
                     self.numberPadView.frame = showRect;
+                     NSLog(@"2 numberPadView %@",NSStringFromCGRect(self.numberPadView.frame) );
                 
                 }
                 completion:^(BOOL finished)
@@ -571,7 +577,7 @@
 
     [self enlargeTable:self.numberPadHeight];
 
-        CGRect hideRect = CGRectMake((self.view.bounds.size.width-self.numberPadWidth)/2, self.view.bounds.size.height, self.numberPadWidth, 0);
+        CGRect hideRect = CGRectMake((self.deviceFramingView.bounds.size.width-self.numberPadWidth)/2, self.deviceFramingView.bounds.size.height, self.numberPadWidth, 0);
 
         [UIView animateWithDuration:0.3
             animations:^
@@ -747,12 +753,12 @@
 
 -(void)presentAsFullModel:(UIViewController *)thisViewController
 {
-	thisViewController.view.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
-    [self.view addSubview:thisViewController.view];
+	thisViewController.view.frame = CGRectMake(0, self.deviceFramingView.bounds.size.height, self.deviceFramingView.bounds.size.width, self.deviceFramingView.bounds.size.height);
+    [self.deviceFramingView addSubview:thisViewController.view];
     
         [UIView animateWithDuration:0.3
 			animations:^{
-    			thisViewController.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    			thisViewController.view.frame = CGRectMake(0, 0, self.deviceFramingView.bounds.size.width, self.deviceFramingView.bounds.size.height);
 			}
 			completion:^(BOOL finished){
                 [self addChildViewController:thisViewController];
@@ -765,7 +771,7 @@
 
         [UIView animateWithDuration:0.3
 			animations:^{
-				thisViewController.view.frame = CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height);
+				thisViewController.view.frame = CGRectMake(0, self.deviceFramingView.bounds.size.height, self.deviceFramingView.bounds.size.width, self.deviceFramingView.bounds.size.height);
 			}
 			completion:^(BOOL finished){
                 [thisViewController.view removeFromSuperview];

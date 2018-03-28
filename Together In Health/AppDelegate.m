@@ -548,8 +548,8 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
     
      // temp
-//    self.iPhoneX = YES;
-//    self.subscriptionLevel = 1;
+    self.iPhoneX = YES;
+    self.subscriptionLevel = 1;
     
     return YES;
 }
@@ -627,7 +627,7 @@
     for (Day* day in self.days) {
         if ([atMidnight compare:day.date] == NSOrderedSame) {
             thisDay = day;
-            NSLog(@"thisDay %@  %lu", day.date,day.drinksArray.count);
+            //NSLog(@"thisDay %@  %lu", day.date,day.drinksArray.count);
             return thisDay;
         }
     }
@@ -636,7 +636,7 @@
     
     [self.days addObject:newDay];
     [self savePersistent];
-    NSLog(@"newDay %@  %lu", newDay.date,newDay.drinksArray.count);
+    //NSLog(@"newDay %@  %lu", newDay.date,newDay.drinksArray.count);
     return newDay;
     
 }

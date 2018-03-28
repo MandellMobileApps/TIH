@@ -180,8 +180,8 @@ enum trackerIndex {
 
 -(CGRect)baseRect
 {
-        CGRect baseRect = self.view.bounds;
-        NSInteger menuHeight = 77+66;
+        CGRect baseRect = self.deviceFramingView.bounds;
+        NSInteger menuHeight = 44+48+44;
         baseRect.origin.y = menuHeight;
         baseRect.size.height = self.view.frame.size.height-menuHeight;
         return baseRect;
@@ -200,7 +200,7 @@ enum trackerIndex {
     }
 
         [self addChildViewController:self.foodTrackerViewController];
-        [self.view addSubview:self.foodTrackerViewController.view];
+        [self.deviceFramingView addSubview:self.foodTrackerViewController.view];
         [self.foodTrackerViewController didMoveToParentViewController:self];
         self.navbarTitleLabel.text = @"Food Tracker";
         self.trackerIndex = FoodIndex;
@@ -235,7 +235,7 @@ enum trackerIndex {
                     self.sleepTrackerViewController.masterTrackerViewController = self;
                 }
                 [self addChildViewController:self.sleepTrackerViewController];
-                [self.view addSubview:self.sleepTrackerViewController.view];
+                [self.deviceFramingView addSubview:self.sleepTrackerViewController.view];
                 [self.sleepTrackerViewController didMoveToParentViewController:self];
                 self.navbarTitleLabel.text = @"Sleep Tracker";
                 self.trackerIndex = SleepIndex;
@@ -254,7 +254,7 @@ enum trackerIndex {
                     self.sleepTrackerViewController.masterTrackerViewController = self;
                 }
                 [self addChildViewController:self.sleepTrackerViewController];
-                [self.view addSubview:self.sleepTrackerViewController.view];
+                [self.deviceFramingView addSubview:self.sleepTrackerViewController.view];
                 [self.sleepTrackerViewController didMoveToParentViewController:self];
                 self.navbarTitleLabel.text = @"Sleep Tracker";
                 self.trackerIndex = SleepIndex;
@@ -292,7 +292,7 @@ enum trackerIndex {
                     self.stressTrackerViewController.masterTrackerViewController = self;
                 }
                 [self addChildViewController:self.stressTrackerViewController];
-                [self.view addSubview:self.stressTrackerViewController.view];
+                [self.deviceFramingView addSubview:self.stressTrackerViewController.view];
                 [self.stressTrackerViewController didMoveToParentViewController:self];
                 self.navbarTitleLabel.text = @"Stress Tracker";
                 self.trackerIndex = StressIndex;
@@ -312,7 +312,7 @@ enum trackerIndex {
                     self.stressTrackerViewController.masterTrackerViewController = self;
                 }
                 [self addChildViewController:self.stressTrackerViewController];
-                [self.view addSubview:self.stressTrackerViewController.view];
+                [self.deviceFramingView addSubview:self.stressTrackerViewController.view];
                 [self.stressTrackerViewController didMoveToParentViewController:self];
                 self.navbarTitleLabel.text = @"Stress Tracker";
                 self.trackerIndex = StressIndex;
@@ -338,7 +338,7 @@ enum trackerIndex {
     self.activityTrackerViewController.view.frame = [self baseRect];
     self.activityTrackerViewController.masterTrackerViewController = self;
     [self addChildViewController:self.activityTrackerViewController];
-    [self.view addSubview:self.activityTrackerViewController.view];
+    [self.deviceFramingView addSubview:self.activityTrackerViewController.view];
     [self.activityTrackerViewController didMoveToParentViewController:self];
     self.navbarTitleLabel.text = @"Activity Tracker";
      self.trackerIndex = ActivityIndex;
@@ -373,7 +373,7 @@ enum trackerIndex {
                 self.drinkTrackerViewController.masterTrackerViewController = self;
 
                 [self addChildViewController:self.drinkTrackerViewController];
-                [self.view addSubview:self.drinkTrackerViewController.view];
+                [self.deviceFramingView addSubview:self.drinkTrackerViewController.view];
                 [self.drinkTrackerViewController didMoveToParentViewController:self];
                 self.navbarTitleLabel.text = @"Drink Tracker";
                  self.trackerIndex = DrinkIndex;
@@ -394,7 +394,7 @@ enum trackerIndex {
                 self.drinkTrackerViewController.masterTrackerViewController = self;
 
                 [self addChildViewController:self.drinkTrackerViewController];
-                [self.view addSubview:self.drinkTrackerViewController.view];
+                [self.deviceFramingView addSubview:self.drinkTrackerViewController.view];
                 [self.drinkTrackerViewController didMoveToParentViewController:self];
                 self.navbarTitleLabel.text = @"Drink Tracker";
                  self.trackerIndex = DrinkIndex;

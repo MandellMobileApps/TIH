@@ -704,7 +704,7 @@
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
 
-    NSLog(@"numberOfComponentsInPickerView %d",2);
+    //NSLog(@"numberOfComponentsInPickerView %d",2);
     return 2;
     
 }
@@ -713,11 +713,11 @@
 
     if (component == 0)
     {
-        NSLog(@"numberOfRowsInComponent 0 %lu",self.waterAmountArray.count);
+       // NSLog(@"numberOfRowsInComponent 0 %lu",self.waterAmountArray.count);
         return self.waterAmountArray.count;
     }
     else {
-        NSLog(@"numberOfRowsInComponent 1 %d",1);
+       // NSLog(@"numberOfRowsInComponent 1 %d",1);
         return 1;
     }
 }
@@ -750,12 +750,12 @@
 {
     if (component == 0)
     {
-         NSLog(@"widthForComponent 0 %f",(self.view.frame.size.width * 25 ) / 100);
+      //   NSLog(@"widthForComponent 0 %f",(self.view.frame.size.width * 25 ) / 100);
         return (self.view.frame.size.width * 25 ) / 100  ;
     }
     else
     {
-        NSLog(@"widthForComponent 1 %f",(self.view.frame.size.width * 25 ) / 100);
+      //  NSLog(@"widthForComponent 1 %f",(self.view.frame.size.width * 25 ) / 100);
         return (self.view.frame.size.width * 25 ) / 100  ;
     }
 }
